@@ -28,6 +28,7 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 
+html_show_sphinx = False
 html_favicon = '_static/profile_image-300x300.png'
 html_logo = '_static/bob_vv.gif'
 html_css_files = [
