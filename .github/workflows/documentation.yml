@@ -17,10 +17,7 @@ jobs:
       - name: Sphinx build
         run: |
           mkdir -p doc/bob
-          curl https://raw.githubusercontent.com/bob-ros2/bob_whisper_cpp/refs/heads/main/README.md > doc/bob/bob-whisper-cpp.md
-          curl https://raw.githubusercontent.com/bob-ros2/rosgpt4all/refs/heads/main/README.md > doc/bob/rosgpt4all.md
-          curl https://raw.githubusercontent.com/bob-ros2/bob_topic_tools/refs/heads/main/README.md > doc/bob/bob-topic-tools.md
-          curl https://raw.githubusercontent.com/bob-ros2/voskros/refs/heads/main/README.md > doc/bob/voskros.md
+          sh ./prebuild.sh
           sphinx-build doc _build
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
