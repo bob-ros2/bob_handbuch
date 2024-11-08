@@ -1,0 +1,9 @@
+.wy-body-for-nav {
+    background: black;
+    background-image: url("grid.png");
+    background-repeat: no-repeat;
+}
+
+.wy-side-nav-search, .wy-nav-top {
+    background: black;
+}
