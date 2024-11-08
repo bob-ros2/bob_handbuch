@@ -1,12 +1,12 @@
 #/bin/sh
 
+REPOS="bob_whisper_cpp rosgpt4all bob_topic_tools voskros"
+
+retrieve_readme() {
+   curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > doc/bob/$(echo $1|sed 's/_/-/g').md
+}
+
 mkdir -p $(dirname $0)/bob
-
-curl https://raw.githubusercontent.com/bob-ros2/bob_whisper_cpp/refs/heads/main/README.md > doc/bob/bob-whisper-cpp.md
-curl https://raw.githubusercontent.com/bob-ros2/rosgpt4all/refs/heads/main/README.md > doc/bob/rosgpt4all.md
-curl https://raw.githubusercontent.com/bob-ros2/bob_topic_tools/refs/heads/main/README.md > doc/bob/bob-topic-tools.md
-curl https://raw.githubusercontent.com/bob-ros2/voskros/refs/heads/main/README.md > doc/bob/voskros.md
-
 
 cat <<EOF > $(dirname $0)/index.rst
 Welcome to Bobs's Handbuch!
@@ -16,9 +16,11 @@ Welcome to Bobs's Handbuch!
    :maxdepth: 2
    :caption: Packages:
 
-   bob/bob-topic-tools.md
-   bob/bob-whisper-cpp.md
-   bob/rosgpt4all.md
-   bob/voskros.md
+$(
+   for REPO in $REPOS; do
+      retrieve_readme $REPO
+      echo "   bob/$(echo $REPO|sed 's/_/-/g').md"
+   done
+)
 
 EOF
