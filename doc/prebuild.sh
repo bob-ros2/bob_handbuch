@@ -36,6 +36,6 @@ $(
    done
 )
    bob/bob-docker-network.md
-   bob/bob-portainer
+   bob/bob-portainer.md
 
 EOF

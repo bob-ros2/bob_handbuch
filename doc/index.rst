@@ -25,5 +25,5 @@ This is a collection of various ROS packages and nodes for natural language proc
    bob/rosgpt4all.md
    bob/voskros.md
    bob/bob-docker-network.md
-   bob/bob-portainer
+   bob/bob-portainer.md
 
