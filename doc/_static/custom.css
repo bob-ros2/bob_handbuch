@@ -7,3 +7,37 @@
 .wy-side-nav-search, .wy-nav-top {
     background: black;
 }
+
+.wy-nav-content {
+    background-color: #c9c9c9;
+}
+
+/* unvisited link */
+.wy-nav-content a:link {
+  color: #2B547E;
+  text-decoration: none;
+}
+
+/* visited link */
+.wy-nav-content a:visited {
+  color: #2B547E;
+}
+
+/* mouse over link */
+.wy-nav-content a:hover {
+  color: #4863A0;
+}
+
+/* selected link */
+.wy-nav-content a:active {
+  color: #4863A0;
+}
+
+.caption-text{
+  color: green;
+}
+
+body {
+    /*font-family: Lato, proxima-nova, Helvetica Neue, Arial, sans-serif, Palatino;*/
+    font-family: Palatino, Roboto, Arial, Lato, proxima-nova, sans-serif, Helvetica;
+}
