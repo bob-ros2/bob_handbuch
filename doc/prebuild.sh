@@ -25,7 +25,7 @@ cd $WORKDIR
 
 cat <<EOF > $(dirname $0)/index.rst
 Welcome to Bob's Handbuch
-===================================
+=========================
 This is a collection of various ROS packages and nodes for natural language processing and system control. They make use of the ROS topics to connect the NLP components.
 
 * Compatible Chat Completion API client 
