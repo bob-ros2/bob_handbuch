@@ -50,6 +50,11 @@ $(
       echo "   bob/$(echo $REPO|sed 's/_/-/g').md"
    done
 )
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: Miscellaneous
+
    bob/bob-docker-network.md
    bob/bob-portainer.md
    bob/bob-doxygen.md
