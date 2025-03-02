@@ -34,7 +34,11 @@
 }
 
 .caption-text{
-  color: green;
+  color: #FEFEFE;
+}
+
+.wy-nav-content .caption-text{
+  color: #2B547E;
 }
 
 body {

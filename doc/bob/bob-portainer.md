@@ -1,7 +1,7 @@
 # Setup Portainer with Multiple Docker
 
 A `Portainer` setup quick guide.
-* https://www.portainer.io
+* [https://www.portainer.io](https://www.portainer.io)
 
 ## Setup Portainer on a Docker host
 This is the setup for a Synology NAS. It will also act as a web proxy for the `Portainer` Web-GUI.
@@ -35,7 +35,7 @@ services:
 # When using ssh, in the directory where the compose.yaml is located
 sudo docker compose up -d
 ```
-* Afterwards access the GUI to create an inital admin user: http://synology-ip:9009
+* Afterwards access the GUI to create an inital admin user: `http://synology-ip:9009`
 * When it's done you should see a page where you can select local environment or add another environment
 * Choose local environment and now you can manage your Docker host
 

@@ -1,12 +1,27 @@
 #/bin/sh
 
-REPOS="bob_llama_cpp bob_topic_tools bob_whisper_cpp bob_msgs rosgpt4all voskros"
+REPOS="bob_llama_cpp bob_topic_tools bob_launch bob_whisper_cpp bob_msgs bob_transformers rosgpt4all voskros"
+APIS="bob_llama_cpp bob_topic_tools bob_transformers rosgpt4all"
 
 retrieve_readme() {
-   curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > doc/bob/$(echo $1|sed 's/_/-/g').md
+  curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > doc/bob/$(echo $1|sed 's/_/-/g').md
 }
 
-mkdir -p $(dirname $0)/bob
+retrieve_src() {
+  git clone --filter=blob:none https://github.com/bob-ros2/$1.git
+  cd $1
+  git sparse-checkout init
+  git sparse-checkout set $1
+  git checkout main
+  cd -
+}
+mkdir -p $(dirname $0)/bob/src
+WORKDIR=$(pwd)
+cd $(dirname $0)/bob/src
+for API in $APIS; do
+  retrieve_src $API
+done
+cd $WORKDIR
 
 cat <<EOF > $(dirname $0)/index.rst
 Welcome to Bob's Handbuch
@@ -27,7 +42,7 @@ This is a collection of various ROS packages and nodes for natural language proc
 
 .. toctree::
    :maxdepth: 2 
-   :caption: Packages:
+   :caption: Packages
 
 $(
    for REPO in $REPOS; do
@@ -37,5 +52,6 @@ $(
 )
    bob/bob-docker-network.md
    bob/bob-portainer.md
+   bob/bob-doxygen.md
 
 EOF
