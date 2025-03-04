@@ -1,0 +1,22 @@
+rosgpt4all
+==========
+
+.. py:module:: rosgpt4all
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/rosgpt4all/chroma_embedder/index
+   /autoapi/rosgpt4all/embedder/index
+   /autoapi/rosgpt4all/gpt/index
+   /autoapi/rosgpt4all/json_embedder/index
+   /autoapi/rosgpt4all/qdrant_embedder/index
+   /autoapi/rosgpt4all/query_qdrant/index
+   /autoapi/rosgpt4all/terminal/index
+   /autoapi/rosgpt4all/vector/index
+
+

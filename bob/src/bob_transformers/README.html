@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_transformers &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=716968a1" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llama-cpp.html">ROS Package bob_llama_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-whisper-cpp.html">ROS Package bob_whisper_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-transformers.html">ROS Package bob_transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rosgpt4all.html">ROS Package RosGPT4all</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-docker-network.html">ROS Multi Docker Hosts Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-portainer.html">Setup Portainer with Multiple Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-doxygen.html">Quick Guide Doxygen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_transformers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/bob_transformers/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-transformers">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_transformers">bob_transformers</a><a class="headerlink" href="#ros-package-bob-transformers" title="Link to this heading"></a></h1>
+<p>This package integrates <code class="docutils literal notranslate"><span class="pre">Huggingface</span> <span class="pre">Transformers</span></code> capabilities into <code class="docutils literal notranslate"><span class="pre">ROS</span></code>.</p>
+<p>Related websites:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co">https://huggingface.co</a></p></li>
+<li><p><a class="reference external" href="https://ros.org">https://ros.org</a></p></li>
+</ul>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p>The HF Transformer library depends from a lot of other Python software packages, depending on what want to be done with it. All needed packages for this repository can be found in the <code class="docutils literal notranslate"><span class="pre">requirments.txt</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install Python packages from file</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="huggingface-model-folder">
+<h2>Huggingface Model Folder<a class="headerlink" href="#huggingface-model-folder" title="Link to this heading"></a></h2>
+<p>It’s recommendet to maintain a Huggingface model folder to save the downloaded models and to store your HF token. The token is needed if you want access and use models where you need to sign an agreement on the HF websife.<br />
+The config is located here <code class="docutils literal notranslate"><span class="pre">~/.cache/huggingface/</span></code> and will be created at first start of a HF component.</p>
+<p>Further information about the config folder can be found here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables">https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables</a></p></li>
+</ul>
+<section id="huggingface-token-handling">
+<h3>Huggingface Token Handling<a class="headerlink" href="#huggingface-token-handling" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># The Huggingface token can be placed in this file: ~/.cache/huggingface/token</span>
+<span class="c1"># or use python from command line to store the token</span>
+<span class="c1"># if the folder does not exists it will be created</span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;from huggingface_hub import HfFolder; HfFolder.save_token(&quot;your_hf_token&quot;)&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="building-package">
+<h2>Building Package<a class="headerlink" href="#building-package" title="Link to this heading"></a></h2>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;colcon_ws&gt;</span></code> with your own workspace folder.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;colcon_ws&gt;/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bob-ros2/bob_transformers.git
+<span class="c1"># install Python packages if not yet existing</span>
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>bob_transformers/requirements.txt
+<span class="nb">cd</span><span class="w"> </span>..
+colcon<span class="w"> </span>build
+.<span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="docker-support">
+<h2>Docker Support<a class="headerlink" href="#docker-support" title="Link to this heading"></a></h2>
+<p>A precreated <code class="docutils literal notranslate"><span class="pre">Docker</span></code> image with neccesary libraries is available at <code class="docutils literal notranslate"><span class="pre">ghcr.io</span></code>  <a class="reference external" href="https://github.com/bob-ros2/bob_transformers/pkgs/container/bob-transformers-tti-ros">here</a></p>
+<section id="example-compose-yaml">
+<h3>Example compose.yaml<a class="headerlink" href="#example-compose-yaml" title="Link to this heading"></a></h3>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/bob-ros2/bob-transformers-tti-ros:latest-humble</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/home/ros/.cache/huggingface:/root/.cache/huggingface</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/bash</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-c</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">        </span><span class="no">cd /ros_ws</span>
+<span class="w">        </span><span class="no">source /opt/ros/humble/setup.bash</span>
+<span class="w">        </span><span class="no">source ./install/setup.bash</span>
+<span class="w">        </span><span class="no">ros2 run bob_transformers tti</span>
+<span class="w">    </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">reservations</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">devices</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nvidia</span>
+<span class="w">              </span><span class="nt">count</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">              </span><span class="nt">capabilities</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">gpu</span><span class="p p-Indicator">]</span>
+
+<span class="nt">networks</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bobnet</span>
+<span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ros-node-tti">
+<h2>ROS Node TTI<a class="headerlink" href="#ros-node-tti" title="Link to this heading"></a></h2>
+<p>Text to image ROS node</p>
+<section id="models">
+<h3>Models<a class="headerlink" href="#models" title="Link to this heading"></a></h3>
+<p>Tested models</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/CompVis/stable-diffusion-v1-4"><code class="docutils literal notranslate"><span class="pre">CompVis/stable-diffusion-v1-4</span></code></a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/stabilityai/stable-diffusion-2"><code class="docutils literal notranslate"><span class="pre">stabilityai/stable-diffusion-2</span></code></a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0"><code class="docutils literal notranslate"><span class="pre">stabilityai/stable-diffusion-xl-base-1.0</span></code></a></p></li>
+</ul>
+<section id="supported-stablediffusion-pipelines">
+<h4>Supported StableDiffusion Pipelines<a class="headerlink" href="#supported-stablediffusion-pipelines" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StableDiffusionPipeline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StableDiffusionXLPipeline</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="parameter">
+<h3>Parameter<a class="headerlink" href="#parameter" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: frame_rate<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Framerate to resent image. Environment variable TTI_FRAME_RATE. Default: 1</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: model_id<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: The Huggingface model_id to be used. Environment variable TTI_MODEL_ID. Default: CompVis/stable-diffusion-v1-4</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: pipeline_type<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Prompt format. Environment variable TTI_PIPELINE_TYPE. Default: StableDiffusionPipeline</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: result_image<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: When provided, where to store the result image. Environment variable TTI_RESULT_IMAGE. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: show<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Wether to show produced image. Environment variable TTI_SHOW. Default: false</p>
+</div></blockquote>
+</section>
+<section id="subscribed-topics">
+<h3>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~tti_in (std_msgs/msg/String)<br />
+TTI input String topic.</p>
+</div></blockquote>
+</section>
+<section id="published-topics">
+<h3>Published Topics<a class="headerlink" href="#published-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~image_raw (sensor_msgs/msg/Image)<br />
+Raw image output topic.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~tti_image: (bob_msgs/msg/TTImage)<br />
+TTI image with payload output topic.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

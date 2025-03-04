@@ -1,0 +1,108 @@
+bob_llama_cpp.prompt_tools
+==========================
+
+.. py:module:: bob_llama_cpp.prompt_tools
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_llama_cpp.prompt_tools.tool_calls
+   bob_llama_cpp.prompt_tools.tool_functions
+   bob_llama_cpp.prompt_tools.model_default
+   bob_llama_cpp.prompt_tools.tokenizer
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llama_cpp.prompt_tools.generate_tool_results
+   bob_llama_cpp.prompt_tools.parse_tool_calls
+   bob_llama_cpp.prompt_tools.detect_and_process_tool_calls
+   bob_llama_cpp.prompt_tools.import_module_from_path
+   bob_llama_cpp.prompt_tools.apply_chat_template
+
+
+Module Contents
+---------------
+
+.. py:data:: tool_calls
+   :value: []
+
+
+.. py:data:: tool_functions
+
+.. py:data:: model_default
+   :value: 'mistralai/Mistral-7B-Instruct-v0.3'
+
+
+.. py:data:: tokenizer
+   :value: None
+
+
+.. py:function:: generate_tool_results() -> str
+
+   Generate tool result response from tool_calls list.
+   If global module var tokenizer is not initialized
+   the tool results are generated in lama2 format
+
+   :return: The string with generated tool results.
+   Returns None if there were no tool calls to process
+   :rtype: str
+
+
+.. py:function:: parse_tool_calls(text: str, calls: list) -> str
+
+   Parse text for json arrays, multiple arrays are merged together 
+   into the calls argument.
+
+   :param text: The string containing the json array
+   :type text: str
+   :param calls: The list where array items are added if found a json array
+   :type calls: list
+   :return: The remaing text without the python array
+   :rtype: str
+
+
+.. py:function:: detect_and_process_tool_calls(response: str) -> int
+
+   Check if tools calls exists in the response. If one or more are found 
+   and it matches a tool call it will try to execute it/them.
+   If the execution fails an exception will be raised.
+   The tool detection works with [] and <tool_call></tool_call> pairs.
+
+   :param response: The text where to look for json function tool calls
+   :type response: str
+   :return: The count of called tool function
+   :rtype: int
+
+
+.. py:function:: import_module_from_path(module_name: str, path: str) -> Any
+
+   Function to dynamically import a module from file path
+
+   :param module_name: Name of the module
+   :type module_name: str
+   :param path: Path to python module file
+   :type path: str
+   :return: The loaded python module
+   :rtype: Any
+
+
+.. py:function:: apply_chat_template(conversation: list = None, model_id: str = None) -> str
+
+   Generate a system prompt with the available tools using HF AutoTokenizer apply_chat_template function.
+   It takes into account the model specific prompt format.
+
+   :param conversation: Array with role/content dicts, defaults to None
+   :type conversation: list, optional
+   :param model_id: The Huggingface model_id to be used by the tokenizer, defaults to None
+   :type model_id: str, optional
+   :return: The generated prompt
+   :rtype: str
+
+

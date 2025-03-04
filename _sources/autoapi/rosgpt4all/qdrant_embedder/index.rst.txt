@@ -1,0 +1,33 @@
+rosgpt4all.qdrant_embedder
+==========================
+
+.. py:module:: rosgpt4all.qdrant_embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   rosgpt4all.qdrant_embedder.QdrantEmbedder
+
+
+Module Contents
+---------------
+
+.. py:class:: QdrantEmbedder(model: str = None, **kwargs: Any)
+
+   Bases: :py:obj:`json_embedder.JsonEmbedder`
+
+
+   Qdrant JSON embedding interface.
+   The __call__ function expects a string with a JSON dict containing the following attributes:
+     collection: to be used collection name
+     documents: list with document strings
+     metadatas: list of metadata dictionaries
+     ids: optional list of id strings, if not provided Qdrant will create them
+
+
+   .. py:method:: __call__(j: str) -> None
+
+

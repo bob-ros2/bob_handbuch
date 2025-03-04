@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package RosGPT4all &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=716968a1" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llama-cpp.html">ROS Package bob_llama_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-whisper-cpp.html">ROS Package bob_whisper_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-transformers.html">ROS Package bob_transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rosgpt4all.html">ROS Package RosGPT4all</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-docker-network.html">ROS Multi Docker Hosts Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-portainer.html">Setup Portainer with Multiple Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-doxygen.html">Quick Guide Doxygen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package RosGPT4all</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/rosgpt4all/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-rosgpt4all">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/rosgpt4all">RosGPT4all</a><a class="headerlink" href="#ros-package-rosgpt4all" title="Link to this heading"></a></h1>
+<p>This package contains <a class="reference external" href="https://ros.org">ROS</a> Nodes related to the open source
+project <a class="reference external" href="https://github.com/nomic-ai/gpt4all">GPT4ALL</a>.</p>
+<p>It integrates a GPT chat into the ROS framework. It enables to communicate via
+topics or UNIX socket with a running GPT4ALL chat session.<br />
+Additionally a custom configurable terminal window ROS node is available to
+enter chat messages and display the GPT response similar to the existing
+GPT4ALL GUI but with reduced features.<br />
+This package is not another GPT4all variant. It just make use of it and can be seen as a wrapper for ROS.</p>
+<p>Related links:</p>
+<ul class="simple">
+<li><p>https://github.com/nomic-ai/gpt4all</p></li>
+<li><p>https://ros.org</p></li>
+</ul>
+<section id="index">
+<h2>Index<a class="headerlink" href="#index" title="Link to this heading"></a></h2>
+<!-- https://ecotrust-canada.github.io/markdown-toc/ -->
+<ul class="simple">
+<li><p><a class="reference internal" href="#ros-package-rosgpt4all"><span class="xref myst">ROS Package RosGPT4all</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#index"><span class="xref myst">Index</span></a></p></li>
+<li><p><a class="reference internal" href="#docker-support"><span class="xref myst">Docker Support</span></a></p></li>
+<li><p><a class="reference internal" href="#dependencies"><span class="xref myst">Dependencies</span></a></p></li>
+<li><p><a class="reference internal" href="#setup-package"><span class="xref myst">Setup package</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ros-node-gpt"><span class="xref myst">ROS Node GPT</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#usage"><span class="xref myst">Usage</span></a></p></li>
+<li><p><a class="reference internal" href="#node-parameter"><span class="xref myst">Node Parameter</span></a></p></li>
+<li><p><a class="reference internal" href="#subscribed-topics"><span class="xref myst">Subscribed Topics</span></a></p></li>
+<li><p><a class="reference internal" href="#published-topics"><span class="xref myst">Published Topics</span></a></p></li>
+<li><p><a class="reference internal" href="#socket-stream"><span class="xref myst">Socket stream</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ros-node-terminal"><span class="xref myst">ROS Node TERMINAL</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#dependencies-1"><span class="xref myst">Dependencies</span></a></p></li>
+<li><p><a class="reference internal" href="#usage-1"><span class="xref myst">Usage</span></a></p></li>
+<li><p><a class="reference internal" href="#node-parameter-1"><span class="xref myst">Node Parameter</span></a></p></li>
+<li><p><a class="reference internal" href="#subscribed-topics-1"><span class="xref myst">Subscribed Topics</span></a></p></li>
+<li><p><a class="reference internal" href="#published-topics-1"><span class="xref myst">Published Topics</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ros-node-embedder"><span class="xref myst">ROS Node EMBEDDER</span></a></p>
+<ul>
+<li><p><a class="reference internal" href="#embedding-data-format"><span class="xref myst">Embedding data format</span></a></p></li>
+<li><p><a class="reference internal" href="#usage-2"><span class="xref myst">Usage</span></a></p></li>
+<li><p><a class="reference internal" href="#node-parameter-2"><span class="xref myst">Node Parameter</span></a></p></li>
+<li><p><a class="reference internal" href="#subscribed-topics-2"><span class="xref myst">Subscribed Topics</span></a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#contributing"><span class="xref myst">Contributing</span></a></p></li>
+</ul>
+</section>
+<section id="docker-support">
+<h2>Docker Support<a class="headerlink" href="#docker-support" title="Link to this heading"></a></h2>
+<p>This ROS package is also as a pre build docker image available.<br />
+See below how to use it</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bob-ros2/rosgpt4all/tree/main/docker">rosgpt4all/docker</a></p></li>
+</ul>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># install gpt4all</span>
+pip<span class="w"> </span>install<span class="w"> </span>gpt4all
+
+<span class="c1"># if using embedding</span>
+
+<span class="c1"># use Qdrant</span>
+pip<span class="w"> </span>install<span class="w"> </span><span class="s1">&#39;qdrant-client[fastembed]&#39;</span>
+<span class="c1"># or Chroma DB</span>
+<span class="c1"># install chroma</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>chroma
+<span class="c1"># install chromadb</span>
+pip<span class="w"> </span>install<span class="w"> </span>chromadb
+pip<span class="w"> </span>install<span class="w"> </span>unstructured
+</pre></div>
+</div>
+</section>
+<section id="setup-package">
+<h2>Setup package<a class="headerlink" href="#setup-package" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># for the following commands to work, an installed ROS2 distribution is required</span>
+<span class="c1"># run in your ros2_ws/src folder</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.com/bob-ros2/rosgpt4all.git
+<span class="nb">cd</span><span class="w"> </span>..
+colcon<span class="w"> </span>build
+.<span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="ros-node-gpt">
+<h2>ROS Node GPT<a class="headerlink" href="#ros-node-gpt" title="Link to this heading"></a></h2>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run as server ROS node</span>
+ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>gpt.py
+
+<span class="c1"># run with redirect produced output</span>
+ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>gpt.py<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>gpt_out:<span class="o">=</span>/speak
+
+<span class="c1"># send message to gpt4all via command line</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/gpt_in<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;{data: &#39;Hello&#39;}&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="node-parameter">
+<h3>Node Parameter<a class="headerlink" href="#node-parameter" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~allow_download<br />
+Type: string<br />
+Allow API to download models from gpt4all.io.<br />
+Default: true</p>
+</div></blockquote>
+<blockquote>
+<div><p>~device<br />
+Type: string<br />
+The processing unit on which the GPT4All model will run. It can be set to:<br />
+“cpu”: Model will run on the central processing unit.<br />
+“gpu”: Model will run on the best available graphics processing unit, irrespective of its vendor.<br />
+“amd”, “nvidia”, “intel”: Model will run on the best available GPU from the specified vendor.<br />
+Alternatively, a specific GPU name can also be provided, and the model will run on the GPU that matches the name if it’s available.<br />
+Default: cpu</p>
+</div></blockquote>
+<blockquote>
+<div><p>~eof_indicator<br />
+Type: string<br />
+End of file indicator. It will be send when the generator task was
+done. (only gpt_generator and gpt_sentence topics). Leave blank if no EOF
+should be send.<br />
+Default: EOF</p>
+</div></blockquote>
+<blockquote>
+<div><p>~max_tokens<br />
+Type: integer<br />
+The maximum number of tokens to generate.<br />
+Default: 200</p>
+</div></blockquote>
+<blockquote>
+<div><p>~model_name<br />
+Type: string<br />
+GPT4ALL model to be used. On the node very first start it will be dowloaded
+if it does not exist in ~model_path. Auto download depends on ~allow_download.<br />
+Default: orca-mini-3b.ggmlv3.q4_0.bin</p>
+</div></blockquote>
+<blockquote>
+<div><p>~model_path<br />
+Type: string<br />
+GPT4ALL model path to be used.<br />
+Default: ~/.local/share/nomic.ai/GPT4All</p>
+</div></blockquote>
+<blockquote>
+<div><p>~n_batch<br />
+Type: integer<br />
+Number of prompt tokens processed in parallel. Larger values decrease latency
+but increase resource requirements.<br />
+Default: 8</p>
+</div></blockquote>
+<blockquote>
+<div><p>~prompt<br />
+Type: string<br />
+Promp format string to be used.<br />
+Default: &gt; {0}\n\n</p>
+</div></blockquote>
+<blockquote>
+<div><p>~repeat_last_n<br />
+Type: integer<br />
+How far in the models generation history to apply the repeat penalty.<br />
+Default: 64</p>
+</div></blockquote>
+<blockquote>
+<div><p>~repeat_penalty<br />
+Type: double<br />
+Penalize the model for repetition. Higher values result in less repetition.<br />
+Default: 1.18</p>
+</div></blockquote>
+<blockquote>
+<div><p>~socket_path<br />
+Type: string<br />
+Unix socket where to write the output.<br />
+Default: /tmp/gpt.sock</p>
+</div></blockquote>
+<blockquote>
+<div><p>~temp<br />
+Type: double<br />
+The model temperature. Larger values increase creativity but decrease
+factuality.<br />
+Default: 0.7</p>
+</div></blockquote>
+<blockquote>
+<div><p>~top_k<br />
+Type: integer<br />
+Randomly sample from the top_k most likely tokens at each generation step.
+Set this to 1 for greedy decoding.<br />
+Default: 40</p>
+</div></blockquote>
+<blockquote>
+<div><p>~top_p<br />
+Type: double<br />
+Randomly sample at each generation step from the top most likely tokens whose
+probabilities add up to top_p.<br />
+Default: 0.4</p>
+</div></blockquote>
+</section>
+<section id="subscribed-topics">
+<h3>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~gpt_in (std_msgs/String)<br />
+GPT input.</p>
+</div></blockquote>
+</section>
+<section id="published-topics">
+<h3>Published Topics<a class="headerlink" href="#published-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~gpt_out (std_msgs/String)<br />
+GPT ouput. The whole message will be published when the generator has finished.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~gpt_generator (std_msgs/String)<br />
+GPT generator ouput. Each single token is published to the topic.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~gpt_sentence (std_msgs/String)<br />
+GPT ouput aggregated as sentence or sub sentence. A message with content EOF indicates the end.
+of the generator output.</p>
+</div></blockquote>
+</section>
+<section id="socket-stream">
+<h3>Socket stream<a class="headerlink" href="#socket-stream" title="Link to this heading"></a></h3>
+<p>The GPT node also creates a socket where the generator output will be streamed
+in realtime. Multiple clients can connect.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># the generator output can be received as followed</span>
+netcat<span class="w"> </span>-v<span class="w"> </span>-U<span class="w"> </span>/tmp/gpt.sock<span class="w"> </span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ros-node-terminal">
+<h2>ROS Node TERMINAL<a class="headerlink" href="#ros-node-terminal" title="Link to this heading"></a></h2>
+<p>With this Ros Node the generator output of GPT4ALL node can be received and displayed in realtime. This works as well with any other stdout stream. Also a topic input subscriber is available. An input field can optionally be turned on which can be used to publish messages to another topic.</p>
+<section id="id1">
+<h3>Dependencies<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>The required QT5 libraries should already exist if ROS is installed. If
+missing use below installation to get them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pyqt5
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Usage<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># connect terminal with GPT node socket stream, use one of the existing QT5 arguments</span>
+netcat<span class="w"> </span>-v<span class="w"> </span>-U<span class="w"> </span>/tmp/gpt.sock<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>terminal.py<span class="w"> </span>-qwindowgeometry<span class="w"> </span>640x480+600+300
+
+<span class="c1"># run frameless terminal window using ROS parameter</span>
+netcat<span class="w"> </span>-v<span class="w"> </span>-U<span class="w"> </span>/tmp/gpt.sock<span class="w"> </span><span class="p">|</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>terminal.py<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>frameless:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+
+<span class="c1"># show window on another display</span>
+netcat<span class="w"> </span>-U<span class="w"> </span>/tmp/gpt.sock<span class="w"> </span><span class="p">|</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>terminal.py<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>display:<span class="o">=</span><span class="m">1</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3>Node Parameter<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~display<br />
+Type: integer<br />
+Display number where to show the window. -1 = default display.<br />
+Default: -1</p>
+</div></blockquote>
+<blockquote>
+<div><p>~fontname<br />
+Type: string<br />
+Window fontname.<br />
+Default: courier</p>
+</div></blockquote>
+<blockquote>
+<div><p>~fontsize<br />
+Type: integer<br />
+Window fontsize.<br />
+Default: 12</p>
+</div></blockquote>
+<blockquote>
+<div><p>~frameless<br />
+Type: boolean<br />
+Switch off window caption.<br />
+Default: false</p>
+</div></blockquote>
+<blockquote>
+<div><p>~geometry<br />
+Type: integer array<br />
+Window geometry. [x, y, with, height]</p>
+</div></blockquote>
+<blockquote>
+<div><p>~margin<br />
+Type: integer array<br />
+Window inner margin. [left, top, right, bottom]<br />
+Default: [10,0,0,0]</p>
+</div></blockquote>
+<blockquote>
+<div><p>~input<br />
+Type: boolean<br />
+Enables or disables the text input field.<br />
+Default: true</p>
+</div></blockquote>
+<blockquote>
+<div><p>~opacity<br />
+Type: double<br />
+Window opacity. 1.0 = fully visible.<br />
+Default: 1.0</p>
+</div></blockquote>
+<blockquote>
+<div><p>~stylesheet<br />
+Type: string<br />
+Stylesheet qss of PlainText area.<br />
+Default: background-color: #000000; color: #f0f0f0;</p>
+</div></blockquote>
+<blockquote>
+<div><p>~title<br />
+Type: string<br />
+Title of window.<br />
+Default: GPT4ALL Terminal</p>
+</div></blockquote>
+<blockquote>
+<div><p>~line_count<br />
+Type: string<br />
+Maximum line count in the text area. 0 = unlimited.<br />
+If the number exceeds the lines are removed from the top.
+Default: 0</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h3>Subscribed Topics<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~input (std_msgs/String)<br />
+Read input data from topic in addition to be able to read data from stdin.</p>
+</div></blockquote>
+</section>
+<section id="id5">
+<h3>Published Topics<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~gpt_in (std_msgs/String)<br />
+Publish to GPT4ALL input.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="ros-node-embedder">
+<h2>ROS Node EMBEDDER<a class="headerlink" href="#ros-node-embedder" title="Link to this heading"></a></h2>
+<p>Basic Embedder ROS Node.
+This ROS node subscribes to an /embed String topic to receive JSON data with
+embedding messages. It embeds the delivered data into the configured Vector DB.
+A Qdrant Vector DB is the default DB.
+To embed into a Chroma DB set the environment variable EMBED_CHROMADB, it’s
+enough if it just exists. See ROS parameter for further configuration.</p>
+<p>Related Qdrant links:</p>
+<ul class="simple">
+<li><p>https://qdrant.tech/</p></li>
+<li><p>https://github.com/qdrant/fastembed</p></li>
+<li><p>https://qdrant.tech/documentation/embeddings/nomic/</p></li>
+</ul>
+<p>By default model <code class="docutils literal notranslate"><span class="pre">nomic-ai/nomic-embed-text-v1</span></code> will be used to create
+embeddings for Qdrant.</p>
+<p>Related Chroma links:</p>
+<ul class="simple">
+<li><p>https://www.trychroma.com/</p></li>
+<li><p>https://docs.trychroma.com/</p></li>
+</ul>
+<p>By default Sentence Transformers <code class="docutils literal notranslate"><span class="pre">all-MiniLM-L6-v2</span></code> model will be use to
+create embeddings for Chroma.</p>
+<section id="embedding-data-format">
+<h3>Embedding data format<a class="headerlink" href="#embedding-data-format" title="Link to this heading"></a></h3>
+<p>The JSON data which is received by the String topic has to contain the
+following fields. (for Qdrant the ids are optional)</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;collection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;hey ya&quot;</span><span class="p">,</span><span class="s2">&quot;jo do&quot;</span><span class="p">],</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;metadatas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;works&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;nut&quot;</span><span class="p">}],</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;id1&quot;</span><span class="p">,</span><span class="s2">&quot;id2&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Usage<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># in order to work below examples expects a running Qdrant or Chroma Vector DB</span>
+
+<span class="c1"># start embedder node, by default use Qdrant Vector DB running on localhost</span>
+ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>embedder
+
+<span class="c1"># start embedder node using Chroma Vector DB running on localhost</span>
+<span class="nv">EMBED_CHROMADB</span><span class="o">=</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>embedder
+
+<span class="c1"># run in debug mode, this will also set Python logging to level DEBUG</span>
+ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>embedder<span class="w"> </span>--ros-args<span class="w"> </span>--log-level<span class="w"> </span>DEBUG
+
+<span class="c1"># this works without a Qdrant server</span>
+ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>embedder<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>path:<span class="o">=</span>/home/ros/qdrant_data
+
+<span class="c1"># this works without a Chroma server</span>
+<span class="nv">EMBED_CHROMADB</span><span class="o">=</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>rosgpt4all<span class="w"> </span>embedder<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>path:<span class="o">=</span>/home/ros/chroma_data
+
+<span class="c1"># publish from shell an embed order with a single item</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>embed<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s1">&#39;data: &quot;{\&quot;collection\&quot;:\&quot;xyz\&quot;, \&quot;documents\&quot;:[\&quot;hey\&quot;], \&quot;metadatas\&quot;: [{\&quot;name\&quot;:\&quot;bob\&quot;}]}&quot;&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Node Parameter<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~model<br />
+Modelname to be used to produce the embedding.
+It will be downloaded if it does not yet exists locally.<br />
+Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p>~host<br />
+Host name or ip.<br />
+Default: ‘localhost’</p>
+</div></blockquote>
+<blockquote>
+<div><p>~port/
+To be used port for the Vector DB API.<br />
+Default: (6333 or 8000, this depends from used Vector DB)</p>
+</div></blockquote>
+<blockquote>
+<div><p>~location<br />
+Location of Vector DB. Can also be an URL.
+This parameter is only used by Qdrant.<br />
+Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p>~path<br />
+Path where to store the Vector DB data.<br />
+Default: ‘’</p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h3>Subscribed Topics<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~embed (std_msgs/String)<br />
+Incoming JSON string with the embedding data.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
