@@ -50,7 +50,7 @@ This is a collection of various ROS packages and nodes for natural language proc
    <script type="text/javascript">
       new Twitch.Embed("twitch-embed", {
         width: 427,
-        height: 240,
+        height: 440,
         channel: "superbob_6110",
         // Only needed if this page is going to be embedded on other websites
         parent: ["bob-ros2.github.io"]
