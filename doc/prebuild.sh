@@ -1,7 +1,7 @@
 #/bin/sh
 
-REPOS="bob_llama_cpp bob_topic_tools bob_launch bob_whisper_cpp bob_msgs bob_transformers rosgpt4all voskros"
-APIS="bob_llama_cpp bob_topic_tools bob_transformers rosgpt4all"
+REPOS="bob_llama_cpp bob_topic_tools bob_launch bob_whisper_cpp bob_msgs bob_transformers bob_vector_db rosgpt4all voskros"
+APIS="bob_llama_cpp bob_topic_tools bob_transformers bob_vector_db rosgpt4all"
 
 retrieve_readme() {
   curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > doc/bob/$(echo $1|sed 's/_/-/g').md
