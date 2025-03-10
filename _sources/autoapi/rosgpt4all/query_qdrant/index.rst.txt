@@ -1,0 +1,56 @@
+rosgpt4all.query_qdrant
+=======================
+
+.. py:module:: rosgpt4all.query_qdrant
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   rosgpt4all.query_qdrant.client
+   rosgpt4all.query_qdrant.prompt
+   rosgpt4all.query_qdrant.results
+   rosgpt4all.query_qdrant.context
+   rosgpt4all.query_qdrant.metaprompt
+
+
+Module Contents
+---------------
+
+.. py:data:: client
+
+.. py:data:: prompt
+   :value: 'what about music'
+
+
+.. py:data:: results
+
+.. py:data:: context
+   :value: ''
+
+
+.. py:data:: metaprompt
+   :value: Multiline-String
+
+   .. raw:: html
+
+      <details><summary>Show Value</summary>
+
+   .. code-block:: python
+
+      """
+      
+      
+      ### Context:
+      
+      
+      """
+
+   .. raw:: html
+
+      </details>
+
+
+

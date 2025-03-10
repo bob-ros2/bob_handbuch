@@ -1,0 +1,93 @@
+rosgpt4all.embedder
+===================
+
+.. py:module:: rosgpt4all.embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   rosgpt4all.embedder.EmbedderNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   rosgpt4all.embedder.main
+
+
+Module Contents
+---------------
+
+.. py:class:: EmbedderNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Basic Embedder ROS Node.
+   This ROS node subscribes to an /embed String topic to receive JSON data with embedding messages.
+   It embeds the delivered data into the configured Vector DB.
+   A Qdrant Vector DB is the default DB.
+   To embed into a Chroma DB set the environment variable EMBED_CHROMADB, it's enough if it just exists.
+   See ROS parameter for further configuration.
+   The JSON data has to contain the following fields. (for Qdrant the ids are optional) 
+   {"collection":"xyz", "documents":["hey ya","jo do"], "metadatas": [{"name":"works"}, {"name":"nut"}], "ids":['id1','id2']}
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: host
+
+
+   .. py:attribute:: port
+
+
+   .. py:attribute:: path
+
+
+   .. py:attribute:: location
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: sub_raw
+
+
+   .. py:method:: init_qdrant()
+
+      Init Qdrant embedder
+              
+
+
+
+   .. py:method:: init_chroma()
+
+      Init Chroma embedder
+              
+
+
+
+   .. py:method:: embed_callback(msg: std_msgs.msg.String) -> None
+
+      Embeds the incoming JSON topic message into the Vector DB.
+      Prints the incoming message also to the debug log.
+      If it fails an error log entry will be written.
+
+
+
+   .. py:method:: embed_raw_callback(msg: std_msgs.msg.String) -> None
+
+      Embeds raw data of any type into default collection 'embed_raw'.
+      To use another collection set the env var EMBED_COLLECTION accordingly.
+      If the collection comes with the input data that will be used instead.
+
+
+
+.. py:function:: main()
+

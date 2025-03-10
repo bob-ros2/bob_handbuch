@@ -1,0 +1,49 @@
+rosgpt4all.chroma_embedder
+==========================
+
+.. py:module:: rosgpt4all.chroma_embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   rosgpt4all.chroma_embedder.GPT4AllEmbeddingFunction
+   rosgpt4all.chroma_embedder.ChromaEmbedder
+
+
+Module Contents
+---------------
+
+.. py:class:: GPT4AllEmbeddingFunction
+
+   Bases: :py:obj:`chromadb.EmbeddingFunction`
+
+
+   Basic Embed4All chromadb.EmbeddingFunction
+       
+
+
+   .. py:method:: __call__(input: chromadb.Documents) -> chromadb.Embeddings
+
+
+.. py:class:: ChromaEmbedder(model: str = None, **kwargs: Any)
+
+   Bases: :py:obj:`json_embedder.JsonEmbedder`
+
+
+   Chroma JSON embedding interface.
+   The __call__ function expects a string with a JSON dict containing the following attributes:
+     collection: to be used collection name
+     documents: list with document strings
+     metadatas: list of metadata dictionaries
+     ids: list of id strings
+
+
+   .. py:attribute:: ef
+
+
+   .. py:method:: __call__(j: str) -> None
+
+

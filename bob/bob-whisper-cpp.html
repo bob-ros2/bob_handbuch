@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_whisper_cpp &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package bob_msgs" href="bob-msgs.html" />
+    <link rel="prev" title="ROS Package bob_launch" href="bob-launch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-llama-cpp.html">ROS Package bob_llama_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_whisper_cpp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ros-node-command">ROS Node Command</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-support">Docker Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-models">Getting Models</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-package">Setup Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#published-ros-topics">Published ROS Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guided-mode">Guided Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#activation-prompt">Activation Prompt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-arguments">Command Line Arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-transformers.html">ROS Package bob_transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rosgpt4all.html">ROS Package RosGPT4all</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob-docker-network.html">ROS Multi Docker Hosts Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-portainer.html">Setup Portainer with Multiple Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-doxygen.html">Quick Guide Doxygen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_whisper_cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-whisper-cpp.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-whisper-cpp">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_whisper_cpp">bob_whisper_cpp</a><a class="headerlink" href="#ros-package-bob-whisper-cpp" title="Link to this heading"></a></h1>
+<section id="ros-node-command">
+<h2>ROS Node Command<a class="headerlink" href="#ros-node-command" title="Link to this heading"></a></h2>
+<p>This ROS node is a basic STT Voice Assistant that accepts voice commands from the microphone and publishes it to a ROS std_msg/msg/String topic for further processing. It’s basically the same as the <code class="docutils literal notranslate"><span class="pre">command</span></code> example of the <code class="docutils literal notranslate"><span class="pre">whisper.cpp</span></code> project extended with a ROS integration.<br />
+More infos about the origin example:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ggerganov/whisper.cpp/issues/171">ggerganov/whisper.cpp issue #171</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ggerganov/whisper.cpp/tree/master/examples/command">ggerganov/whisper.cpp/tree/master/examples/command</a></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the command ROS Node with default arguments and small model</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_whisper_cpp<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-m<span class="w"> </span>./models/ggml-small.en.bin<span class="w"> </span>-t<span class="w"> </span><span class="m">8</span>
+</pre></div>
+</div>
+<section id="docker-support">
+<h3>Docker Support<a class="headerlink" href="#docker-support" title="Link to this heading"></a></h3>
+<p>This ROS node is also as a pre build docker image available.<br />
+See below how to use it</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bob-ros2/bob_whisper_cpp/tree/main/bob_whisper_cpp/docker">bob_whisper_cpp/docker</a></p></li>
+</ul>
+</section>
+<section id="getting-models">
+<h3>Getting Models<a class="headerlink" href="#getting-models" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">whisper.cpp</span></code> library has a script to download models.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># assuming you are in the home directory which contains the colcon workspace</span>
+mkdir<span class="w"> </span>./models<span class="w"> </span><span class="m">2</span>&gt;/dev/null
+./colcon_ws/src/bob_whisper_cpp/whisper.cpp/models/download-ggml-model.sh<span class="w"> </span>base.en<span class="w"> </span>./models
+
+<span class="c1"># run the ROS command node with the model</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_whisper_cpp<span class="w"> </span><span class="nb">command</span><span class="w"> </span>-m<span class="w"> </span>./models/ggml-base.en.bin<span class="w"> </span>-t<span class="w"> </span><span class="m">16</span><span class="w"> </span>--prompt<span class="w"> </span><span class="s2">&quot;Hey Bob&quot;</span><span class="w"> </span>--prompt-ms<span class="w"> </span><span class="m">1000</span><span class="w"> </span>--vad-thold<span class="w"> </span><span class="m">0</span>.7<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>command:<span class="o">=</span>/gpt/gpt_in
+</pre></div>
+</div>
+<p>To get further information see here</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ggerganov/whisper.cpp/blob/master/models/README.md">ggerganov/whisper.cpp/blob/master/models</a></p></li>
+</ul>
+</section>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>This ROS Node depends on the <a class="reference external" href="https://github.com/ggerganov/whisper.cpp">whisper.cpp</a> project. <code class="docutils literal notranslate"><span class="pre">Whisper.cpp</span></code> is integrated as a GIT submodule and is downloaded along with cloning this package with the option <code class="docutils literal notranslate"><span class="pre">--recurse-submodules</span></code>.</p></li>
+<li><p>The SDL2 library is used to capture audio from the microphone. The library can be installed like this:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install SDL2</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libsdl2-dev
+</pre></div>
+</div>
+</section>
+<section id="setup-package">
+<h2>Setup Package<a class="headerlink" href="#setup-package" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;colcon_ws&gt;/src
+git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/bob-ros2/bob_whisper_cpp.git
+<span class="nb">cd</span><span class="w"> </span>..
+<span class="c1"># this builds the whisper.cpp and the bob_whisper_cpp ROS node</span>
+colcon<span class="w"> </span>build
+.<span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="published-ros-topics">
+<h2>Published ROS Topics<a class="headerlink" href="#published-ros-topics" title="Link to this heading"></a></h2>
+<blockquote>
+<div><p>Name: command<br />
+Type: std_msgs/msg/String<br />
+Outputs the detected text.</p>
+</div></blockquote>
+</section>
+<section id="guided-mode">
+<h2>Guided Mode<a class="headerlink" href="#guided-mode" title="Link to this heading"></a></h2>
+<p>“Guided Mode” allows you to specify a list of commands (i.e. strings) and the transcription will be guided to classify your command into one from the list. This can be useful in situations where a device is listening only for a small subset of commands.</p>
+<p>This approach might be extremely efficient in terms of performance.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run in guided mode, the list of allowed commands is in commands.txt</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_whisper_cpp<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="se">\</span>
+-m<span class="w"> </span>./models/ggml-base.en.bin<span class="w"> </span><span class="se">\</span>
+-cmd<span class="w"> </span>./examples/command/commands.txt
+</pre></div>
+</div>
+</section>
+<section id="activation-prompt">
+<h2>Activation Prompt<a class="headerlink" href="#activation-prompt" title="Link to this heading"></a></h2>
+<p>The “Activation Prompt” allows you to specify a prefix to identfy the beginning of a command. The prefix text will be stripped from the spoken text.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run with activation prompt and remaps the ROS topic to another topic name</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_whisper_cpp<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="se">\</span>
+--model<span class="w"> </span>./models/ggml-base.en.bin<span class="w"> </span><span class="se">\</span>
+--threads<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
+--prompt<span class="w"> </span><span class="s2">&quot;Hey Bob&quot;</span><span class="w"> </span><span class="se">\</span>
+--prompt-ms<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="se">\</span>
+--vad-thold<span class="w"> </span><span class="m">0</span>.7<span class="w"> </span><span class="se">\</span>
+--ros-args<span class="w"> </span>-r<span class="w"> </span>command:<span class="o">=</span>/bob/llm/llm_in
+</pre></div>
+</div>
+</section>
+<section id="command-line-arguments">
+<h2>Command Line Arguments<a class="headerlink" href="#command-line-arguments" title="Link to this heading"></a></h2>
+<p>This ROS node has no ROS Node related parameters and has to be configured using the commandline arguments.<br />
+Using <code class="docutils literal notranslate"><span class="pre">--ros-args</span></code>, e.g. for topic remapping, is still possible. These args must be added at the end of the command arguments.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># show help</span>
+$<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>bob_whisper_cpp<span class="w"> </span><span class="nb">command</span><span class="w"> </span>--help
+
+usage:<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+
+options:
+<span class="w">  </span>-h,<span class="w">         </span>--help<span class="w">           </span><span class="o">[</span>default<span class="o">]</span><span class="w"> </span>show<span class="w"> </span>this<span class="w"> </span><span class="nb">help</span><span class="w"> </span>message<span class="w"> </span>and<span class="w"> </span><span class="nb">exit</span>
+<span class="w">  </span>-t<span class="w"> </span>N,<span class="w">       </span>--threads<span class="w"> </span>N<span class="w">      </span><span class="o">[</span><span class="m">4</span><span class="w">      </span><span class="o">]</span><span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>threads<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>during<span class="w"> </span>computation
+<span class="w">  </span>-pms<span class="w"> </span>N,<span class="w">     </span>--prompt-ms<span class="w"> </span>N<span class="w">    </span><span class="o">[</span><span class="m">5000</span><span class="w">   </span><span class="o">]</span><span class="w"> </span>prompt<span class="w"> </span>duration<span class="w"> </span><span class="k">in</span><span class="w"> </span>milliseconds
+<span class="w">  </span>-cms<span class="w"> </span>N,<span class="w">     </span>--command-ms<span class="w"> </span>N<span class="w">   </span><span class="o">[</span><span class="m">8000</span><span class="w">   </span><span class="o">]</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span>duration<span class="w"> </span><span class="k">in</span><span class="w"> </span>milliseconds
+<span class="w">  </span>-c<span class="w"> </span>ID,<span class="w">      </span>--capture<span class="w"> </span>ID<span class="w">     </span><span class="o">[</span>-1<span class="w">     </span><span class="o">]</span><span class="w"> </span>capture<span class="w"> </span>device<span class="w"> </span>ID
+<span class="w">  </span>-mt<span class="w"> </span>N,<span class="w">      </span>--max-tokens<span class="w"> </span>N<span class="w">   </span><span class="o">[</span><span class="m">32</span><span class="w">     </span><span class="o">]</span><span class="w"> </span>maximum<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>tokens<span class="w"> </span>per<span class="w"> </span>audio<span class="w"> </span>chunk
+<span class="w">  </span>-ac<span class="w"> </span>N,<span class="w">      </span>--audio-ctx<span class="w"> </span>N<span class="w">    </span><span class="o">[</span><span class="m">0</span><span class="w">      </span><span class="o">]</span><span class="w"> </span>audio<span class="w"> </span>context<span class="w"> </span>size<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span>-<span class="w"> </span>all<span class="o">)</span>
+<span class="w">  </span>-vth<span class="w"> </span>N,<span class="w">     </span>--vad-thold<span class="w"> </span>N<span class="w">    </span><span class="o">[</span><span class="m">0</span>.60<span class="w">   </span><span class="o">]</span><span class="w"> </span>voice<span class="w"> </span>activity<span class="w"> </span>detection<span class="w"> </span>threshold
+<span class="w">  </span>-fth<span class="w"> </span>N,<span class="w">     </span>--freq-thold<span class="w"> </span>N<span class="w">   </span><span class="o">[</span><span class="m">100</span>.00<span class="w"> </span><span class="o">]</span><span class="w"> </span>high-pass<span class="w"> </span>frequency<span class="w"> </span>cutoff
+<span class="w">  </span>-tr,<span class="w">        </span>--translate<span class="w">      </span><span class="o">[</span><span class="nb">false</span><span class="w">  </span><span class="o">]</span><span class="w"> </span>translate<span class="w"> </span>from<span class="w"> </span><span class="nb">source</span><span class="w"> </span>language<span class="w"> </span>to<span class="w"> </span>english
+<span class="w">  </span>-ps,<span class="w">        </span>--print-special<span class="w">  </span><span class="o">[</span><span class="nb">false</span><span class="w">  </span><span class="o">]</span><span class="w"> </span>print<span class="w"> </span>special<span class="w"> </span>tokens
+<span class="w">  </span>-pe,<span class="w">        </span>--print-energy<span class="w">   </span><span class="o">[</span><span class="nb">false</span><span class="w">  </span><span class="o">]</span><span class="w"> </span>print<span class="w"> </span>sound<span class="w"> </span>energy<span class="w"> </span><span class="o">(</span><span class="k">for</span><span class="w"> </span>debugging<span class="o">)</span>
+<span class="w">  </span>-ng,<span class="w">        </span>--no-gpu<span class="w">         </span><span class="o">[</span><span class="nb">false</span><span class="w">  </span><span class="o">]</span><span class="w"> </span>disable<span class="w"> </span>GPU
+<span class="w">  </span>-fa,<span class="w">        </span>--flash-attn<span class="w">     </span><span class="o">[</span><span class="nb">false</span><span class="w">  </span><span class="o">]</span><span class="w"> </span>flash<span class="w"> </span>attention
+<span class="w">  </span>-l<span class="w"> </span>LANG,<span class="w">    </span>--language<span class="w"> </span>LANG<span class="w">  </span><span class="o">[</span>en<span class="w">     </span><span class="o">]</span><span class="w"> </span>spoken<span class="w"> </span>language
+<span class="w">  </span>-m<span class="w"> </span>FNAME,<span class="w">   </span>--model<span class="w"> </span>FNAME<span class="w">    </span><span class="o">[</span>models/ggml-base.en.bin<span class="o">]</span><span class="w"> </span>model<span class="w"> </span>path
+<span class="w">  </span>-f<span class="w"> </span>FNAME,<span class="w">   </span>--file<span class="w"> </span>FNAME<span class="w">     </span><span class="o">[</span><span class="w">       </span><span class="o">]</span><span class="w"> </span>text<span class="w"> </span>output<span class="w"> </span>file<span class="w"> </span>name
+<span class="w">  </span>-cmd<span class="w"> </span>FNAME,<span class="w"> </span>--commands<span class="w"> </span>FNAME<span class="w"> </span><span class="o">[</span><span class="w">       </span><span class="o">]</span><span class="w"> </span>text<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>allowed<span class="w"> </span>commands
+<span class="w">  </span>-p,<span class="w">         </span>--prompt<span class="w">         </span><span class="o">[</span><span class="w">       </span><span class="o">]</span><span class="w"> </span>the<span class="w"> </span>required<span class="w"> </span>activation<span class="w"> </span>prompt
+<span class="w">  </span>-ctx,<span class="w">       </span>--context<span class="w">        </span><span class="o">[</span><span class="w">       </span><span class="o">]</span><span class="w"> </span>sample<span class="w"> </span>text<span class="w"> </span>to<span class="w"> </span><span class="nb">help</span><span class="w"> </span>the<span class="w"> </span>transcription
+<span class="w">  </span>--grammar<span class="w"> </span>GRAMMAR<span class="w">            </span><span class="o">[</span><span class="w">       </span><span class="o">]</span><span class="w"> </span>GBNF<span class="w"> </span>grammar<span class="w"> </span>to<span class="w"> </span>guide<span class="w"> </span>decoding
+<span class="w">  </span>--grammar-penalty<span class="w"> </span>N<span class="w">          </span><span class="o">[</span><span class="m">100</span>.0<span class="w">  </span><span class="o">]</span><span class="w"> </span>scales<span class="w"> </span>down<span class="w"> </span>logits<span class="w"> </span>of<span class="w"> </span>nongrammar<span class="w"> </span>tokens
+<span class="w">  </span>--suppress-regex<span class="w"> </span>REGEX<span class="w">       </span><span class="o">[</span><span class="w">       </span><span class="o">]</span><span class="w"> </span>regular<span class="w"> </span>expression<span class="w"> </span>matching<span class="w"> </span>tokens<span class="w"> </span>to<span class="w"> </span>suppress
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-launch.html" class="btn btn-neutral float-left" title="ROS Package bob_launch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bob-msgs.html" class="btn btn-neutral float-right" title="ROS Package bob_msgs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

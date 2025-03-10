@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rosgpt4all.gpt &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="rosgpt4all.json_embedder" href="../json_embedder/index.html" />
+    <link rel="prev" title="rosgpt4all.embedder" href="../embedder/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llama-cpp.html">ROS Package bob_llama_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-whisper-cpp.html">ROS Package bob_whisper_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-transformers.html">ROS Package bob_transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/rosgpt4all.html">ROS Package RosGPT4all</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-docker-network.html">ROS Multi Docker Hosts Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-portainer.html">Setup Portainer with Multiple Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-doxygen.html">Quick Guide Doxygen</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">rosgpt4all</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../chroma_embedder/index.html">rosgpt4all.chroma_embedder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../embedder/index.html">rosgpt4all.embedder</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">rosgpt4all.gpt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../json_embedder/index.html">rosgpt4all.json_embedder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../qdrant_embedder/index.html">rosgpt4all.qdrant_embedder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../query_qdrant/index.html">rosgpt4all.query_qdrant</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../terminal/index.html">rosgpt4all.terminal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../vector/index.html">rosgpt4all.vector</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llama_cpp/index.html">bob_llama_cpp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_transformers/index.html">bob_transformers</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">rosgpt4all</a></li>
+      <li class="breadcrumb-item active">rosgpt4all.gpt</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/rosgpt4all/gpt/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-rosgpt4all.gpt">
+<span id="rosgpt4all-gpt"></span><h1>rosgpt4all.gpt<a class="headerlink" href="#module-rosgpt4all.gpt" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rosgpt4all.gpt.GPTNode" title="rosgpt4all.gpt.GPTNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GPTNode</span></code></a></p></td>
+<td><p>GPT4All ROS Node.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#rosgpt4all.gpt.main" title="rosgpt4all.gpt.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rosgpt4all.gpt.</span></span><span class="sig-name descname"><span class="pre">GPTNode</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>GPT4All ROS Node.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.running">
+<span class="sig-name descname"><span class="pre">running</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.running" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.socket">
+<span class="sig-name descname"><span class="pre">socket</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.socket" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.socket_clients">
+<span class="sig-name descname"><span class="pre">socket_clients</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.socket_clients" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.queue">
+<span class="sig-name descname"><span class="pre">queue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.queue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.gpt_abort">
+<span class="sig-name descname"><span class="pre">gpt_abort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></em><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.gpt_abort" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.model_name">
+<span class="sig-name descname"><span class="pre">model_name</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.model_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.model_path">
+<span class="sig-name descname"><span class="pre">model_path</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.model_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.allow_download">
+<span class="sig-name descname"><span class="pre">allow_download</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.allow_download" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.socket_path">
+<span class="sig-name descname"><span class="pre">socket_path</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.socket_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.device">
+<span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.system_prompt">
+<span class="sig-name descname"><span class="pre">system_prompt</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.system_prompt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.prompt">
+<span class="sig-name descname"><span class="pre">prompt</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.prompt" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.eof_indicator">
+<span class="sig-name descname"><span class="pre">eof_indicator</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.eof_indicator" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.max_tokens">
+<span class="sig-name descname"><span class="pre">max_tokens</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.max_tokens" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.temp">
+<span class="sig-name descname"><span class="pre">temp</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.temp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.top_k">
+<span class="sig-name descname"><span class="pre">top_k</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.top_k" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.top_p">
+<span class="sig-name descname"><span class="pre">top_p</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.top_p" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.repeat_penalty">
+<span class="sig-name descname"><span class="pre">repeat_penalty</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.repeat_penalty" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.repeat_last_n">
+<span class="sig-name descname"><span class="pre">repeat_last_n</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.repeat_last_n" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.n_batch">
+<span class="sig-name descname"><span class="pre">n_batch</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.n_batch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.n_threads">
+<span class="sig-name descname"><span class="pre">n_threads</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.n_threads" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.ngl">
+<span class="sig-name descname"><span class="pre">ngl</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.ngl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.verbose">
+<span class="sig-name descname"><span class="pre">verbose</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.verbose" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.sub">
+<span class="sig-name descname"><span class="pre">sub</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.sub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.pub_generator">
+<span class="sig-name descname"><span class="pre">pub_generator</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.pub_generator" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.pub">
+<span class="sig-name descname"><span class="pre">pub</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.pub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.pub_sentence">
+<span class="sig-name descname"><span class="pre">pub_sentence</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.pub_sentence" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.sentence">
+<span class="sig-name descname"><span class="pre">sentence</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.sentence" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.session_thread">
+<span class="sig-name descname"><span class="pre">session_thread</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.session_thread" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.sock_thread">
+<span class="sig-name descname"><span class="pre">sock_thread</span></span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.sock_thread" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.gpt_callback">
+<span class="sig-name descname"><span class="pre">gpt_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.gpt_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback to handle self.gpt_abort signal.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.shutdown">
+<span class="sig-name descname"><span class="pre">shutdown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.shutdown" title="Link to this definition"></a></dt>
+<dd><p>Cleanup running threads.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.parameter_callback">
+<span class="sig-name descname"><span class="pre">parameter_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.parameter_callback" title="Link to this definition"></a></dt>
+<dd><p>ROS dynamic reconfigure handler for RQT Gui</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.topic_callback">
+<span class="sig-name descname"><span class="pre">topic_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.topic_callback" title="Link to this definition"></a></dt>
+<dd><p>Pass incoming message to GPT4ALL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.prompt_cleanup">
+<span class="sig-name descname"><span class="pre">prompt_cleanup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.prompt_cleanup" title="Link to this definition"></a></dt>
+<dd><p>Removes context until the end from prompt.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.session">
+<span class="sig-name descname"><span class="pre">session</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.session" title="Link to this definition"></a></dt>
+<dd><p>Process incoming queue messages by GPT4ALL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.token_handler">
+<span class="sig-name descname"><span class="pre">token_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.token_handler" title="Link to this definition"></a></dt>
+<dd><p>Publishes to the generator and sentence publishers.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.publish">
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pub</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.publish" title="Link to this definition"></a></dt>
+<dd><p>Publish GPT4ALL response.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.print">
+<span class="sig-name descname"><span class="pre">print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.print" title="Link to this definition"></a></dt>
+<dd><p>Print to stdout and socket.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.socket_server">
+<span class="sig-name descname"><span class="pre">socket_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.socket_server" title="Link to this definition"></a></dt>
+<dd><p>Serves GPT output to a AF_UNIX socket.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.GPTNode.socket_send">
+<span class="sig-name descname"><span class="pre">socket_send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.GPTNode.socket_send" title="Link to this definition"></a></dt>
+<dd><p>Send bytes to all connected clients.
+Also maintains the self.socket_clients list.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="rosgpt4all.gpt.main">
+<span class="sig-prename descclassname"><span class="pre">rosgpt4all.gpt.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rosgpt4all.gpt.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../embedder/index.html" class="btn btn-neutral float-left" title="rosgpt4all.embedder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../json_embedder/index.html" class="btn btn-neutral float-right" title="rosgpt4all.json_embedder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

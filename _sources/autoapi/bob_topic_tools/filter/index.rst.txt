@@ -1,0 +1,86 @@
+bob_topic_tools.filter
+======================
+
+.. py:module:: bob_topic_tools.filter
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.filter.FilterNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.filter.main
+
+
+Module Contents
+---------------
+
+.. py:class:: FilterNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String topic filter node. Can filter based on black/white list file "
+   with the additional option to apply a list of subsitutions to the output.
+
+
+   .. py:attribute:: white_filter
+
+
+   .. py:attribute:: black_filter
+
+
+   .. py:attribute:: white_list
+
+
+   .. py:attribute:: black_list
+
+
+   .. py:attribute:: substitute
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: pub_rejected
+
+
+   .. py:method:: transform(s)
+
+      Substitutes a string similar to python re.sub.
+
+
+
+   .. py:method:: chat_input_callback(msg: std_msgs.msg.String)
+
+      Will be called for every incoming message. 
+      It depends from black and white list if the message will be filtered. 
+      Finally also substitutions are applied if configured.
+
+
+
+   .. py:method:: load_yaml(filename)
+
+      Load YAML file and return content. Returns [] if an error occurs.
+
+
+
+   .. py:method:: parameter_callback(params)
+
+      Parameter callback used by Dynamic Reconfigure.
+
+
+
+.. py:function:: main()
+

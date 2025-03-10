@@ -1,0 +1,77 @@
+bob_transformers.tti
+====================
+
+.. py:module:: bob_transformers.tti
+
+.. autoapi-nested-parse::
+
+   This ROS Package integrates `Huggingface Transformers` capabilities into `ROS`.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_transformers.tti.TTINode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_transformers.tti.main
+
+
+Module Contents
+---------------
+
+.. py:class:: TTINode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   .. py:attribute:: result_image
+
+
+   .. py:attribute:: pipeline_type
+
+
+   .. py:attribute:: pub_image
+
+
+   .. py:attribute:: pub_tti_image
+
+
+   .. py:attribute:: timer
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: image_msg
+      :value: []
+
+
+
+   .. py:attribute:: cv_image
+      :value: []
+
+
+
+   .. py:method:: timer_callback()
+
+
+   .. py:method:: input_callback(msg)
+
+
+   .. py:method:: text2image(prompt)
+
+
+.. py:function:: main(args=None)
+
