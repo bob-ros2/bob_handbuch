@@ -1,0 +1,51 @@
+.wy-body-for-nav {
+    background: black;
+    background-image: url("grid.png");
+    background-repeat: no-repeat;
+}
+
+.wy-side-nav-search, .wy-nav-top {
+    background: black;
+}
+
+.wy-nav-content {
+    background-color: #c9c9c9;
+}
+
+/* unvisited link */
+.wy-nav-content a:link {
+  color: #2B547E;
+  text-decoration: none;
+}
+
+/* visited link */
+.wy-nav-content a:visited {
+  color: #2B547E;
+}
+
+/* mouse over link */
+.wy-nav-content a:hover {
+  color: #4863A0;
+}
+
+/* selected link */
+.wy-nav-content a:active {
+  color: #4863A0;
+}
+
+.caption-text{
+  color: #FEFEFE;
+}
+
+.wy-nav-content .caption-text{
+  color: #2B547E;
+}
+
+body {
+    font-family: Palatino, Roboto, Arial, Lato, proxima-nova, sans-serif, Helvetica;
+}
+
+section blockquote {
+    padding-left: 5px;
+    border-left: 5px solid gray;
+}

@@ -1,0 +1,15 @@
+API Reference
+=============
+
+This page contains auto-generated API reference documentation [#f1]_.
+
+.. toctree::
+   :titlesonly:
+
+   /autoapi/rosgpt4all/index
+   /autoapi/bob_llama_cpp/index
+   /autoapi/bob_vector_db/index
+   /autoapi/bob_topic_tools/index
+   /autoapi/bob_transformers/index
+
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

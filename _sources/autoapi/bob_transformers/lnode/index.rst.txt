@@ -1,0 +1,51 @@
+bob_transformers.lnode
+======================
+
+.. py:module:: bob_transformers.lnode
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_transformers.lnode.LNode
+
+
+Module Contents
+---------------
+
+.. py:class:: LNode(node_name, *, enable_communication_interface: bool = True, **kwargs)
+
+   Bases: :py:obj:`rclpy.lifecycle.LifecycleNode`
+
+
+   Simple LifecycleNode default wrapper.
+   It can be used as a replacement for the standard rclpy.Node to turn any 
+   existing normal ROS Node into a lifecycle ROS node. Handles the basic 
+   LifecycleNode events `configure`, `cleanup"` and  `shutdown`.
+   The functions `configure` and `destroy` have to be overidden in order to 
+   use it. Everything important in the rclpy.Node __init__ function need to 
+   go into overidden `configure` function. In the overidden `destroy` 
+   function resources, like subscribers etc,  have to be released.
+
+
+   .. py:method:: configure()
+      :abstractmethod:
+
+
+
+   .. py:method:: destroy()
+      :abstractmethod:
+
+
+
+   .. py:method:: on_configure(previous_state: rclpy.lifecycle.node.LifecycleState)
+
+
+   .. py:method:: on_cleanup(previous_state: rclpy.lifecycle.node.LifecycleState)
+
+
+   .. py:method:: on_shutdown(previous_state: rclpy.lifecycle.node.LifecycleState)
+
+

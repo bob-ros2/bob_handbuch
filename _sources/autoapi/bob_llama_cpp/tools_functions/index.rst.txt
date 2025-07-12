@@ -1,0 +1,67 @@
+bob_llama_cpp.tools_functions
+=============================
+
+.. py:module:: bob_llama_cpp.tools_functions
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_llama_cpp.tools_functions.qdrant_client
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llama_cpp.tools_functions.search_internet
+   bob_llama_cpp.tools_functions.topic_list
+   bob_llama_cpp.tools_functions.grep_url
+   bob_llama_cpp.tools_functions.remember
+
+
+Module Contents
+---------------
+
+.. py:function:: search_internet(query: str, limit: int = 3)
+
+   Search in the internet
+
+   Args:
+       query: The query to search for in the internet
+       limit: Optional count of search results to return. The maximum count is 20, default 3
+
+
+.. py:function:: topic_list(filter: str = '')
+
+   Get the available ROS topic list
+
+   Args:
+       filter: text to look for within the topic list
+
+
+.. py:function:: grep_url(url: str, filter: str = None)
+
+   Grep content from a resource behind an url address or a link
+
+   Args:
+       url: URL address link of the resource to grep
+       filter: An optional filter what to grep from the resource
+
+
+.. py:data:: qdrant_client
+   :value: None
+
+
+.. py:function:: remember(context: str, limit: int = 3)
+
+   Remember and recall past conversations, thoughts, incidents similar to the given context.
+
+   Args:
+       context: The context to look for similarity in the memories
+       limit: Optional count of memories to return. The maximum count is 50 memories, default 3
+
+

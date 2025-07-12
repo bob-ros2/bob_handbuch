@@ -1,0 +1,145 @@
+bob_topic_tools.stream_filter
+=============================
+
+.. py:module:: bob_topic_tools.stream_filter
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.stream_filter.StringStreamBuffer
+   bob_topic_tools.stream_filter.StreamProcessor
+   bob_topic_tools.stream_filter.StreamFilterNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.stream_filter.main
+
+
+Module Contents
+---------------
+
+.. py:class:: StringStreamBuffer(max_length=65535)
+
+   .. py:attribute:: max_length
+      :value: 65535
+
+
+
+   .. py:attribute:: buffer
+
+
+   .. py:method:: append_text(text)
+
+      Appends text to the buffer, ensuring the buffer does not exceed max_length.
+
+
+
+   .. py:method:: remove_keywords(keywords)
+
+      Removes all occurrences of keywords from the buffer.
+
+
+
+   .. py:method:: pop(n=65535)
+
+      Pops n characters from the buffer and returns them as a string. Default: 0xFFFF
+
+
+
+.. py:class:: StreamProcessor(start_tag, end_tag, window_size=32, buffer_size=65535)
+
+   .. py:attribute:: ring_buffer
+      :value: [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ',...
+
+
+
+   .. py:attribute:: window_size
+      :value: 32
+
+
+
+   .. py:attribute:: buffer_index
+      :value: 0
+
+
+
+   .. py:attribute:: start_tag
+
+
+   .. py:attribute:: end_tag
+
+
+   .. py:attribute:: start_tag_found
+      :value: False
+
+
+
+   .. py:attribute:: end_tag_found
+      :value: False
+
+
+
+   .. py:attribute:: current_channel
+      :value: 'A'
+
+
+
+   .. py:attribute:: buffer_content
+      :value: ''
+
+
+
+   .. py:attribute:: stream_A
+
+
+   .. py:attribute:: stream_B
+
+
+   .. py:method:: process_char(char)
+
+
+   .. py:method:: process_string(string)
+
+
+   .. py:method:: forward_to_channel_A(string)
+
+
+   .. py:method:: forward_to_channel_B(string)
+
+
+.. py:class:: StreamFilterNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String Stream topic filter node. Can redirect text portion enclosured in start/end tags.
+       
+
+
+   .. py:attribute:: token_handler
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: pub_filtered
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Will be called for every incoming message.
+
+
+
+.. py:function:: main()
+

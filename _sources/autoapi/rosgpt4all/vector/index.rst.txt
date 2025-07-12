@@ -1,0 +1,106 @@
+rosgpt4all.vector
+=================
+
+.. py:module:: rosgpt4all.vector
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   rosgpt4all.vector.VectorNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   rosgpt4all.vector.main
+
+
+Module Contents
+---------------
+
+.. py:class:: VectorNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Basic vector node
+
+
+   .. py:attribute:: collection_name
+
+
+   .. py:attribute:: query
+
+
+   .. py:attribute:: query_model
+
+
+   .. py:attribute:: query_url
+
+
+   .. py:attribute:: query_limit
+
+
+   .. py:attribute:: client
+      :value: None
+
+
+
+   .. py:attribute:: timer
+      :value: None
+
+
+
+   .. py:attribute:: data
+      :value: None
+
+
+
+   .. py:attribute:: done
+      :value: False
+
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:method:: start_query(prompt)
+
+
+   .. py:method:: start_publish(data)
+
+
+   .. py:method:: publish_stdin()
+
+              
+
+
+
+   .. py:method:: input_callback(msg)
+
+              
+
+
+
+   .. py:method:: init_qdrant()
+
+              
+
+
+
+   .. py:method:: query_vector(prompt, limit=None)
+
+              
+
+
+
+.. py:function:: main()
+

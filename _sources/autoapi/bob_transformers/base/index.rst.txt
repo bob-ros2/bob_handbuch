@@ -1,0 +1,115 @@
+bob_transformers.base
+=====================
+
+.. py:module:: bob_transformers.base
+
+.. autoapi-nested-parse::
+
+   Base ROS Node for package bob_transformers.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_transformers.base.Base
+   bob_transformers.base.BaseNode
+
+
+Module Contents
+---------------
+
+.. py:class:: Base(node_name, *, enable_communication_interface: bool = True, **kwargs)
+
+   Bases: :py:obj:`bob_transformers.lnode.LNode`
+
+
+   Lifecycle ROS Node
+
+
+.. py:class:: BaseNode(node_name)
+
+   Bases: :py:obj:`Base`
+
+
+   Lifecycle ROS Node
+
+
+   .. py:attribute:: publisher
+      :value: []
+
+
+
+   .. py:attribute:: subscriber
+      :value: []
+
+
+
+   .. py:method:: destroy()
+
+      Handle destroy for lifecycle node.
+
+
+
+   .. py:method:: add_subscriber(class_type: Any, topic: str, callback, queue_size: int = 100)
+
+      Adds a subscriber.
+
+      Args:
+          class_type (Any): Message class of the topic.
+          topic (str): The topic location.
+          callback (function): Callback function which receives the message.
+          queue_size (int, optional): Queue size. Defaults to 100.
+
+      Returns:
+          Subscriber: The created subscriber instance.
+
+
+
+   .. py:method:: add_publisher(class_type: Any, topic: str, queue_size: int = 100)
+
+      Adds a publisher.
+
+      Args:
+          class_type (Any): Class type of any ROS topic message type.
+          topic (str): The ROS topic name
+          queue_size (int, optional): Queue size. Defaults to 100.
+
+      Returns:
+          Publisher: The created publisher instance.
+
+
+
+   .. py:method:: jsonfy(data: Any, metadata: list = None, tags: list = None) -> str
+
+      Formats a json object. 
+      The keys 'stamp', 'frame_id' and 'tags' are auto filled with the node 
+      name and the creation timestamp. The used data must be JSON compatible.
+      The fields 'metadata' or 'tags' can be overwritten, if both are provided 
+      'metadata' overwrites 'tags'.
+
+
+      `Example of the produced JSON`::
+
+          {
+              "metadata": [
+                  {"key": "stamp", "value": 1432343.034742467},
+                  {"key": "frame_id", "value": "a frame ID"},
+                  {"key": "tags", "value": ["tagname1", "another tag"]}
+                  <additional key/value entries ...>
+              ],
+              "data": <any kind of data>
+          }
+
+      Args:
+          data (Any): Data to add
+          metadata (list, optional): If provided it superseeds default metadata. Defaults to None.
+          tags (list, optional): If provided it overwrites default metadata['tags']. If metadata is provide this paramater has no effect. Defaults to None.
+
+      Returns:
+          str: The resulting json String
+
+
+

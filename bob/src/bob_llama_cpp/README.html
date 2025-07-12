@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_llama_cpp &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llama-cpp.html">ROS Package bob_llama_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-whisper-cpp.html">ROS Package bob_whisper_cpp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-transformers.html">ROS Package bob_transformers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../rosgpt4all.html">ROS Package RosGPT4all</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-docker-network.html">ROS Multi Docker Hosts Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-portainer.html">Setup Portainer with Multiple Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-doxygen.html">Quick Guide Doxygen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_llama_cpp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/bob_llama_cpp/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-llama-cpp">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_llama_cpp">bob_llama_cpp</a><a class="headerlink" href="#ros-package-bob-llama-cpp" title="Link to this heading"></a></h1>
+<p>This ROS package integrates a LLM chat client with function calling capabilities into <a class="reference external" href="https://ros.org"><code class="docutils literal notranslate"><span class="pre">ROS</span></code></a> (Robot Operating System). It needs a running <code class="docutils literal notranslate"><span class="pre">llama.cpp:server</span></code>. Additionally it makes use of <code class="docutils literal notranslate"><span class="pre">Huggingface</span></code> <code class="docutils literal notranslate"><span class="pre">Transformers</span></code> and <code class="docutils literal notranslate"><span class="pre">Autotokenizer</span></code> library to apply the model specific chat template.</p>
+<p>With this ROS node it is possible to run multiple LLM clients simultaneously and share the same completion API endpoint. Together with the llama.cpp server, which can also handle parallel requests and shared context, many interesting things like chaining of LLMs can be done. The LLM-ROS node also provides numerous interfaces for further NL processing.</p>
+<p><strong>Following features are available in this package</strong></p>
+<ul class="simple">
+<li><p>Configurable</p>
+<ul>
+<li><p>chat history</p></li>
+<li><p>system prompt</p></li>
+<li><p>function calling</p></li>
+<li><p>initial conversation</p></li>
+<li><p>HF model_id</p></li>
+<li><p>and other known LLM parameters</p></li>
+<li><p>rich debug output</p></li>
+</ul>
+</li>
+<li><p>ROS Topic interfaces</p>
+<ul>
+<li><p>llm_in input String topic</p></li>
+<li><p>llm_out output String topic</p></li>
+<li><p>llm_generator output String topic</p></li>
+<li><p>llm_sentence output String topic</p></li>
+<li><p>dialog JSON role/assistant pair output String topic</p></li>
+<li><p>json JSON structured Metadata output String topic</p></li>
+</ul>
+</li>
+<li><p>Dynamic reconfigure GUI to change parameters at runtime</p></li>
+<li><p>String Topic IO Terminal to send or monitor LLM conversations</p></li>
+<li><p>Can be started as normal ROS node or as Lifecycle node</p></li>
+<li><p>…</p></li>
+</ul>
+<p><strong>Example of a running chat client with a connected terminal to communicate with the LLM ROS Node</strong></p>
+<p><img alt="ROS RQT Graph with terminal and llm ROS Node" src="https://github.com/bob-ros2/bob_llama_cpp/blob/main/media/llm_graph.jpg?raw=true" /></p>
+<p><img alt="ROS Node Terminal connected with the ROS Node LLM" src="https://github.com/bob-ros2/bob_llama_cpp/blob/main/media/llm_term.jpg?raw=true" /></p>
+<section id="starting-a-llama-cpp-server">
+<h2>Starting a llama.cpp Server<a class="headerlink" href="#starting-a-llama-cpp-server" title="Link to this heading"></a></h2>
+<p>To start a <a class="reference external" href="https://github.com/ggerganov/llama.cpp">llama.cpp</a> server different prebuild docker container are available with and without cuda support.</p>
+<p>Container overview:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ggml-org/llama.cpp/pkgs/container/llama.cpp">https://github.com/ggml-org/llama.cpp/pkgs/container/llama.cpp</a></p></li>
+</ul>
+<p>A lot of llama compatible models can be found and downloaded from <a class="reference external" href="https://huggingface.co/models">Huggingface Website</a><br />
+Look for GGUF models. The higher the quantization, the better function calls work. If a Nvidia GPU should be used with a <code class="docutils literal notranslate"><span class="pre">Docker</span></code> container additionally the <code class="docutils literal notranslate"><span class="pre">Nvidia</span> <span class="pre">Cuda</span> <span class="pre">Toolkit</span></code> need to be installed.</p>
+<p><strong>Related Links</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md">https://github.com/ggerganov/llama.cpp/blob/master/examples/server/README.md</a></p></li>
+<li><p><a class="reference external" href="https://linuxconfig.org/setting-up-nvidia-cuda-toolkit-in-a-docker-container-on-debian-ubuntu">https://linuxconfig.org/setting-up-nvidia-cuda-toolkit-in-a-docker-container-on-debian-ubuntu</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/models">https://huggingface.co/models</a></p></li>
+</ul>
+<p><strong>Good working models including function calling support</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501">https://huggingface.co/mistralai/Mistral-Small-24B-Instruct-2501</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3">https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B">https://huggingface.co/NousResearch/Hermes-2-Pro-Llama-3-8B</a></p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># docker example to start a llama.cpp server with cuda support</span>
+<span class="c1"># two completition calls can be handled parallel, each with an own context size of 8192k </span>
+sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>./models:/models<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ghcr.io/ggerganov/llama.cpp:server-cuda<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-m<span class="w"> </span>/models/Mistral-Small-24B-Instruct-2501-Q8_0.gguf<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--port<span class="w"> </span><span class="m">8080</span><span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--n-predict<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--gpu-layers<span class="w"> </span><span class="m">12</span><span class="w"> </span>--threads-http<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--threads<span class="w"> </span><span class="m">16</span><span class="w"> </span>--parallel<span class="w"> </span><span class="m">2</span><span class="w"> </span>--ctx-size<span class="w"> </span><span class="m">16384</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--override-kv<span class="w"> </span>tokenizer.ggml.add_bos_token<span class="o">=</span>bool:false
+</pre></div>
+</div>
+</section>
+<section id="ros-node-llm">
+<h2>ROS Node LLM<a class="headerlink" href="#ros-node-llm" title="Link to this heading"></a></h2>
+<p>This ROS node is basically a client which uses the llama.cpp server own completetion endpoint (and <code class="docutils literal notranslate"><span class="pre">not</span></code> the OAI comapatible one which URL starts with /v1). It was tested yet only with an own hosted local <a class="reference external" href="https://github.com/ggml-org/llama.cpp/tree/master/examples/server#readme">llama_cpp server</a>.</p>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
+<p>There are a couple of dependencies in order to be able to use all available features of this ROS Node. For an overview see <a class="reference external" href="https://github.com/bob-ros2/bob_llama_cpp/blob/main/requirements.txt"><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></a></p>
+</section>
+<section id="starting-the-llm-client">
+<h3>Starting the LLM client<a class="headerlink" href="#starting-the-llm-client" title="Link to this heading"></a></h3>
+<p>To run the client a completion endpoint must be available. The default url is: http://localhost:8000</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># launch the LLM client with a terminal to </span>
+<span class="c1"># communicate with the completition endpoint</span>
+ros2<span class="w"> </span>launch<span class="w"> </span>bob_llama_cpp<span class="w"> </span>llm.launch.py<span class="w"> </span>terminal:<span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># launch with custom nodes configuration</span>
+ros2<span class="w"> </span>launch<span class="w"> </span>bob_llama_cpp<span class="w"> </span>llm.launch.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>terminal:<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>config_yaml:<span class="o">=</span>my_nodes_config.yaml
+
+<span class="c1"># just run the node with configuration file</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llama_cpp<span class="w"> </span>llm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ros-args<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--params-file<span class="w"> </span>my_node_config.yaml
+
+<span class="c1"># run the node with parameter and remap topics</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llama_cpp<span class="w"> </span>llm<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ros-args<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-p<span class="w"> </span>temperature:<span class="o">=</span><span class="m">0</span>.9<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-p<span class="w"> </span>model_id:<span class="o">=</span>mistralai/Mistral-Small-24B-Instruct-2501<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-p<span class="w"> </span>system_prompt:<span class="o">=</span><span class="s2">&quot;&lt;s&gt;[SYSTEM_PROMPT]Answer like a pirate would answer[/SYSTEM_PROMPT]&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-r<span class="w"> </span>llm_in:<span class="o">=</span>stt_out_topic<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-r<span class="w"> </span>llm_sentence:<span class="o">=</span>tts_in_topic
+<span class="c1"># want to connect TTS and/or STT? Then check out these packages:</span>
+<span class="c1"># https://github.com/bob-ros2/rosspeaks</span>
+<span class="c1"># https://github.com/bob-ros2/bob_whisper_cpp</span>
+<span class="c1"># or https://github.com/bob-ros2/voskros</span>
+</pre></div>
+</div>
+</section>
+<section id="node-parameter">
+<h3>Node Parameter<a class="headerlink" href="#node-parameter" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: api_key<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: The API key, if it’s needed to authorize. Environment variable LLM_API_KEY. Default: ‘no-key’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: api_url<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: The API url of the llama.cpp server. Environment variable LLM_API_URL. Default: http://localhost:8000</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: chat_history<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Chat history behaviour. -1: unlimited, 0: no history, &gt;0: limit. Environment variable LLM_CHAT_HISTORY. Default: -1</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: chat_template<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: not used yet</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: eof_indicator<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: EOF indicator to use. This indicator will be send after the last token happened. This in usefull if in generator mode to identify the end of the response. Environment variable LLM_EOF_INDICATOR. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: initial_messages<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Initial conversation JSON list of dictionaries. The list can be provided as file or directly as JSON list. The dicts has to contain the used role and content items. The initial messages are processed using the according chat template, and added to the history. Environment variable LLM_INITIAL_MESSAGES. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: min_p<br />
+<strong>Type</strong>: double<br />
+<strong>Description</strong>: Sets a minimum base probability threshold for token selection. Environment variable LLM_MIN_P. Default: 0.1</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: model_id<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: The base Huggingface model_id to be used. It will be used to apply the according transformers chat template. This will also be used to auto generate a tools call system prompt if the model supports it and if also tools_module parameter was configured. Environment variable LLM_MODEL_ID. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: n_keep<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Specify the number of tokens from the initial prompt to retain when the model resets its internal context. By default, this value is set to 0 (meaning no tokens are kept). Use -1 to retain all tokens from the initial prompt. When the system_prompt parameter is set the length will be determined from the token count by using the llama.cpp server tokenizer endoint. Environment variable LLM_N_KEEP. Default: -1</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: n_predict<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Set the number of tokens to predict when generating text. Adjusting this value can influence the length of the generated text. Environment variable LLM_N_PREDICT. Default: -1</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: prompt<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Prompt format. Environment variable LLM_PROMPT. Default: {0}\n</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: repeat_last_n<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Last n tokens to consider for penalizing repetition. Environment variable LLM_REPEAT_LAST_N. Default: 64, 0 = disabled, -1 = ctx-size</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: repeat_penalty<br />
+<strong>Type</strong>: double<br />
+<strong>Description</strong>: Control the repetition of token sequences in the generated text. Environment variable LLM_REPEAT_PENALTY. Default: 1.0, 1.0 = disabled.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: stop_tokens<br />
+<strong>Type</strong>: string array<br />
+<strong>Description</strong>: If one of the stop tokens are received in the llm input topic a running generator will be aborted. Environment variable LLM_STOP_TOKENS. Default: ‘stop shutup’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: system_prompt<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: System prompt to set. If provided the n_keep parameter will be set automatically as well and if the context size exceeds llama.cpp will try to keep this system prompt. Further details how n_keep works can be found in the llama.cpp server documentation. Environment variable LLM_SYSTEM_PROMPT. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: temperature<br />
+<strong>Type</strong>: double<br />
+<strong>Description</strong>: Adjust the randomness of the generated text. Environment variable LLM_TEMPERATURE. Default: 0.1</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: tools_module<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Path to the tools function python script. The tool functions and their description need to follow the google standard in order to work with HF chat template. Also the type definitions are important in order to produce later the tool call dict. All contained global python functions are treated as potential tool calls. See an example in the config folder of this package. Environment variable LLM_TOOLS_MODULE. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: top_k<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Limit the next token selection to the K most probable tokens. Environment variable LLM_TOP_K. Default: 40</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: top_p<br />
+<strong>Type</strong>: double<br />
+<strong>Description</strong>: Limit the next token selection to a subset of tokens with a cumulative probability above a threshold P. Environment variable LLM_TOP_P. Default: 0.9</p>
+</div></blockquote>
+</section>
+<section id="subscribed-topics">
+<h3>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~llm_in (std_msgs/String)<br />
+LLM input.</p>
+</div></blockquote>
+</section>
+<section id="published-topics">
+<h3>Published Topics<a class="headerlink" href="#published-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~llm_out (std_msgs/String)<br />
+LLM output. The whole message will be published when the generator has finished.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~llm_generator (std_msgs/String)<br />
+LLM generator output. Each single token is published to the topic.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~llm_sentence (std_msgs/String)<br />
+LLM output aggregated as sentence or sub sentence. A message with content EOF indicates the end of the generator output. Separator list for the sentence can be set with help of the environment variable <code class="docutils literal notranslate"><span class="pre">SENTENCE_DELIMETER</span></code>, the default is “.:,;!?-*\n\t”.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~dialog (std_msgs/String)<br />
+Output as the known user/assistent conversation pair as JSON array.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~json (std_msgs/String)<br />
+Output of a user/assistent conversation pair in structured Metadata format as below. This can be used for example to store structured data into a database. This meta data structure will be used also by other from Bob’s ROS packages.</p>
+</div></blockquote>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;stamp&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.</span><span class="si">%09d</span><span class="s2">&quot;</span> 
+            <span class="o">%</span> <span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">stamp</span><span class="o">.</span><span class="n">sec</span><span class="p">,</span> <span class="n">header</span><span class="o">.</span><span class="n">stamp</span><span class="o">.</span><span class="n">nanosec</span><span class="p">))},</span>
+        <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;frame_id&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">header</span><span class="o">.</span><span class="n">frame_id</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;tags&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;llm&quot;</span><span class="p">,</span><span class="s2">&quot;dialog&quot;</span><span class="p">,</span><span class="n">user</span><span class="p">,</span><span class="n">header</span><span class="o">.</span><span class="n">frame_id</span><span class="p">]},</span>
+        <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;dialog&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">dialog</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="function-calling-and-built-in-tool-functions">
+<h2>Function Calling and Built-in Tool Functions<a class="headerlink" href="#function-calling-and-built-in-tool-functions" title="Link to this heading"></a></h2>
+<section id="how-it-works">
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Link to this heading"></a></h3>
+<p>If the used model is ready for function calling and the transformers <code class="docutils literal notranslate"><span class="pre">model_id</span></code> Autotokenizer version supports it, a Python script with functions can be provided. See also parameter <code class="docutils literal notranslate"><span class="pre">tools_module</span></code> for further details.</p>
+<p>General tool call documentation from <code class="docutils literal notranslate"><span class="pre">Huggingface</span></code>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://huggingface.co/blog/unified-tool-use">https://huggingface.co/blog/unified-tool-use</a></p></li>
+<li><p><a class="reference external" href="https://huggingface.co/docs/hugs/guides/function-calling">https://huggingface.co/docs/hugs/guides/function-calling</a></p></li>
+</ul>
+<section id="minimal-example-for-a-custom-tools-module-file">
+<h4>Minimal example for a custom tools module file<a class="headerlink" href="#minimal-example-for-a-custom-tools-module-file" title="Link to this heading"></a></h4>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mandatory import for every tool module file.</span>
+<span class="c1"># This &#39;prompt_tools&#39; will later be replaced with the </span>
+<span class="c1"># &#39;prompt_tools&#39; instance from the calling LLM ROS Node.</span>
+<span class="c1"># This holds the available tool functions and the tool  </span>
+<span class="c1"># results which are later used by the LLM</span>
+<span class="kn">from</span> <span class="nn">bob_llama_cpp</span> <span class="kn">import</span> <span class="n">prompt_tools</span>
+
+<span class="c1"># define a function with a comment block which follow the Google standard</span>
+<span class="c1"># as better the description is as better it will work later with the model</span>
+<span class="c1"># also typing should be used for the parameters to work properly</span>
+<span class="c1"># as less parameter are used as better it will work</span>
+<span class="k">def</span> <span class="nf">random_number</span><span class="p">(</span><span class="n">maximum</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a random number</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        maximum: The maximum value of the generated random number. Default is 10.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">random</span><span class="o">,</span> <span class="nn">string</span>
+    <span class="n">id_tool_call</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="o">+</span><span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">9</span><span class="p">))</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="n">maximum</span><span class="p">)</span>
+
+    <span class="n">prompt_tools</span><span class="o">.</span><span class="n">tool_calls</span><span class="o">.</span><span class="n">append</span><span class="p">((</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;random_number&quot;</span><span class="p">,</span> <span class="s2">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;maximum&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">maximum</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span> <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">id_tool_call</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">},</span> 
+        <span class="p">{</span><span class="s2">&quot;call_id&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">id_tool_call</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">}))</span>
+</pre></div>
+</div>
+<p>Once the custom tools module is configured the LLM ROS Node will  import it at startup and will load each python function into a tools list for later use.</p>
+<p>The user queries together with the tools list are now converted into the model specific format with help of the Huggingface Autotekenizer apply_chat_template function. That output will now be send with the completition request to the model.</p>
+<p>When the model decides to use one or more of the available tools it will output the tool calls in JSON format. This output will then be feeded into the following code snippet.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">if</span> <span class="n">prompt_tools</span><span class="o">.</span><span class="n">detect_and_process_tool_calls</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prompt_tools</span><span class="o">.</span><span class="n">generate_tool_results</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>If one or more function calls were detected it will be executed accordingly and the result will be directly feeded back into the LLM as a new completion request (the tool result is at this point still not visible to the user of the LLM). The model will now take into account these results to formulate a final answer.</p>
+</section>
+</section>
+<section id="available-tool-functions">
+<h3>Available tool functions<a class="headerlink" href="#available-tool-functions" title="Link to this heading"></a></h3>
+<p>Usefull example tool functions can be found in module <a class="reference external" href="https://github.com/bob-ros2/bob_llama_cpp/blob/main/bob_llama_cpp/tools_functions.py"><code class="docutils literal notranslate"><span class="pre">tools_functions.py</span></code></a> contained in this repository. Some of them need further configuration in order to work. When done configure the ROS parameter <code class="docutils literal notranslate"><span class="pre">tools_module</span></code> with the full path of the script to use the tools.</p>
+<section id="def-search-internet-query-str-limit-int-3">
+<h4>def search_internet(query: str, limit: int=3)<a class="headerlink" href="#def-search-internet-query-str-limit-int-3" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>This tool makes use of Googles custom-search API. To get free access up to 100 calls per day, or more see:</p>
+<ul>
+<li><p><a class="reference external" href="https://developers.google.com/custom-search/v1/introduction/">https://developers.google.com/custom-search/v1/introduction/</a></p></li>
+</ul>
+</li>
+<li><p>Dependencies: requests</p></li>
+<li><p>Environment variables, see <a class="reference external" href="https://github.com/bob-ros2/bob_llama_cpp/blob/main/bob_llama_cpp/tools_functions.py"><code class="docutils literal notranslate"><span class="pre">tools_functions.py</span></code></a> for details:</p>
+<ul>
+<li><p>GOOGLE_SEARCH_URL</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="def-grep-url-url-str-filter-str-none">
+<h4>def grep_url(url: str, filter: str=None)<a class="headerlink" href="#def-grep-url-url-str-filter-str-none" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>This tool calls a webpage with a random useragent to be not detected as a Bot, transforms visible text and links into text.</p></li>
+<li><p>Dependencies: BeautifulSoup, getuseragent, requests</p></li>
+</ul>
+</section>
+<section id="def-remember-context-str-limit-int-3">
+<h4>def remember(context: str, limit: int=3)<a class="headerlink" href="#def-remember-context-str-limit-int-3" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Requirement: A running Qdrant Vector DB with data embedded with the given model in the given collection.</p>
+<ul>
+<li><p><a class="reference external" href="https://qdrant.tech/">https://qdrant.tech/</a></p></li>
+</ul>
+</li>
+<li><p>Dependencies: QdrantClient</p>
+<ul>
+<li><p><a class="reference external" href="https://python-client.qdrant.tech/">https://python-client.qdrant.tech/</a></p></li>
+</ul>
+</li>
+<li><p>Environment variables and default values</p>
+<ul>
+<li><p>TOOL_QDRANT_URL=http://localhost:6333</p></li>
+<li><p>TOOL_QDRANT_MODEL=nomic-ai/nomic-embed-text-v1</p></li>
+<li><p>TOOL_QDRANT_COLLECTION=memo_embedder</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="def-topic-list-filter-str">
+<h4>def topic_list(filter: str=’’)<a class="headerlink" href="#def-topic-list-filter-str" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p>Dependencies: None</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="ros-node-terminal">
+<h2>ROS Node TERMINAL<a class="headerlink" href="#ros-node-terminal" title="Link to this heading"></a></h2>
+<p>With this Ros Node it is possible to sent directly String topic messages to the LLM. The generator output of the LLM node can also be received and displayed in realtime. The input field can optionally be turned off if needed.
+The Ros node can also receive input from stdin which will also be displayed in the text area.</p>
+<section id="id1">
+<h3>Dependencies<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>The required QT5 libraries should already exist if ROS is installed. If missing use below installation to get them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pyqt5
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run frameless terminal window using ROS parameter</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llama_cpp<span class="w"> </span>terminal<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>frameless:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+
+<span class="c1"># show window on another display</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llama_cpp<span class="w"> </span>terminal<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>display:<span class="o">=</span><span class="m">1</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Node Parameter<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~display<br />
+Type: integer<br />
+Display number where to show the window. -1 = default display.<br />
+Default: -1</p>
+</div></blockquote>
+<blockquote>
+<div><p>~fontname<br />
+Type: string<br />
+Window fontname.<br />
+Default: courier</p>
+</div></blockquote>
+<blockquote>
+<div><p>~fontsize<br />
+Type: integer<br />
+Window fontsize.<br />
+Default: 12</p>
+</div></blockquote>
+<blockquote>
+<div><p>~frameless<br />
+Type: boolean<br />
+Switch off window caption.<br />
+Default: false</p>
+</div></blockquote>
+<blockquote>
+<div><p>~geometry<br />
+Type: integer array<br />
+Window geometry. [x, y, with, height]</p>
+</div></blockquote>
+<blockquote>
+<div><p>~margin<br />
+Type: integer array<br />
+Window inner margin. [left, top, right, bottom]<br />
+Default: [10,0,0,0]</p>
+</div></blockquote>
+<blockquote>
+<div><p>~input<br />
+Type: boolean<br />
+Enables or disables the text input field.<br />
+Default: true</p>
+</div></blockquote>
+<blockquote>
+<div><p>~opacity<br />
+Type: double<br />
+Window opacity. 1.0 = fully visible.<br />
+Default: 1.0</p>
+</div></blockquote>
+<blockquote>
+<div><p>~stylesheet<br />
+Type: string<br />
+Stylesheet qss of PlainText area.<br />
+Default: background-color: #000000; color: #f0f0f0;</p>
+</div></blockquote>
+<blockquote>
+<div><p>~title<br />
+Type: string<br />
+Title of window.<br />
+Default: GPT4ALL Terminal</p>
+</div></blockquote>
+<blockquote>
+<div><p>~line_count<br />
+Type: string<br />
+Maximum line count in the text area. 0 = unlimited.<br />
+If the number exceeds the lines are removed from the top.
+Default: 0</p>
+</div></blockquote>
+</section>
+<section id="id3">
+<h3>Subscribed Topics<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~topic_in (std_msgs/String)<br />
+Read input data from topic and output it in the terminal text area.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~topic_in_cr (std_msgs/String)<br />
+Same as <code class="docutils literal notranslate"><span class="pre">~topic_in</span></code> but in addition output it in the terminal text area with a trailing \n</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h3>Published Topics<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~topic_out (std_msgs/String)<br />
+Publish to output topic. Parameter <code class="docutils literal notranslate"><span class="pre">~input</span></code> must be truerin order to be able to see and use the input field.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

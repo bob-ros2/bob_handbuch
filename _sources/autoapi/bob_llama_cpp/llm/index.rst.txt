@@ -1,0 +1,154 @@
+bob_llama_cpp.llm
+=================
+
+.. py:module:: bob_llama_cpp.llm
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llama_cpp.llm.BaseNode
+   bob_llama_cpp.llm.LlmNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llama_cpp.llm.main
+
+
+Module Contents
+---------------
+
+.. py:class:: BaseNode(node_name, *, enable_communication_interface: bool = True, **kwargs)
+
+   Bases: :py:obj:`bob_llama_cpp.lnode.LNode`
+
+
+   Lifecycle ROS Node
+
+
+.. py:class:: LlmNode
+
+   Bases: :py:obj:`BaseNode`
+
+
+   LLM ROS Node wrapper
+
+
+   .. py:attribute:: system_prompt
+      :value: None
+
+
+
+   .. py:attribute:: tools_module
+      :value: None
+
+
+
+   .. py:attribute:: n_keep
+      :value: -1
+
+
+
+   .. py:attribute:: sub_in
+      :value: None
+
+
+
+   .. py:attribute:: sentence
+      :value: ''
+
+
+
+   .. py:attribute:: session_thread
+      :value: None
+
+
+
+   .. py:attribute:: queue
+      :value: []
+
+
+
+   .. py:attribute:: history
+      :value: []
+
+
+
+   .. py:attribute:: pub_generator
+
+
+   .. py:attribute:: pub_out
+
+
+   .. py:attribute:: pub_sentence
+
+
+   .. py:attribute:: pub_dialog
+
+
+   .. py:method:: configure() -> None
+
+      Start/restart initialization of the node
+
+
+
+   .. py:method:: destroy() -> None
+
+      Stop llm thread, destroy subscriber
+
+
+
+   .. py:method:: llm_in_callback(msg: std_msgs.msg.String) -> None
+
+
+   .. py:method:: tokenize(text: str, add_special: bool = False) -> list
+
+      Tokenize text and return the tokens list.
+
+
+
+   .. py:method:: jsonfy(dialog, prompt_user) -> str
+
+      Format a json object from an array with user/assistant messages.
+      The prompt_user should match ^username:.*
+
+
+
+   .. py:method:: generate(prompt: str)
+
+      Generate streaming completion
+
+
+
+   .. py:method:: session() -> None
+
+      Process incoming queue messages.
+
+
+
+   .. py:method:: token_handler(token: str) -> None
+
+      Publishes to the generator and sentence publishers.
+
+
+
+   .. py:method:: publish(data: str, pub) -> None
+
+      Publish data to given String topic.
+
+
+
+   .. py:method:: print(s: str)
+
+      Print to stdout.
+
+
+
+.. py:function:: main(args=None)
+

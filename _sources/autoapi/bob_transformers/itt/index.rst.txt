@@ -1,0 +1,106 @@
+bob_transformers.itt
+====================
+
+.. py:module:: bob_transformers.itt
+
+.. autoapi-nested-parse::
+
+   This ROS Node integrates `Huggingface Transformers` capabilities into `ROS`.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_transformers.itt.ITTNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_transformers.itt.main
+
+
+Module Contents
+---------------
+
+.. py:class:: ITTNode
+
+   Bases: :py:obj:`bob_transformers.base.BaseNode`
+
+
+   Basic image to text ROS Node
+       
+
+
+   .. py:attribute:: pub
+
+
+   .. py:method:: configure()
+
+      Handle configure for lifecycle node.
+
+
+
+   .. py:method:: messages_callback(msg: std_msgs.msg.String)
+
+      String message callback.
+
+
+      `Example: Passing message array with one or more messages`::
+
+          [
+              {
+                  "role": "user",
+                  "content": [
+                      {
+                          "type": "image", 
+                          "path": "/path/to/image.png"},
+                      {
+                          "type": "text", 
+                          "text": "What do you see on that image"},
+                      ],
+              }
+          ]
+
+      `Example: Passing as dict and configure max token`::
+
+          {
+              "max_new_tokens": 128,
+              "messages": [
+                  {
+                      "role": "user",
+                      "content": [
+                          {
+                              "type": "image", 
+                              "path": "/path/to/image.png"
+                          },
+                          {
+                              "type": "text", 
+                              "text": "What do you see on that image"
+                          }
+                      ]
+                  }
+              ]
+          }
+
+
+      `Example: Passing as simple string <image-path> [<num-max-tokens>] <text>`::
+
+          /path/to/image.png What do you see on that image
+          /path/to/image.png 128 What do you see on that image
+
+      Args:
+          msg (String): The received topic message.
+
+      Raises:
+          Exception: raises a
+
+
+
+.. py:function:: main(args=None)
+

@@ -1,0 +1,207 @@
+rosgpt4all.gpt
+==============
+
+.. py:module:: rosgpt4all.gpt
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   rosgpt4all.gpt.GPTNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   rosgpt4all.gpt.main
+
+
+Module Contents
+---------------
+
+.. py:class:: GPTNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   GPT4All ROS Node.
+
+
+   .. py:attribute:: running
+      :value: True
+
+
+
+   .. py:attribute:: socket
+      :value: None
+
+
+
+   .. py:attribute:: socket_clients
+      :value: []
+
+
+
+   .. py:attribute:: queue
+      :value: []
+
+
+
+   .. py:attribute:: gpt_abort
+      :value: False
+
+
+
+   .. py:attribute:: model_name
+
+
+   .. py:attribute:: model_path
+
+
+   .. py:attribute:: allow_download
+
+
+   .. py:attribute:: socket_path
+
+
+   .. py:attribute:: device
+
+
+   .. py:attribute:: system_prompt
+
+
+   .. py:attribute:: prompt
+
+
+   .. py:attribute:: eof_indicator
+
+
+   .. py:attribute:: max_tokens
+
+
+   .. py:attribute:: temp
+
+
+   .. py:attribute:: top_k
+
+
+   .. py:attribute:: top_p
+
+
+   .. py:attribute:: repeat_penalty
+
+
+   .. py:attribute:: repeat_last_n
+
+
+   .. py:attribute:: n_batch
+
+
+   .. py:attribute:: n_threads
+
+
+   .. py:attribute:: ngl
+
+
+   .. py:attribute:: verbose
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub_generator
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: pub_sentence
+
+
+   .. py:attribute:: sentence
+      :value: ''
+
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: session_thread
+
+
+   .. py:attribute:: sock_thread
+
+
+   .. py:method:: gpt_callback(token_id: int, response: str)
+
+      Callback to handle self.gpt_abort signal.
+
+
+
+   .. py:method:: shutdown()
+
+      Cleanup running threads.
+
+
+
+   .. py:method:: parameter_callback(params)
+
+      ROS dynamic reconfigure handler for RQT Gui
+
+
+
+   .. py:method:: topic_callback(msg)
+
+      Pass incoming message to GPT4ALL.
+
+
+
+   .. py:method:: prompt_cleanup(prompt)
+
+      Removes context until the end from prompt.
+
+
+
+   .. py:method:: session()
+
+      Process incoming queue messages by GPT4ALL.
+
+
+
+   .. py:method:: token_handler(token)
+
+      Publishes to the generator and sentence publishers.
+
+
+
+   .. py:method:: publish(s, pub)
+
+      Publish GPT4ALL response.
+
+
+
+   .. py:method:: print(s)
+
+      Print to stdout and socket.
+
+
+
+   .. py:method:: socket_server()
+
+      Serves GPT output to a AF_UNIX socket.
+
+
+
+   .. py:method:: socket_send(bytes)
+
+      Send bytes to all connected clients.
+      Also maintains the self.socket_clients list.
+
+
+
+.. py:function:: main()
+

@@ -1,0 +1,25 @@
+bob_llama_cpp.tools_minimal_example
+===================================
+
+.. py:module:: bob_llama_cpp.tools_minimal_example
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llama_cpp.tools_minimal_example.random_number
+
+
+Module Contents
+---------------
+
+.. py:function:: random_number(maximum: int = 10)
+
+   Get a random number
+
+   Args:
+       maximum: The maximum value of the generated random number. Default is 10.
+
+
