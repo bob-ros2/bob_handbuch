@@ -28,11 +28,12 @@ html_static_path = ['_static']
 # Document Python Code
 autoapi_type = 'python'
 autoapi_dirs = [
-    'bob/src/bob_llama_cpp/bob_llama_cpp',
     'bob/src/bob_topic_tools/bob_topic_tools',
-    'bob/src/bob_transformers/bob_transformers',
+    'bob/src/bob_moondream/bob_moondream',
+    'bob/src/bob_coquitts/bob_coquitts',
+    'bob/src/vox/vox',
+    'bob/src/bob_llm/bob_llm',
     'bob/src/bob_vector_db',
-    'bob/src/rosgpt4all/rosgpt4all',
     ]
 
 html_show_sphinx = False

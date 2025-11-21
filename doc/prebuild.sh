@@ -1,7 +1,7 @@
 #/bin/sh
 
-REPOS="bob_llama_cpp bob_topic_tools bob_launch bob_whisper_cpp bob_msgs bob_transformers bob_vector_db rosgpt4all voskros"
-APIS="bob_llama_cpp bob_topic_tools bob_transformers bob_vector_db rosgpt4all"
+REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox dindbox bob_llm bob_vector_db"
+APIS="bob_topic_tools bob_moondream bob_coquitts vox bob_llm bob_vector_db"
 
 retrieve_readme() {
   curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > doc/bob/$(echo $1|sed 's/_/-/g').md
@@ -23,22 +23,29 @@ for API in $APIS; do
 done
 cd $WORKDIR
 
+# Retrieve all READMEs first
+for REPO in $REPOS; do
+  retrieve_readme $REPO
+done
+
+# Generate sorted package lists
+BOB_PACKAGES=$(echo "$REPOS" | tr ' ' '\n' | grep "^bob_" | sed 's/_/-/g' | sort | sed 's/^/   bob\//; s/$/.md/')
+VOSK_PACKAGE=$(echo "$REPOS" | tr ' ' '\n' | grep "voskros" | sed 's/_/-/g' | sed 's/^/   bob\//; s/$/.md/')
+OTHER_PACKAGES=$(echo "$REPOS" | tr ' ' '\n' | grep -v "^bob_" | grep -v "voskros" | sed 's/_/-/g' | sort | sed 's/^/   bob\//; s/$/.md/')
+
 cat <<EOF > $(dirname $0)/index.rst
 Welcome to Bob's Handbuch
 =========================
-This is a collection of various ROS packages and nodes for natural language processing and system control. They make use of the ROS topics to connect the NLP and LLM components.
+This is a collection of various ROS 2 packages and nodes for natural language processing, LLM integration, and system control. They leverage ROS topics to connect NLP and LLM components seamlessly.
 
-* Compatible Chat Completion API client 
-* API client with function calling cababilities
-* Speach to text
-* Text to speach
-* Text to image
-* Image to text
-* Topic String message filtering and routing
-* Text embedding
-* Image embedding
-* Querying Vector databases
-* Easy ROS launch config in yaml format
+Key Features:
+
+* **LLM Integration**: Compatible Chat Completion API client with function calling capabilities.
+* **Speech Processing**: Real-time Speech-to-Text and Text-to-Speech.
+* **Vision**: Image-to-Text description.
+* **Vector Database**: Text and Image embedding and querying.
+* **Utilities**: Topic filtering and routing, simplified launch configuration.
+* **Infrastructure**: Docker-in-Docker sandbox environment.
 
 .. raw:: html
 
@@ -62,12 +69,14 @@ This is a collection of various ROS packages and nodes for natural language proc
    :maxdepth: 2 
    :caption: Packages
 
-$(
-   for REPO in $REPOS; do
-      retrieve_readme $REPO
-      echo "   bob/$(echo $REPO|sed 's/_/-/g').md"
-   done
-)
+$BOB_PACKAGES
+$VOSK_PACKAGE
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: OTHER
+
+$OTHER_PACKAGES
 
 .. toctree::
    :maxdepth: 2 
@@ -75,6 +84,5 @@ $(
 
    bob/bob-docker-network.md
    bob/bob-portainer.md
-   bob/bob-doxygen.md
 
 EOF

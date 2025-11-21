@@ -1,18 +1,15 @@
 Welcome to Bob's Handbuch
 =========================
-This is a collection of various ROS packages and nodes for natural language processing and system control. They make use of the ROS topics to connect the NLP and LLM components.
+This is a collection of various ROS 2 packages and nodes for natural language processing, LLM integration, and system control. They leverage ROS topics to connect NLP and LLM components seamlessly.
 
-* Compatible Chat Completion API client 
-* API client with function calling cababilities
-* Speach to text
-* Text to speach
-* Text to image
-* Image to text
-* Topic String message filtering and routing
-* Text embedding
-* Image embedding
-* Querying Vector databases
-* Easy ROS launch config in yaml format
+Key Features:
+
+* **LLM Integration**: Compatible Chat Completion API client with function calling capabilities.
+* **Speech Processing**: Real-time Speech-to-Text and Text-to-Speech.
+* **Vision**: Image-to-Text description.
+* **Vector Database**: Text and Image embedding and querying.
+* **Utilities**: Topic filtering and routing, simplified launch configuration.
+* **Infrastructure**: Docker-in-Docker sandbox environment.
 
 .. raw:: html
 
@@ -36,21 +33,27 @@ This is a collection of various ROS packages and nodes for natural language proc
    :maxdepth: 2 
    :caption: Packages
 
-   bob/bob-llama-cpp.md
-   bob/bob-topic-tools.md
+   bob/bob-coquitts.md
    bob/bob-launch.md
-   bob/bob-whisper-cpp.md
+   bob/bob-llm.md
+   bob/bob-moondream.md
+   bob/bob-moondream-msgs.md
    bob/bob-msgs.md
-   bob/bob-transformers.md
+   bob/bob-topic-tools.md
    bob/bob-vector-db.md
-   bob/rosgpt4all.md
    bob/voskros.md
 
 .. toctree::
-   :maxdepth: 3 
+   :maxdepth: 2 
+   :caption: OTHER
+
+   bob/dindbox.md
+   bob/vox.md
+
+.. toctree::
+   :maxdepth: 2 
    :caption: Miscellaneous
 
    bob/bob-docker-network.md
    bob/bob-portainer.md
-   bob/bob-doxygen.md
 
