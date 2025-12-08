@@ -1,7 +1,7 @@
 #/bin/sh
 
-REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox dindbox bob_llm bob_vector_db"
-APIS="bob_topic_tools bob_moondream bob_coquitts vox bob_llm bob_vector_db"
+REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox dindbox bob_llm bob_vector_db bob_sd35"
+APIS="bob_topic_tools bob_moondream bob_coquitts vox bob_llm bob_vector_db bob_sd35"
 
 retrieve_readme() {
   curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > doc/bob/$(echo $1|sed 's/_/-/g').md
