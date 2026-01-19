@@ -34,11 +34,13 @@ Key Features:
    :caption: Packages
 
    bob/bob-coquitts.md
+   bob/bob-flux2.md
    bob/bob-launch.md
    bob/bob-llm.md
    bob/bob-moondream.md
    bob/bob-moondream-msgs.md
    bob/bob-msgs.md
+   bob/bob-sd35.md
    bob/bob-topic-tools.md
    bob/bob-vector-db.md
    bob/voskros.md
