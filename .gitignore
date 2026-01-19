@@ -1,1 +1,7 @@
 _build/
+doc/bob/*.md
+doc/bob/src/
+venv/
+# Keep hand-written files even if pattern matches
+!doc/bob/bob-docker-network.md
+!doc/bob/bob-portainer.md
