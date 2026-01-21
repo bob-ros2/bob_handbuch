@@ -1,0 +1,53 @@
+bob_topic_tools.aggregator
+==========================
+
+.. py:module:: bob_topic_tools.aggregator
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.aggregator.AggregatorNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.aggregator.main
+
+
+Module Contents
+---------------
+
+.. py:class:: AggregatorNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String Stream aggregator node.
+       
+
+
+   .. py:attribute:: sentence
+      :value: ''
+
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Will be called for every incoming message.
+
+
+
+.. py:function:: main()
+

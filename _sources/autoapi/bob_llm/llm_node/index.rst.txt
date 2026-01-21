@@ -1,0 +1,145 @@
+bob_llm.llm_node
+================
+
+.. py:module:: bob_llm.llm_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llm.llm_node.LLMNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llm.llm_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   A ROS 2 node that interfaces with an OpenAI-compatible LLM.
+
+   This node handles chat history, tool execution, and communication with an LLM
+   backend, configured entirely through ROS parameters.
+
+
+   .. py:attribute:: chat_history
+      :value: []
+
+
+
+   .. py:attribute:: _prefix_history_len
+
+
+   .. py:attribute:: _is_generating
+      :value: False
+
+
+
+   .. py:attribute:: _cancel_requested
+      :value: False
+
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub_response
+
+
+   .. py:attribute:: pub_stream
+
+
+   .. py:attribute:: pub_latest_turn
+
+
+   .. py:method:: _initialize_chat_history()
+
+      Populates the initial chat history from ROS parameters.
+
+      This method adds the system prompt and any few-shot examples provided in
+      the 'system_prompt' and 'initial_messages_json' parameters, respectively,
+      to guide the LLM's behavior.
+
+
+
+   .. py:method:: load_llm_client()
+
+      Loads and configures the LLM client based on ROS parameters.
+
+      This method reads the 'api_*' and generation parameters (e.g., temperature,
+      top_p) to instantiate and configure the appropriate backend client for
+      communicating with the Large Language Model.
+
+
+
+   .. py:method:: _load_tools() -> (list, dict)
+
+      Dynamically loads tool modules specified in 'tool_interfaces'.
+
+      Supports loading from both Python module names (e.g., 'my_package.tools')
+      and absolute file paths. It generates an OpenAI-compatible schema for each
+      function and maps the function name to its callable object.
+
+      Returns:
+          A tuple containing a list of tool schemas for the LLM and a dictionary
+          mapping function names to their callable objects.
+
+
+
+   .. py:method:: _publish_latest_turn(user_prompt: str, assistant_message: dict)
+
+      Processes the latest conversational turn for publishing and logging.
+
+      Args:
+          user_prompt: The string content of the user's latest prompt.
+          assistant_message: The final message dictionary from the assistant,
+                             e.g., `{'role': 'assistant', 'content': '...'}`.
+
+
+
+   .. py:method:: _get_truncated_history()
+
+      Returns a copy of chat history with long strings truncated for logging.
+
+
+
+   .. py:method:: _trim_chat_history()
+
+      Prevents the chat history from growing indefinitely.
+
+      It trims the oldest conversational turns to stay within the 'max_history_length'
+      limit, preserving the system prompt and any initial few-shot examples.
+      A turn is defined as a user message and all subsequent assistant/tool
+      messages that follow it.
+
+
+
+   .. py:method:: prompt_callback(msg)
+
+      Processes an incoming prompt from the 'llm_prompt' topic.
+
+      This is the core callback for the node. It manages the conversation flow
+      by first entering a loop to handle potential tool calls from the LLM. Once
+      the LLM decides to respond with text, it exits the loop and generates the
+      final response, either by streaming it token-by-token or as a single
+      message, based on the 'stream' parameter.
+
+      Args:
+          msg: The std_msgs/String message containing the user's prompt.
+
+
+
+.. py:function:: main(args=None)
+

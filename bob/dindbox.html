@@ -1,0 +1,290 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Package DINDBOX Docker-in-Docker for AI &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Package VOX Real-time Transcription" href="vox.html" />
+    <link rel="prev" title="ROS Package VoskRos" href="voskros.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Package DINDBOX Docker-in-Docker for AI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modes-of-operation">Modes of Operation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#web-ui-rest-api">1. Web UI &amp; REST API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#docker-mcp-server-for-ai-agents">2. Docker MCP Server (for AI Agents)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#development">Development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#frontend-react-app-web-app">Frontend (React App - <code class="docutils literal notranslate"><span class="pre">./web_app</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#backend-fastapi-server-src">Backend (FastAPI Server - <code class="docutils literal notranslate"><span class="pre">./src</span></code>)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-frontend-and-backend-locally">Connecting Frontend and Backend Locally</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#security-considerations">Security Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob-docker-network.html">ROS Multi Docker Hosts Network</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-portainer.html">Setup Portainer with Multiple Docker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Package DINDBOX Docker-in-Docker for AI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/dindbox.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="package-dindbox-docker-in-docker-for-ai">
+<h1>Package <a class="reference external" href="https://github.com/bob-ros2/dindbox">DINDBOX</a> Docker-in-Docker for AI<a class="headerlink" href="#package-dindbox-docker-in-docker-for-ai" title="Link to this heading"></a></h1>
+<p>Manage an isolated Docker-in-Docker (DinD) instance via a REST API, a modern web UI, and a Model Context Protocol (MCP) server for AI agents.</p>
+<p>This project runs a sandboxed Docker daemon inside a container, controlled by a FastAPI backend and a React/TypeScript frontend. It’s a powerful tool for CI/CD, automated testing, or providing isolated Docker environments. The entire stack is containerized and orchestrated with Docker Compose.</p>
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Isolated Docker Environment</strong>: Safely manage Docker resources without affecting the host system.</p></li>
+<li><p><strong>Dual Control Interfaces</strong>:</p>
+<ul>
+<li><p>A REST API with a responsive React web UI for manual control.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">stdio</span></code>-based MCP server for integration with AI agents and LLMs.</p></li>
+</ul>
+</li>
+<li><p><strong>Flexible Deployment</strong>: Includes a standard Ubuntu-based <code class="docutils literal notranslate"><span class="pre">Dockerfile</span></code> with NVIDIA GPU support and a lightweight Alpine-based <code class="docutils literal notranslate"><span class="pre">Dockerfile.tiny</span></code> for CPU-only use.</p></li>
+<li><p><strong>GPU Acceleration</strong>: Supports NVIDIA GPU passthrough for demanding workloads.</p></li>
+<li><p><strong>Easy Deployment</strong>: Get running with a single <code class="docutils literal notranslate"><span class="pre">docker-compose</span></code> command.</p></li>
+<li><p><strong>Persistent Storage</strong>: Inner Docker data (images, containers) is persisted in a volume.</p></li>
+<li><p><strong>SSH Access</strong>: Direct shell access into the container and its inner Docker CLI.</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Docker Engine</p></li>
+<li><p>Docker Compose</p></li>
+<li><p><strong>Optional (for GPU support):</strong></p>
+<ul>
+<li><p>NVIDIA GPU</p></li>
+<li><p>NVIDIA host drivers</p></li>
+<li><p>NVIDIA Container Toolkit</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bob-ros2/dindbox.git
+<span class="nb">cd</span><span class="w"> </span>dindbox
+</pre></div>
+</div>
+</li>
+<li><p><strong>(Optional) Configure SSH Access</strong>
+Add your public SSH key to an <code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code> file in the project root for password-less access.</p></li>
+<li><p><strong>Build and Run</strong></p>
+<ul>
+<li><p><strong>Default (GPU Support):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
+</pre></div>
+</div>
+</li>
+<li><p><strong>Lightweight (CPU-only):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>compose<span class="w"> </span>-f<span class="w"> </span>docker-compose.tiny.yaml<span class="w"> </span>up<span class="w"> </span>--build<span class="w"> </span>-d
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Access the Application</strong></p>
+<ul class="simple">
+<li><p><strong>Web UI</strong>: <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code></p></li>
+<li><p><strong>API Docs</strong>: <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/api/v1/docs</span></code></p></li>
+<li><p><strong>SSH</strong>: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">dind&#64;localhost</span> <span class="pre">-p</span> <span class="pre">2223</span></code> (password: <code class="docutils literal notranslate"><span class="pre">dind</span></code>)</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="modes-of-operation">
+<h2>Modes of Operation<a class="headerlink" href="#modes-of-operation" title="Link to this heading"></a></h2>
+<section id="web-ui-rest-api">
+<h3>1. Web UI &amp; REST API<a class="headerlink" href="#web-ui-rest-api" title="Link to this heading"></a></h3>
+<p>The default mode, launched via <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span></code>, runs the FastAPI server and React UI. It’s ideal for human users and traditional API integrations, providing a full web interface and Swagger documentation.</p>
+</section>
+<section id="docker-mcp-server-for-ai-agents">
+<h3>2. Docker MCP Server (for AI Agents)<a class="headerlink" href="#docker-mcp-server-for-ai-agents" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">docker-mcp-server</span></code> provides a <code class="docutils literal notranslate"><span class="pre">stdio</span></code> interface for programmatic control, designed for AI agents or LLMs with tool-calling capabilities. It allows an automated system to safely execute Docker commands within the sandboxed environment.</p>
+<p>Example tool-calling configuration:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uvx&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;/path/to/dindbox/&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;docker-mcp-server&quot;</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;DOCKER_HOST&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ssh://dind@thehostname:2223&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stdio&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>This configuration connects to the container’s Docker daemon via SSH. Omit <code class="docutils literal notranslate"><span class="pre">env</span></code> to connect to a local Docker daemon.</em></p>
+</section>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h2>
+<section id="frontend-react-app-web-app">
+<h3>Frontend (React App - <code class="docutils literal notranslate"><span class="pre">./web_app</span></code>)<a class="headerlink" href="#frontend-react-app-web-app" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>web_app
+npm<span class="w"> </span>install
+npm<span class="w"> </span>run<span class="w"> </span>dev<span class="w"> </span><span class="c1"># Starts dev server on port 5173</span>
+</pre></div>
+</div>
+</section>
+<section id="backend-fastapi-server-src">
+<h3>Backend (FastAPI Server - <code class="docutils literal notranslate"><span class="pre">./src</span></code>)<a class="headerlink" href="#backend-fastapi-server-src" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>fastapi<span class="w"> </span><span class="s2">&quot;uvicorn[standard]&quot;</span>
+uvicorn<span class="w"> </span>src.docker_mcp_server.api_server:app<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--reload
+</pre></div>
+</div>
+</section>
+<section id="connecting-frontend-and-backend-locally">
+<h3>Connecting Frontend and Backend Locally<a class="headerlink" href="#connecting-frontend-and-backend-locally" title="Link to this heading"></a></h3>
+<p>For the web UI to work properly in a local development environment, it needs to connect to the API server at the relative path <code class="docutils literal notranslate"><span class="pre">/api/v1</span></code>. To achieve this, you can build the frontend and serve its static files directly from the FastAPI backend.</p>
+<ol class="arabic">
+<li><p><strong>Build the React app:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># From the project root</span>
+<span class="nb">cd</span><span class="w"> </span>web_app<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>build
+</pre></div>
+</div>
+</li>
+<li><p><strong>Copy the build output to the <code class="docutils literal notranslate"><span class="pre">static</span></code> directory:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># From the project root</span>
+cp<span class="w"> </span>-r<span class="w"> </span>web_app/dist/*<span class="w"> </span>static/
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run the FastAPI server</strong> as described in the backend section.</p></li>
+</ol>
+<p>You can now access both the frontend and backend from <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code>.</p>
+</section>
+</section>
+<section id="security-considerations">
+<h2>Security Considerations<a class="headerlink" href="#security-considerations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>AI Agent Control</strong>: This tool grants AI agents significant capabilities. An unconstrained or improperly prompted agent could perform unintended actions. Use with agents that have appropriate safeguards or human oversight.</p></li>
+<li><p><strong>Network Exposure</strong>: The API (<code class="docutils literal notranslate"><span class="pre">8000</span></code>) and SSH (<code class="docutils literal notranslate"><span class="pre">2223</span></code>) ports are exposed on the host by default. Protect these ports with a firewall, especially on untrusted networks.</p></li>
+<li><p><strong>DinD Isolation</strong>: DinD is not a perfect security sandbox. A sophisticated attacker who compromises the container could potentially exploit kernel vulnerabilities to access the host. Do not run untrusted images if host security is a critical concern.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="voskros.html" class="btn btn-neutral float-left" title="ROS Package VoskRos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vox.html" class="btn btn-neutral float-right" title="Package VOX Real-time Transcription" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

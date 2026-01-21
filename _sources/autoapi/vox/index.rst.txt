@@ -1,0 +1,17 @@
+vox
+===
+
+.. py:module:: vox
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/vox/cli/index
+   /autoapi/vox/core/index
+   /autoapi/vox/handlers/index
+
+

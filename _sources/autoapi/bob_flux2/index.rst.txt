@@ -1,0 +1,15 @@
+bob_flux2
+=========
+
+.. py:module:: bob_flux2
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/bob_flux2/flux2_node/index
+
+

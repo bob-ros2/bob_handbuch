@@ -1,0 +1,123 @@
+bob_sd35.tti_node
+=================
+
+.. py:module:: bob_sd35.tti_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_sd35.tti_node.TTINode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_sd35.tti_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: TTINode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Text to image generator node.
+
+
+   .. py:attribute:: _pipe
+      :value: None
+
+
+
+   .. py:attribute:: _cv_bridge
+
+
+   .. py:attribute:: _prompt_sub
+
+
+   .. py:attribute:: _image_pub
+
+
+   .. py:method:: _prompt_callback(msg: std_msgs.msg.String)
+
+      Callback for incoming prompt messages.
+      Uses message content as prompt.
+
+
+
+   .. py:method:: _publish_image(pil_image: PIL.Image.Image)
+
+      Publishes a PIL Image as a ROS Image message if there are subscribers.
+
+
+
+   .. py:method:: load_model()
+
+      Downloads the model if necessary and loads the SD3.5 Text2Img pipeline.
+      Returns the loaded pipeline.
+
+
+
+   .. py:method:: generate_image(prompt: str, output_path: str) -> PIL.Image.Image | None
+
+      Generates an image based on text prompt.
+
+      Args:
+          prompt: The text prompt describing the desired output.
+          output_path: Path where the output image will be saved.
+
+      Returns:
+          The generated PIL Image if successful, None otherwise.
+
+
+
+   .. py:method:: unload_model()
+
+      Unloads the model from memory to free VRAM.
+
+
+
+   .. py:method:: _generate_auto_filename(output_path: str) -> str
+
+      Generates a unique filename when output_path ends with 'auto'.
+
+      If output_path is 'auto' or ends with '/auto', generates a filename
+      with pattern: <base_path>tti_<4-digit-counter>_<8-char-random>.png
+
+      Args:
+          output_path: The output path parameter value.
+
+      Returns:
+          The generated unique filename, or original path if not 'auto'.
+
+
+
+   .. py:method:: _run_generation()
+
+      Runs the image generation using the configured parameters.
+      If 'once' is True, shuts down the node after generation.
+
+
+
+   .. py:method:: _schedule_shutdown(success: bool = True)
+
+      Schedules a shutdown after keep_alive seconds using a ROS2 timer.
+      This is non-blocking and allows the executor to continue processing.
+
+
+
+   .. py:method:: _shutdown_callback()
+
+      Timer callback that triggers the shutdown.
+
+
+
+.. py:function:: main(args=None)
+

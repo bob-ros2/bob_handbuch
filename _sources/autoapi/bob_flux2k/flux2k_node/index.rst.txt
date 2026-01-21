@@ -1,0 +1,134 @@
+bob_flux2k.flux2k_node
+======================
+
+.. py:module:: bob_flux2k.flux2k_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_flux2k.flux2k_node.Flux2Knode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_flux2k.flux2k_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: Flux2Knode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   A ROS node that interfaces with the FLUX.2-klein model for text-to-image 
+   and image-to-image generation.
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: repo_id
+
+
+   .. py:attribute:: model_dir
+
+
+   .. py:attribute:: device
+
+
+   .. py:attribute:: image_path
+
+
+   .. py:attribute:: prompt
+
+
+   .. py:attribute:: seed
+
+
+   .. py:attribute:: input_image
+
+
+   .. py:attribute:: once
+
+
+   .. py:attribute:: image_counter
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: torch_dtype
+
+
+   .. py:attribute:: pipe
+      :value: None
+
+
+
+   .. py:attribute:: current_repo_id
+      :value: None
+
+
+
+   .. py:attribute:: current_cpu_offload
+      :value: None
+
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:attribute:: image_pub
+
+
+   .. py:method:: _initial_prompt_timer_callback()
+
+      One-shot timer callback to process the initial prompt after the node has initialized.
+
+
+
+   .. py:method:: _parse_prompt(msg_data)
+
+      Parses the incoming prompt message. 
+      Supports plain text or a JSON string like:
+      {"content": "...", "image_url": "..."}
+
+
+
+   .. py:method:: _load_input_image(image_input)
+
+      Loads an image from a URL, local file path, or base64 data string.
+
+
+
+   .. py:method:: _get_image_output_path()
+
+      Generates the output path for the generated image.
+      If image_path ends with 'auto', generates a unique filename with a counter and random suffix.
+
+
+
+   .. py:method:: prompt_callback(msg)
+
+      Callback for the 'prompt' subscription. 
+      Parses the prompt (supports JSON for dynamic ITI), loads or clears the model as needed,
+      runs the inference, saves the result, and publishes the image.
+
+
+
+.. py:function:: main(args=None)
+
+   Main entry point for the Flux2K ROS 2 node.
+
+

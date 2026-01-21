@@ -1,0 +1,133 @@
+bob_llm.backend_clients
+=======================
+
+.. py:module:: bob_llm.backend_clients
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llm.backend_clients.OpenAICompatibleClient
+
+
+Module Contents
+---------------
+
+.. py:class:: OpenAICompatibleClient(api_url: str, api_key: str, model: str, logger, temperature: float = 0.7, top_p: float = 1.0, max_tokens: int = 0, stop: list = None, presence_penalty: float = 0.0, frequency_penalty: float = 0.0, timeout: float = 60.0, response_format: dict = None)
+
+   A client for OpenAI-compatible APIs that supports chat, tool use, and streaming.
+
+   This class encapsulates the logic for sending requests to an LLM backend,
+   handling both standard (blocking) and streaming responses. It is configured
+   with various generation parameters to control the LLM's output.
+
+
+   .. py:attribute:: api_url
+
+
+   .. py:attribute:: api_key
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: headers
+
+
+   .. py:attribute:: temperature
+      :value: 0.7
+
+
+
+   .. py:attribute:: top_p
+      :value: 1.0
+
+
+
+   .. py:attribute:: max_tokens
+      :value: 0
+
+
+
+   .. py:attribute:: stop
+      :value: None
+
+
+
+   .. py:attribute:: presence_penalty
+      :value: 0.0
+
+
+
+   .. py:attribute:: frequency_penalty
+      :value: 0.0
+
+
+
+   .. py:attribute:: timeout
+      :value: 60.0
+
+
+
+   .. py:attribute:: response_format
+      :value: None
+
+
+
+   .. py:method:: _build_payload(history: list, tools: list = None, stream: bool = False) -> dict
+
+      Constructs the JSON payload for an API request.
+
+      This helper method assembles the request body, including the model name,
+      message history, generation parameters, tool definitions, and stream flag.
+      It enforces the convention of using either 'temperature' or 'top_p', but
+      not both.
+
+      Args:
+          history: The list of messages in the chat history.
+          tools: An optional list of tool definitions.
+          stream: A boolean indicating whether to enable streaming.
+
+      Returns:
+          A dictionary representing the complete JSON payload.
+
+
+
+   .. py:method:: process_prompt(history: list, tools: list = None) -> (bool, dict)
+
+      Sends a non-streaming request to the LLM to get a complete response.
+
+      This is used for single-shot responses, especially when expecting a tool call
+      from the model.
+
+      Args:
+          history: The list of messages in the chat history.
+          tools: An optional list of tool definitions.
+
+      Returns:
+          A tuple containing a boolean for success and either the response
+          message dictionary or an error string on failure.
+
+
+
+   .. py:method:: stream_prompt(history: list, tools: list = None)
+
+      Sends a streaming request to the LLM and yields response chunks.
+
+      This method is used for generating the final text response token-by-token.
+
+      Args:
+          history: The list of messages in the chat history.
+          tools: An optional list of tool definitions (rarely used with streaming).
+
+      Yields:
+          String chunks of the generated text content as they are received.
+          An error message string is yielded if the request fails.
+
+
+

@@ -1,0 +1,18 @@
+bob_topic_tools
+===============
+
+.. py:module:: bob_topic_tools
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/bob_topic_tools/aggregator/index
+   /autoapi/bob_topic_tools/filter/index
+   /autoapi/bob_topic_tools/stream_filter/index
+   /autoapi/bob_topic_tools/terminal/index
+
+

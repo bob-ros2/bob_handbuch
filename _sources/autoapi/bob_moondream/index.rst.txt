@@ -1,0 +1,15 @@
+bob_moondream
+=============
+
+.. py:module:: bob_moondream
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/bob_moondream/moondream_node/index
+
+

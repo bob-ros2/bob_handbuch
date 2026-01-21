@@ -1,0 +1,31 @@
+bob_vector_db.json_embedder
+===========================
+
+.. py:module:: bob_vector_db.json_embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_vector_db.json_embedder.JsonEmbedder
+
+
+Module Contents
+---------------
+
+.. py:class:: JsonEmbedder
+
+   Bases: :py:obj:`abc.ABC`
+
+
+   Abstract JSON embedding interface with optional media input
+   Override the __call__ function in derived class to use it.
+
+
+   .. py:method:: __call__(json: str, media: list = None) -> None
+      :abstractmethod:
+
+
+
