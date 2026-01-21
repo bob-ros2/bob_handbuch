@@ -4,12 +4,13 @@ This is a collection of various ROS 2 packages and nodes for natural language pr
 
 Key Features:
 
-* **LLM Integration**: Compatible Chat Completion API client with function calling capabilities.
-* **Speech Processing**: Real-time Speech-to-Text and Text-to-Speech.
-* **Vision**: Image-to-Text description.
-* **Vector Database**: Text and Image embedding and querying.
-* **Utilities**: Topic filtering and routing, simplified launch configuration.
-* **Infrastructure**: Docker-in-Docker sandbox environment.
+* **LLM Integration**: OpenAI-compatible API interface with stateful conversations and dynamic tool calling.
+* **Speech Processing**: Real-time Text-to-Speech (XTTS voice cloning) and offline Speech-to-Text.
+* **Vision & VLM**: Visual reasoning, captioning, and Q&A via Moondream2 Vision-Language Model.
+* **Image Generation**: High-quality Text-to-Image and Image-to-Image generation using Stable Diffusion 3.5 and FLUX.2 large and klein.
+* **Vector Database**: Semantic storage and multimodal retrieval using Chroma and Qdrant.
+* **Voice Assistant**: Real-time Whisper-based transcription with a pluggable output system.
+* **Infrastructure**: Isolated Docker-in-Docker sandbox (GPU supported) and advanced ROS topic utilities.
 
 .. raw:: html
 
@@ -35,6 +36,7 @@ Key Features:
 
    bob/bob-coquitts.md
    bob/bob-flux2.md
+   bob/bob-flux2k.md
    bob/bob-launch.md
    bob/bob-llm.md
    bob/bob-moondream.md
