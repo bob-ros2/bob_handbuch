@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_vector_db.embedder &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="bob_vector_db.json_embedder" href="../json_embedder/index.html" />
+    <link rel="prev" title="bob_vector_db.chroma_embedder" href="../chroma_embedder/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_vector_db</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../chroma_embedder/index.html">bob_vector_db.chroma_embedder</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_vector_db.embedder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../json_embedder/index.html">bob_vector_db.json_embedder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../qdrant_embedder/index.html">bob_vector_db.qdrant_embedder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_vector_db</a></li>
+      <li class="breadcrumb-item active">bob_vector_db.embedder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_vector_db/embedder/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_vector_db.embedder">
+<span id="bob-vector-db-embedder"></span><h1>bob_vector_db.embedder<a class="headerlink" href="#module-bob_vector_db.embedder" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_vector_db.embedder.EmbedderNode" title="bob_vector_db.embedder.EmbedderNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EmbedderNode</span></code></a></p></td>
+<td><p>Basic Embedder ROS Node.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_vector_db.embedder.main" title="bob_vector_db.embedder.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_vector_db.embedder.</span></span><span class="sig-name descname"><span class="pre">EmbedderNode</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>Basic Embedder ROS Node.
+This ROS node subscribes to a std_msgs/msg/String topic to receive JSON data with embedding messages.
+Additionaly, when using a Qdrant vector Database, it’s possible to embed Images along with text and
+Payload data from a sensor_msgs/msg/Image or bob_msgs/msg/STTImage.</p>
+<p>It embeds the delivered data into the configured Vector DB. A Qdrant Vector DB is the default DB.
+To embed into a Chroma DB set parameter ‘use_chroma’ to true. See ROS parameter for further configuration.
+The JSON data has to contain the following fields. (for Qdrant the ids are optional).</p>
+<p><cite>Example of a text embedding</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;collection&quot;</span><span class="p">:</span> <span class="s2">&quot;stories&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;some story text&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text abou something strange&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;metadatas&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;The end&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Dark star&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;ids&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;id1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id2&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><cite>Example of a text + image embedding</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;collection&quot;</span><span class="p">:</span> <span class="s2">&quot;movie_cover&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;documents&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;some story text&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;text about something strange&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;metadatas&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;The end&quot;</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Dark star&quot;</span><span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;images&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;/path/to/cover_image_id1.jpg&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;/path/to/cover_image_id2.jpg&quot;</span>
+    <span class="p">],</span> <span class="s2">&quot;ids&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;id1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id2&quot;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>For the image embedding there exist following environment variables:</p>
+<p>Enable / disable automatic storing of the image in Base64 format into payload data:</p>
+<blockquote>
+<div><p>EMBED_IMAGES_BASE64 Default: 0</p>
+</div></blockquote>
+<p>Used image format when embedding from sensor_msgs/msg/Image or bob_msgs/msg/STTImage:</p>
+<blockquote>
+<div><p>EMBED_PIL_B64FORMAT Default: JPEG</p>
+</div></blockquote>
+<p>See Package README.md for further information.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.host">
+<span class="sig-name descname"><span class="pre">host</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.host" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.port">
+<span class="sig-name descname"><span class="pre">port</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.port" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.path">
+<span class="sig-name descname"><span class="pre">path</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.location">
+<span class="sig-name descname"><span class="pre">location</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.location" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.sub">
+<span class="sig-name descname"><span class="pre">sub</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.sub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.sub_raw">
+<span class="sig-name descname"><span class="pre">sub_raw</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.sub_raw" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.sub_image">
+<span class="sig-name descname"><span class="pre">sub_image</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.sub_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.sub_ttimage">
+<span class="sig-name descname"><span class="pre">sub_ttimage</span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.sub_ttimage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.init_qdrant">
+<span class="sig-name descname"><span class="pre">init_qdrant</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.init_qdrant" title="Link to this definition"></a></dt>
+<dd><p>Init Qdrant embedder</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.init_chroma">
+<span class="sig-name descname"><span class="pre">init_chroma</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.init_chroma" title="Link to this definition"></a></dt>
+<dd><p>Init Chroma embedder</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.embed_mixed">
+<span class="sig-name descname"><span class="pre">embed_mixed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">media</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.embed_mixed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.embed_callback">
+<span class="sig-name descname"><span class="pre">embed_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">std_msgs.msg.String</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.embed_callback" title="Link to this definition"></a></dt>
+<dd><p>Embeds the incoming JSON topic message into the Vector DB.
+Prints the incoming message also to the debug log.
+If it fails an error log entry will be written.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.embed_raw_callback">
+<span class="sig-name descname"><span class="pre">embed_raw_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">std_msgs.msg.String</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.embed_raw_callback" title="Link to this definition"></a></dt>
+<dd><p>Embeds raw data of any type into default collection ‘embed_raw’.
+To use another collection set the env var or ROS parameter accordingly.
+If the collection comes with the input data that will be used instead.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.embed_image">
+<span class="sig-name descname"><span class="pre">embed_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">sensor_msgs.msg.Image</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bob_msgs.msg.TTImage</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.embed_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.embed_image_callback">
+<span class="sig-name descname"><span class="pre">embed_image_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">sensor_msgs.msg.Image</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.embed_image_callback" title="Link to this definition"></a></dt>
+<dd><p>Embeds Image only with simple payload into default collection ‘embed_raw’.
+To use another collection set the env var or ROS parameter accordingly.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.EmbedderNode.embed_ttimage_callback">
+<span class="sig-name descname"><span class="pre">embed_ttimage_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bob_msgs.msg.TTImage</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#bob_vector_db.embedder.EmbedderNode.embed_ttimage_callback" title="Link to this definition"></a></dt>
+<dd><p>Embeds TTImage with payload into default collection ‘embed_raw’.
+To use another collection set the env var or ROS parameter accordingly.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_vector_db.embedder.main">
+<span class="sig-prename descclassname"><span class="pre">bob_vector_db.embedder.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_vector_db.embedder.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../chroma_embedder/index.html" class="btn btn-neutral float-left" title="bob_vector_db.chroma_embedder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../json_embedder/index.html" class="btn btn-neutral float-right" title="bob_vector_db.json_embedder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

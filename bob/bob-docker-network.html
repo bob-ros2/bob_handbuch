@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Multi Docker Hosts Network &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Multi Docker Hosts Network</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-docker-network.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-multi-docker-hosts-network">
+<h1>ROS Multi Docker Hosts Network<a class="headerlink" href="#ros-multi-docker-hosts-network" title="Link to this heading"></a></h1>
+<p>ROS Nodes need to be in the same subnet to find each other. This is a challange if you want to use Docker container shared between multiple Docker hosts and also want to be able to discover the own hosts in order to be able to access hardware like a GPU, audio or displays.</p>
+<ul class="simple">
+<li><p>This example setup creates a macvlan network of 3 Docker hosts which share all the same subnet with 128 IP addresses.</p></li>
+<li><p>The other 128 addresses are owned by the router to be able to assign free addresses also to other devices.</p></li>
+<li><p>Each Docker container which use this network can discover each other.</p></li>
+<li><p>Each Docker container which use this network can also discover the own host.</p></li>
+<li><p>Each Docker host has its own address range</p></li>
+<li><p>With the help of Docker Compose, fixed IP addresses could also be assigned to specific container.</p></li>
+</ul>
+<p>Be warned, this network cannot be called very secure because the doors are wide open, but that’s not the point here.</p>
+<section id="contained-components">
+<h2>Contained components<a class="headerlink" href="#contained-components" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>1 Router with DHCP capabilities (e.g. a typical router from your service provider)</p></li>
+<li><p>2 Normal Docker Hosts running on two different server</p></li>
+<li><p>1 Synology NAS Docker Host</p></li>
+</ul>
+</section>
+<section id="config">
+<h2>Config<a class="headerlink" href="#config" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Used subnet: 192.168.1.0</span>
+<span class="c1"># The Aux addresses are the IP addresses of the respective Docker host.</span>
+<span class="c1"># The sudo ip commands below need to be repeated after a reboot!</span>
+
+<span class="c1">################################################################################</span>
+<span class="c1"># router 50 % from address range</span>
+
+Address:<span class="w">   </span><span class="m">192</span>.168.1.0<span class="w">           </span><span class="m">11000000</span>.10101000.00000001.0<span class="w"> </span><span class="m">0000000</span>
+Netmask:<span class="w">   </span><span class="m">255</span>.255.255.128<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">25</span><span class="w">  </span><span class="m">11111111</span>.11111111.11111111.1<span class="w"> </span><span class="m">0000000</span>
+Wildcard:<span class="w">  </span><span class="m">0</span>.0.0.127<span class="w">             </span><span class="m">00000000</span>.00000000.00000000.0<span class="w"> </span><span class="nv">1111111</span>
+<span class="o">=</span>&gt;
+Network:<span class="w">   </span><span class="m">192</span>.168.1.0/25<span class="w">        </span><span class="m">11000000</span>.10101000.00000001.0<span class="w"> </span><span class="m">0000000</span><span class="w"> </span><span class="o">(</span>Class<span class="w"> </span>C<span class="o">)</span>
+Broadcast:<span class="w"> </span><span class="m">192</span>.168.1.127<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.0<span class="w"> </span><span class="m">1111111</span>
+HostMin:<span class="w">   </span><span class="m">192</span>.168.1.1<span class="w">           </span><span class="m">11000000</span>.10101000.00000001.0<span class="w"> </span><span class="m">0000001</span>
+HostMax:<span class="w">   </span><span class="m">192</span>.168.1.126<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.0<span class="w"> </span><span class="m">1111110</span>
+Hosts/Net:<span class="w"> </span><span class="m">126</span><span class="w">                   </span><span class="o">(</span>Private<span class="w"> </span>Internet<span class="o">)</span>
+
+<span class="c1">################################################################################</span>
+<span class="c1"># 25% synology</span>
+
+Address:<span class="w">   </span><span class="m">192</span>.168.1.128<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.10<span class="w"> </span><span class="m">000000</span>
+Netmask:<span class="w">   </span><span class="m">255</span>.255.255.192<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">26</span><span class="w">  </span><span class="m">11111111</span>.11111111.11111111.11<span class="w"> </span><span class="m">000000</span>
+Wildcard:<span class="w">  </span><span class="m">0</span>.0.0.63<span class="w">              </span><span class="m">00000000</span>.00000000.00000000.00<span class="w"> </span><span class="nv">111111</span>
+<span class="o">=</span>&gt;
+Network:<span class="w">   </span><span class="m">192</span>.168.1.128/26<span class="w">      </span><span class="m">11000000</span>.10101000.00000001.10<span class="w"> </span><span class="m">000000</span><span class="w"> </span><span class="o">(</span>Class<span class="w"> </span>C<span class="o">)</span>
+Broadcast:<span class="w"> </span><span class="m">192</span>.168.1.191<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.10<span class="w"> </span><span class="m">111111</span>
+HostMin:<span class="w">   </span><span class="m">192</span>.168.1.129<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.10<span class="w"> </span><span class="m">000001</span>
+HostMax:<span class="w">   </span><span class="m">192</span>.168.1.190<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.10<span class="w"> </span><span class="m">111110</span>
+Hosts/Net:<span class="w"> </span><span class="m">62</span><span class="w">                    </span><span class="o">(</span>Private<span class="w"> </span>Internet<span class="o">)</span>
+
+<span class="c1"># synology docker macvlan settings</span>
+Subnetz<span class="w"> </span><span class="m">192</span>.168.1.0/24
+IP<span class="w"> </span>Bereich<span class="w"> </span><span class="m">192</span>.168.1.128/26
+Gateway<span class="w"> </span><span class="m">192</span>.168.1.1
+
+<span class="c1"># create macvlan docker network with specific subnet and address range</span>
+<span class="c1"># DHCP server of the host network should not assign configured ip-range</span>
+<span class="c1"># on host bob</span>
+<span class="c1"># check config with: sudo docker network ls</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>macvlan<span class="w"> </span>-o<span class="w"> </span><span class="nv">parent</span><span class="o">=</span>eth0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gateway<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ip-range<span class="w"> </span><span class="m">192</span>.168.1.128/26<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--aux-address<span class="w"> </span><span class="s1">&#39;host=192.168.1.11&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bobnet
+
+<span class="c1"># login as admin on synology NAS</span>
+<span class="c1"># add macvlan host access between docker host and container</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>bobnet-host<span class="w"> </span>link<span class="w"> </span>eth0<span class="w"> </span><span class="nb">type</span><span class="w"> </span>macvlan<span class="w"> </span>mode<span class="w"> </span>bridge
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.11/32<span class="w"> </span>dev<span class="w"> </span>bobnet-host
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>bobnet-host<span class="w"> </span>up
+sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.128/26<span class="w"> </span>dev<span class="w"> </span>bobnet-host
+
+<span class="c1">################################################################################</span>
+<span class="c1"># 12,5% bob</span>
+
+Address:<span class="w">   </span><span class="m">192</span>.168.1.192<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.110<span class="w"> </span><span class="m">00000</span>
+Netmask:<span class="w">   </span><span class="m">255</span>.255.255.224<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">27</span><span class="w">  </span><span class="m">11111111</span>.11111111.11111111.111<span class="w"> </span><span class="m">00000</span>
+Wildcard:<span class="w">  </span><span class="m">0</span>.0.0.31<span class="w">              </span><span class="m">00000000</span>.00000000.00000000.000<span class="w"> </span><span class="nv">11111</span>
+<span class="o">=</span>&gt;
+Network:<span class="w">   </span><span class="m">192</span>.168.1.192/27<span class="w">      </span><span class="m">11000000</span>.10101000.00000001.110<span class="w"> </span><span class="m">00000</span><span class="w"> </span><span class="o">(</span>Class<span class="w"> </span>C<span class="o">)</span>
+Broadcast:<span class="w"> </span><span class="m">192</span>.168.1.223<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.110<span class="w"> </span><span class="m">11111</span>
+HostMin:<span class="w">   </span><span class="m">192</span>.168.1.193<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.110<span class="w"> </span><span class="m">00001</span>
+HostMax:<span class="w">   </span><span class="m">192</span>.168.1.222<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.110<span class="w"> </span><span class="m">11110</span>
+Hosts/Net:<span class="w"> </span><span class="m">30</span><span class="w">                    </span><span class="o">(</span>Private<span class="w"> </span>Internet<span class="o">)</span>
+
+<span class="c1"># create macvlan docker network with specific subnet and address range</span>
+<span class="c1"># DHCP server of the host network should not assign configured ip-range</span>
+<span class="c1"># on host bob</span>
+<span class="c1"># check config with: sudo docker network ls</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>macvlan<span class="w"> </span>-o<span class="w"> </span><span class="nv">parent</span><span class="o">=</span>enp3s0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gateway<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ip-range<span class="w"> </span><span class="m">192</span>.168.1.192/27<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--aux-address<span class="w"> </span><span class="s1">&#39;host=192.168.1.36&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bobnet
+
+<span class="c1"># add macvlan host access between docker host and container</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>bobnet-host<span class="w"> </span>link<span class="w"> </span>enp3s0<span class="w"> </span><span class="nb">type</span><span class="w"> </span>macvlan<span class="w"> </span>mode<span class="w"> </span>bridge
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.36/32<span class="w"> </span>dev<span class="w"> </span>bobnet-host
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>bobnet-host<span class="w"> </span>up
+sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.192/27<span class="w"> </span>dev<span class="w"> </span>bobnet-host
+
+<span class="c1">################################################################################</span>
+<span class="c1"># 12,5 % bob2</span>
+
+Address:<span class="w">   </span><span class="m">192</span>.168.1.224<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.111<span class="w"> </span><span class="m">00000</span>
+Netmask:<span class="w">   </span><span class="m">255</span>.255.255.224<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">27</span><span class="w">  </span><span class="m">11111111</span>.11111111.11111111.111<span class="w"> </span><span class="m">00000</span>
+Wildcard:<span class="w">  </span><span class="m">0</span>.0.0.31<span class="w">              </span><span class="m">00000000</span>.00000000.00000000.000<span class="w"> </span><span class="nv">11111</span>
+<span class="o">=</span>&gt;
+Network:<span class="w">   </span><span class="m">192</span>.168.1.224/27<span class="w">      </span><span class="m">11000000</span>.10101000.00000001.111<span class="w"> </span><span class="m">00000</span><span class="w"> </span><span class="o">(</span>Class<span class="w"> </span>C<span class="o">)</span>
+Broadcast:<span class="w"> </span><span class="m">192</span>.168.1.255<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.111<span class="w"> </span><span class="m">11111</span>
+HostMin:<span class="w">   </span><span class="m">192</span>.168.1.225<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.111<span class="w"> </span><span class="m">00001</span>
+HostMax:<span class="w">   </span><span class="m">192</span>.168.1.254<span class="w">         </span><span class="m">11000000</span>.10101000.00000001.111<span class="w"> </span><span class="m">11110</span>
+Hosts/Net:<span class="w"> </span><span class="m">30</span><span class="w">                    </span><span class="o">(</span>Private<span class="w"> </span>Internet<span class="o">)</span>
+
+<span class="c1"># create macvlan docker network with specific subnet and address range</span>
+<span class="c1"># DHCP server of the host network should not assign configured ip-range</span>
+<span class="c1"># on host bob2</span>
+<span class="c1"># check config with: sudo docker network ls</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span>-d<span class="w"> </span>macvlan<span class="w"> </span>-o<span class="w"> </span><span class="nv">parent</span><span class="o">=</span>enp3s0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subnet<span class="w"> </span><span class="m">192</span>.168.1.0/24<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gateway<span class="w"> </span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ip-range<span class="w"> </span><span class="m">192</span>.168.1.224/27<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--aux-address<span class="w"> </span><span class="s1">&#39;host=192.168.1.47&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>bobnet
+
+<span class="c1"># add macvlan host access betwwen docker host and container</span>
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span>add<span class="w"> </span>bobnet-host<span class="w"> </span>link<span class="w"> </span>enp3s0<span class="w"> </span><span class="nb">type</span><span class="w"> </span>macvlan<span class="w"> </span>mode<span class="w"> </span>bridge
+sudo<span class="w"> </span>ip<span class="w"> </span>addr<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.47/32<span class="w"> </span>dev<span class="w"> </span>bobnet-host
+sudo<span class="w"> </span>ip<span class="w"> </span>link<span class="w"> </span><span class="nb">set</span><span class="w"> </span>bobnet-host<span class="w"> </span>up
+sudo<span class="w"> </span>ip<span class="w"> </span>route<span class="w"> </span>add<span class="w"> </span><span class="m">192</span>.168.1.224/27<span class="w"> </span>dev<span class="w"> </span>bobnet-host
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

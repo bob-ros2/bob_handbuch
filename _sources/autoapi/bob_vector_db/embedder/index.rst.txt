@@ -1,0 +1,170 @@
+bob_vector_db.embedder
+======================
+
+.. py:module:: bob_vector_db.embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_vector_db.embedder.EmbedderNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_vector_db.embedder.main
+
+
+Module Contents
+---------------
+
+.. py:class:: EmbedderNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Basic Embedder ROS Node.
+   This ROS node subscribes to a std_msgs/msg/String topic to receive JSON data with embedding messages. 
+   Additionaly, when using a Qdrant vector Database, it's possible to embed Images along with text and 
+   Payload data from a sensor_msgs/msg/Image or bob_msgs/msg/STTImage. 
+
+   It embeds the delivered data into the configured Vector DB. A Qdrant Vector DB is the default DB. 
+   To embed into a Chroma DB set parameter 'use_chroma' to true. See ROS parameter for further configuration. 
+   The JSON data has to contain the following fields. (for Qdrant the ids are optional).
+
+   `Example of a text embedding`::
+
+       {
+           "collection": "stories", 
+           "documents": [
+               "some story text",
+               "text abou something strange"
+           ], 
+           "metadatas": [
+               {"title":"The end"}, 
+               {"title":"Dark star"}
+           ], 
+           "ids":[
+               "id1",
+               "id2"
+           ]
+       }
+
+   `Example of a text + image embedding`::
+
+       {
+           "collection": "movie_cover", 
+           "documents": [
+               "some story text",
+               "text about something strange"
+           ], 
+           "metadatas": [
+               {"title":"The end"}, 
+               {"title":"Dark star"}
+           ], 
+           "images": [
+               "/path/to/cover_image_id1.jpg", 
+               "/path/to/cover_image_id2.jpg"
+           ], "ids":[
+               "id1",
+               "id2"
+           ]
+       }
+
+   For the image embedding there exist following environment variables:
+
+   Enable / disable automatic storing of the image in Base64 format into payload data:
+       
+       EMBED_IMAGES_BASE64 Default: 0
+
+   Used image format when embedding from sensor_msgs/msg/Image or bob_msgs/msg/STTImage:
+       
+       EMBED_PIL_B64FORMAT Default: JPEG
+
+   See Package README.md for further information.
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: host
+
+
+   .. py:attribute:: port
+
+
+   .. py:attribute:: path
+
+
+   .. py:attribute:: location
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: sub_raw
+
+
+   .. py:attribute:: sub_image
+
+
+   .. py:attribute:: sub_ttimage
+
+
+   .. py:method:: init_qdrant()
+
+      Init Qdrant embedder
+              
+
+
+
+   .. py:method:: init_chroma()
+
+      Init Chroma embedder
+              
+
+
+
+   .. py:method:: embed_mixed(j: str, media: list = None) -> None
+
+
+   .. py:method:: embed_callback(msg: std_msgs.msg.String) -> None
+
+      Embeds the incoming JSON topic message into the Vector DB.
+      Prints the incoming message also to the debug log.
+      If it fails an error log entry will be written.
+
+
+
+   .. py:method:: embed_raw_callback(msg: std_msgs.msg.String) -> None
+
+      Embeds raw data of any type into default collection 'embed_raw'.
+      To use another collection set the env var or ROS parameter accordingly.
+      If the collection comes with the input data that will be used instead.
+
+
+
+   .. py:method:: embed_image(msg: Union[sensor_msgs.msg.Image, bob_msgs.msg.TTImage]) -> None
+
+
+   .. py:method:: embed_image_callback(msg: sensor_msgs.msg.Image) -> None
+
+      Embeds Image only with simple payload into default collection 'embed_raw'.
+      To use another collection set the env var or ROS parameter accordingly.
+
+
+
+   .. py:method:: embed_ttimage_callback(msg: bob_msgs.msg.TTImage) -> None
+
+      Embeds TTImage with payload into default collection 'embed_raw'.
+      To use another collection set the env var or ROS parameter accordingly.
+
+
+
+.. py:function:: main()
+

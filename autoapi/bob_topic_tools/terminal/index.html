@@ -1,0 +1,412 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_topic_tools.terminal &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="bob_topic_tools.stream_filter" href="../stream_filter/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_topic_tools</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../aggregator/index.html">bob_topic_tools.aggregator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../filter/index.html">bob_topic_tools.filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../stream_filter/index.html">bob_topic_tools.stream_filter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_topic_tools.terminal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_topic_tools</a></li>
+      <li class="breadcrumb-item active">bob_topic_tools.terminal</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_topic_tools/terminal/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_topic_tools.terminal">
+<span id="bob-topic-tools-terminal"></span><h1>bob_topic_tools.terminal<a class="headerlink" href="#module-bob_topic_tools.terminal" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_topic_tools.terminal.RosNode" title="bob_topic_tools.terminal.RosNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RosNode</span></code></a></p></td>
+<td><p>Basic String topic IO terminal ROS Node</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_topic_tools.terminal.StdinThread" title="bob_topic_tools.terminal.StdinThread"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StdinThread</span></code></a></p></td>
+<td><p>QThread class to handle stdin reading.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_topic_tools.terminal.Window" title="bob_topic_tools.terminal.Window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Window</span></code></a></p></td>
+<td><p>Main Window with terminal.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_topic_tools.terminal.sigint_handler" title="bob_topic_tools.terminal.sigint_handler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sigint_handler</span></code></a>(*args)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_topic_tools.terminal.main" title="bob_topic_tools.terminal.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>()</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_topic_tools.terminal.</span></span><span class="sig-name descname"><span class="pre">RosNode</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>Basic String topic IO terminal ROS Node</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.pub">
+<span class="sig-name descname"><span class="pre">pub</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.pub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.sub1">
+<span class="sig-name descname"><span class="pre">sub1</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.sub1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.sub2">
+<span class="sig-name descname"><span class="pre">sub2</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.sub2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.title" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.opacity">
+<span class="sig-name descname"><span class="pre">opacity</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.opacity" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.frameless">
+<span class="sig-name descname"><span class="pre">frameless</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.frameless" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.fontname">
+<span class="sig-name descname"><span class="pre">fontname</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.fontname" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.fontsize">
+<span class="sig-name descname"><span class="pre">fontsize</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.fontsize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.geometry">
+<span class="sig-name descname"><span class="pre">geometry</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.geometry" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.display">
+<span class="sig-name descname"><span class="pre">display</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.display" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.stylesheet">
+<span class="sig-name descname"><span class="pre">stylesheet</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.stylesheet" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.stylesheet_window">
+<span class="sig-name descname"><span class="pre">stylesheet_window</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.stylesheet_window" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.margin">
+<span class="sig-name descname"><span class="pre">margin</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.margin" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.input">
+<span class="sig-name descname"><span class="pre">input</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.input" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.line_count">
+<span class="sig-name descname"><span class="pre">line_count</span></span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.line_count" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.publish">
+<span class="sig-name descname"><span class="pre">publish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.publish" title="Link to this definition"></a></dt>
+<dd><p>Publish message on topic.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.RosNode.create_input_subscriptions">
+<span class="sig-name descname"><span class="pre">create_input_subscriptions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback_cr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.RosNode.create_input_subscriptions" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.StdinThread">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_topic_tools.terminal.</span></span><span class="sig-name descname"><span class="pre">StdinThread</span></span><a class="headerlink" href="#bob_topic_tools.terminal.StdinThread" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PyQt5.QtCore.QThread</span></code></p>
+<p>QThread class to handle stdin reading.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.StdinThread.result">
+<span class="sig-name descname"><span class="pre">result</span></span><a class="headerlink" href="#bob_topic_tools.terminal.StdinThread.result" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.StdinThread.running">
+<span class="sig-name descname"><span class="pre">running</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#bob_topic_tools.terminal.StdinThread.running" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.StdinThread.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.StdinThread.run" title="Link to this definition"></a></dt>
+<dd><p>Read stdin loop function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.StdinThread.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.StdinThread.stop" title="Link to this definition"></a></dt>
+<dd><p>Mark thread to stop the loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_topic_tools.terminal.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#bob_topic_tools.terminal.RosNode" title="bob_topic_tools.terminal.RosNode"><span class="pre">RosNode</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">QWidget</span></code></p>
+<p>Main Window with terminal.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.node">
+<span class="sig-name descname"><span class="pre">node</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.node" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.worker">
+<span class="sig-name descname"><span class="pre">worker</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.worker" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.oldPosition">
+<span class="sig-name descname"><span class="pre">oldPosition</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.oldPosition" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.tarea">
+<span class="sig-name descname"><span class="pre">tarea</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.tarea" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.text">
+<span class="sig-name descname"><span class="pre">text</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.text" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.tedit">
+<span class="sig-name descname"><span class="pre">tedit</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.tedit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.timer">
+<span class="sig-name descname"><span class="pre">timer</span></span><a class="headerlink" href="#bob_topic_tools.terminal.Window.timer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.spin_once">
+<span class="sig-name descname"><span class="pre">spin_once</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.spin_once" title="Link to this definition"></a></dt>
+<dd><p>Spin periodically once the ROS node.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.start_read_stdin">
+<span class="sig-name descname"><span class="pre">start_read_stdin</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.start_read_stdin" title="Link to this definition"></a></dt>
+<dd><p>Start the worker to read the incomming GPT generator output.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.update_text">
+<span class="sig-name descname"><span class="pre">update_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.update_text" title="Link to this definition"></a></dt>
+<dd><p>Append given text in the PlainText area.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.input_callback">
+<span class="sig-name descname"><span class="pre">input_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">std_msgs.msg.String</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.input_callback" title="Link to this definition"></a></dt>
+<dd><p>Receive input text via ROS topic and update text.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.input_callback_cr">
+<span class="sig-name descname"><span class="pre">input_callback_cr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">std_msgs.msg.String</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.input_callback_cr" title="Link to this definition"></a></dt>
+<dd><p>Receive input text via ROS topic and update text with CR</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.input_changed">
+<span class="sig-name descname"><span class="pre">input_changed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.input_changed" title="Link to this definition"></a></dt>
+<dd><p>Input edit change text callback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.input_enter">
+<span class="sig-name descname"><span class="pre">input_enter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.input_enter" title="Link to this definition"></a></dt>
+<dd><p>Input edit enter callback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.closeEvent">
+<span class="sig-name descname"><span class="pre">closeEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.closeEvent" title="Link to this definition"></a></dt>
+<dd><p>Window close callback. This stops also the stdin worker thread.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.mousePressEvent">
+<span class="sig-name descname"><span class="pre">mousePressEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.mousePressEvent" title="Link to this definition"></a></dt>
+<dd><p>Mouse press callback. Handles also window moving without caption.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.Window.mouseMoveEvent">
+<span class="sig-name descname"><span class="pre">mouseMoveEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.Window.mouseMoveEvent" title="Link to this definition"></a></dt>
+<dd><p>Mouse move callback. Handles also window moving without caption.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.sigint_handler">
+<span class="sig-prename descclassname"><span class="pre">bob_topic_tools.terminal.</span></span><span class="sig-name descname"><span class="pre">sigint_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.sigint_handler" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_topic_tools.terminal.main">
+<span class="sig-prename descclassname"><span class="pre">bob_topic_tools.terminal.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_topic_tools.terminal.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../stream_filter/index.html" class="btn btn-neutral float-left" title="bob_topic_tools.stream_filter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

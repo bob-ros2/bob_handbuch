@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_coquitts.coquitts_node &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="bob_moondream" href="../../bob_moondream/index.html" />
+    <link rel="prev" title="bob_coquitts" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_coquitts</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_coquitts.coquitts_node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_coquitts</a></li>
+      <li class="breadcrumb-item active">bob_coquitts.coquitts_node</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_coquitts/coquitts_node/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_coquitts.coquitts_node">
+<span id="bob-coquitts-coquitts-node"></span><h1>bob_coquitts.coquitts_node<a class="headerlink" href="#module-bob_coquitts.coquitts_node" title="Link to this heading"></a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_coquitts.coquitts_node.DEFAULT_MODEL_NAME" title="bob_coquitts.coquitts_node.DEFAULT_MODEL_NAME"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_MODEL_NAME</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_coquitts.coquitts_node.DEFAULT_SAMPLE_RATE" title="bob_coquitts.coquitts_node.DEFAULT_SAMPLE_RATE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEFAULT_SAMPLE_RATE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_coquitts.coquitts_node.RedirectOutput" title="bob_coquitts.coquitts_node.RedirectOutput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RedirectOutput</span></code></a></p></td>
+<td><p>Context manager to redirect stdout and stderr to a logger.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_coquitts.coquitts_node.CoquiTTSnode" title="bob_coquitts.coquitts_node.CoquiTTSnode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CoquiTTSnode</span></code></a></p></td>
+<td><p>A ROS 2 node for text-to-speech synthesis using the Coqui TTS library.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_coquitts.coquitts_node.main" title="bob_coquitts.coquitts_node.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>([args])</p></td>
+<td><p>Main entry point for the ROS node.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.DEFAULT_MODEL_NAME">
+<span class="sig-prename descclassname"><span class="pre">bob_coquitts.coquitts_node.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_MODEL_NAME</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tts_models/en/ljspeech/vits'</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.DEFAULT_MODEL_NAME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.DEFAULT_SAMPLE_RATE">
+<span class="sig-prename descclassname"><span class="pre">bob_coquitts.coquitts_node.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_SAMPLE_RATE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">24000</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.DEFAULT_SAMPLE_RATE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.RedirectOutput">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_coquitts.coquitts_node.</span></span><span class="sig-name descname"><span class="pre">RedirectOutput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'info'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.RedirectOutput" title="Link to this definition"></a></dt>
+<dd><p>Context manager to redirect stdout and stderr to a logger.</p>
+<p>This is a workaround to capture and redirect the verbose print statements
+from the Coqui TTS library into the ROS logger, keeping the console clean.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.RedirectOutput._logger">
+<span class="sig-name descname"><span class="pre">_logger</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.RedirectOutput._logger" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.RedirectOutput._log_level">
+<span class="sig-name descname"><span class="pre">_log_level</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'info'</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.RedirectOutput._log_level" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.RedirectOutput._buffer">
+<span class="sig-name descname"><span class="pre">_buffer</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.RedirectOutput._buffer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.RedirectOutput.__enter__">
+<span class="sig-name descname"><span class="pre">__enter__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.RedirectOutput.__enter__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.RedirectOutput.__exit__">
+<span class="sig-name descname"><span class="pre">__exit__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_val</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_tb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.RedirectOutput.__exit__" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_coquitts.coquitts_node.</span></span><span class="sig-name descname"><span class="pre">CoquiTTSnode</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>A ROS 2 node for text-to-speech synthesis using the Coqui TTS library.</p>
+<p>This node subscribes to a ‘text’ topic, buffers incoming text fragments,
+and intelligently splits them into complete sentences. These sentences are
+then processed in configurable chunks to generate audio. It offers
+extensive ROS parameters to control the TTS model, voice cloning, audio
+playback, and text processing behavior like filtering and trimming.
+It also publishes the text being synthesized to a ‘text_speaking’ topic.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode.sub">
+<span class="sig-name descname"><span class="pre">sub</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode.sub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode.speaking_pub">
+<span class="sig-name descname"><span class="pre">speaking_pub</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode.speaking_pub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode.text_buffer">
+<span class="sig-name descname"><span class="pre">text_buffer</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode.text_buffer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode.flush_timer">
+<span class="sig-name descname"><span class="pre">flush_timer</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode.flush_timer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode._get_unique_filepath">
+<span class="sig-name descname"><span class="pre">_get_unique_filepath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pathlib.Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pathlib.Path</span></span></span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode._get_unique_filepath" title="Link to this definition"></a></dt>
+<dd><p>Generates a unique filepath by appending a counter if the file already exists.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filepath (pathlib.Path): The desired initial filepath.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>pathlib.Path: The original filepath if it’s unique, otherwise a new</dt><dd><p>unique filepath with a numbered suffix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode.text_callback">
+<span class="sig-name descname"><span class="pre">text_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode.text_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback for the /text topic; appends text and manages a flush timer.</p>
+<p>This function’s sole responsibility is to append incoming raw text chunks
+to the internal buffer and reset a timer. All complex processing is
+deferred to the <cite>flush_buffer_callback</cite> to ensure that text is only
+processed after a natural pause in the input stream.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>msg (std_msgs.msg.String): The message containing the text chunk.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode.flush_buffer_callback">
+<span class="sig-name descname"><span class="pre">flush_buffer_callback</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode.flush_buffer_callback" title="Link to this definition"></a></dt>
+<dd><p>Normalizes, splits, and processes the entire text buffer for TTS.</p>
+<p>This method is the core of the text processing pipeline, triggered by a
+timer after a pause in incoming text. It performs the following steps:
+1. Takes the entire accumulated raw text from the buffer.
+2. Applies the full normalization suite (regex filter, character filter,</p>
+<blockquote>
+<div><p>and number separator removal) to the complete text block.</p>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><p>Based on the <cite>split_sentences</cite> parameter, it either:
+a) (Default) Splits the cleaned text into sentences using custom</p>
+<blockquote>
+<div><p>delimiters and processes them in chunks.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li><p>Hands the entire cleaned text block to the TTS engine, relying on
+Coqui’s internal splitter.</p></li>
+</ol>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.CoquiTTSnode._process_text">
+<span class="sig-name descname"><span class="pre">_process_text</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text_to_process</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.CoquiTTSnode._process_text" title="Link to this definition"></a></dt>
+<dd><p>Handles the final synthesis of a given text chunk.</p>
+<p>This function receives a fully prepared string (either a manually
+created sentence chunk or a complete text block for Coqui to split).
+It performs a final strip of leading/trailing characters, publishes the
+text, and calls the Coqui TTS engine to generate and play/save the audio.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>text_to_process (str): The text string to synthesize.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_coquitts.coquitts_node.main">
+<span class="sig-prename descclassname"><span class="pre">bob_coquitts.coquitts_node.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_coquitts.coquitts_node.main" title="Link to this definition"></a></dt>
+<dd><p>Main entry point for the ROS node.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="bob_coquitts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../bob_moondream/index.html" class="btn btn-neutral float-right" title="bob_moondream" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

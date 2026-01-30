@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_flux2k &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_flux2k</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/bob_flux2k/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-flux2k">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_flux2k">bob_flux2k</a><a class="headerlink" href="#ros-package-bob-flux2k" title="Link to this heading"></a></h1>
+<p>ROS 2 node for the <strong>FLUX.2-klein</strong> text-to-image and image-to-image models from Black Forest Labs.</p>
+<section id="supported-models">
+<h2>Supported Models<a class="headerlink" href="#supported-models" title="Link to this heading"></a></h2>
+<p>This node supports both the 4B and 9B variants of the FLUX.2-klein family:</p>
+<ul class="simple">
+<li><p><strong><a class="reference external" href="https://huggingface.co/black-forest-labs/FLUX.2-klein-4B">FLUX.2-klein-4B</a></strong>: Optimized for speed and lower VRAM usage (Apache 2.0 license).</p></li>
+<li><p><strong><a class="reference external" href="https://huggingface.co/black-forest-labs/FLUX.2-klein-9B">FLUX.2-klein-9B</a></strong>: Higher quality and better prompt following (requires ~22GB VRAM, fits on RTX 4090).</p></li>
+</ul>
+<blockquote>
+<div><p>[!IMPORTANT]
+To use the <strong>9B model</strong>, you must manually visit the <a class="reference external" href="https://huggingface.co/black-forest-labs/FLUX.2-klein-9B">model page</a>, log in to Hugging Face, and <strong>agree to the terms and non-commercial license</strong>. You will also need to be logged in via <code class="docutils literal notranslate"><span class="pre">huggingface-cli</span> <span class="pre">login</span></code> on your machine for the node to download the weights.</p>
+</div></blockquote>
+<p>You can switch models via the <code class="docutils literal notranslate"><span class="pre">repo_id</span></code> ROS parameter or the <code class="docutils literal notranslate"><span class="pre">FLUX2K_REPO_ID</span></code> environment variable.</p>
+</section>
+<section id="installation-build">
+<h2>Installation &amp; Build<a class="headerlink" href="#installation-build" title="Link to this heading"></a></h2>
+<section id="clone-the-repository">
+<h3>1. Clone the repository<a class="headerlink" href="#clone-the-repository" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bob-ros2/bob_flux2k.git
+</pre></div>
+</div>
+</section>
+<section id="install-dependencies">
+<h3>2. Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading"></a></h3>
+<p>It is recommended to use a virtual environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>bob_flux2k/requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="build-the-workspace">
+<h3>3. Build the workspace<a class="headerlink" href="#build-the-workspace" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>bob_flux2k
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<section id="run-the-node">
+<h3>Run the node<a class="headerlink" href="#run-the-node" title="Link to this heading"></a></h3>
+<p>You can run the node directly or provide a configuration file.</p>
+<p><strong>Basic run:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_flux2k<span class="w"> </span>tti<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>repo_id:<span class="o">=</span>black-forest-labs/FLUX.2-klein-4B
+</pre></div>
+</div>
+<p><strong>Using a configuration file:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_flux2k<span class="w"> </span>tti<span class="w"> </span>--ros-args<span class="w"> </span>--params-file<span class="w"> </span>src/bob_flux2k/config/tti.yaml
+</pre></div>
+</div>
+</section>
+<section id="send-a-prompt">
+<h3>Send a prompt<a class="headerlink" href="#send-a-prompt" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/prompt<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;{data: &#39;A futuristic city in the style of cyberpunk&#39;}&quot;</span><span class="w"> </span>--once
+</pre></div>
+</div>
+</section>
+<section id="json-prompt-support-dynamic-iti-tti">
+<h3>JSON Prompt Support (Dynamic ITI/TTI)<a class="headerlink" href="#json-prompt-support-dynamic-iti-tti" title="Link to this heading"></a></h3>
+<p>The node automatically detects if a prompt is plain text or a JSON string. Using JSON allows you to specify an input image dynamically for a single request:</p>
+<p><strong>Format:</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A high-quality photo of a cat&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;image_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file:///path/to/image.jpg&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p><strong>Text-to-Image</strong>: Just send plain text or JSON without an <code class="docutils literal notranslate"><span class="pre">image_url</span></code>.</p></li>
+<li><p><strong>Image-to-Image</strong>: Provide an <code class="docutils literal notranslate"><span class="pre">image_url</span></code>. Supports:</p>
+<ul>
+<li><p>Local files: <code class="docutils literal notranslate"><span class="pre">file:///home/user/image.png</span></code></p></li>
+<li><p>Remote URLs: <code class="docutils literal notranslate"><span class="pre">https://example.com/image.jpg</span></code></p></li>
+<li><p><strong>Base64 encoded</strong>: <code class="docutils literal notranslate"><span class="pre">data:image/png;base64,...</span></code> (Ideal for web-app integrations).</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Example (CLI):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/prompt<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;{data: &#39;{\&quot;content\&quot;: \&quot;a robot dog\&quot;, \&quot;image_url\&quot;: \&quot;file:///tmp/dog.jpg\&quot;}&#39;}&quot;</span><span class="w"> </span>--once
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ros-api">
+<h2>ROS API<a class="headerlink" href="#ros-api" title="Link to this heading"></a></h2>
+<section id="topics">
+<h3>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h3>
+<p>The node interacts with the following ROS 2 topics:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Topic</p></th>
+<th class="head text-left"><p>Message Type</p></th>
+<th class="head text-left"><p>Direction</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">prompt</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>Sub</strong></p></td>
+<td class="text-left"><p>The input prompt for text-to-image or image-conditioned generation.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">generated_image</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sensor_msgs/msg/Image</span></code></p></td>
+<td class="text-left"><p><strong>Pub</strong></p></td>
+<td class="text-left"><p>The resulting image, published in <code class="docutils literal notranslate"><span class="pre">bgr8</span></code> encoding.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<section id="dynamic-parameters">
+<h4>Dynamic Parameters<a class="headerlink" href="#dynamic-parameters" title="Link to this heading"></a></h4>
+<p>These can be adjusted while the node is running using the <strong><code class="docutils literal notranslate"><span class="pre">rqt_reconfigure</span></code></strong> GUI.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Env Variable</p></th>
+<th class="head text-left"><p>Default</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">keep_loaded</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_KEEP_LOADED</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td class="text-left"><p>If true, keeps the model in memory.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">cpu_offload</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_CPU_OFFLOAD</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td class="text-left"><p>If true, uses CPU offloading.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">num_inference_steps</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_NUM_STEPS</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+<td class="text-left"><p>Number of denoising steps.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">guidance_scale</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_GUIDANCE</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td class="text-left"><p>Prompt following strength.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">num_images_per_prompt</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_NUM_IMAGES</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td class="text-left"><p>Batch generation count.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_sequence_length</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_MAX_SEQ</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">512</span></code></p></td>
+<td class="text-left"><p>Max prompt length.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">frame_id</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_FRAME_ID</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">flux2k</span></code></p></td>
+<td class="text-left"><p>The frame_id for the output.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="static-parameters">
+<h4>Static Parameters<a class="headerlink" href="#static-parameters" title="Link to this heading"></a></h4>
+<p>These are set at <strong>startup</strong> and cannot be changed while the node is running.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Env Variable</p></th>
+<th class="head text-left"><p>Default</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">repo_id</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_REPO_ID</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">black-forest-labs/FLUX.2-klein-4B</span></code></p></td>
+<td class="text-left"><p>Model repository ID.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">model_dir</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_MODEL_DIR</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">./models</span></code></p></td>
+<td class="text-left"><p>Cache directory.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_DEVICE</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">cuda:0</span></code></p></td>
+<td class="text-left"><p>Computing device.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">seed</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_SEED</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">-1</span></code></p></td>
+<td class="text-left"><p>Random seed (-1 for random).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">image_path</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_IMAGE_PATH</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td class="text-left"><p>Path for saving the output image. If empty, local saving is disabled.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">once</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_ONCE</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td class="text-left"><p>Exit after first generation if true.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">height</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_HEIGHT</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1024</span></code></p></td>
+<td class="text-left"><p>Image height.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">width</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">FLUX2K_WIDTH</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1024</span></code></p></td>
+<td class="text-left"><p>Image width.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="dynamic-reconfiguration-gui">
+<h3>Dynamic Reconfiguration GUI<a class="headerlink" href="#dynamic-reconfiguration-gui" title="Link to this heading"></a></h3>
+<p>To start the configuration GUI and adjust the dynamic parameters, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>rqt_reconfigure<span class="w"> </span>rqt_reconfigure
+</pre></div>
+</div>
+</section>
+</section>
+<section id="configuration-file">
+<h2>Configuration File<a class="headerlink" href="#configuration-file" title="Link to this heading"></a></h2>
+<p>An example configuration file is provided at <code class="docutils literal notranslate"><span class="pre">config/tti.yaml</span></code>. This file contains all parameters with descriptions and can be used to set the initial behavior of the node without providing long command-line arguments.</p>
+</section>
+<section id="hardware-optimization">
+<h2>Hardware Optimization<a class="headerlink" href="#hardware-optimization" title="Link to this heading"></a></h2>
+<p>The node is optimized for NVIDIA consumer GPUs (like the RTX 4090) using <code class="docutils literal notranslate"><span class="pre">torch.bfloat16</span></code>. It also utilizes <code class="docutils literal notranslate"><span class="pre">enable_model_cpu_offload()</span></code> to ensure memory efficiency, allowing it to coexist with other GPU-intensive nodes.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

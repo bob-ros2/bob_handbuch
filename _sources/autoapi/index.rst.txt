@@ -1,0 +1,19 @@
+API Reference
+=============
+
+This page contains auto-generated API reference documentation [#f1]_.
+
+.. toctree::
+   :titlesonly:
+
+   /autoapi/vox/index
+   /autoapi/bob_llm/index
+   /autoapi/bob_sd35/index
+   /autoapi/bob_flux2/index
+   /autoapi/bob_flux2k/index
+   /autoapi/bob_coquitts/index
+   /autoapi/bob_moondream/index
+   /autoapi/bob_vector_db/index
+   /autoapi/bob_topic_tools/index
+
+.. [#f1] Created with `sphinx-autoapi <https://github.com/readthedocs/sphinx-autoapi>`_

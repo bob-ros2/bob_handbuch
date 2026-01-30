@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vox-Real: Real-time Whisper Transcription Tool &amp; Library &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vox-Real: Real-time Whisper Transcription Tool &amp; Library</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/vox/readme_pypi.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vox-real-real-time-whisper-transcription-tool-library">
+<h1>Vox-Real: Real-time Whisper Transcription Tool &amp; Library<a class="headerlink" href="#vox-real-real-time-whisper-transcription-tool-library" title="Link to this heading"></a></h1>
+<p><strong>Vox-Real</strong> is a powerful, real-time audio transcription tool and Python library that uses OpenAI’s Whisper model. It continuously listens to a microphone, detects speech, and transcribes it upon pauses, making it ideal for a wide range of voice-activated applications.</p>
+<p>This package can be used in two primary ways:</p>
+<ol class="arabic simple">
+<li><p><strong>As a standalone command-line tool</strong> (<code class="docutils literal notranslate"><span class="pre">vox</span></code>).</p></li>
+<li><p><strong>As a Python library</strong> to integrate real-time transcription into your own applications.</p></li>
+</ol>
+<blockquote>
+<div><p><strong>Note</strong>: This is the README for the PyPI package. For more advanced features, including <strong>Docker support and contribution guidelines</strong>, please visit the full project repository on GitHub:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/bob-ros2/vox">https://github.com/bob-ros2/vox</a></p></li>
+</ul>
+</div></blockquote>
+<hr class="docutils" />
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>First, ensure you have the necessary system-level dependencies (see the “Dependencies” section below). Then, you can install the package directly from PyPI. It is highly recommended to use a virtual environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vox-real
+</pre></div>
+</div>
+<p>This will make the <code class="docutils literal notranslate"><span class="pre">vox</span></code> command available in your terminal.</p>
+</section>
+<hr class="docutils" />
+<section id="quick-start-command-line-tool">
+<h2>Quick Start (Command-Line Tool)<a class="headerlink" href="#quick-start-command-line-tool" title="Link to this heading"></a></h2>
+<p>Once installed, you can start transcribing from your default microphone with a simple command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with the small, fast &#39;base&#39; model and show real-time audio volume</span>
+vox<span class="w"> </span>--model<span class="w"> </span>base<span class="w"> </span>--rms
+</pre></div>
+</div>
+<p>Speak into your microphone. When you pause, the transcribed text will be printed to the console. Press <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> to stop.</p>
+</section>
+<hr class="docutils" />
+<section id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Real-time Transcription</strong>: Listens to an audio input and transcribes speech in near real-time.</p></li>
+<li><p><strong>Voice Activity Detection</strong>: Intelligently waits for pauses in speech before transcribing.</p></li>
+<li><p><strong>Dual Use</strong>: Functions as both a ready-to-run CLI tool and an importable Python library.</p></li>
+<li><p><strong>Highly Configurable</strong>: Adjust silence thresholds, language, Whisper model size, and more.</p></li>
+<li><p><strong>Pluggable Output System</strong>: Send transcribed text to the console, files, HTTP webhook, or ROS2 topics.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="using-vox-as-a-python-library">
+<h2>Using Vox as a Python Library<a class="headerlink" href="#using-vox-as-a-python-library" title="Link to this heading"></a></h2>
+<p>You can easily integrate real-time transcription into your own projects by using the <code class="docutils literal notranslate"><span class="pre">Transcriber</span></code> class.</p>
+<section id="library-example">
+<h3>Library Example<a class="headerlink" href="#library-example" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_app.py</span>
+<span class="kn">from</span> <span class="nn">vox.core</span> <span class="kn">import</span> <span class="n">Transcriber</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c1"># The application using the library is responsible for configuring logging</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">handle_transcription</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function will be called with each new transcription.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;My application received: </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Configuration dictionary (see CLI arguments table for all options)</span>
+<span class="n">my_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;base&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lang&quot;</span><span class="p">:</span> <span class="s2">&quot;en&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;silence_threshold&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Instantiate the transcriber with your config and callback</span>
+    <span class="n">transcriber</span> <span class="o">=</span> <span class="n">Transcriber</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">my_config</span><span class="p">,</span> <span class="n">on_transcription_cb</span><span class="o">=</span><span class="n">handle_transcription</span><span class="p">)</span>
+    <span class="n">transcriber</span><span class="o">.</span><span class="n">run</span><span class="p">()</span> <span class="c1"># This is a blocking call</span>
+<span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stopping transcription.&quot;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s1">&#39;transcriber&#39;</span> <span class="ow">in</span> <span class="nb">locals</span><span class="p">():</span>
+        <span class="n">transcriber</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dependencies-and-manual-installation">
+<h2>Dependencies and Manual Installation<a class="headerlink" href="#dependencies-and-manual-installation" title="Link to this heading"></a></h2>
+<p>Before installing via <code class="docutils literal notranslate"><span class="pre">pip</span></code>, some system-level setup is required.</p>
+<ol class="arabic simple">
+<li><p><strong>Install PortAudio</strong>: <code class="docutils literal notranslate"><span class="pre">pyaudio</span></code> requires the PortAudio C library.</p>
+<ul class="simple">
+<li><p><strong>Debian/Ubuntu</strong>: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">portaudio19-dev</span></code></p></li>
+<li><p><strong>macOS (Homebrew)</strong>: <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">portaudio</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Note on <code class="docutils literal notranslate"><span class="pre">torch</span></code></strong>: Whisper depends on PyTorch (<code class="docutils literal notranslate"><span class="pre">torch</span></code>), which can be complex to install, especially for GPU support. If you encounter issues, we strongly recommend following the official instructions at <a class="reference external" href="https://pytorch.org/get-started/locally/">pytorch.org</a>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="cli-arguments-reference">
+<h2>CLI Arguments Reference<a class="headerlink" href="#cli-arguments-reference" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-m</span></code>, <code class="docutils literal notranslate"><span class="pre">--model</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">base</span></code></p></td>
+<td><p>Whisper model to use (<code class="docutils literal notranslate"><span class="pre">tiny</span></code>, <code class="docutils literal notranslate"><span class="pre">base</span></code>, <code class="docutils literal notranslate"><span class="pre">small</span></code>, <code class="docutils literal notranslate"><span class="pre">medium</span></code>, <code class="docutils literal notranslate"><span class="pre">large</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-g</span></code>, <code class="docutils literal notranslate"><span class="pre">--lang</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Language code (<code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">de</span></code>). <code class="docutils literal notranslate"><span class="pre">None</span></code> for auto-detection.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-t</span></code>, <code class="docutils literal notranslate"><span class="pre">--threshold</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1000</span></code></p></td>
+<td><p>Pause duration in ms to trigger transcription.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-s</span></code>, <code class="docutils literal notranslate"><span class="pre">--silence-threshold</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20</span></code></p></td>
+<td><p>RMS audio level below which is considered silence.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-d</span></code>, <code class="docutils literal notranslate"><span class="pre">--device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Index of the audio input device.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-c</span></code>, <code class="docutils literal notranslate"><span class="pre">--chunk-size</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1024</span></code></p></td>
+<td><p>Samples per audio chunk. Lower is more responsive.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--model-dir</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Directory to store/load Whisper models.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-p</span></code>, <code class="docutils literal notranslate"><span class="pre">--pre-buffer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<td><p>Chunks to keep before speech starts to avoid clipped words.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-w</span></code>, <code class="docutils literal notranslate"><span class="pre">--warmup</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>Consecutive loud chunks to start recording.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>, <code class="docutils literal notranslate"><span class="pre">--rms</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Show real-time audio volume (RMS).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--channels</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>Number of audio channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--rate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">16000</span></code></p></td>
+<td><p>Audio sample rate in Hz.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--whisper-device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Device to use for Whisper inference (<code class="docutils literal notranslate"><span class="pre">cpu</span></code>, <code class="docutils literal notranslate"><span class="pre">cuda</span></code>, <code class="docutils literal notranslate"><span class="pre">cuda:0</span></code>). <code class="docutils literal notranslate"><span class="pre">None</span></code> for auto-detect.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--output-handlers</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">['stdout']</span></code></p></td>
+<td><p>A space-separated list of built-in handlers to use (e.g., <code class="docutils literal notranslate"><span class="pre">stdout</span></code>, <code class="docutils literal notranslate"><span class="pre">file</span></code>, <code class="docutils literal notranslate"><span class="pre">http_post</span></code>, <code class="docutils literal notranslate"><span class="pre">ros2</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--custom-handler</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Path to a Python script with a custom <code class="docutils literal notranslate"><span class="pre">OutputHandler</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">-l</span></code>, <code class="docutils literal notranslate"><span class="pre">--list-devices</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>List available audio input devices and exit.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--log-level</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">info</span></code></p></td>
+<td><p>Set the logging level. Use warning or lower to supress most of the logging. (<code class="docutils literal notranslate"><span class="pre">debug</span></code>, <code class="docutils literal notranslate"><span class="pre">info</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">error</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--initial-prompt</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Optional text to provide context or specify output style.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--temperature</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<td><p>Sampling temperature. 0.0 is deterministic. Higher values are more random.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--beam-size</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Number of beams in beam search. None uses Whisper default.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--patience</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Beam search patience factor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--length-penalty</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>Beam search length penalty.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--no-condition-on-previous-text</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Disable conditioning on previous text (prevents loops).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--no-fp16</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>Disable FP16 computation (force FP32).</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<section id="handler-specific-arguments">
+<h3>Handler-Specific Arguments<a class="headerlink" href="#handler-specific-arguments" title="Link to this heading"></a></h3>
+<p>These arguments are only used when the corresponding handler is enabled via <code class="docutils literal notranslate"><span class="pre">--output-handlers</span></code>.</p>
+<section id="file-handler">
+<h4><code class="docutils literal notranslate"><span class="pre">file</span></code> handler<a class="headerlink" href="#file-handler" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--file-name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">transcriptions.txt</span></code></p></td>
+<td><p>The name of the file to save transcriptions to.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--file-no-timestamp</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p>If set, timestamps will not be added to the output file.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="http-post-handler">
+<h4><code class="docutils literal notranslate"><span class="pre">http_post</span></code> handler<a class="headerlink" href="#http-post-handler" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--http-post-url</span></code></p></td>
+<td><p>(Required)</p></td>
+<td><p>The URL to which the transcription text will be POSTed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">--http-post-format</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">json</span></code></p></td>
+<td><p>The format of the POST request body (<code class="docutils literal notranslate"><span class="pre">json</span></code> or <code class="docutils literal notranslate"><span class="pre">raw</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--http-post-header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">None</span></code></p></td>
+<td><p>A JSON string of key/value pairs for request headers (e.g., <code class="docutils literal notranslate"><span class="pre">'{&quot;Authorization&quot;:</span> <span class="pre">&quot;Bearer</span> <span class="pre">YOUR_TOKEN&quot;}'</span></code>).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ros2-handler">
+<h4><code class="docutils literal notranslate"><span class="pre">ros2</span></code> handler<a class="headerlink" href="#ros2-handler" title="Link to this heading"></a></h4>
+<p>ROS2 (Robot Operating System 2) is an open-source software framework for robots.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">--ros2-topic</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">transcription</span></code></p></td>
+<td><p>The ROS2 topic to publish transcriptions to.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="robust-configuration-examples">
+<h2>Robust Configuration Examples<a class="headerlink" href="#robust-configuration-examples" title="Link to this heading"></a></h2>
+<p>Here are some examples of how to configure <code class="docutils literal notranslate"><span class="pre">vox</span></code> for different scenarios, building on the basic command:
+<code class="docutils literal notranslate"><span class="pre">vox</span> <span class="pre">--model</span> <span class="pre">medium</span> <span class="pre">--lang</span> <span class="pre">de</span> <span class="pre">--rms</span> <span class="pre">--output-handlers</span> <span class="pre">stdout</span> <span class="pre">ros2</span> <span class="pre">--ros2-topic</span> <span class="pre">/you/llm_prompt</span></code></p>
+<section id="reducing-hallucinations-repetitions">
+<h3>1. Reducing Hallucinations (Repetitions)<a class="headerlink" href="#reducing-hallucinations-repetitions" title="Link to this heading"></a></h3>
+<p>If the model gets stuck repeating the same phrase or hallucinating silence, try increasing the temperature slightly and disabling conditioning on previous text.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vox<span class="w"> </span>...<span class="w"> </span>--temperature<span class="w"> </span><span class="m">0</span>.2<span class="w"> </span>--no-condition-on-previous-text
+</pre></div>
+</div>
+</section>
+<section id="improving-context-and-style">
+<h3>2. Improving Context and Style<a class="headerlink" href="#improving-context-and-style" title="Link to this heading"></a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">--initial-prompt</span></code> to tell the model about the context (e.g., technical terms, specific spelling) or the desired style.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vox<span class="w"> </span>...<span class="w"> </span>--initial-prompt<span class="w"> </span><span class="s2">&quot;Dies ist ein Transkript über Robotik und ROS2.&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="maximizing-accuracy-slower">
+<h3>3. Maximizing Accuracy (Slower)<a class="headerlink" href="#maximizing-accuracy-slower" title="Link to this heading"></a></h3>
+<p>Increase the <code class="docutils literal notranslate"><span class="pre">beam-size</span></code> to explore more decoding paths. This will increase latency but may improve accuracy for complex sentences.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vox<span class="w"> </span>...<span class="w"> </span>--beam-size<span class="w"> </span><span class="m">10</span>
+</pre></div>
+</div>
+</section>
+<section id="low-resource-compatibility-mode">
+<h3>4. Low-Resource / Compatibility Mode<a class="headerlink" href="#low-resource-compatibility-mode" title="Link to this heading"></a></h3>
+<p>If you encounter errors related to FP16 on older hardware, force FP32.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vox<span class="w"> </span>...<span class="w"> </span>--no-fp16
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="audio-quality-issues-slow-fast-audio">
+<h3>Audio Quality Issues (Slow/Fast Audio)<a class="headerlink" href="#audio-quality-issues-slow-fast-audio" title="Link to this heading"></a></h3>
+<p>If you experience poor transcription quality or the audio sounds slowed down or sped up, it is likely due to a sample rate mismatch.</p>
+<ul class="simple">
+<li><p><strong>Symptom</strong>: Transcription is gibberish or non-existent, and if you listen to the raw audio, it sounds pitch-shifted.</p></li>
+<li><p><strong>Cause</strong>: The Whisper model expects audio at 16000 Hz. If your input device or the application is configured for a different rate (e.g., 44100 Hz or 48000 Hz) without proper resampling, the audio data will be misinterpreted.</p></li>
+<li><p><strong>Solution</strong>: Ensure the <code class="docutils literal notranslate"><span class="pre">--rate</span></code> argument matches what Whisper expects (default is 16000 Hz). If you are using a custom setup or specific hardware that requires a different rate, you may need to force the rate using <code class="docutils literal notranslate"><span class="pre">--rate</span> <span class="pre">16000</span></code>.</p></li>
+</ul>
+</section>
+<section id="alsa-lib-errors-at-startup">
+<h3>ALSA lib Errors at Startup<a class="headerlink" href="#alsa-lib-errors-at-startup" title="Link to this heading"></a></h3>
+<p>You may see various <code class="docutils literal notranslate"><span class="pre">ALSA</span> <span class="pre">lib</span></code> errors (e.g., <code class="docutils literal notranslate"><span class="pre">unable</span> <span class="pre">to</span> <span class="pre">open</span> <span class="pre">slave</span></code>, <code class="docutils literal notranslate"><span class="pre">Unknown</span> <span class="pre">PCM</span></code>, <code class="docutils literal notranslate"><span class="pre">Cannot</span> <span class="pre">open</span> <span class="pre">device</span></code>) when <code class="docutils literal notranslate"><span class="pre">vox</span></code> starts up. These are generated by the underlying audio library (<code class="docutils literal notranslate"><span class="pre">pyaudio</span></code>/PortAudio) as it probes for available devices. <strong>These errors are usually harmless and do not impact functionality.</strong> If the application prints “Ready. Start speaking…”, it is working correctly.</p>
+</section>
+<section id="windows-support">
+<h3>Windows Support<a class="headerlink" href="#windows-support" title="Link to this heading"></a></h3>
+<p>Vox is compatible with Windows.</p>
+<ul class="simple">
+<li><p><strong>ALSA Errors</strong>: You will not see ALSA errors on Windows, as ALSA is Linux-specific.</p></li>
+<li><p><strong>Dependencies</strong>: You may need to install <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code> manually and add it to your PATH, as it is required by Whisper.</p></li>
+<li><p><strong>ROS2</strong>: The <code class="docutils literal notranslate"><span class="pre">ros2</span></code> handler works on Windows if a compatible ROS2 distribution (e.g., Humble) is installed and sourced.</p></li>
+</ul>
+<hr class="docutils" />
+<p>For more details, advanced use cases, and to contribute to the project, please visit the <strong><a class="reference external" href="https://github.com/bob-ros2/vox">Official GitHub Repository</a></strong>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

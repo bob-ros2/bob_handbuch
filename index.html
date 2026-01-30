@@ -1,0 +1,285 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Bob’s Handbuch &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="_static/profile_image-300x300.png"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ROS Package bob_coquitts" href="bob/bob-coquitts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Bob's Handbuch
+              <img src="_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to Bob’s Handbuch</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-bob-s-handbuch">
+<h1>Welcome to Bob’s Handbuch<a class="headerlink" href="#welcome-to-bob-s-handbuch" title="Link to this heading"></a></h1>
+<p>This is a collection of various ROS 2 packages and nodes for natural language processing, LLM integration, and system control. They leverage ROS topics to connect NLP and LLM components seamlessly.</p>
+<p>Key Features:</p>
+<ul class="simple">
+<li><p><strong>LLM Integration</strong>: OpenAI-compatible API interface with stateful conversations and dynamic tool calling.</p></li>
+<li><p><strong>Speech Processing</strong>: Real-time Text-to-Speech (XTTS voice cloning) and offline Speech-to-Text.</p></li>
+<li><p><strong>Vision &amp; VLM</strong>: Visual reasoning, captioning, and Q&amp;A via Moondream2 Vision-Language Model.</p></li>
+<li><p><strong>Image Generation</strong>: High-quality Text-to-Image and Image-to-Image generation using Stable Diffusion 3.5 and FLUX.2 large and klein.</p></li>
+<li><p><strong>Vector Database</strong>: Semantic storage and multimodal retrieval using Chroma and Qdrant.</p></li>
+<li><p><strong>Voice Assistant</strong>: Real-time Whisper-based transcription with a pluggable output system.</p></li>
+</ul>
+<!-- Add a placeholder for the Twitch embed -->
+<div id="twitch-embed"></div>
+<!-- Load the Twitch embed JavaScript file -->
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
+<!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+<script type="text/javascript">
+   new Twitch.Embed("twitch-embed", {
+     width: 427,
+     height: 440,
+     channel: "superbob_6110",
+     // Only needed if this page is going to be embedded on other websites
+     parent: ["bob-ros2.github.io"]
+   });
+</script>
+</br><div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-coquitts.html">ROS Package bob_coquitts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-coquitts.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-coquitts.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-coquitts.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-coquitts.html#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-coquitts.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-coquitts.html#ros-interface">ROS Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-flux2.html">ROS Package bob_flux2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2.html#setup-and-installation">Setup and Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2.html#topics">Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-flux2k.html">ROS Package bob_flux2k</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2k.html#supported-models">Supported Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2k.html#installation-build">Installation &amp; Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2k.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2k.html#ros-api">ROS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2k.html#configuration-file">Configuration File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-flux2k.html#hardware-optimization">Hardware Optimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-launch.html">ROS Package bob_launch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-launch.html#launch-file-generic-launch-py">Launch File generic.launch.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-launch.html#helper-script-launch-sh">Helper Script launch.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-llm.html">ROS Package bob_llm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#conversation-flow">Conversation Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#ros-2-api">ROS 2 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-llm.html#tool-system">Tool System</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-moondream.html">ROS Package bob_moondream</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#build-instructions">Build Instructions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#interactive-query-script">Interactive Query Script</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#subscribers">Subscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#publishers">Publishers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream.html#services">Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream-msgs.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream-msgs.html#provided-ros-interfaces">Provided ROS Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream-msgs.html#usage-in-other-packages">Usage in Other Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-moondream-msgs.html#building-the-package">Building the Package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-msgs.html">ROS Package bob_msgs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-msgs.html#messages">Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-msgs.html#services">Services</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-sd35.html">ROS Package bob_sd35</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#installation-and-building">Installation and Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#nodes">Nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#subscribed-topics">Subscribed Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#published-topics">Published Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#ros-parameters">ROS Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-sd35.html#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-topic-tools.html">ROS Package bob_topic_tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-topic-tools.html#ros-node-filter">ROS Node Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-topic-tools.html#ros-node-stream-filter">ROS Node Stream Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-topic-tools.html#ros-node-aggregator">ROS Node Aggregator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-topic-tools.html#ros-node-terminal">ROS Node Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/bob-vector-db.html">ROS Package bob_vector_db</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/bob-vector-db.html#ros-node-embedder">ROS Node EMBEDDER</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob/voskros.html">ROS Package VoskRos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#installation-prerequisites">Installation Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#setup-package">Setup Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#models">Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#node-vosk">Node VOSK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#node-prompter">Node PROMPTER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/voskros.html#helper-set-grammar-sh">Helper set_grammar.sh</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob/vox.html">Package VOX Real-time Transcription</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#key-features">Key Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#using-vox-as-a-standalone-tool">1. Using Vox as a Standalone Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#using-vox-as-a-python-library">2. Using Vox as a Python Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#dependencies-and-manual-installation">Dependencies and Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#configuration-usage-examples">Configuration &amp; Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#the-output-handler-system">The Output Handler System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#cli-arguments-reference-table">CLI Arguments Reference Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bob/vox.html#robust-configuration-examples">Robust Configuration Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoapi/bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>#.. toctree::
+#   :maxdepth: 2
+#   :caption: Miscellaneous</p>
+<p>#   bob/bob-docker-network.md
+#   bob/bob-portainer.md</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob/bob-coquitts.html" class="btn btn-neutral float-right" title="ROS Package bob_coquitts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

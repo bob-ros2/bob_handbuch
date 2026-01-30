@@ -1,0 +1,270 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_launch &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package bob_llm" href="bob-llm.html" />
+    <link rel="prev" title="ROS Package bob_flux2k" href="bob-flux2k.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_launch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#launch-file-generic-launch-py">Launch File generic.launch.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#launch-arguments">Launch Arguments:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-generic-launch-file">Starting generic Launch file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-config-starting-nodes">Example config starting Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-config-starting-launch-file">Example config starting Launch file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-using-yaml-features-anchors-and-aliases">Example using YAML features Anchors and Aliases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#helper-script-launch-sh">Helper Script launch.sh</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_launch</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-launch.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-launch">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_launch">bob_launch</a><a class="headerlink" href="#ros-package-bob-launch" title="Link to this heading"></a></h1>
+<p>This repository is part of Bob’s ROS Packages.</p>
+<section id="launch-file-generic-launch-py">
+<h2>Launch File generic.launch.py<a class="headerlink" href="#launch-file-generic-launch-py" title="Link to this heading"></a></h2>
+<p>This generic ROS launch file is able to spawn and execute Ros Nodes or other ROS Launch files from a YAML configuration file.</p>
+<p>It streamlines the process of launching multiple components in a ROS environment. You can use a simple YAML configuration file to specify which ROS nodes, including theirs parameters, or other ROS launch files should be started. The tool reads this config file and dynamically generates the necessary launch commands, making it easier to manage complex setups with many ROS topics.</p>
+<p>Unlike traditional ROS launch files, which can be cumbersome for routing large numbers of topics, this approach simplifies the startup configuration. However, because the ROS launch system operates in a context-related manner, you need to start this launch file in a specific way to ensure it correctly uses your config file to generate the final launch description. This method not only saves time but also reduces the likelihood of errors in your ROS setup.</p>
+<section id="environment-variables">
+<h3>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">BOB_LAUNCH_CONFIG</span></code> - Path to the YAML config.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BOB_LAUNCH_AUTOABORT</span></code> - Wether to stop launch script if one of the nodes exits. This is useful when running in a docker container. If variable is not existing the default is: 1</p></li>
+</ul>
+</section>
+<section id="launch-arguments">
+<h3>Launch Arguments:<a class="headerlink" href="#launch-arguments" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config_nodes</span></code> - An optional Ros Nodes parameter file can be provided which will be passed to all contained nodes</p></li>
+</ul>
+</section>
+<section id="starting-generic-launch-file">
+<h3>Starting generic Launch file<a class="headerlink" href="#starting-generic-launch-file" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start everything from config</span>
+<span class="nv">BOB_LAUNCH_CONFIG</span><span class="o">=</span>/path/to/config.yaml<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>bob_launch<span class="w"> </span>generic.launch.py
+
+<span class="c1"># start everything from config </span>
+<span class="c1"># in addition pass a typical ROS parameter config file to all contained ros nodes within our config</span>
+<span class="nv">BOB_LAUNCH_CONFIG</span><span class="o">=</span>/path/to/config.yaml<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>bob_launch<span class="w"> </span>generic.launch.py<span class="w"> </span>config_nodes:<span class="o">=</span>nodes_config.yaml
+</pre></div>
+</div>
+</section>
+<section id="example-config-starting-nodes">
+<h3>Example config starting Nodes<a class="headerlink" href="#example-config-starting-nodes" title="Link to this heading"></a></h3>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="c1"># image view node</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image_view</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image_view</span>
+<span class="w">  </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image_view</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--ros-args</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-p</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image:=/image_topic</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-r</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__ns:=/bob_v2</span>
+
+<span class="c1"># start usb_cam node with a nodes parameter file</span>
+<span class="c1"># sudo apt-get install ros-&lt;ros2-distro&gt;-usb-cam</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usb_cam</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usb_cam</span>
+<span class="w">  </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">usb_cam_node_exe</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--ros-args</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--params-file</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/nodes_params.yaml</span>
+</pre></div>
+</div>
+</section>
+<section id="example-config-starting-launch-file">
+<h3>Example config starting Launch file<a class="headerlink" href="#example-config-starting-launch-file" title="Link to this heading"></a></h3>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="c1">#  launch example from a package with push to namespace</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">launch_file</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bob_llama_cpp</span>
+<span class="w">    </span><span class="nt">launch_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm.launch.py</span>
+<span class="w">  </span><span class="c1"># optional</span>
+<span class="w">  </span><span class="nt">launch_args</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">terminal</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;true&#39;</span>
+<span class="w">    </span><span class="nt">ns</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">  </span><span class="c1"># optional</span>
+<span class="w">  </span><span class="nt">launch_ns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/llmtest/a_sub_group</span>
+
+<span class="c1"># launch example using just a path</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">launch_file</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/my.launch.py</span>
+
+<span class="c1"># start in addition rqt nodes</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rqt_graph</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rqt_graph</span>
+<span class="w">  </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rqt_graph</span>
+</pre></div>
+</div>
+</section>
+<section id="example-using-yaml-features-anchors-and-aliases">
+<h3>Example using YAML features Anchors and Aliases<a class="headerlink" href="#example-using-yaml-features-anchors-and-aliases" title="Link to this heading"></a></h3>
+<p>The YAML format has features to reuse variables or even complex sub structures across the YAML file. See the YAML documentation for further information.</p>
+<div class="highlight-YAML notranslate"><div class="highlight"><pre><span></span><span class="c1"># Anchors can be defined like this. </span>
+<span class="c1"># That works because the launch script identifies nodes </span>
+<span class="c1"># or launch configs from their properties names.</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nl">&amp;ns</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">__ns:=/bob_v2</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">voice</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">rosspeaks</span>
+<span class="w">  </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">speak</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--ros-args</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-r</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nv">*ns</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm</span>
+<span class="w">  </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bob_llama_cpp</span>
+<span class="w">  </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm</span>
+<span class="w">  </span><span class="nt">arguments</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">--ros-args</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-r</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llm_out:=speak</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-r</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nv">*ns</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="helper-script-launch-sh">
+<h2>Helper Script launch.sh<a class="headerlink" href="#helper-script-launch-sh" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># help output</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_launch<span class="w"> </span>launch.sh<span class="w"> </span>-h
+Wrapper<span class="w"> </span>script<span class="w"> </span>to<span class="w"> </span>start<span class="w"> </span>ROS<span class="w"> </span>package<span class="w"> </span>bob_launch<span class="w"> </span>generic.launch.py<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>given<span class="w"> </span>parameter.
+This<span class="w"> </span>script<span class="w"> </span>can<span class="w"> </span>also<span class="w"> </span><span class="nb">read</span><span class="w"> </span>YAML<span class="w"> </span>launch<span class="w"> </span>&lt;config&gt;<span class="w"> </span>from<span class="w"> </span>stdin.
+
+Usage:<span class="w"> </span>launch.sh<span class="w"> </span><span class="o">[</span>&lt;config&gt;<span class="w"> </span><span class="o">[</span>&lt;nodes-config&gt;<span class="o">]]</span>
+<span class="w">       </span>cat<span class="w"> </span>*.yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>launch.sh<span class="w"> </span><span class="o">[</span>&lt;nodes-config&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># start with helper script</span>
+<span class="c1"># by default the launch will abort if one node exists</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_launch<span class="w"> </span>launch.sh<span class="w"> </span>/path/to/launch.yaml<span class="w"> </span>nodes_config.yaml
+
+<span class="c1"># start with helper script</span>
+<span class="c1"># don&#39;t abort everything if one node is exiting</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">BOB_LAUNCH_AUTOABORT</span><span class="o">=</span><span class="m">0</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_launch<span class="w"> </span>launch.sh<span class="w"> </span>/path/to/launch.yaml
+
+<span class="c1"># start with helper script and launch config from stdin</span>
+cat<span class="w"> </span>*.yaml<span class="w"> </span><span class="p">|</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>bob_launch<span class="w"> </span>launch.sh<span class="w"> </span>/path/to/nodes_config.yaml
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-flux2k.html" class="btn btn-neutral float-left" title="ROS Package bob_flux2k" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bob-llm.html" class="btn btn-neutral float-right" title="ROS Package bob_llm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

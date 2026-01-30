@@ -1,0 +1,135 @@
+bob_llm.llm_node
+================
+
+.. py:module:: bob_llm.llm_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llm.llm_node.LLMNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llm.llm_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: LLMNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 node that provides an interface to LLMs and VLMs.
+
+   This node handles prompts, manages conversation history, and executes tools.
+
+
+   .. py:attribute:: chat_history
+      :value: []
+
+
+
+   .. py:attribute:: _prefix_history_len
+
+
+   .. py:attribute:: _is_generating
+      :value: False
+
+
+
+   .. py:attribute:: _cancel_requested
+      :value: False
+
+
+
+   .. py:attribute:: _prompt_queue
+
+
+   .. py:attribute:: _queue_timer
+      :value: None
+
+
+
+   .. py:attribute:: _queue_timer_period
+      :value: 0.1
+
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub_response
+
+
+   .. py:attribute:: pub_stream
+
+
+   .. py:attribute:: pub_latest_turn
+
+
+   .. py:method:: _initialize_chat_history()
+
+      Populate the initial chat history from ROS parameters.
+
+
+
+   .. py:method:: load_llm_client()
+
+      Load and configure the LLM client based on ROS parameters.
+
+
+
+   .. py:method:: _load_tools() -> (list, dict)
+
+      Dynamically load tool modules specified in 'tool_interfaces'.
+
+      :return: A tuple containing (all_tools, all_functions).
+
+
+
+   .. py:method:: _publish_latest_turn(user_prompt: str, assistant_message: dict)
+
+      Process the latest conversational turn for publishing and logging.
+
+      :param user_prompt: The string content of the user's latest prompt.
+      :param assistant_message: The final message dictionary from the assistant.
+
+
+
+   .. py:method:: _get_truncated_history()
+
+      Return a copy of chat history with long strings truncated.
+
+
+
+   .. py:method:: _trim_chat_history()
+
+      Prevent the chat history from growing indefinitely.
+
+      It trims the oldest conversational turns to stay within the limit.
+
+
+
+   .. py:method:: prompt_callback(msg)
+
+      Process an incoming prompt from the 'llm_prompt' topic.
+
+
+
+   .. py:method:: _process_queue_callback()
+
+      Timer callback to process queued prompts.
+
+
+
+.. py:function:: main(args=None)
+

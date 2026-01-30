@@ -1,0 +1,217 @@
+bob_topic_tools.terminal
+========================
+
+.. py:module:: bob_topic_tools.terminal
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.terminal.RosNode
+   bob_topic_tools.terminal.StdinThread
+   bob_topic_tools.terminal.Window
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.terminal.sigint_handler
+   bob_topic_tools.terminal.main
+
+
+Module Contents
+---------------
+
+.. py:class:: RosNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Basic String topic IO terminal ROS Node
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: sub1
+      :value: None
+
+
+
+   .. py:attribute:: sub2
+      :value: None
+
+
+
+   .. py:attribute:: title
+
+
+   .. py:attribute:: opacity
+
+
+   .. py:attribute:: frameless
+
+
+   .. py:attribute:: fontname
+
+
+   .. py:attribute:: fontsize
+
+
+   .. py:attribute:: geometry
+
+
+   .. py:attribute:: display
+
+
+   .. py:attribute:: stylesheet
+
+
+   .. py:attribute:: stylesheet_window
+
+
+   .. py:attribute:: margin
+
+
+   .. py:attribute:: input
+
+
+   .. py:attribute:: line_count
+
+
+   .. py:method:: publish(s)
+
+      Publish message on topic.
+
+
+
+   .. py:method:: create_input_subscriptions(callback, callback_cr)
+
+
+.. py:class:: StdinThread
+
+   Bases: :py:obj:`PyQt5.QtCore.QThread`
+
+
+   QThread class to handle stdin reading.
+
+
+   .. py:attribute:: result
+
+
+   .. py:attribute:: running
+      :value: True
+
+
+
+   .. py:method:: run()
+
+      Read stdin loop function.
+
+
+
+   .. py:method:: stop()
+
+      Mark thread to stop the loop.
+
+
+
+.. py:class:: Window(node: RosNode)
+
+   Bases: :py:obj:`QWidget`
+
+
+   Main Window with terminal.
+
+
+   .. py:attribute:: node
+
+
+   .. py:attribute:: worker
+
+
+   .. py:attribute:: oldPosition
+
+
+   .. py:attribute:: tarea
+
+
+   .. py:attribute:: text
+      :value: ''
+
+
+
+   .. py:attribute:: tedit
+
+
+   .. py:attribute:: timer
+
+
+   .. py:method:: spin_once()
+
+      Spin periodically once the ROS node.
+
+
+
+   .. py:method:: start_read_stdin()
+
+      Start the worker to read the incomming GPT generator output.
+
+
+
+   .. py:method:: update_text(s: str)
+
+      Append given text in the PlainText area.
+
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Receive input text via ROS topic and update text.
+
+
+
+   .. py:method:: input_callback_cr(msg: std_msgs.msg.String)
+
+      Receive input text via ROS topic and update text with CR
+
+
+
+   .. py:method:: input_changed(text)
+
+      Input edit change text callback.
+
+
+
+   .. py:method:: input_enter()
+
+      Input edit enter callback.
+
+
+
+   .. py:method:: closeEvent(event)
+
+      Window close callback. This stops also the stdin worker thread.
+
+
+
+   .. py:method:: mousePressEvent(event)
+
+      Mouse press callback. Handles also window moving without caption.
+
+
+
+   .. py:method:: mouseMoveEvent(event)
+
+      Mouse move callback. Handles also window moving without caption.
+
+
+
+.. py:function:: sigint_handler(*args)
+
+.. py:function:: main()
+

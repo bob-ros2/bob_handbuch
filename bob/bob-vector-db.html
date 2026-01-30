@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_vector_db &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package VoskRos" href="voskros.html" />
+    <link rel="prev" title="ROS Package bob_topic_tools" href="bob-topic-tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_vector_db</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ros-node-embedder">ROS Node EMBEDDER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#embedding-data-format">Embedding data format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-parameter">Node Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subscribed-topics">Subscribed Topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_vector_db</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-vector-db.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-vector-db">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_vector_db">bob_vector_db</a><a class="headerlink" href="#ros-package-bob-vector-db" title="Link to this heading"></a></h1>
+<p>This package integrates a Vector DB into ROS which can be accessed via ROS topics.</p>
+<p><strong>Available Features</strong></p>
+<ul class="simple">
+<li><p>Simple ROS String topic JSON interface</p></li>
+<li><p>Embed text into a Chroma or Qdrant Vector DB including additional payload data</p></li>
+<li><p>Embed ROS sensor_msgs/msg/Image
+along with payload data into Qdrant Vector database</p></li>
+<li><p>Configurable model for the embeddings</p></li>
+<li><p>Multimodal vector embedding (Qdrant)</p></li>
+<li><p>Query the DB and return the results</p></li>
+</ul>
+<section id="ros-node-embedder">
+<h2>ROS Node EMBEDDER<a class="headerlink" href="#ros-node-embedder" title="Link to this heading"></a></h2>
+<p>This ROS node subscribes to an /embed String topic to receive JSON data with
+embedding messages. It embeds the delivered data into the configured Vector DB.
+A Qdrant Vector DB is the default DB, optionally a Chroma DB can be used.</p>
+<p>By default Sentence Transformers <code class="docutils literal notranslate"><span class="pre">all-MiniLM-L6-v2</span></code> model will be used to
+create the embeddings.</p>
+<p>Related Qdrant links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qdrant.tech/">https://qdrant.tech/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/qdrant/fastembed">https://github.com/qdrant/fastembed</a></p></li>
+<li><p><a class="reference external" href="https://qdrant.tech/documentation/embeddings">https://qdrant.tech/documentation/embeddings</a></p></li>
+<li><p><a class="reference external" href="https://qdrant.github.io/fastembed/examples/Supported_Models/#supported-text-embedding-models">Supported Models</a></p></li>
+</ul>
+<p>Related Chroma links:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.trychroma.com/">https://www.trychroma.com/</a></p></li>
+<li><p><a class="reference external" href="https://docs.trychroma.com/">https://docs.trychroma.com/</a></p></li>
+</ul>
+<section id="embedding-data-format">
+<h3>Embedding data format<a class="headerlink" href="#embedding-data-format" title="Link to this heading"></a></h3>
+<p>The JSON data which is received by the String topic has to contain the
+following fields. (for Qdrant the ids are optional)</p>
+<p><em>Embed text</em></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;collection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;xfiles&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;some story text&quot;</span><span class="p">,</span><span class="s2">&quot;text about something strange&quot;</span><span class="p">],</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;metadatas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;The end&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Dark star&quot;</span><span class="p">}],</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;id1&quot;</span><span class="p">,</span><span class="s2">&quot;id2&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>Embed text + image (Qdrant only)</em></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;collection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;movie_cover&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;some story text&quot;</span><span class="p">,</span><span class="s2">&quot;text about something strange&quot;</span><span class="p">],</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;metadatas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;The end&quot;</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Dark star&quot;</span><span class="p">}],</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&quot;images&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/path/to/image_id1.jpg&quot;</span><span class="p">,</span><span class="s2">&quot;/path/to/image_id2.jpg&quot;</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;id1&quot;</span><span class="p">,</span><span class="s2">&quot;id2&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Image embedding environment variables</strong></p>
+<p>Enable / disable automatic storing of the image in Base64 format into payload data:</p>
+<blockquote>
+<div><p><strong>EMBED_IMAGES_BASE64</strong> Default: 0</p>
+</div></blockquote>
+<p>Used image format when embedding from <a class="reference external" href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a> or <a class="reference external" href="https://github.com/bob-ros2/bob_msgs/blob/main/msg/TTImage.msg">bob_msgs/msg/STTImage</a>:</p>
+<blockquote>
+<div><p><strong>EMBED_PIL_B64FORMAT</strong> Default: JPEG</p>
+</div></blockquote>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># in order to work some of the below examples expects a running Qdrant or Chroma Vector DB</span>
+
+<span class="c1"># start embedder node, by default use Qdrant Vector DB running on localhost</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_vector_db<span class="w"> </span>embedder
+
+<span class="c1"># start embedder node using Chroma Vector DB running on localhost</span>
+<span class="nv">EMBED_USE_CHROMA</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>Ros2<span class="w"> </span>run<span class="w"> </span>bob_vector_db<span class="w"> </span>embedder
+
+<span class="c1"># run in debug mode, this will also set Python logging to level DEBUG</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_vector_db<span class="w"> </span>embedder<span class="w"> </span>--ros-args<span class="w"> </span>--log-level<span class="w"> </span>DEBUG
+
+<span class="c1"># this works without a Qdrant server</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_vector_db<span class="w"> </span>embedder<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>path:<span class="o">=</span>/home/ros/qdrant_data
+
+<span class="c1"># this works without a Chroma server</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_vector_db<span class="w"> </span>embedder<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>path:<span class="o">=</span>/home/ros/chroma_data<span class="w"> </span>-p<span class="w"> </span>use_chroma:<span class="o">=</span><span class="nb">true</span>
+
+<span class="c1"># Publish from shell an embed order with a single item.</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>embed<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s1">&#39;data: &quot;{\&quot;collection\&quot;:\&quot;xfiles\&quot;, \&quot;documents\&quot;:[\&quot;Bobs ROS nodes are a collection of NLP and LLM tools for ROS\&quot;], \&quot;metadatas\&quot;: [{\&quot;author\&quot;:\&quot;bob\&quot;}], \&quot;ids\&quot;:[\&quot;id1\&quot;]}&quot;&#39;</span>
+
+<span class="c1"># Embed one or more image together with the text representation</span>
+<span class="c1"># When embedding images vectors for both, the text and the image, are produced and stored into the Qdrant DB</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>embed<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s1">&#39;data: &quot;{\&quot;collection\&quot;:\&quot;image_data\&quot;, \&quot;documents\&quot;:[\&quot;An animal from the animal farm in pink\&quot;], \&quot;images\&quot;: [\&quot;/home/ros/ros2_ws/img/images/piglet.jpg\&quot;], \&quot;metadatas\&quot;: [{\&quot;author\&quot;:\&quot;bob\&quot;}]}&quot;&#39;</span>
+
+<span class="c1"># Start image/text embedder together with a topic terminal to enter image embed messages manually</span>
+<span class="c1"># When setting EMBED_IMAGES_BASE64=1 in addtition to the path the image is stored in BASE64 format into payload key `image_base64`</span>
+<span class="c1"># this works only with a Qdrant database</span>
+<span class="nv">EMBED_IMAGES_BASE64</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>bob_vector_db<span class="w"> </span>embedder.launch.py<span class="w"> </span>terminal:<span class="o">=</span><span class="nb">true</span>
+</pre></div>
+</div>
+</section>
+<section id="node-parameter">
+<h3>Node Parameter<a class="headerlink" href="#node-parameter" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: default_collection<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Default collection to be used if embedding from embed_raw or embed_image topic. Environment variable EMBED_DEFAULT_COLLECTION. Default: embed_raw</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: host<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Vector DB host name or ip address. Environment variable EMBED_HOST. Default: localhost</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: location<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Vector DB location. Can be empty or url. This parameter is only used by Qdrant. Environment variable EMBED_LOCATION. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: model<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: To be used embedding model. For Chroma currently only text embedding is available. When using Qdrant and to embed images a text and a image model can be provided separated by a space. Supported models: Qdrant/clip-ViT-B-32-text Qdrant/clip-ViT-B-32-vision. Environment variable EMBED_MODEL. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: path<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Vector DB local path if using persistent storage. Environment variable EMBED_PATH. Default: ‘’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: port<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Vector DB port. Environment variable EMBED_PORT. Default: 6333 or 8000 (chroma db)</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: use_chroma<br />
+<strong>Type</strong>: boolean<br />
+<strong>Description</strong>: Use Chroma Vector DB instead of a Qdrant Vector DB. Environment variable EMBED_USE_CHROMA. Default: 0</p>
+</div></blockquote>
+</section>
+<section id="subscribed-topics">
+<h3>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~embed (<a class="reference external" href="https://docs.ros.org/en/melodic/api/std_msgs/html/msg/String.html">std_msgs/msg/String</a>)<br />
+Incoming JSON string with the embedding data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~embed_raw (<a class="reference external" href="https://docs.ros.org/en/melodic/api/std_msgs/html/msg/String.html">std_msgs/msg/String</a>)<br />
+Incoming String with raw data.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~embed_image (<a class="reference external" href="https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html">sensor_msgs/msg/Image</a>)<br />
+Incoming ROS Image to embed.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~embed_ttimage (<a class="reference external" href="https://github.com/bob-ros2/bob_msgs/blob/main/msg/TTImage.msg">bob_msgs/msg/TTImage</a>)<br />
+Incoming TTImage with payload to embed.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-topic-tools.html" class="btn btn-neutral float-left" title="ROS Package bob_topic_tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="voskros.html" class="btn btn-neutral float-right" title="ROS Package VoskRos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

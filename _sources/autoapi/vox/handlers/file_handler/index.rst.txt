@@ -1,0 +1,28 @@
+vox.handlers.file_handler
+=========================
+
+.. py:module:: vox.handlers.file_handler
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   vox.handlers.file_handler.OutputHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: OutputHandler(handler_args=None)
+
+   .. py:attribute:: file
+
+
+   .. py:method:: send(text)
+
+
+   .. py:method:: close()
+
+

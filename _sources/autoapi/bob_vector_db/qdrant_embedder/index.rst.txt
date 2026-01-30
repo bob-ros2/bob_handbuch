@@ -1,0 +1,63 @@
+bob_vector_db.qdrant_embedder
+=============================
+
+.. py:module:: bob_vector_db.qdrant_embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_vector_db.qdrant_embedder.QdrantEmbedder
+
+
+Module Contents
+---------------
+
+.. py:class:: QdrantEmbedder(model: str, **kwargs)
+
+   Bases: :py:obj:`json_embedder.JsonEmbedder`
+
+
+   Qdrant JSON embedding interface.
+
+   The __call__ function expects a string with a JSON dict containing the following attributes:
+     collection: to be used collection name. 
+     documents: list with document content, if also images are provided this should be the caption. 
+     metadatas: list of metadata dictionaries used as payload. 
+     images: optional list of image file names to embed along with the documents. 
+     ids: optional list of id strings, if not provided automatically uuid4 are created. 
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: text_model
+      :value: None
+
+
+
+   .. py:attribute:: image_model
+      :value: None
+
+
+
+   .. py:method:: __call__(j: str, media: list = None) -> None
+
+      Performs the embedding into the Vector DB
+
+      :param j: Parsable JSON string with embedding information 
+      :type j: str
+
+
+
+   .. py:method:: embed_images(data: dict, media: list = None)
+
+      Embed dictionary with embedding information.
+
+      :param data: Dictionary with embedding information
+      :type data: dict
+
+
+

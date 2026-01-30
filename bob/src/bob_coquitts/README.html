@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_coquitts &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_coquitts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/bob_coquitts/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-coquitts">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_coquitts">bob_coquitts</a><a class="headerlink" href="#ros-package-bob-coquitts" title="Link to this heading"></a></h1>
+<p>This ROS package provides a robust node that interfaces with the <a class="reference external" href="https://github.com/coqui-ai/TTS">Coqui TTS</a> library, allowing a ROS 2 system to convert text into speech. It intelligently processes incoming text streams, handles voice cloning with models like XTTS, and offers extensive configuration options.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Intelligent Text Buffering</strong>: Waits for pauses in the incoming text stream before processing to ensure complete thoughts are synthesized.</p></li>
+<li><p><strong>Dual Splitting Modes</strong>: Choose between two modes for sentence splitting via the <code class="docutils literal notranslate"><span class="pre">split_sentences</span></code> parameter:</p>
+<ol class="arabic simple">
+<li><p><strong>Manual Mode (Default)</strong>: Use custom delimiters (<code class="docutils literal notranslate"><span class="pre">sentence_delimiters</span></code>) to precisely control how text is split into sentences.</p></li>
+<li><p><strong>Automatic Mode</strong>: Let Coqui’s powerful internal splitter handle long, unstructured text blocks.</p></li>
+</ol>
+</li>
+<li><p><strong>Advanced Text Normalization</strong>:</p>
+<ul>
+<li><p>Automatically filters pictorial emojis and symbols by default using a Unicode-aware regex filter.</p></li>
+<li><p>Removes user-defined characters (e.g., typographical quotes <code class="docutils literal notranslate"><span class="pre">„“</span></code>).</p></li>
+<li><p>Strips leading and trailing characters (e.g., spaces, punctuation) from sentences before synthesis.</p></li>
+<li><p>Normalizes numbers by removing thousands separators (e.g., <code class="docutils literal notranslate"><span class="pre">2.500</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">2500</span></code>) to ensure correct pronunciation.</p></li>
+</ul>
+</li>
+<li><p><strong>Real-time Feedback</strong>: Publishes the exact text chunk being synthesized to a separate ROS topic (<code class="docutils literal notranslate"><span class="pre">/text_speaking</span></code>), allowing other nodes to synchronize with the speech output.</p></li>
+<li><p><strong>Wide Model Support &amp; Voice Cloning</strong>: Supports a vast range of Coqui models, including zero-shot voice cloning with XTTS.</p></li>
+<li><p><strong>Flexible Output</strong>: Optionally plays audio directly or saves it to a WAV file with automatic unique filename generation.</p></li>
+<li><p><strong>Hardware Acceleration</strong>: Supports both GPU (<code class="docutils literal notranslate"><span class="pre">cuda</span></code>) and CPU inference.</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>ROS 2 (Humble, Iron, or newer).</p></li>
+<li><p>Python 3.8+</p></li>
+<li><p>NVIDIA GPU with CUDA installed for GPU acceleration (optional but recommended for XTTS).</p></li>
+<li><p>An audio output device.</p></li>
+<li><p>System dependencies for <code class="docutils literal notranslate"><span class="pre">sounddevice</span></code> and <code class="docutils literal notranslate"><span class="pre">libsndfile</span></code>.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For Debian/Ubuntu-based systems</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>libportaudio2<span class="w"> </span>libasound-dev<span class="w"> </span>libsndfile1
+</pre></div>
+</div>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Package</strong>:
+Clone this repository into your ROS 2 workspace’s <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.</p></li>
+<li><p><strong>Install Python Dependencies</strong>:
+This node requires the <code class="docutils literal notranslate"><span class="pre">regex</span></code> library for full Unicode support (e.g., filtering emojis). It is recommended to use a Python virtual environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+<span class="c1"># If using a virtual environment, activate it first</span>
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>src/bob_coquitts/requirements.txt
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file should contain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">TTS</span>
+<span class="n">sounddevice</span>
+<span class="n">numpy</span>
+<span class="n">soundfile</span>
+<span class="n">regex</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="building">
+<h2>Building<a class="headerlink" href="#building" title="Link to this heading"></a></h2>
+<p>Source your ROS 2 installation and build the package using <code class="docutils literal notranslate"><span class="pre">colcon</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>bob_coquitts
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>After building, source the workspace’s <code class="docutils literal notranslate"><span class="pre">setup.bash</span></code> file. For detailed troubleshooting, launch the node with <code class="docutils literal notranslate"><span class="pre">--log-level</span> <span class="pre">DEBUG</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/ros2_ws/install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>bob_coquitts<span class="w"> </span>tts
+</pre></div>
+</div>
+<section id="example-1-xtts-voice-cloning-with-text-cleaning">
+<h3>Example 1: XTTS Voice Cloning with Text Cleaning<a class="headerlink" href="#example-1-xtts-voice-cloning-with-text-cleaning" title="Link to this heading"></a></h3>
+<p>This example uses the powerful XTTS v2 model. We override the <code class="docutils literal notranslate"><span class="pre">sentence_strip_chars</span></code> parameter to only remove colons, which can cause unnatural-sounding audio.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_coquitts<span class="w"> </span>tts<span class="w"> </span>--ros-args<span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>model_name:<span class="o">=</span><span class="s1">&#39;tts_models/multilingual/multi-dataset/xtts_v2&#39;</span><span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>reference_wav:<span class="o">=</span><span class="s1">&#39;/path/to/your/voice.wav&#39;</span><span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>language:<span class="o">=</span><span class="s1">&#39;en&#39;</span><span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>device:<span class="o">=</span><span class="s1">&#39;cuda&#39;</span><span class="w"> </span><span class="se">\</span>
+-p<span class="w"> </span>sentence_strip_chars:<span class="o">=</span><span class="s2">&quot;&#39;:&#39;&quot;</span>
+
+<span class="c1"># In another terminal, publish text with a colon</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/text<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;data: &#39;Here is my statement:&#39;&quot;</span>
+
+<span class="c1"># In a third terminal, listen to the cleaned text being spoken</span>
+ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/text_speaking
+<span class="c1"># Output will be: data: Here is my statement</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-using-coqui-s-internal-splitter-for-long-text">
+<h3>Example 2: Using Coqui’s Internal Splitter for Long Text<a class="headerlink" href="#example-2-using-coqui-s-internal-splitter-for-long-text" title="Link to this heading"></a></h3>
+<p>If you are feeding a large, unstructured block of text, it’s best to let Coqui handle the splitting.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_coquitts<span class="w"> </span>tts<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>split_sentences:<span class="o">=</span>True
+
+<span class="c1"># Publish a long paragraph</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>--once<span class="w"> </span>/text<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;data: &#39;This is the first sentence. This is the second sentence which is much longer and might exceed the character limit if not handled properly. Coquis splitter will take care of it.&#39;&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ros-interface">
+<h2>ROS Interface<a class="headerlink" href="#ros-interface" title="Link to this heading"></a></h2>
+<section id="subscribed-topics">
+<h3>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic Name</p></th>
+<th class="head"><p>Message Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/text</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td><p>The text to be synthesized. The node buffers incoming text and processes it after a pause.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="published-topics">
+<h3>Published Topics<a class="headerlink" href="#published-topics" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic Name</p></th>
+<th class="head"><p>Message Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">/text_speaking</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td><p>Publishes the cleaned, normalized sentence or chunk of text exactly as it is being sent to the TTS model.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>General</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model_name</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tts_models/en/ljspeech/vits</span></code></p></td>
+<td><p>The Coqui TTS model to use. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_MODEL_NAME</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">language</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>Language code for multi-lingual models (e.g., <code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">de</span></code>). (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_LANGUAGE</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cpu</span></code></p></td>
+<td><p>Compute device for inference (<code class="docutils literal notranslate"><span class="pre">cuda</span></code> or <code class="docutils literal notranslate"><span class="pre">cpu</span></code>). (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_DEVICE</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">reference_wav</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>Path to a reference WAV file for voice cloning. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_REFERENCE_WAV</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Audio Output</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sample_rate</span></code></p></td>
+<td><p>integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">24000</span></code></p></td>
+<td><p>Audio sample rate for playback. Must match the model’s native rate. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_SAMPLE_RATE</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">play_audio</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
+<td><p>If true, plays the generated audio directly. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_PLAY_AUDIO</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">output_wav_path</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
+<td><p>Path to save the output WAV file. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_OUTPUT_WAV_PATH</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Text Processing</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">split_sentences</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td><p><strong>Mode switch for splitting.</strong> If <code class="docutils literal notranslate"><span class="pre">True</span></code>, Coqui handles splitting. If <code class="docutils literal notranslate"><span class="pre">False</span></code> (default), the node uses manual splitting below. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_SPLIT_SENTENCES</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentence_delimiters</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.!?\n</span></code></p></td>
+<td><p>Characters used for manual splitting (only when <code class="docutils literal notranslate"><span class="pre">split_sentences</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>). (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_SENTENCE_DELIMITERS</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sentences_max</span></code></p></td>
+<td><p>integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>Max number of sentences to process at once in manual mode. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_SENTENCES_MAX</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_char_length_for_synthesis</span></code></p></td>
+<td><p>integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">3</span></code></p></td>
+<td><p>If a text chunk is shorter than this, a period is appended to stabilize TTS synthesis. Set to 0 to disable. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_MIN_CHAR_LENGTH</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">number_thousands_separator</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.</span></code></p></td>
+<td><p>Character to remove from between digits (e.g., <code class="docutils literal notranslate"><span class="pre">.</span></code> in <code class="docutils literal notranslate"><span class="pre">1.234</span></code>). (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_NUMBER_THOUSANDS_SEPARATOR</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sentence_strip_chars</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.,:!?</span> </code></p></td>
+<td><p>Characters to remove from the beginning and end of a processed text chunk. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_SENTENCE_STRIP_CHARS</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">text_filter_chars</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">„”‘“’*—#&lt;&gt;</span></code></p></td>
+<td><p>Specific characters to remove from the entire text. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_TEXT_FILTER_CHARS</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">text_filter_regex</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[\p{Emoji_Presentation}\p{Extended_Pictographic}]</span></code></p></td>
+<td><p>Regex to remove patterns from the entire text. <strong>Requires <code class="docutils literal notranslate"><span class="pre">regex</span></code> pip package.</strong> Default filters emojis. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_TEXT_FILTER_REGEX</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>XTTS Tuning</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
+<td><p>double</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.2</span></code></p></td>
+<td><p>Controls randomness. Lower is more deterministic. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_TEMPERATURE</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">length_penalty</span></code></p></td>
+<td><p>double</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p>Factor to penalize longer sequences. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_LENGTH_PENALTY</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code></p></td>
+<td><p>double</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2.0</span></code></p></td>
+<td><p>Penalty for repeating tokens. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_REPETITION_PENALTY</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">top_k</span></code></p></td>
+<td><p>integer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">40</span></code></p></td>
+<td><p>Samples from the k most likely next tokens. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_TOP_K</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">top_p</span></code></p></td>
+<td><p>double</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.9</span></code></p></td>
+<td><p>Samples from tokens with a cumulative probability of p. (env: <code class="docutils literal notranslate"><span class="pre">COQUITTS_TOP_P</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

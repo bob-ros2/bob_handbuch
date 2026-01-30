@@ -1,0 +1,121 @@
+bob_flux2.flux2_node
+====================
+
+.. py:module:: bob_flux2.flux2_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_flux2.flux2_node.TTInode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_flux2.flux2_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: TTInode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   A ROS node that interfaces with a FLUX.2 model for text-to-image generation.
+
+   This node manages the entire text-to-image pipeline. It is optimized for
+   low-VRAM environments by sequentially loading and unloading the text encoder
+   and the image generation models for each request, ensuring they are never
+   in memory simultaneously. It can be configured to run once for an initial
+   prompt or continuously listen for prompts on a topic. It also supports
+   an optional input image to guide the generation process.
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: repo_id
+
+
+   .. py:attribute:: model_dir
+
+
+   .. py:attribute:: device
+
+
+   .. py:attribute:: image_path
+
+
+   .. py:attribute:: prompt
+
+
+   .. py:attribute:: seed
+
+
+   .. py:attribute:: input_image
+
+
+   .. py:attribute:: once
+
+
+   .. py:attribute:: image_counter
+
+
+   .. py:attribute:: torch_dtype
+
+
+   .. py:attribute:: hf_kwargs
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:attribute:: image_pub
+
+
+   .. py:method:: _get_image_output_path()
+
+      Determines the output path for the generated image.
+
+      If the 'image_path' parameter ends with "auto", it generates a unique
+      filename with a random 10-character string in the specified directory.
+      Otherwise, it returns the 'image_path' parameter directly.
+
+      Returns:
+          str: The final path to save the image file.
+
+
+
+   .. py:method:: prompt_callback(msg)
+
+      Processes an incoming prompt to generate and save an image.
+
+      This is the core callback function that executes the full text-to-image
+      pipeline in a memory-efficient manner. It performs the following steps:
+      1. Loads the text encoder model.
+      2. Encodes the incoming prompt string into tensor embeddings.
+      3. Unloads the text encoder to free VRAM.
+      4. Loads the image generation pipeline.
+      5. If an input image is specified, loads it.
+      6. Generates an image from the prompt embeddings (and optional input image).
+      7. Saves the image to the configured file path.
+      8. Unloads the image generation pipeline to free VRAM.
+      9. If the 'once' parameter is set, it shuts down the node.
+
+      Args:
+          msg (std_msgs.msg.String): The message containing the text prompt.
+
+
+
+.. py:function:: main(args=None)
+
+   The main entry point for the ROS node.
+
+

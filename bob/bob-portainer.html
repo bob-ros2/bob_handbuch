@@ -1,0 +1,184 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup Portainer with Multiple Docker &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Setup Portainer with Multiple Docker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-portainer.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup-portainer-with-multiple-docker">
+<h1>Setup Portainer with Multiple Docker<a class="headerlink" href="#setup-portainer-with-multiple-docker" title="Link to this heading"></a></h1>
+<p>A <code class="docutils literal notranslate"><span class="pre">Portainer</span></code> setup quick guide.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.portainer.io">https://www.portainer.io</a></p></li>
+</ul>
+<section id="setup-portainer-on-a-docker-host">
+<h2>Setup Portainer on a Docker host<a class="headerlink" href="#setup-portainer-on-a-docker-host" title="Link to this heading"></a></h2>
+<p>This is the setup for a Synology NAS. It will also act as a web proxy for the <code class="docutils literal notranslate"><span class="pre">Portainer</span></code> Web-GUI.
+It should work in a similar way also on any other Docker host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Docker must already be setup on Synology NAS</span>
+<span class="c1"># Create the folder /volume1/docker/portainer-ce</span>
+<span class="c1"># ssh login as admin and run the following container</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8008</span>:8000<span class="w"> </span>-p<span class="w"> </span><span class="m">9000</span>:9009<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="o">=</span>portainer-ce<span class="w"> </span>--restart<span class="o">=</span>always<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/volume1/docker/portainer-ce:/data<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>portainer/portainer-ce:latest
+</pre></div>
+</div>
+<p>Alternatively a docker compose.yaml could look like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">portainer-ce</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">portainer/portainer-ce:latest</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8008:8000</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9009:9000</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/run/docker.sock:/var/run/docker.sock</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/volume1/docker/portainer-ce:/data</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># When using ssh, in the directory where the compose.yaml is located</span>
+sudo<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Afterwards access the GUI to create an inital admin user: <code class="docutils literal notranslate"><span class="pre">http://synology-ip:9009</span></code></p></li>
+<li><p>When it’s done you should see a page where you can select local environment or add another environment</p></li>
+<li><p>Choose local environment and now you can manage your Docker host</p></li>
+</ul>
+</section>
+<section id="setup-and-attach-a-portainer-agent-running-on-another-docker-host">
+<h2>Setup and attach a Portainer Agent running on another Docker host<a class="headerlink" href="#setup-and-attach-a-portainer-agent-running-on-another-docker-host" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run Portainer Agent Container</span>
+sudodocker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">9001</span>:9001<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--name<span class="w"> </span>portainer-agent<span class="w"> </span>--restart<span class="o">=</span>always<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/var/run/docker.sock:/var/run/docker.sock<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/var/lib/docker/volumes:/var/lib/docker/volumes<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>portainer/agent:latest
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If the container could be started choose in the Portainer GUI: <code class="docutils literal notranslate"><span class="pre">Enviroment-related</span> <span class="pre">-&gt;</span> <span class="pre">Environments</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Add</span> <span class="pre">Environment</span></code></p></li>
+<li><p>In the upcoming wizard choose <code class="docutils literal notranslate"><span class="pre">Docker</span> <span class="pre">Standalone</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">Wizard</span></code></p></li>
+<li><p>Give it a name and an environment address in the format e.g.:
+<code class="docutils literal notranslate"><span class="pre">192.168.1.123:9001</span></code></p></li>
+<li><p>Afterwards click <code class="docutils literal notranslate"><span class="pre">Connect</span></code> and if it works the new environment will be added.</p></li>
+<li><p>Finally click <code class="docutils literal notranslate"><span class="pre">Close</span></code> and go to the Start Page</p></li>
+</ul>
+<p>Et voilà, you can see now two Docker hosts.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

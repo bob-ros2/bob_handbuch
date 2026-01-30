@@ -1,0 +1,108 @@
+bob_llm.backend_clients
+=======================
+
+.. py:module:: bob_llm.backend_clients
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llm.backend_clients.OpenAICompatibleClient
+
+
+Module Contents
+---------------
+
+.. py:class:: OpenAICompatibleClient(api_url: str, api_key: str, model: str, logger, temperature: float = 0.7, top_p: float = 1.0, max_tokens: int = 0, stop: list = None, presence_penalty: float = 0.0, frequency_penalty: float = 0.0, timeout: float = 60.0, response_format: dict = None)
+
+   Client for OpenAI-compatible APIs.
+
+
+   .. py:attribute:: api_url
+
+
+   .. py:attribute:: api_key
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: logger
+
+
+   .. py:attribute:: headers
+
+
+   .. py:attribute:: temperature
+      :value: 0.7
+
+
+
+   .. py:attribute:: top_p
+      :value: 1.0
+
+
+
+   .. py:attribute:: max_tokens
+      :value: 0
+
+
+
+   .. py:attribute:: stop
+      :value: None
+
+
+
+   .. py:attribute:: presence_penalty
+      :value: 0.0
+
+
+
+   .. py:attribute:: frequency_penalty
+      :value: 0.0
+
+
+
+   .. py:attribute:: timeout
+      :value: 60.0
+
+
+
+   .. py:attribute:: response_format
+      :value: None
+
+
+
+   .. py:method:: _build_payload(history: list, tools: list = None, stream: bool = False) -> dict
+
+      Construct the JSON payload for an API request.
+
+      :param history: The list of messages in the chat history.
+      :param tools: An optional list of tool definitions.
+      :param stream: A boolean indicating whether to enable streaming.
+      :return: A dictionary representing the complete JSON payload.
+
+
+
+   .. py:method:: process_prompt(history: list, tools: list = None) -> (bool, dict)
+
+      Send a non-streaming request to the LLM to get a complete response.
+
+      :param history: The list of messages in the chat history.
+      :param tools: An optional list of tool definitions.
+      :return: A tuple containing (success, message).
+
+
+
+   .. py:method:: stream_prompt(history: list, tools: list = None)
+
+      Send a streaming request to the LLM and yield response chunks.
+
+      :param history: The list of messages in the chat history.
+      :param tools: An optional list of tool definitions.
+      :yield: String chunks of the generated text content.
+
+
+

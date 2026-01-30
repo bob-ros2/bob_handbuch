@@ -1,0 +1,124 @@
+bob_llm.tool_utils
+==================
+
+.. py:module:: bob_llm.tool_utils
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_llm.tool_utils.TYPE_MAP
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llm.tool_utils.FunctionParameters
+   bob_llm.tool_utils.FunctionDefinition
+   bob_llm.tool_utils.Tool
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llm.tool_utils.register
+
+
+Module Contents
+---------------
+
+.. py:class:: FunctionParameters
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+
+   .. py:attribute:: type
+      :type:  str
+
+
+   .. py:attribute:: properties
+      :type:  Dict[str, Any]
+
+
+   .. py:attribute:: required
+      :type:  List[str]
+
+
+.. py:class:: FunctionDefinition
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+
+   .. py:attribute:: name
+      :type:  str
+
+
+   .. py:attribute:: description
+      :type:  str
+
+
+   .. py:attribute:: parameters
+      :type:  FunctionParameters
+
+
+.. py:class:: Tool
+
+   Bases: :py:obj:`TypedDict`
+
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+
+   .. py:attribute:: type
+      :type:  str
+
+
+   .. py:attribute:: function
+      :type:  FunctionDefinition
+
+
+.. py:data:: TYPE_MAP
+
+.. py:function:: register(module: Any, node: Any = None) -> List[Tool]
+
+   Inspect a module and build a list of tool definitions.
+
+   It ignores functions starting with '_' and 'register'.
+
+

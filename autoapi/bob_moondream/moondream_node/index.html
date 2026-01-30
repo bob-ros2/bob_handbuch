@@ -1,0 +1,503 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_moondream.moondream_node &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="bob_vector_db" href="../../bob_vector_db/index.html" />
+    <link rel="prev" title="bob_moondream" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_moondream</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_moondream.moondream_node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_moondream</a></li>
+      <li class="breadcrumb-item active">bob_moondream.moondream_node</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_moondream/moondream_node/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_moondream.moondream_node">
+<span id="bob-moondream-moondream-node"></span><h1>bob_moondream.moondream_node<a class="headerlink" href="#module-bob_moondream.moondream_node" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_moondream.moondream_node.ImageCache" title="bob_moondream.moondream_node.ImageCache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ImageCache</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_moondream.moondream_node.MoondreamNode" title="bob_moondream.moondream_node.MoondreamNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MoondreamNode</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_moondream.moondream_node.main" title="bob_moondream.moondream_node.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>([args])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_moondream.moondream_node.</span></span><span class="sig-name descname"><span class="pre">ImageCache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.node">
+<span class="sig-name descname"><span class="pre">node</span></span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.node" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.latest_msg">
+<span class="sig-name descname"><span class="pre">latest_msg</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.latest_msg" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.latest_image">
+<span class="sig-name descname"><span class="pre">latest_image</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.latest_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.latest_cv_image">
+<span class="sig-name descname"><span class="pre">latest_cv_image</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.latest_cv_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.latest_image_time">
+<span class="sig-name descname"><span class="pre">latest_image_time</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.latest_image_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.lock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.cv_image">
+<span class="sig-name descname"><span class="pre">cv_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.cv_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.pil_image">
+<span class="sig-name descname"><span class="pre">pil_image</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.pil_image" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.ImageCache.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.ImageCache.get" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_moondream.moondream_node.</span></span><span class="sig-name descname"><span class="pre">MoondreamNode</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.callback_group">
+<span class="sig-name descname"><span class="pre">callback_group</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.callback_group" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.model_name">
+<span class="sig-name descname"><span class="pre">model_name</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.model_name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.model_revision">
+<span class="sig-name descname"><span class="pre">model_revision</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.model_revision" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.cache_dir">
+<span class="sig-name descname"><span class="pre">cache_dir</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.cache_dir" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.frame_id">
+<span class="sig-name descname"><span class="pre">frame_id</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.frame_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.device">
+<span class="sig-name descname"><span class="pre">device</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.device" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.bridge">
+<span class="sig-name descname"><span class="pre">bridge</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.bridge" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.image_cache">
+<span class="sig-name descname"><span class="pre">image_cache</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.image_cache" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.subscription">
+<span class="sig-name descname"><span class="pre">subscription</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.subscription" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.detection_publisher">
+<span class="sig-name descname"><span class="pre">detection_publisher</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.detection_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.point_publisher">
+<span class="sig-name descname"><span class="pre">point_publisher</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.point_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.annotated_image_publisher">
+<span class="sig-name descname"><span class="pre">annotated_image_publisher</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.annotated_image_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.visual_query_result_publisher">
+<span class="sig-name descname"><span class="pre">visual_query_result_publisher</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.visual_query_result_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.object_detection_result_publisher">
+<span class="sig-name descname"><span class="pre">object_detection_result_publisher</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.object_detection_result_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.pointing_result_publisher">
+<span class="sig-name descname"><span class="pre">pointing_result_publisher</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.pointing_result_publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.visual_query_prompt_subscriber">
+<span class="sig-name descname"><span class="pre">visual_query_prompt_subscriber</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.visual_query_prompt_subscriber" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.object_detection_prompt_subscriber">
+<span class="sig-name descname"><span class="pre">object_detection_prompt_subscriber</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.object_detection_prompt_subscriber" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.pointing_prompt_subscriber">
+<span class="sig-name descname"><span class="pre">pointing_prompt_subscriber</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.pointing_prompt_subscriber" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.caption_service">
+<span class="sig-name descname"><span class="pre">caption_service</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.caption_service" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.visual_query_service">
+<span class="sig-name descname"><span class="pre">visual_query_service</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.visual_query_service" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.object_detection_service">
+<span class="sig-name descname"><span class="pre">object_detection_service</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.object_detection_service" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.pointing_service">
+<span class="sig-name descname"><span class="pre">pointing_service</span></span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.pointing_service" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.image_callback">
+<span class="sig-name descname"><span class="pre">image_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.image_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback function for the image subscriber.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>msg (sensor_msgs.msg.Image): The ROS Image message received from the image topic.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.call_service">
+<span class="sig-name descname"><span class="pre">call_service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.call_service" title="Link to this definition"></a></dt>
+<dd><p>Wrapper to call one of the VisualQuery services.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.visual_query_prompt_callback">
+<span class="sig-name descname"><span class="pre">visual_query_prompt_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.visual_query_prompt_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback for topic-based visual query requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.object_detection_prompt_callback">
+<span class="sig-name descname"><span class="pre">object_detection_prompt_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.object_detection_prompt_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback for topic-based object detection requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.pointing_prompt_callback">
+<span class="sig-name descname"><span class="pre">pointing_prompt_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.pointing_prompt_callback" title="Link to this definition"></a></dt>
+<dd><p>Callback for topic-based pointing requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.detect">
+<span class="sig-name descname"><span class="pre">detect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.detect" title="Link to this definition"></a></dt>
+<dd><p>Performs object detection and publishes results if subscribers are present.</p>
+<p>This method is intended to be called periodically. It checks for active subscribers
+on the detection topics. If any exist, it calls the model to find all objects
+in the provided image and then uses <cite>publish_detections</cite> to process and
+publish the results.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.publish_detections">
+<span class="sig-name descname"><span class="pre">publish_detections</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objects</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.publish_detections" title="Link to this definition"></a></dt>
+<dd><p>Processes and publishes object detection results.</p>
+<p>This function converts the raw detection data from the model into a
+<cite>vision_msgs/Detection2DArray</cite> message and publishes it. It also draws
+the bounding boxes on a copy of the input image.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>objects (list): A list of dictionaries, where each dictionary represents a detected object.
+image (numpy.ndarray): The OpenCV image on which to draw the detections.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if publishing was successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.point">
+<span class="sig-name descname"><span class="pre">point</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.point" title="Link to this definition"></a></dt>
+<dd><p>Performs pointing and publishes results if subscribers are present.</p>
+<p>This method is intended to be called periodically. It checks for active subscribers
+on the pointing topics. If any exist, it calls the model to find all points
+in the provided image based on the ‘prompt_point’ parameter and then uses
+<cite>publish_points</cite> to process and publish the results.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.publish_points">
+<span class="sig-name descname"><span class="pre">publish_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.publish_points" title="Link to this definition"></a></dt>
+<dd><p>Processes and publishes pointing results.</p>
+<p>This function converts the raw point data from the model into a
+<cite>vision_msgs/Detection2DArray</cite> message (where each point is a zero-size bbox)
+and publishes it. It also draws markers on a copy of the input image.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>points (list): A list of dictionaries, where each dict represents a point (e.g., {‘x’: 0.5, ‘y’: 0.5}).
+image (numpy.ndarray): The OpenCV image on which to draw the points.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if publishing was successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.check_image_availability">
+<span class="sig-name descname"><span class="pre">check_image_availability</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.check_image_availability" title="Link to this definition"></a></dt>
+<dd><p>Verifies that a recent image is available for processing.</p>
+<p>Checks if an image has been received and if it is not too old (older than 2 seconds).</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool: True if a recent image is available, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.caption_callback">
+<span class="sig-name descname"><span class="pre">caption_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.caption_callback" title="Link to this definition"></a></dt>
+<dd><p>ROS service callback to generate a caption for the latest image.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The service request object (prompt is ignored).
+response: The service response object to be populated.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The populated service response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.visual_query_callback">
+<span class="sig-name descname"><span class="pre">visual_query_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.visual_query_callback" title="Link to this definition"></a></dt>
+<dd><p>ROS service callback to answer a question about the latest image.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The service request object containing the text prompt (question).
+response: The service response object to be populated.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The populated service response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.object_detection_callback">
+<span class="sig-name descname"><span class="pre">object_detection_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.object_detection_callback" title="Link to this definition"></a></dt>
+<dd><p>ROS service callback to detect objects in the latest image.</p>
+<p>The results are returned as a JSON string in the service response. If there are
+subscribers to the detection topics, it also calls <cite>publish_detections</cite>.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The service request object containing the prompt describing the object.
+response: The service response object to be populated.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The populated service response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.MoondreamNode.pointing_callback">
+<span class="sig-name descname"><span class="pre">pointing_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.MoondreamNode.pointing_callback" title="Link to this definition"></a></dt>
+<dd><p>ROS service callback to find specific points in the latest image.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The service request object containing the prompt describing the point.
+response: The service response object to be populated with a JSON string of points.</p>
+</dd>
+<dt>Returns:</dt><dd><p>The populated service response object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_moondream.moondream_node.main">
+<span class="sig-prename descclassname"><span class="pre">bob_moondream.moondream_node.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_moondream.moondream_node.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="bob_moondream" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../bob_vector_db/index.html" class="btn btn-neutral float-right" title="bob_vector_db" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

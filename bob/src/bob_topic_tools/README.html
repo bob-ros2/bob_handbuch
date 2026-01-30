@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_topic_tools &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_topic_tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/bob_topic_tools/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-topic-tools">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_topic_tools">bob_topic_tools</a><a class="headerlink" href="#ros-package-bob-topic-tools" title="Link to this heading"></a></h1>
+<p>This ROS Package is part of Bob’s NLP and LLM tools.</p>
+<p>The contained ROS Nodes are a collection of std_msgs/String topic tools. It extends the already existing <a class="reference external" href="https://github.com/ros-tooling/topic_tools"><code class="docutils literal notranslate"><span class="pre">ROS</span> <span class="pre">package</span> <span class="pre">topic_tools</span></code></a> but more dedicated to NLP tasks.</p>
+<section id="ros-node-filter">
+<h2>ROS Node Filter<a class="headerlink" href="#ros-node-filter" title="Link to this heading"></a></h2>
+<p>String topic filter ROS node. It supports also dynamic parameter reconfigure during runtime.</p>
+<section id="parameter">
+<h3>Parameter<a class="headerlink" href="#parameter" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: white_filter<br />
+<strong>Type</strong>: string array<br />
+<strong>Description</strong>: String array with white list rules.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: black_filter<br />
+<strong>Type</strong>: string array<br />
+<strong>Description</strong>: String array with blacklist rules.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: white_list<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: White list file. This overides parameter white_filter.<br />
+<strong>Format</strong>: Yaml file with a list of string containing regex rules.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: black_list<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Black list file. This overides parameter black_filter.<br />
+<strong>Format</strong>: Yaml file with a list of strings containing regex rules.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: substitute<br />
+<strong>Type</strong>: string array<br />
+<strong>Description</strong>: Substitute regex for the string message similar to python re.sub<br />
+<strong>Expects an array with two entries</strong>: [‘pattern’,’replace’]</p>
+</div></blockquote>
+</section>
+<section id="subscribed-topics">
+<h3>Subscribed Topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~topic_in (std_msgs/String)<br />
+Read input data from topic.</p>
+</div></blockquote>
+</section>
+<section id="published-topics">
+<h3>Published Topics<a class="headerlink" href="#published-topics" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~topic_out (std_msgs/String)<br />
+Publish filtered output.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~topic_rejected (std_msgs/String)<br />
+Publish rejected output.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="ros-node-stream-filter">
+<h2>ROS Node Stream Filter<a class="headerlink" href="#ros-node-stream-filter" title="Link to this heading"></a></h2>
+<p>String Stream topic filter node. Can redirect text portion enclosured in start/end tags.</p>
+<section id="id1">
+<h3>Parameter<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: buffer_size<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Input buffer size, default: 65565</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: end_tag<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: End tag of the area to filter out, default ‘</think>’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: start_tag<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Start tag of the area to sort out, default ‘<think>’</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: window_size<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Rolling window size to detect the tags. This should be &gt; then max tag length, default: 64</p>
+</div></blockquote>
+</section>
+<section id="id2">
+<h3>Subscribed Topics<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~stream_in (std_msgs/String)<br />
+Read input string stream from topic</p>
+</div></blockquote>
+</section>
+<section id="id3">
+<h3>Published Topics<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~stream_out (std_msgs/String)<br />
+Publish data outside of the enclosing tags.</p>
+</div></blockquote>
+<blockquote>
+<div><p>~stream_filtered (std_msgs/String)<br />
+Publish data within the enclosing tags.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="ros-node-aggregator">
+<h2>ROS Node Aggregator<a class="headerlink" href="#ros-node-aggregator" title="Link to this heading"></a></h2>
+<p>String Stream aggregator node.</p>
+<section id="id4">
+<h3>Parameter<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: delimeters<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Delimeter character list where to stop aggregating the input and publish the aggregated data to the ouput topic. This parameter can also be set via environment variable AGGREGATOR_DELIMETERS, default ‘.:,;!?-*\n\t’</p>
+</div></blockquote>
+</section>
+<section id="id5">
+<h3>Subscribed Topics<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~stream_in (std_msgs/String)<br />
+Read input string stream from topic.</p>
+</div></blockquote>
+</section>
+<section id="id6">
+<h3>Published Topics<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~stream_out (std_msgs/String)<br />
+Publish aggregated output.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="ros-node-terminal">
+<h2>ROS Node Terminal<a class="headerlink" href="#ros-node-terminal" title="Link to this heading"></a></h2>
+<p>Basic String topic IO terminal ROS Node.</p>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
+<p>The required QT5 libraries should already exist if ROS is installed. If missing use below installation to get them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-pyqt5
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run frameless terminal window using ROS parameter</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_topic_tools<span class="w"> </span>terminal<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>frameless:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+
+<span class="c1"># show window on another display</span>
+<span class="c1"># the node can also read from stdin source</span>
+<span class="c1"># display what will be received from socket</span>
+netcat<span class="w"> </span>-U<span class="w"> </span>/tmp/some.sock<span class="w"> </span><span class="p">|</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>bob_topic_tools<span class="w"> </span>terminal<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>display:<span class="o">=</span><span class="m">1</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Parameter<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p><strong>Parameter name</strong>: display<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Display where to show window.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: fontname<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Window fontname.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: fontsize<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Window fontsize.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: frameless<br />
+<strong>Type</strong>: boolean<br />
+<strong>Description</strong>: Switch off window caption.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: geometry<br />
+<strong>Type</strong>: integer array<br />
+<strong>Description</strong>: Window geometry. [x, y, with, height]</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: input<br />
+<strong>Type</strong>: boolean<br />
+<strong>Description</strong>: Enables or disables the text input field.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: line_count<br />
+<strong>Type</strong>: integer<br />
+<strong>Description</strong>: Maximum line count in the text area. 0 = unlimited<br />
+If the number exceeds the lines are removed from the top.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: margin<br />
+<strong>Type</strong>: integer array<br />
+<strong>Description</strong>: Window inner margin. [left, top, right, bottom]</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: opacity<br />
+<strong>Type</strong>: double<br />
+<strong>Description</strong>: Window opacity.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: stylesheet<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Stylesheet qss of PlainText area.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: stylesheet_window<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Stylesheet qss of Window area.</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Parameter name</strong>: title<br />
+<strong>Type</strong>: string<br />
+<strong>Description</strong>: Title of window.</p>
+</div></blockquote>
+</section>
+<section id="id8">
+<h3>Subscribed Topics<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~topic_in (std_msgs/String)<br />
+Read input data from topic in addition to be able to read data from stdin.</p>
+</div></blockquote>
+</section>
+<section id="id9">
+<h3>Published Topics<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<blockquote>
+<div><p>~topic_out (std_msgs/String)<br />
+Publish to output.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
