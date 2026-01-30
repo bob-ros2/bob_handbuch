@@ -1,6 +1,6 @@
 #/bin/sh
 
-REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox dindbox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k"
+REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k"
 APIS="bob_topic_tools bob_moondream bob_coquitts vox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k"
 
 retrieve_readme() {
