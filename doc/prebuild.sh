@@ -46,7 +46,6 @@ Key Features:
 * **Image Generation**: High-quality Text-to-Image and Image-to-Image generation using Stable Diffusion 3.5 and FLUX.2 large and klein.
 * **Vector Database**: Semantic storage and multimodal retrieval using Chroma and Qdrant.
 * **Voice Assistant**: Real-time Whisper-based transcription with a pluggable output system.
-* **Infrastructure**: Isolated Docker-in-Docker sandbox (GPU supported) and advanced ROS topic utilities.
 
 .. raw:: html
 
@@ -79,11 +78,11 @@ $VOSK_PACKAGE
 
 $OTHER_PACKAGES
 
-.. toctree::
-   :maxdepth: 2 
-   :caption: Miscellaneous
+#.. toctree::
+#   :maxdepth: 2 
+#   :caption: Miscellaneous
 
-   bob/bob-docker-network.md
-   bob/bob-portainer.md
+#   bob/bob-docker-network.md
+#   bob/bob-portainer.md
 
 EOF
