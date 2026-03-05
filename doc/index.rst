@@ -5,11 +5,12 @@ This is a collection of various ROS 2 packages and nodes for natural language pr
 Key Features:
 
 * **LLM Integration**: OpenAI-compatible API interface with stateful conversations and dynamic tool calling.
-* **Speech Processing**: Real-time Text-to-Speech (XTTS voice cloning) and offline Speech-to-Text.
-* **Vision & VLM**: Visual reasoning, captioning, and Q&A via Moondream2 Vision-Language Model.
-* **Image Generation**: High-quality Text-to-Image and Image-to-Image generation using Stable Diffusion 3.5 and FLUX.2 large and klein.
+* **Speech & Audio**: High-fidelity TTS (Qwen3, XTTS), offline STT, and multi-source audio mixing/conversion.
+* **Vision & VLM**: Visual reasoning, captioning, and object detection via Moondream2 VLM.
+* **Image Generation**: Modern Text-to-Image and Image-to-Image generation (Stable Diffusion 3.5, FLUX.2).
+* **Visualization**: High-performance SDL2 rendering and headless streaming (Twitch) with dynamic overlays.
 * **Vector Database**: Semantic storage and multimodal retrieval using Chroma and Qdrant.
-* **Voice Assistant**: Real-time Whisper-based transcription with a pluggable output system.
+* **Human-Machine Interface**: Sentiment-driven facial animations and interactive web-based GUI terminals.
 * **Infrastructure**: Isolated Docker-in-Docker sandbox (GPU supported) and advanced ROS topic utilities.
 
 .. raw:: html
@@ -22,10 +23,12 @@ Key Features:
    <script type="text/javascript">
       new Twitch.Embed("twitch-embed", {
         width: 427,
-        height: 440,
+        height: 240,
         channel: "superbob_6110",
         // Only needed if this page is going to be embedded on other websites
-        parent: ["bob-ros2.github.io"]
+        parent: ["bob-ros2.github.io"],
+        theme: "dark",
+        layout: "video",
       });
    </script>
    </br>
@@ -34,7 +37,10 @@ Key Features:
    :maxdepth: 2 
    :caption: Packages
 
+   bob/bob-audio.md
+   bob/bob-av-tools.md
    bob/bob-coquitts.md
+   bob/bob-face.md
    bob/bob-flux2.md
    bob/bob-flux2k.md
    bob/bob-launch.md
@@ -42,7 +48,9 @@ Key Features:
    bob/bob-moondream.md
    bob/bob-moondream-msgs.md
    bob/bob-msgs.md
+   bob/bob-q3tts.md
    bob/bob-sd35.md
+   bob/bob-sdlviz.md
    bob/bob-topic-tools.md
    bob/bob-vector-db.md
    bob/voskros.md
@@ -51,13 +59,12 @@ Key Features:
    :maxdepth: 2 
    :caption: OTHER
 
-   bob/dindbox.md
    bob/vox.md
 
-.. toctree::
-   :maxdepth: 2 
-   :caption: Miscellaneous
+#.. toctree::
+#   :maxdepth: 2 
+#   :caption: Miscellaneous
 
-   bob/bob-docker-network.md
-   bob/bob-portainer.md
+#   bob/bob-docker-network.md
+#   bob/bob-portainer.md
 

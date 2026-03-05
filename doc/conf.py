@@ -37,6 +37,8 @@ autoapi_dirs = [
     'bob/src/bob_sd35/bob_sd35',
     'bob/src/bob_flux2/bob_flux2',
     'bob/src/bob_flux2k/bob_flux2k',
+    'bob/src/bob_av_tools/bob_av_tools',
+    'bob/src/bob_q3tts/bob_q3tts',
     ]
 
 html_show_sphinx = False
