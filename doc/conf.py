@@ -39,6 +39,10 @@ autoapi_dirs = [
     'bob/src/bob_flux2k/bob_flux2k',
     'bob/src/bob_av_tools/bob_av_tools',
     'bob/src/bob_q3tts/bob_q3tts',
+    'bob/src/bob_central/bob_central',
+    'bob/src/bob_nlp_tools/bob_nlp_tools',
+    'bob/src/bob_nviz/bob_nviz',
+    'bob/src/bob_synth/bob_synth',
     ]
 
 html_show_sphinx = False

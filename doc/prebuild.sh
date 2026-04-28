@@ -1,7 +1,7 @@
 #/bin/sh
 
-REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k bob_sdlviz bob_av_tools bob_audio bob_q3tts bob_face"
-APIS="bob_topic_tools bob_moondream bob_coquitts vox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k bob_av_tools bob_q3tts"
+REPOS="bob_topic_tools bob_launch bob_msgs voskros bob_moondream bob_moondream_msgs bob_coquitts vox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k bob_sdlviz bob_av_tools bob_audio bob_q3tts bob_face bob_central bob_nlp_tools bob_nviz bob_synth tioros"
+APIS="bob_topic_tools bob_moondream bob_coquitts vox bob_llm bob_vector_db bob_sd35 bob_flux2 bob_flux2k bob_av_tools bob_q3tts bob_central bob_nlp_tools bob_nviz bob_synth"
 
 retrieve_readme() {
   curl https://raw.githubusercontent.com/bob-ros2/$1/refs/heads/main/README.md > $(dirname $0)/bob/$(echo $1|sed 's/_/-/g').md
