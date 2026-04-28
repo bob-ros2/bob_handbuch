@@ -1,0 +1,294 @@
+bob_topic_tools.terminal
+========================
+
+.. py:module:: bob_topic_tools.terminal
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.terminal.RosNode
+   bob_topic_tools.terminal.StdinThread
+   bob_topic_tools.terminal.Window
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.terminal.sigint_handler
+   bob_topic_tools.terminal.main
+
+
+Module Contents
+---------------
+
+.. py:class:: RosNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String topic IO terminal ROS Node with syntax highlighting.
+
+
+   .. py:attribute:: title
+
+
+   .. py:attribute:: lexer_name
+
+
+   .. py:attribute:: image_view_enabled
+
+
+   .. py:attribute:: opacity
+
+
+   .. py:attribute:: frameless
+
+
+   .. py:attribute:: fontname
+
+
+   .. py:attribute:: fontsize
+
+
+   .. py:attribute:: geometry
+
+
+   .. py:attribute:: display
+
+
+   .. py:attribute:: margin
+
+
+   .. py:attribute:: input_enabled
+
+
+   .. py:attribute:: stylesheet
+
+
+   .. py:attribute:: stylesheet_window
+
+
+   .. py:attribute:: line_count
+
+
+   .. py:attribute:: color_paper
+
+
+   .. py:attribute:: color_text
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: sub1
+      :value: None
+
+
+
+   .. py:attribute:: sub2
+      :value: None
+
+
+
+   .. py:attribute:: sub_image
+      :value: None
+
+
+
+   .. py:method:: on_parameter_change(params)
+
+      Handle parameter changes at runtime.
+
+
+
+   .. py:method:: publish(s)
+
+      Publish String message on topic.
+
+
+
+   .. py:method:: create_input_subscriptions(callback, callback_cr, callback_image)
+
+      Create topic subscriptions.
+
+
+
+.. py:class:: StdinThread
+
+   Bases: :py:obj:`PyQt5.QtCore.QThread`
+
+
+   QThread class to handle stdin reading.
+
+
+   .. py:attribute:: result
+
+
+   .. py:attribute:: running
+      :value: True
+
+
+
+   .. py:method:: run()
+
+      Read stdin loop function.
+
+
+
+   .. py:method:: stop()
+
+      Mark thread to stop the loop.
+
+
+
+.. py:class:: Window(node: RosNode)
+
+   Bases: :py:obj:`PyQt5.QtWidgets.QMainWindow`
+
+
+   Main Window with terminal.
+
+
+   .. py:attribute:: node
+
+
+   .. py:attribute:: worker
+
+
+   .. py:attribute:: oldPosition
+
+
+   .. py:attribute:: tarea
+
+
+   .. py:attribute:: text
+      :value: ''
+
+
+
+   .. py:attribute:: tedit
+
+
+   .. py:attribute:: splitter
+
+
+   .. py:attribute:: timer
+
+
+   .. py:method:: create_image_widget()
+
+      Create image widget with slider.
+
+
+
+   .. py:method:: spin_once()
+
+      Spin periodically once the ROS node.
+
+
+
+   .. py:method:: start_read_stdin()
+
+      Start the worker to read the incoming stdin stream.
+
+
+
+   .. py:method:: set_lexer_styles()
+
+      Set all styles background.
+
+
+
+   .. py:method:: update_settings(prefix='lexer.markdown', read=False, write=True)
+
+      Update settings with given options.
+
+
+
+   .. py:method:: set_tarea_colors()
+
+      Set area colors.
+
+
+
+   .. py:method:: update_text(s: str)
+
+      Append given text in the PlainText area.
+
+
+
+   .. py:method:: update_image()
+
+      Update image view from original cv image.
+
+
+
+   .. py:method:: resize_image(value)
+
+      Resize image based on slider value.
+
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Receive input text via ROS topic.
+
+
+
+   .. py:method:: input_callback_cr(msg: std_msgs.msg.String)
+
+      Receive input text via ROS topic with CR.
+
+
+
+   .. py:method:: input_callback_image(msg: sensor_msgs.msg.Image)
+
+      Receive input image via ROS topic.
+
+
+
+   .. py:method:: input_changed(text)
+
+      Input edit change text callback.
+
+
+
+   .. py:method:: input_enter()
+
+      Input edit enter callback.
+
+
+
+   .. py:method:: closeEvent(event)
+
+      Stop stdin worker thread on close.
+
+
+
+   .. py:method:: mousePressEvent(event)
+
+      Handle window moving without caption.
+
+
+
+   .. py:method:: mouseMoveEvent(event)
+
+      Handle window moving without caption.
+
+
+
+.. py:function:: sigint_handler(*args)
+
+   Handle SIGINT signal.
+
+
+.. py:function:: main()
+
+   Run the main ROS 2 node.
+
+

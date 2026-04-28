@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_q3tts &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package bob_sd35" href="bob-sd35.html" />
+    <link rel="prev" title="ROS Package bob_nviz" href="bob-nviz.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_q3tts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-start">Quick Start</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-usage">Docker Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-pre-built-image">Using the Pre-built Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-docker-compose-recommended">Using Docker Compose (Recommended)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-docker-cli">Using Docker CLI</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#topics">Topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#core-configuration-static">Core Configuration (Static)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#generation-settings-dynamic">Generation Settings (Dynamic)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subtalker-settings-dynamic">Subtalker Settings (Dynamic)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#voice-clone-icl-dynamic">Voice Clone / ICL (Dynamic)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#voice-cloning-language-support">Voice Cloning &amp; Language Support</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#output-storage-dynamic">Output &amp; Storage (Dynamic)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#audio-architecture-sample-rates">Audio Architecture &amp; Sample Rates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#troubleshooting-audio">Troubleshooting Audio</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text-cleaning-example">Text Cleaning Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_q3tts</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-q3tts.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-q3tts">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_q3tts">bob_q3tts</a><a class="headerlink" href="#ros-package-bob-q3tts" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/bob-ros2/bob_q3tts/actions/workflows/docker-image.yml"><img alt="Docker Build" src="https://github.com/bob-ros2/bob_q3tts/actions/workflows/docker-image.yml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_q3tts/actions/workflows/ros-ci.yml"><img alt="ROS 2 CI" src="https://github.com/bob-ros2/bob_q3tts/actions/workflows/ros-ci.yml/badge.svg" /></a></p>
+<p>A ROS 2 wrapper for the <strong>Qwen3-TTS</strong> model, providing high-fidelity, low-latency text-to-speech with streaming aggregation and voice cloning capabilities. It also includes a Qt-based GUI for real-time parameter tuning.</p>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Launch the TTS Service</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_q3tts<span class="w"> </span>tts
+</pre></div>
+</div>
+</li>
+<li><p><strong>Open the Parameter GUI</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_q3tts<span class="w"> </span>gui
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="docker-usage">
+<h3>Docker Usage<a class="headerlink" href="#docker-usage" title="Link to this heading"></a></h3>
+<p>The package is automatically built and pushed to the GitHub Container Registry (GHCR).</p>
+<section id="using-the-pre-built-image">
+<h4>Using the Pre-built Image<a class="headerlink" href="#using-the-pre-built-image" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/bob-ros2/bob-q3tts:latest
+</pre></div>
+</div>
+</section>
+<section id="using-docker-compose-recommended">
+<h4>Using Docker Compose (Recommended)<a class="headerlink" href="#using-docker-compose-recommended" title="Link to this heading"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker-compose<span class="w"> </span>build
+docker-compose<span class="w"> </span>up
+</pre></div>
+</div>
+</section>
+<section id="using-docker-cli">
+<h4>Using Docker CLI<a class="headerlink" href="#using-docker-cli" title="Link to this heading"></a></h4>
+<ol class="arabic">
+<li><p><strong>Build the Image</strong> (locally):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>bob-q3tts<span class="w"> </span>.
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run the Node</strong> (with GPU and Audio):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--device<span class="w"> </span>/dev/snd<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">Q3TTS_MODEL_DIR</span><span class="o">=</span>/models<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">ROS_DOMAIN_ID</span><span class="o">=</span><span class="m">99</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/models:/models<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ipc<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/bob-ros2/bob-q3tts:latest
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="topics">
+<h3>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Name</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Direction</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td class="text-left"><p>Subscriber</p></td>
+<td class="text-left"><p>Incoming text. Aggregated and synthesized at sentence boundaries.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">spoken_text</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td class="text-left"><p>Publisher</p></td>
+<td class="text-left"><p>The text currently being spoken. Published right before playback.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils" />
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<p>The node uses static configuration for initialization and dynamic parameters for per-sentence tuning.</p>
+<section id="core-configuration-static">
+<h4>Core Configuration (Static)<a class="headerlink" href="#core-configuration-static" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">model_id</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>The Hugging Face model ID. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_MODEL_ID</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">Qwen/Qwen3-TTS-12Hz-1.7B-Base</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">model_dir</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Local directory for model caching. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_MODEL_DIR</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">./models</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sentence_delimiters</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string_array</span></code></p></td>
+<td class="text-left"><p>Characters or strings that trigger synthesis (e.g. <code class="docutils literal notranslate"><span class="pre">[&quot;.</span> <span class="pre">&quot;,</span> <span class="pre">&quot;!</span> <span class="pre">&quot;,</span> <span class="pre">&quot;?</span> <span class="pre">&quot;]</span></code>). Use <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> or empty list <code class="docutils literal notranslate"><span class="pre">[]</span></code> to disable splitting. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_SENTENCE_DELIMITERS</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">flush_timeout</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td class="text-left"><p>Timeout in ms to flush buffer without delimiter. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_FLUSH_TIMEOUT</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">700</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">substitute</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string_array</span></code></p></td>
+<td class="text-left"><p>Regex-based [pattern, replacement] pairs for text cleaning (HTML, emojis, etc.). Use <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> for no replacement. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_SUBSTITUTE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="generation-settings-dynamic">
+<h4>Generation Settings (Dynamic)<a class="headerlink" href="#generation-settings-dynamic" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">language</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Speech language. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_LANGUAGE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">auto</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">do_sample</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td class="text-left"><p>Enable sampling for Stage 1. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_DO_SAMPLE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">true</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td class="text-left"><p>Sampling temperature for Stage 1. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_TEMPERATURE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">0.9</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">top_p</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td class="text-left"><p>Nucleus sampling threshold. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_TOP_P</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">top_k</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td class="text-left"><p>Top-k sampling limit. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_TOP_K</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">50</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">repetition_penalty</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td class="text-left"><p>Penalty for repeated sounds. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_REPETITION_PENALTY</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">1.05</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="subtalker-settings-dynamic">
+<h4>Subtalker Settings (Dynamic)<a class="headerlink" href="#subtalker-settings-dynamic" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">subtalker_dosample</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td class="text-left"><p>Enable sampling for Stage 2. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_SUBTALKER_DOSAMPLE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">true</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">subtalker_temperature</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td class="text-left"><p>Temperature for acoustic texture. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_SUBTALKER_TEMPERATURE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">0.9</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">subtalker_top_p</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">double</span></code></p></td>
+<td class="text-left"><p>Nucleus sampling for Stage 2. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_SUBTALKER_TOP_P</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">subtalker_top_k</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td class="text-left"><p>Top-k for Stage 2. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_TOP_K</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">50</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="voice-clone-icl-dynamic">
+<h4>Voice Clone / ICL (Dynamic)<a class="headerlink" href="#voice-clone-icl-dynamic" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">control_instructions</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Instructions to dynamically shape voice without audio samples. <strong>Note:</strong> If defined, it actively overrides voice-cloning via <code class="docutils literal notranslate"><span class="pre">voice_ref_audio</span></code>! Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_CONTROL_INSTRUCTIONS</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">voice_ref_audio</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Path to reference <code class="docutils literal notranslate"><span class="pre">.wav</span></code>. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_VOICE_REF_AUDIO</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">&lt;pkg_share&gt;/config/eva_24khz_de.wav</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">voice_ref_text</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Transcript or path to transcript file. Reading from file enables dynamic updates. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_VOICE_REF_TEXT</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">&lt;pkg_share&gt;/config/voice_ref_text_de.txt</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="voice-cloning-language-support">
+<h3>Voice Cloning &amp; Language Support<a class="headerlink" href="#voice-cloning-language-support" title="Link to this heading"></a></h3>
+<p>The package provides reference files for high-quality voice cloning in both German and English.</p>
+<ul class="simple">
+<li><p><strong>German (Default)</strong>: Use <code class="docutils literal notranslate"><span class="pre">eva_24khz_de.wav</span></code> and <code class="docutils literal notranslate"><span class="pre">voice_ref_text_de.txt</span></code>. Best for Bob’s default personality.</p></li>
+<li><p><strong>English</strong>: Use <code class="docutils literal notranslate"><span class="pre">eva_24khz_en.wav</span></code> and <code class="docutils literal notranslate"><span class="pre">voice_ref_text_en.txt</span></code>. Use this if you want Eva to speak with a native English accent and proper prosody.</p></li>
+</ul>
+<p>To switch languages via CLI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_q3tts<span class="w"> </span>tts<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>language:<span class="o">=</span>English<span class="w"> </span>-p<span class="w"> </span>voice_ref_audio:<span class="o">=</span>/app/ros2_ws/install/bob_q3tts/share/bob_q3tts/config/eva_24khz_en.wav<span class="w"> </span>-p<span class="w"> </span>voice_ref_text:<span class="o">=</span>/app/ros2_ws/install/bob_q3tts/share/bob_q3tts/config/voice_ref_text_en.txt
+</pre></div>
+</div>
+<section id="output-storage-dynamic">
+<h4>Output &amp; Storage (Dynamic)<a class="headerlink" href="#output-storage-dynamic" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">play</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td class="text-left"><p>Enable/disable audio playback. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_PLAY</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">true</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">player</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Player: <code class="docutils literal notranslate"><span class="pre">sys</span></code> (native) or executable path. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_PLAYER</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">sys</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">audio_device</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Device ID or name for sounddevice. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_AUDIO_DEVICE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">target_sample_rate</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td class="text-left"><p>Force resampling for local playback (0 = auto). Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_TARGET_SAMPLE_RATE</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">file_prefix</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td class="text-left"><p>Prefix for saving audio files. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_FILE_PREFIX</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">file_start_index</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td class="text-left"><p>Starting index for file naming. Env: <code class="docutils literal notranslate"><span class="pre">Q3TTS_FILE_START_INDEX</span></code> (Default: <code class="docutils literal notranslate"><span class="pre">1</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="audio-architecture-sample-rates">
+<h2>Audio Architecture &amp; Sample Rates<a class="headerlink" href="#audio-architecture-sample-rates" title="Link to this heading"></a></h2>
+<p>The node handles different sample rates for local playback and remote streaming:</p>
+<ul class="simple">
+<li><p><strong>Local Playback (<code class="docutils literal notranslate"><span class="pre">target_sample_rate</span></code> = 0)</strong>:</p>
+<ul>
+<li><p>The model generates audio at <strong>24,000 Hz</strong>.</p></li>
+<li><p>If the soundcard (e.g., HDMI) doesn’t support 24kHz, the node automatically falls back to <strong>48,000 Hz</strong> resampling.</p></li>
+<li><p>This fallback becomes “sticky” (remembered) to ensure zero-latency for subsequent sentences.</p></li>
+</ul>
+</li>
+<li><p><strong>Remote Streaming (<code class="docutils literal notranslate"><span class="pre">audio_raw</span></code> topic)</strong>:</p>
+<ul>
+<li><p>Audio published to the ROS topic is <strong>always fixed at 44,100 Hz</strong>.</p></li>
+<li><p>This ensure compatibility with standard streaming tools and bridges (like Twitch bots) that expect a constant frequency.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="troubleshooting-audio">
+<h2>Troubleshooting Audio<a class="headerlink" href="#troubleshooting-audio" title="Link to this heading"></a></h2>
+<p>If you hear no sound or see “Invalid sample rate” errors (common with HDMI/GPU audio), or experience <strong>ALSA underrun</strong> messages:</p>
+<ol class="arabic">
+<li><p><strong>Use aplay fallback</strong>: Set the parameter <code class="docutils literal notranslate"><span class="pre">player:=aplay</span></code>. This bypasses the Python-native sound library and uses the more robust system utility to stream the audio data.</p></li>
+<li><p><strong>List Devices</strong> (inside container):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sounddevice as sd; print(sd.query_devices())&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Set Device</strong>: Find the index or name (e.g., <code class="docutils literal notranslate"><span class="pre">HDA</span> <span class="pre">NVidia:</span> <span class="pre">HDMI</span> <span class="pre">0</span> <span class="pre">(hw:2,3)</span></code>) and set the <code class="docutils literal notranslate"><span class="pre">audio_device</span></code> parameter.</p></li>
+<li><p><strong>Automatic Handling</strong>: By default (<code class="docutils literal notranslate"><span class="pre">target_sample_rate:</span> <span class="pre">0</span></code>), the node will try to auto-detect a working rate (falling back to 48kHz). You only need to manually set <code class="docutils literal notranslate"><span class="pre">target_sample_rate</span></code> if the auto-detection fails or you have very specific hardware needs.</p></li>
+</ol>
+<section id="text-cleaning-example">
+<h3>Text Cleaning Example<a class="headerlink" href="#text-cleaning-example" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">substitute</span></code> parameter is designed to remove “garbage” characters that common LLMs might stream (like HTML leftovers or emojis) which cannot be spoken by a TTS model.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example launch snippet</span>
+<span class="l l-Scalar l-Scalar-Plain">ros2 run bob_q3tts tts --ros-args -p &#39;substitute:=[</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">&quot;&amp;nbsp;&quot;,&quot;&quot;,</span><span class="w">   </span><span class="c1"># Remove non-breaking spaces</span>
+<span class="w">  </span><span class="s">&quot;&lt;br&gt;&quot;</span><span class="err">,</span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&quot;</span><span class="err">,</span><span class="w">     </span><span class="c1"># Replace &lt;br&gt; with space</span>
+<span class="w">  </span><span class="s">&quot;[\\U00010000-\\U0010ffff\\u2600-\\u27BF\\ufe00-\\ufe0f]&quot;</span><span class="err">,</span><span class="s">&quot;&quot;</span><span class="err">,</span><span class="w"> </span><span class="c1"># Remove emojis/icons</span>
+<span class="w">  </span><span class="s">&quot;https?://\\S+&quot;</span><span class="err">,</span><span class="s">&quot;&quot;</span><span class="err">,</span><span class="w"> </span><span class="c1"># Remove URLs</span>
+<span class="w">  </span><span class="s">&quot;[*~_|&lt;&gt;\\^`\\]\\[]&quot;</span><span class="err">,</span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&quot;</span><span class="err">,</span><span class="w"> </span><span class="c1"># Remove markdown formatting chars</span>
+<span class="w">  </span><span class="s">&quot;\\s{2,}&quot;</span><span class="err">,</span><span class="s">&quot;</span><span class="nv"> </span><span class="s">&quot;</span><span class="w"> </span><span class="c1"># Normalize multiple spaces</span>
+<span class="err">]</span><span class="s">&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-nviz.html" class="btn btn-neutral float-left" title="ROS Package bob_nviz" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bob-sd35.html" class="btn btn-neutral float-right" title="ROS Package bob_sd35" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

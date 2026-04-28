@@ -1,0 +1,76 @@
+bob_central.repl_node
+=====================
+
+.. py:module:: bob_central.repl_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.repl_node.ReplNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.repl_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: ReplNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Hardened Python REPL node for Eva.
+
+   Includes execution timeouts and isolated namespace management.
+
+
+   .. py:attribute:: _locals
+
+
+   .. py:attribute:: sub_input
+
+
+   .. py:attribute:: pub_output
+
+
+   .. py:attribute:: pub_status
+
+
+   .. py:attribute:: _start_time
+
+
+   .. py:attribute:: timer_status
+
+
+   .. py:method:: publish_status()
+
+      Publish REPL session metadata.
+
+
+
+   .. py:method:: input_callback(msg)
+
+      Execute code with a timeout safety net.
+
+
+
+   .. py:method:: execute_code(code)
+
+      Execute and capture output.
+
+
+
+.. py:function:: main(args=None)
+
+   Start the REPL node.
+
+

@@ -1,0 +1,567 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_llm &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package bob_moondream" href="bob-moondream.html" />
+    <link rel="prev" title="ROS Package bob_launch" href="bob-launch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_llm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#docker-usage">Docker Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#running-with-docker">Running with Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-with-docker-compose">Running with Docker Compose</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-brain-llm-node">1. Start the Brain (LLM Node)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enter-interactive-chat">2. Enter Interactive Chat</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cli-arguments-for-chat">CLI Arguments for <code class="docutils literal notranslate"><span class="pre">chat</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chat-configuration">Chat Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chat-example">Chat Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-input-multi-modality">3. Advanced Input &amp; Multi-modality</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-2-api">ROS 2 API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#security-note-api-key-cloaking">Security Note: API Key Cloaking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#structured-json-output">Structured JSON Output</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#json-object-mode">JSON Object Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#json-schema-mode-strict">JSON Schema Mode (Strict)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conversation-logging">Conversation Logging</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tool-system">Tool System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-tool-file">Creating a Tool File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#skill-system-agentskills">Skill System (Agentskills)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#skill-discovery">1. Skill Discovery</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ready-to-use-tools">2. Ready-to-use Tools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_llm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-llm.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p><a class="reference external" href="https://github.com/bob-ros2/bob_llm/actions/workflows/ros_ci.yml"><img alt="ROS 2 CI" src="https://github.com/bob-ros2/bob_llm/actions/workflows/ros_ci.yml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_llm/actions/workflows/docker.yml"><img alt="amd64" src="https://img.shields.io/github/actions/workflow/status/bob-ros2/bob_llm/docker.yml?label=amd64&amp;logo=docker" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_llm/actions/workflows/docker.yml"><img alt="arm64" src="https://img.shields.io/github/actions/workflow/status/bob-ros2/bob_llm/docker.yml?label=arm64&amp;logo=docker" /></a></p>
+<section id="ros-package-bob-llm">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_llm">bob_llm</a><a class="headerlink" href="#ros-package-bob-llm" title="Link to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">bob_llm</span></code> package provides a ROS 2 node (<code class="docutils literal notranslate"><span class="pre">llm</span> <span class="pre">node</span></code>) that acts as a powerful interface to an external Large Language Model (LLM). It operates as a stateful service that maintains a conversation, connects to any OpenAI-compatible API, and features a robust tool execution system.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>OpenAI-Compatible:</strong> Connects to any LLM backend that exposes an OpenAI-compatible API endpoint (e.g., <code class="docutils literal notranslate"><span class="pre">Ollama</span></code>, <code class="docutils literal notranslate"><span class="pre">vLLM</span></code>, <code class="docutils literal notranslate"><span class="pre">llama-cpp-python</span></code>, commercial APIs).</p></li>
+<li><p><strong>Stateful Conversation:</strong> Maintains chat history to provide conversational context to the LLM.</p></li>
+<li><p><strong>Dynamic Tool System:</strong> Dynamically loads Python functions from user-provided files and makes them available to the LLM. The LLM can request to call these functions to perform actions or gather information.</p></li>
+<li><p><strong>Anthropic Agent Skills:</strong> Full support for the <a class="reference external" href="https://agentskills.io">Anthropic Agent Skills</a> specification, enabling modular, self-contained capabilities with documentation and execution logic.</p></li>
+<li><p><strong>High Performance Streaming:</strong> Optimized byte-stream parsing ensures zero-latency delivery of reasoning tokens and response chunks directly from the socket (no internal buffering).</p></li>
+<li><p><strong>Reasoning/Thinking Support:</strong> Real-time extraction and publishing of model reasoning (e.g., from Gemma 2 or DeepSeek) to a dedicated topic.</p></li>
+<li><p><strong>Interactive Chat CLI:</strong> Includes a premium terminal interface with Markdown rendering and multi-line support.</p></li>
+<li><p><strong>Multi-modality:</strong> Supports multimodal input (e.g., images) via JSON prompts.</p></li>
+<li><p><strong>Lightweight:</strong> The node core requires only standard Python libraries (<code class="docutils literal notranslate"><span class="pre">requests</span></code>, <code class="docutils literal notranslate"><span class="pre">rich</span></code>, <code class="docutils literal notranslate"><span class="pre">prompt_toolkit</span></code>).</p></li>
+<li><p><strong>Multi-arch Docker Support:</strong> Ready-to-use Docker images for <code class="docutils literal notranslate"><span class="pre">amd64</span></code> and <code class="docutils literal notranslate"><span class="pre">arm64</span></code>, fully configurable via environment variables for easy deployment.</p></li>
+</ul>
+</section>
+<section id="docker-usage">
+<h2>Docker Usage<a class="headerlink" href="#docker-usage" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">bob_llm</span></code> node is available as a multi-arch Docker image. All ROS parameters can be configured via environment variables (prefixed with <code class="docutils literal notranslate"><span class="pre">LLM_</span></code>).</p>
+<section id="running-with-docker">
+<h3>Running with Docker<a class="headerlink" href="#running-with-docker" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>bob-llm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">LLM_API_URL</span><span class="o">=</span><span class="s2">&quot;http://192.168.1.100:8000/v1&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">LLM_API_KEY</span><span class="o">=</span><span class="s2">&quot;your_secret_token&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">LLM_API_MODEL</span><span class="o">=</span><span class="s2">&quot;llama3&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">LLM_TEMPERATURE</span><span class="o">=</span><span class="s2">&quot;0.5&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/bob-ros2/bob-llm:latest
+</pre></div>
+</div>
+</section>
+<section id="running-with-docker-compose">
+<h3>Running with Docker Compose<a class="headerlink" href="#running-with-docker-compose" title="Link to this heading"></a></h3>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">llm</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/bob-ros2/bob-llm:latest</span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bob-llm</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LLM_API_URL=http://llm-backend:8000/v1</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LLM_API_KEY=sk-12345</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LLM_API_MODEL=gpt-4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LLM_SYSTEM_PROMPT=&quot;You are a helpful robot assistant named Bob.&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LLM_TEMPERATURE=0.8</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Repository</strong>
+Navigate to your ROS 2 workspace’s <code class="docutils literal notranslate"><span class="pre">src</span></code> directory and clone the repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bob-ros2/bob_llm.git
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Dependencies</strong>
+The node requires a few Python packages. It is recommended to install these within a virtual environment.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests<span class="w"> </span>PyYAML<span class="w"> </span>rich<span class="w"> </span>prompt_toolkit
+</pre></div>
+</div>
+</li>
+<li><p><strong>Build and Source</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>bob_llm
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<section id="start-the-brain-llm-node">
+<h3>1. Start the Brain (LLM Node)<a class="headerlink" href="#start-the-brain-llm-node" title="Link to this heading"></a></h3>
+<p>Ensure your LLM server is active and the <code class="docutils literal notranslate"><span class="pre">api_url</span></code> in your params file is correct.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_llm<span class="w"> </span>llm<span class="w"> </span>--ros-args<span class="w"> </span>--params-file<span class="w"> </span>/path/to/your/ros2_ws/src/bob_llm/config/node_params.yaml
+</pre></div>
+</div>
+</section>
+<section id="enter-interactive-chat">
+<h3>2. Enter Interactive Chat<a class="headerlink" href="#enter-interactive-chat" title="Link to this heading"></a></h3>
+<p>Interact with Bob through a dedicated, interactive terminal client.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start standard chat</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llm<span class="w"> </span>chat
+
+<span class="c1"># Start with premium boxed UI (visual panels)</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llm<span class="w"> </span>chat<span class="w"> </span>--panels
+</pre></div>
+</div>
+<section id="cli-arguments-for-chat">
+<h4>CLI Arguments for <code class="docutils literal notranslate"><span class="pre">chat</span></code><a class="headerlink" href="#cli-arguments-for-chat" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Option</p></th>
+<th class="head text-left"><p>Default</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--topic_in</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">llm_prompt</span></code></p></td>
+<td class="text-left"><p>ROS Topic to send prompts to.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--topic_out</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">llm_stream</span></code></p></td>
+<td class="text-left"><p>ROS Topic to receive streamed chunks.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--topic_reasoning</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">llm_reasoning</span></code></p></td>
+<td class="text-left"><p>ROS Topic to receive model reasoning content.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--topic_response</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">llm_response</span></code></p></td>
+<td class="text-left"><p>ROS Topic to receive final complete responses.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--topic_tools</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">llm_tool_calls</span></code></p></td>
+<td class="text-left"><p>Topic for skill execution feedback.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">--panels</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
+<td class="text-left"><p>Enable decorative boxes around messages.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="chat-configuration">
+<h4>Chat Configuration<a class="headerlink" href="#chat-configuration" title="Link to this heading"></a></h4>
+<p>The chat client supports the following ROS parameters and environment variables:</p>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">queue_size</span></code> (Integer)</strong>: ROS parameter to control the subscription queue depth.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">CHAT_QUEUE_SIZE</span></code> (Environment Variable)</strong>: Default value for the <code class="docutils literal notranslate"><span class="pre">queue_size</span></code> parameter (default: <code class="docutils literal notranslate"><span class="pre">1000</span></code>).</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">CHAT_QUEUE_SIZE</span><span class="o">=</span><span class="m">2000</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_llm<span class="w"> </span>chat<span class="w"> </span>--topic_in<span class="w"> </span>/user_query<span class="w"> </span>--topic_out<span class="w"> </span>/llm_stream<span class="w"> </span>--panels
+</pre></div>
+</div>
+</section>
+<section id="chat-example">
+<h4>Chat Example<a class="headerlink" href="#chat-example" title="Link to this heading"></a></h4>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Chat for https://github.com/bob-ros2/bob_llm
+Usage: Press Enter to send, or Alt+Enter for a new line.
+
+YOU: Was kannst du über dieses System sagen?
+
+[*] SKILL: list_nodes({})
+
+LLM: Ich sehe folgende aktive Komponenten im System:
+- /llm (Das Gehirn)
+- /bob_chat_client (Dieser Chat)
+- /eva/logic (Zustandssteuerung)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-input-multi-modality">
+<h3>3. Advanced Input &amp; Multi-modality<a class="headerlink" href="#advanced-input-multi-modality" title="Link to this heading"></a></h3>
+<p>The node supports advanced input formats beyond simple text. If the input message on <code class="docutils literal notranslate"><span class="pre">/llm_prompt</span></code> is valid JSON, it is parsed as a message object.</p>
+<p><strong>Generic JSON Input:</strong>
+You can pass any valid JSON dictionary. If it contains a <code class="docutils literal notranslate"><span class="pre">role</span></code> field (e.g., <code class="docutils literal notranslate"><span class="pre">user</span></code>), it is treated as a standard message object and appended to the history.</p>
+<p><strong>Image Helper:</strong>
+If <code class="docutils literal notranslate"><span class="pre">process_image_urls</span></code> is enabled, the node automatically base64-encodes images from <code class="docutils literal notranslate"><span class="pre">file://</span></code> or <code class="docutils literal notranslate"><span class="pre">http://</span></code> URLs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/llm_prompt<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;data: &#39;{\&quot;role\&quot;: \&quot;user\&quot;, \&quot;content\&quot;: \&quot;Describe this\&quot;, \&quot;image_url\&quot;: \&quot;file:///tmp/cam.jpg\&quot;}&#39;&quot;</span><span class="w"> </span>-1
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ros-2-api">
+<h2>ROS 2 API<a class="headerlink" href="#ros-2-api" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Topic</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/llm_prompt</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>(Subscribed)</strong> Receives user prompts.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/llm_response</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>(Published)</strong> Final, complete response from the LLM.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/llm_stream</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>(Published)</strong> token-by-token chunks of the response.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/llm_reasoning</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>(Published)</strong> Live reasoning/thinking content from the model.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/llm_tool_calls</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>(Published)</strong> JSON info about tool execution for clients.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/llm_latest_turn</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/msg/String</span></code></p></td>
+<td class="text-left"><p><strong>(Published)</strong> Latest turn as JSON array of messages.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h2>
+<p>The node is configured through a ROS parameters YAML file. Most parameters support <strong>dynamic reconfiguration</strong> at runtime.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Parameter</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Default</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">api_type</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">openai_compatible</span></code></p></td>
+<td class="text-left"><p>The type of the LLM backend API (e.g., “openai_compatible”). [ENV: LLM_API_TYPE]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">api_url</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">http://localhost:8000/v1</span></code></p></td>
+<td class="text-left"><p>The base URL of the LLM backend API. [ENV: LLM_API_URL]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">api_key</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">no_key</span></code></p></td>
+<td class="text-left"><p>The API key for authentication with the LLM backend. [ENV: LLM_API_KEY]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">api_model</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td class="text-left"><p>The specific model name to use (e.g., ‘gpt-4’, ‘llama3’). [ENV: LLM_API_MODEL]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">system_prompt</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td class="text-left"><p>The system prompt to set the LLM context. [ENV: LLM_SYSTEM_PROMPT]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">system_prompt_file</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td class="text-left"><p>Path to a file containing the system prompt. [ENV: LLM_SYSTEM_PROMPT_FILE]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_history_length</span></code></p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">10</span></code></p></td>
+<td class="text-left"><p>Max turns to keep in history. [ENV: LLM_MAX_HISTORY_LENGTH] Range: [0, 1000]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_tool_calls</span></code></p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<td class="text-left"><p>Max consecutive tool calls allowed. [ENV: LLM_MAX_TOOL_CALLS] Range: [0, 50]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">stream</span></code></p></td>
+<td class="text-left"><p>bool</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td class="text-left"><p>Enable/disable streaming for the final LLM response. [ENV: LLM_STREAM]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">0.7</span></code></p></td>
+<td class="text-left"><p>Controls the randomness of the output. [ENV: LLM_TEMPERATURE] Range: [0.0, 2.0]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">top_p</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td class="text-left"><p>Nucleus sampling diversity control. [ENV: LLM_TOP_P] Range: [0.0, 1.0]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">max_tokens</span></code></p></td>
+<td class="text-left"><p>integer</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td class="text-left"><p>Max tokens to generate. 0 means no limit. [ENV: LLM_MAX_TOKENS]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">presence_penalty</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<td class="text-left"><p>Penalizes new tokens based on presence. [ENV: LLM_PRESENCE_PENALTY] Range: [-2.0, 2.0]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">frequency_penalty</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<td class="text-left"><p>Penalizes new tokens based on frequency. [ENV: LLM_FREQUENCY_PENALTY] Range: [-2.0, 2.0]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tool_interfaces</span></code></p></td>
+<td class="text-left"><p>string array</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">[]</span></code></p></td>
+<td class="text-left"><p>A list of Python modules or file paths to load as tools. [ENV: LLM_TOOL_INTERFACES]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">skill_dir</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">./config/skills</span></code></p></td>
+<td class="text-left"><p>Directory where skills are stored. [ENV: LLM_SKILL_DIR]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">message_log</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td class="text-left"><p>If set, appends conversation turns to this JSON file. [ENV: LLM_MESSAGE_LOG]</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">response_format</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td class="text-left"><p>JSON string defining the output format. [ENV: LLM_RESPONSE_FORMAT]</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">eof</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td class="text-left"><p>Optional string to publish on llm_stream when generation is finished. [ENV: LLM_EOF]</p></td>
+</tr>
+</tbody>
+</table>
+<section id="security-note-api-key-cloaking">
+<h3>Security Note: API Key Cloaking<a class="headerlink" href="#security-note-api-key-cloaking" title="Link to this heading"></a></h3>
+<p>For security reasons, the <code class="docutils literal notranslate"><span class="pre">api_key</span></code> parameter is <strong>“cloaked”</strong> immediately after the node initializes. Once the key has been read into the node’s internal memory, the public ROS parameter is cleared. This prevents the key from being accidentally exposed or read via <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">param</span> <span class="pre">get</span> <span class="pre">/llm</span> <span class="pre">api_key</span></code>.</p>
+<blockquote>
+<div><p>[!TIP]
+For production environments, it is best practice to use an <strong>API Gateway</strong> or Reverse Proxy to inject authentication tokens. This avoids passing sensitive keys through the ROS parameter system entirely.</p>
+</div></blockquote>
+</section>
+<section id="structured-json-output">
+<h3>Structured JSON Output<a class="headerlink" href="#structured-json-output" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">response_format</span></code> parameter enables structured output, forcing the LLM to respond with valid JSON.</p>
+<section id="json-object-mode">
+<h4>JSON Object Mode<a class="headerlink" href="#json-object-mode" title="Link to this heading"></a></h4>
+<p>Force the LLM to output valid JSON by setting <code class="docutils literal notranslate"><span class="pre">response_format</span></code> to <code class="docutils literal notranslate"><span class="pre">{&quot;type&quot;:</span> <span class="pre">&quot;json_object&quot;}</span></code>. Note: Your prompt <strong>must</strong> mention the word “JSON”.</p>
+</section>
+<section id="json-schema-mode-strict">
+<h4>JSON Schema Mode (Strict)<a class="headerlink" href="#json-schema-mode-strict" title="Link to this heading"></a></h4>
+<p>Define an exact schema the LLM must follow:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">response_format</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">  </span><span class="no">{</span>
+<span class="w">    </span><span class="no">&quot;type&quot;: &quot;json_schema&quot;,</span>
+<span class="w">    </span><span class="no">&quot;json_schema&quot;: {</span>
+<span class="w">      </span><span class="no">&quot;name&quot;: &quot;robot_command&quot;,</span>
+<span class="w">      </span><span class="no">&quot;strict&quot;: true,</span>
+<span class="w">      </span><span class="no">&quot;schema&quot;: {</span>
+<span class="w">        </span><span class="no">&quot;type&quot;: &quot;object&quot;,</span>
+<span class="w">        </span><span class="no">&quot;properties&quot;: {</span>
+<span class="w">          </span><span class="no">&quot;action&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;enum&quot;: [&quot;move&quot;, &quot;stop&quot;]},</span>
+<span class="w">          </span><span class="no">&quot;speed&quot;: {&quot;type&quot;: &quot;number&quot;}</span>
+<span class="w">        </span><span class="no">},</span>
+<span class="w">        </span><span class="no">&quot;required&quot;: [&quot;action&quot;]</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">    </span><span class="no">}</span>
+<span class="w">  </span><span class="no">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="conversation-logging">
+<h3>Conversation Logging<a class="headerlink" href="#conversation-logging" title="Link to this heading"></a></h3>
+<p>Set the <code class="docutils literal notranslate"><span class="pre">message_log</span></code> parameter to an absolute file path (e.g., <code class="docutils literal notranslate"><span class="pre">/home/user/chat.json</span></code>) to save the entire conversation history.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tool-system">
+<h2>Tool System<a class="headerlink" href="#tool-system" title="Link to this heading"></a></h2>
+<section id="creating-a-tool-file">
+<h3>Creating a Tool File<a class="headerlink" href="#creating-a-tool-file" title="Link to this heading"></a></h3>
+<p>A tool file is a standard Python script containing functions with docstrings. The system automatically mirrors these functions as tools for the LLM.</p>
+</section>
+<section id="skill-system-agentskills">
+<h3>Skill System (Agentskills)<a class="headerlink" href="#skill-system-agentskills" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">bob_llm</span></code> node implements the <a class="reference external" href="https://agentskills.io/specification">Anthropic Agent Skills</a> specification.</p>
+<section id="skill-discovery">
+<h4>1. Skill Discovery<a class="headerlink" href="#skill-discovery" title="Link to this heading"></a></h4>
+<p>Add the path of <code class="docutils literal notranslate"><span class="pre">config/skill_tools.py</span></code> to your <code class="docutils literal notranslate"><span class="pre">tool_interfaces</span></code> to enable the skill discovery API (<code class="docutils literal notranslate"><span class="pre">load_skill_info</span></code>, <code class="docutils literal notranslate"><span class="pre">execute_skill_script</span></code>, etc.).</p>
+<p><strong>Configuration:</strong> Ensure the <code class="docutils literal notranslate"><span class="pre">skill_dir</span></code> parameter points to a valid directory where your Agentskills are stored. A sample collection of skills is provided in the <code class="docutils literal notranslate"><span class="pre">./config/skills</span></code> directory of the package.</p>
+</section>
+<section id="ready-to-use-tools">
+<h4>2. Ready-to-use Tools<a class="headerlink" href="#ready-to-use-tools" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><strong>ROS CLI Tools (<code class="docutils literal notranslate"><span class="pre">config/ros_cli_tools.py</span></code>):</strong> Inspect and control the ROS system.</p></li>
+<li><p><strong>Qdrant Memory Tools (<code class="docutils literal notranslate"><span class="pre">config/qdrant_tools.py</span></code>):</strong> Semantic long-term memory.</p>
+<ul>
+<li><p>Configured via <code class="docutils literal notranslate"><span class="pre">LLM_QDRANT_LOCATION</span></code>, <code class="docutils literal notranslate"><span class="pre">LLM_QDRANT_COLLECTION</span></code>, etc.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-launch.html" class="btn btn-neutral float-left" title="ROS Package bob_launch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bob-moondream.html" class="btn btn-neutral float-right" title="ROS Package bob_moondream" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

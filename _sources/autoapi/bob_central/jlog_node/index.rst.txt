@@ -1,0 +1,55 @@
+bob_central.jlog_node
+=====================
+
+.. py:module:: bob_central.jlog_node
+
+.. autoapi-nested-parse::
+
+   ROS 2 Node for logging JSON messages to CouchDB.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.jlog_node.JLogNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.jlog_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: JLogNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 Node for logging JSON messages to CouchDB.
+
+
+   .. py:attribute:: db_url
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:method:: listener_callback(msg)
+
+      Handle incoming JSON strings and send them to CouchDB.
+
+
+
+.. py:function:: main(args=None)
+
+   Entry point for JLog Node.
+
+

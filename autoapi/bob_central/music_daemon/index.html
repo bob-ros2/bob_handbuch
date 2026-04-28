@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_central.music_daemon &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="bob_central.orchestrator_node" href="../orchestrator_node/index.html" />
+    <link rel="prev" title="bob_central.memory_daemon_node" href="../memory_daemon_node/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_q3tts/index.html">bob_q3tts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_central</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../agency_daemon_node/index.html">bob_central.agency_daemon_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../art_observer_node/index.html">bob_central.art_observer_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../browser_daemon_node/index.html">bob_central.browser_daemon_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../go_bridge_node/index.html">bob_central.go_bridge_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jlog_node/index.html">bob_central.jlog_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_daemon_node/index.html">bob_central.memory_daemon_node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_central.music_daemon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../orchestrator_node/index.html">bob_central.orchestrator_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reasoning_observer_node/index.html">bob_central.reasoning_observer_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../repl_node/index.html">bob_central.repl_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../status_daemon_node/index.html">bob_central.status_daemon_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../swarm_coordinator_node/index.html">bob_central.swarm_coordinator_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../swarm_scout_node/index.html">bob_central.swarm_scout_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tti_node/index.html">bob_central.tti_node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_av_tools/index.html">bob_av_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_nlp_tools/index.html">bob_nlp_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_central</a></li>
+      <li class="breadcrumb-item active">bob_central.music_daemon</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_central/music_daemon/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_central.music_daemon">
+<span id="bob-central-music-daemon"></span><h1>bob_central.music_daemon<a class="headerlink" href="#module-bob_central.music_daemon" title="Link to this heading"></a></h1>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.music_daemon.CHUNK_FRAMES" title="bob_central.music_daemon.CHUNK_FRAMES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHUNK_FRAMES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_central.music_daemon.CHUNK_BYTES" title="bob_central.music_daemon.CHUNK_BYTES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CHUNK_BYTES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.music_daemon.MusicDaemon" title="bob_central.music_daemon.MusicDaemon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MusicDaemon</span></code></a></p></td>
+<td><p>Background Daemon that processes a strict Queue, ensuring 1 song plays at real-time pace.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.music_daemon.get_metadata" title="bob_central.music_daemon.get_metadata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_metadata</span></code></a>(→ dict)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_central.music_daemon.main" title="bob_central.music_daemon.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>([args])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_central.music_daemon.CHUNK_FRAMES">
+<span class="sig-prename descclassname"><span class="pre">bob_central.music_daemon.</span></span><span class="sig-name descname"><span class="pre">CHUNK_FRAMES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4096</span></span><a class="headerlink" href="#bob_central.music_daemon.CHUNK_FRAMES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_central.music_daemon.CHUNK_BYTES">
+<span class="sig-prename descclassname"><span class="pre">bob_central.music_daemon.</span></span><span class="sig-name descname"><span class="pre">CHUNK_BYTES</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">16384</span></span><a class="headerlink" href="#bob_central.music_daemon.CHUNK_BYTES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_central.music_daemon.get_metadata">
+<span class="sig-prename descclassname"><span class="pre">bob_central.music_daemon.</span></span><span class="sig-name descname"><span class="pre">get_metadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#bob_central.music_daemon.get_metadata" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_central.music_daemon.</span></span><span class="sig-name descname"><span class="pre">MusicDaemon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio_topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/eva/streamer/in1'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status_topic</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'/eva/streamer/current_song'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>Background Daemon that processes a strict Queue, ensuring 1 song plays at real-time pace.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.pub_audio">
+<span class="sig-name descname"><span class="pre">pub_audio</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.pub_audio" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.pub_status">
+<span class="sig-name descname"><span class="pre">pub_status</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.pub_status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.sub_request">
+<span class="sig-name descname"><span class="pre">sub_request</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.sub_request" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.audio_topic">
+<span class="sig-name descname"><span class="pre">audio_topic</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/eva/streamer/in1'</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.audio_topic" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.task_queue">
+<span class="sig-name descname"><span class="pre">task_queue</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.task_queue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.current_proc">
+<span class="sig-name descname"><span class="pre">current_proc</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.current_proc" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.skip_event">
+<span class="sig-name descname"><span class="pre">skip_event</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.skip_event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.worker_thread">
+<span class="sig-name descname"><span class="pre">worker_thread</span></span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.worker_thread" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon.on_request">
+<span class="sig-name descname"><span class="pre">on_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">std_msgs.msg.String</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon.on_request" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon._playback_loop">
+<span class="sig-name descname"><span class="pre">_playback_loop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon._playback_loop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon._play_task">
+<span class="sig-name descname"><span class="pre">_play_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loop_all</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon._play_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.music_daemon.MusicDaemon._stream_file">
+<span class="sig-name descname"><span class="pre">_stream_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.music_daemon.MusicDaemon._stream_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_central.music_daemon.main">
+<span class="sig-prename descclassname"><span class="pre">bob_central.music_daemon.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.music_daemon.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../memory_daemon_node/index.html" class="btn btn-neutral float-left" title="bob_central.memory_daemon_node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../orchestrator_node/index.html" class="btn btn-neutral float-right" title="bob_central.orchestrator_node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

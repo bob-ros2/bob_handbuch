@@ -1,0 +1,167 @@
+bob_av_tools.webvideo_node
+==========================
+
+.. py:module:: bob_av_tools.webvideo_node
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_av_tools.webvideo_node.HAS_CV_BRIDGE
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_av_tools.webvideo_node.CustomPage
+   bob_av_tools.webvideo_node.WebRenderer
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_av_tools.webvideo_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: HAS_CV_BRIDGE
+   :value: True
+
+
+.. py:class:: CustomPage(node, *args, **kwargs)
+
+   Bases: :py:obj:`PySide6.QtWebEngineCore.QWebEnginePage`
+
+
+   .. py:attribute:: node
+
+
+   .. py:method:: javaScriptConsoleMessage(level, message, line_id, source_id)
+
+
+.. py:class:: WebRenderer
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: fps
+
+
+   .. py:attribute:: fifo_path
+
+
+   .. py:attribute:: queue_length
+
+
+   .. py:attribute:: override_css_path
+
+
+   .. py:attribute:: fifo_alpha
+
+
+   .. py:attribute:: max_text_length
+
+
+   .. py:attribute:: image_pub
+      :value: None
+
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:attribute:: tool_sub
+
+
+   .. py:attribute:: reasoning_sub
+
+
+   .. py:attribute:: turn_sub
+
+
+   .. py:attribute:: fifo_fd
+      :value: None
+
+
+
+   .. py:attribute:: current_content
+      :value: ''
+
+
+
+   .. py:attribute:: lock
+
+
+   .. py:attribute:: qt_app
+
+
+   .. py:attribute:: view
+
+
+   .. py:attribute:: page
+
+
+   .. py:attribute:: ui_path
+
+
+   .. py:attribute:: timer
+
+
+   .. py:method:: _try_reconnect_fifo()
+
+      Try to open the FIFO in non-blocking write mode.
+
+
+
+   .. py:method:: _on_load_finished(success)
+
+
+   .. py:method:: listener_callback(msg)
+
+
+   .. py:method:: _prune_content()
+
+      Truncate content from the beginning if it exceeds max_text_length.
+
+
+
+   .. py:method:: tool_callback(msg)
+
+
+   .. py:method:: reasoning_callback(msg)
+
+
+   .. py:method:: turn_callback(msg)
+
+      Handle incoming turn trigger via llm_query topic.
+
+
+
+   .. py:method:: _update_web_content()
+
+
+   .. py:method:: capture_frame()
+
+
+   .. py:method:: run()
+
+
+   .. py:method:: _ros_spin_once()
+
+
+.. py:function:: main(args=None)
+

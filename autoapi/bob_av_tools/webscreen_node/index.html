@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_av_tools.webscreen_node &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="bob_av_tools.webvideo_node" href="../webvideo_node/index.html" />
+    <link rel="prev" title="bob_av_tools" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_q3tts/index.html">bob_q3tts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_central/index.html">bob_central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_av_tools</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_av_tools.webscreen_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webvideo_node/index.html">bob_av_tools.webvideo_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../webview_node/index.html">bob_av_tools.webview_node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_nlp_tools/index.html">bob_nlp_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_av_tools</a></li>
+      <li class="breadcrumb-item active">bob_av_tools.webscreen_node</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_av_tools/webscreen_node/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_av_tools.webscreen_node">
+<span id="bob-av-tools-webscreen-node"></span><h1>bob_av_tools.webscreen_node<a class="headerlink" href="#module-bob_av_tools.webscreen_node" title="Link to this heading"></a></h1>
+<p>Render any URL offscreen and stream it to a FIFO pipe and/or ROS topic.</p>
+<p>Supports cookie injection (JSON file), JavaScript pre-script injection at
+DeferredLoad time, non-blocking FIFO auto-reconnect, and ROS Image publishing.</p>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_av_tools.webscreen_node.HAS_CV_BRIDGE" title="bob_av_tools.webscreen_node.HAS_CV_BRIDGE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HAS_CV_BRIDGE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_av_tools.webscreen_node.CustomPage" title="bob_av_tools.webscreen_node.CustomPage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CustomPage</span></code></a></p></td>
+<td><p>QWebEnginePage subclass forwarding console output to ROS logger.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_av_tools.webscreen_node.WebScreenNode" title="bob_av_tools.webscreen_node.WebScreenNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WebScreenNode</span></code></a></p></td>
+<td><p>ROS 2 node that renders any URL offscreen and streams frames.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_av_tools.webscreen_node.main" title="bob_av_tools.webscreen_node.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>([args])</p></td>
+<td><p>Entry point for the webscreen node.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.HAS_CV_BRIDGE">
+<span class="sig-prename descclassname"><span class="pre">bob_av_tools.webscreen_node.</span></span><span class="sig-name descname"><span class="pre">HAS_CV_BRIDGE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.HAS_CV_BRIDGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.CustomPage">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_av_tools.webscreen_node.</span></span><span class="sig-name descname"><span class="pre">CustomPage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.CustomPage" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">PySide6.QtWebEngineCore.QWebEnginePage</span></code></p>
+<p>QWebEnginePage subclass forwarding console output to ROS logger.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.CustomPage.node">
+<span class="sig-name descname"><span class="pre">node</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.CustomPage.node" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.CustomPage.javaScriptConsoleMessage">
+<span class="sig-name descname"><span class="pre">javaScriptConsoleMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.CustomPage.javaScriptConsoleMessage" title="Link to this definition"></a></dt>
+<dd><p>Forward browser console messages to ROS logger at DEBUG level.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_av_tools.webscreen_node.</span></span><span class="sig-name descname"><span class="pre">WebScreenNode</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>ROS 2 node that renders any URL offscreen and streams frames.</p>
+<p>Renders a URL or local file using QtWebEngine (Chromium) in offscreen mode.
+Frames are captured at the configured FPS, published as ROS Image, and/or
+written to a named FIFO pipe (ffplay, bob_sdlviz, FFmpeg).
+Supports cookie injection and JS pre-script injection for automation.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.width">
+<span class="sig-name descname"><span class="pre">width</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.width" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.height">
+<span class="sig-name descname"><span class="pre">height</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.height" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.fps">
+<span class="sig-name descname"><span class="pre">fps</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.fps" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.url">
+<span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.url" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.fifo_path">
+<span class="sig-name descname"><span class="pre">fifo_path</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.fifo_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.queue_length">
+<span class="sig-name descname"><span class="pre">queue_length</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.queue_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.cookies_file">
+<span class="sig-name descname"><span class="pre">cookies_file</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.cookies_file" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.pre_script">
+<span class="sig-name descname"><span class="pre">pre_script</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.pre_script" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.scroll_x">
+<span class="sig-name descname"><span class="pre">scroll_x</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.scroll_x" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.scroll_y">
+<span class="sig-name descname"><span class="pre">scroll_y</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.scroll_y" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.fifo_alpha">
+<span class="sig-name descname"><span class="pre">fifo_alpha</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.fifo_alpha" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.max_text_length">
+<span class="sig-name descname"><span class="pre">max_text_length</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.max_text_length" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.publisher">
+<span class="sig-name descname"><span class="pre">publisher</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.publisher" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.current_content">
+<span class="sig-name descname"><span class="pre">current_content</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.current_content" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.lock">
+<span class="sig-name descname"><span class="pre">lock</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.lock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.llm_sub">
+<span class="sig-name descname"><span class="pre">llm_sub</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.llm_sub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.tool_sub">
+<span class="sig-name descname"><span class="pre">tool_sub</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.tool_sub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.reasoning_sub">
+<span class="sig-name descname"><span class="pre">reasoning_sub</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.reasoning_sub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.fifo_fd">
+<span class="sig-name descname"><span class="pre">fifo_fd</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.fifo_fd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.qt_app">
+<span class="sig-name descname"><span class="pre">qt_app</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.qt_app" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.profile">
+<span class="sig-name descname"><span class="pre">profile</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.profile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.cookie_store">
+<span class="sig-name descname"><span class="pre">cookie_store</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.cookie_store" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.page">
+<span class="sig-name descname"><span class="pre">page</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.page" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.view">
+<span class="sig-name descname"><span class="pre">view</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.view" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.timer">
+<span class="sig-name descname"><span class="pre">timer</span></span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.timer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode._inject_cookies">
+<span class="sig-name descname"><span class="pre">_inject_cookies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode._inject_cookies" title="Link to this definition"></a></dt>
+<dd><p>Load cookies from a JSON file and inject them into the browser.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode._inject_pre_script">
+<span class="sig-name descname"><span class="pre">_inject_pre_script</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode._inject_pre_script" title="Link to this definition"></a></dt>
+<dd><p>Register a JS file to be injected at DeferredLoad into each page.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode._on_load_finished">
+<span class="sig-name descname"><span class="pre">_on_load_finished</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">success</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode._on_load_finished" title="Link to this definition"></a></dt>
+<dd><p>Log the result of a page load attempt.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode._try_reconnect_fifo">
+<span class="sig-name descname"><span class="pre">_try_reconnect_fifo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode._try_reconnect_fifo" title="Link to this definition"></a></dt>
+<dd><p>Try to open the FIFO non-blockingly and then switch to blocking.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.capture_frame">
+<span class="sig-name descname"><span class="pre">capture_frame</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.capture_frame" title="Link to this definition"></a></dt>
+<dd><p>Capture the current render, publish to ROS, and write to FIFO.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.llm_callback">
+<span class="sig-name descname"><span class="pre">llm_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.llm_callback" title="Link to this definition"></a></dt>
+<dd><p>Handle incoming LLM stream data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode._prune_content">
+<span class="sig-name descname"><span class="pre">_prune_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode._prune_content" title="Link to this definition"></a></dt>
+<dd><p>Truncate content from the beginning if it exceeds max_text_length.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.tool_callback">
+<span class="sig-name descname"><span class="pre">tool_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.tool_callback" title="Link to this definition"></a></dt>
+<dd><p>Handle incoming tool call notifications with clean functional format.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.reasoning_callback">
+<span class="sig-name descname"><span class="pre">reasoning_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.reasoning_callback" title="Link to this definition"></a></dt>
+<dd><p>Handle incoming reasoning data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode._update_web_content">
+<span class="sig-name descname"><span class="pre">_update_web_content</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode._update_web_content" title="Link to this definition"></a></dt>
+<dd><p>Inject the current content into the web page.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.WebScreenNode.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.WebScreenNode.run" title="Link to this definition"></a></dt>
+<dd><p>Run the Qt + ROS event loop and return the exit code.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_av_tools.webscreen_node.main">
+<span class="sig-prename descclassname"><span class="pre">bob_av_tools.webscreen_node.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_av_tools.webscreen_node.main" title="Link to this definition"></a></dt>
+<dd><p>Entry point for the webscreen node.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="bob_av_tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../webvideo_node/index.html" class="btn btn-neutral float-right" title="bob_av_tools.webvideo_node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

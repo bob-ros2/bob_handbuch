@@ -1,0 +1,90 @@
+bob_central.tti_node
+====================
+
+.. py:module:: bob_central.tti_node
+
+.. autoapi-nested-parse::
+
+   Text-To-Image (TTI) Generation Node.
+
+   Interprets textual prompts and generates qualitative imagery.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.tti_node.TTInode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.tti_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: TTInode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Text-To-Image (TTI) Generation Node.
+
+   Interprets textual prompts and generates qualitative imagery.
+
+
+   .. py:attribute:: model_type
+
+
+   .. py:attribute:: models_path
+
+
+   .. py:attribute:: cpu_offload
+
+
+   .. py:attribute:: output_path
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:attribute:: publisher_
+
+
+   .. py:attribute:: pipe
+      :value: None
+
+
+
+   .. py:attribute:: steps
+      :value: 5
+
+
+
+   .. py:method:: _init_pipeline()
+
+      Initialize the Diffusion pipeline and load weights.
+
+
+
+   .. py:method:: listener_callback(msg)
+
+      Handle new text prompts and trigger generation.
+
+
+
+.. py:function:: main(args=None)
+
+   Start the TTI node.
+
+

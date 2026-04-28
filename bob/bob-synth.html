@@ -1,0 +1,381 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_synth &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package bob_topic_tools" href="bob-topic-tools.html" />
+    <link rel="prev" title="ROS Package bob_sdlviz" href="bob-sdlviz.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_synth</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ai-logic-integration">AI Logic &amp; Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#architecture">Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-2-api">ROS 2 API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#topics">Topics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running">Running</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#headless-player-cli-docker">Headless Player (CLI/Docker)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cli-one-shot">CLI (One-Shot)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ai-control-interface-json">AI Control Interface (JSON)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#json-schema">JSON Schema</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#gui-user-interface">GUI &amp; User Interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#control-panels">Control Panels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_synth</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-synth.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-synth">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_synth">bob_synth</a><a class="headerlink" href="#ros-package-bob-synth" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/bob-ros2/bob_synth/actions/workflows/ros2_ci.yaml"><img alt="CI" src="https://github.com/bob-ros2/bob_synth/actions/workflows/ros2_ci.yaml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_synth/actions/workflows/docker.yml"><img alt="amd64" src="https://img.shields.io/github/actions/workflow/status/bob-ros2/bob_synth/docker.yml?label=amd64&amp;logo=docker" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_synth/actions/workflows/docker.yml"><img alt="arm64" src="https://img.shields.io/github/actions/workflow/status/bob-ros2/bob_synth/docker.yml?label=arm64&amp;logo=docker" /></a></p>
+<p>A high-fidelity, low-latency ROS 2 synthesizer node designed for AI-driven audio generation and autonomous bot assistants.</p>
+<section id="ai-logic-integration">
+<h2>AI Logic &amp; Integration<a class="headerlink" href="#ai-logic-integration" title="Link to this heading"></a></h2>
+<p>This package is specifically optimized for AI interaction. It provides a clean ROS 2 API for real-time parameter manipulation and audio streaming.</p>
+<ul class="simple">
+<li><p><strong>Objective</strong>: Provide a stable, predictable sound engine for AI agents (like Eva).</p></li>
+<li><p><strong>Communication</strong>: Uses standard ROS 2 topics and services for parameter synchronization.</p></li>
+<li><p><strong>Payload</strong>: High-quality 16-bit PCM audio (Int16MultiArray) at 44.1kHz.</p></li>
+</ul>
+</section>
+<section id="architecture">
+<h2>Architecture<a class="headerlink" href="#architecture" title="Link to this heading"></a></h2>
+<p>The system follows a modular, decoupled architecture for maximum stability and flexibility:</p>
+<ul class="simple">
+<li><p><strong>Synth Node (C++):</strong> The real-time engine. Handles wave generation, State Variable Filtering (SVF), ADSR envelopes, and LFO modulation.</p></li>
+<li><p><strong>Synth GUI (Python):</strong> The human control interface (Moog-style rack).</p></li>
+<li><p><strong>Audio Sink (Python):</strong> The playback engine, available as a <strong>Headless Sink</strong> for server/docker use or integrated into the GUI. Uses <code class="docutils literal notranslate"><span class="pre">sounddevice</span></code> (ALSA) for jitter-free playback on hardware (HDMI, Speakers).</p></li>
+</ul>
+</section>
+<section id="ros-2-api">
+<h2>ROS 2 API<a class="headerlink" href="#ros-2-api" title="Link to this heading"></a></h2>
+<section id="topics">
+<h3>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Topic</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">audio_out</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Int16MultiArray</span></code></p></td>
+<td class="text-left"><p>Raw stereo PCM data (44.1kHz).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">/synth_config</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td class="text-left"><p>AI Interface: Accepts JSON strings to update parameters.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Name</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Range</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>20 - 2000</p></td>
+<td class="text-left"><p>Base frequency of the oscillator.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p>sine, square, triangle, saw</p></td>
+<td class="text-left"><p>Oscillator shape.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">mod_frequency</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>0 - 20</p></td>
+<td class="text-left"><p>LFO frequency for vibrato.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">mod_depth</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>0 - 100</p></td>
+<td class="text-left"><p>LFO intensity.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">attack</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>0.0 - 2.0</p></td>
+<td class="text-left"><p>Envelope attack time (seconds).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">decay</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>0.0 - 2.0</p></td>
+<td class="text-left"><p>Envelope decay time.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sustain</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>0.0 - 1.0</p></td>
+<td class="text-left"><p>Envelope sustain level.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">release</span></code></p></td>
+<td class="text-left"><p>double</p></td>
+<td class="text-left"><p>0.0 - 2.0</p></td>
+<td class="text-left"><p>Envelope release time.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">note_on</span></code></p></td>
+<td class="text-left"><p>bool</p></td>
+<td class="text-left"><p>true/false</p></td>
+<td class="text-left"><p>Triggers the ADS phase or starts Release.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<section id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h3>
+<p>Ensure you have the required Python dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>sounddevice
+</pre></div>
+</div>
+</section>
+<section id="running">
+<h3>Running<a class="headerlink" href="#running" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Start the Synthesis Engine:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_synth<span class="w"> </span>synth_node
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Start the GUI &amp; Player (Desktop)</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_synth<span class="w"> </span>synth_gui.py
+</pre></div>
+</div>
+</section>
+<section id="headless-player-cli-docker">
+<h3>Headless Player (CLI/Docker)<a class="headerlink" href="#headless-player-cli-docker" title="Link to this heading"></a></h3>
+<p>For environments without a graphical environment (X11) or when only audio playback is needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>bob_synth<span class="w"> </span>audio_sink.py
+</pre></div>
+</div>
+</section>
+<section id="cli-one-shot">
+<h3>CLI (One-Shot)<a class="headerlink" href="#cli-one-shot" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/synth_config<span class="w"> </span>std_msgs/msg/String<span class="w"> </span><span class="s2">&quot;data: &#39;{\&quot;frequency\&quot;: 220.0, \&quot;waveform\&quot;: \&quot;sawtooth\&quot;, \&quot;filter_cutoff\&quot;: 2500.0, \&quot;filter_resonance\&quot;: 0.6}&#39;&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ai-control-interface-json">
+<h2>AI Control Interface (JSON)<a class="headerlink" href="#ai-control-interface-json" title="Link to this heading"></a></h2>
+<p>The synthesizer is primarily designed to provide AI agents with an additional “expressive output layer” (similar to emoticons/icons). Control is handled via the <code class="docutils literal notranslate"><span class="pre">/synth_config</span></code> topic using JSON strings.</p>
+<section id="json-schema">
+<h3>JSON Schema<a class="headerlink" href="#json-schema" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Key</p></th>
+<th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Range</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">note_on</span></code></p></td>
+<td class="text-left"><p>boolean</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">true</span></code>/<code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td class="text-left"><p>Triggers the ADSR envelope</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>20.0 - 2000.0</p></td>
+<td class="text-left"><p>Base oscillator frequency in Hz</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">waveform</span></code></p></td>
+<td class="text-left"><p>string</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">sine</span></code>, <code class="docutils literal notranslate"><span class="pre">square</span></code>, <code class="docutils literal notranslate"><span class="pre">sawtooth</span></code></p></td>
+<td class="text-left"><p>Oscillator type</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">amplitude</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>0.0 - 1.0</p></td>
+<td class="text-left"><p>Master gain (volume)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">filter_cutoff</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>20.0 - 16000.0</p></td>
+<td class="text-left"><p>Cutoff frequency of the SV filter</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">filter_resonance</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>0.0 - 0.95</p></td>
+<td class="text-left"><p>Filter resonance (Q factor)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">mod_frequency</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>0.0 - 20.0</p></td>
+<td class="text-left"><p>LFO frequency (vibrato speed)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">mod_depth</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>0.0 - 100.0</p></td>
+<td class="text-left"><p>LFO intensity (modulation depth)</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">attack</span></code>/<code class="docutils literal notranslate"><span class="pre">decay</span></code></p></td>
+<td class="text-left"><p>float</p></td>
+<td class="text-left"><p>0.0 - 2.0</p></td>
+<td class="text-left"><p>ADSR time values (seconds)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="gui-user-interface">
+<h2>GUI &amp; User Interface<a class="headerlink" href="#gui-user-interface" title="Link to this heading"></a></h2>
+<p>The GUI is provided for visualization and manual parameter adjustments during development and testing.</p>
+<img src="media/bob_synth.png" width="50%">
+<section id="control-panels">
+<h3>Control Panels<a class="headerlink" href="#control-panels" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>OSCILLATOR:</strong> Waveform selection and base frequency adjustment.</p></li>
+<li><p><strong>MODULATION:</strong> LFO for frequency modulation (vibrato/experimental FX).</p></li>
+<li><p><strong>FILTER:</strong> 12dB State Variable Filter (low-pass) with resonance.</p></li>
+<li><p><strong>ENVELOPE:</strong> Standard ADSR envelope for volume shaping.</p></li>
+<li><p><strong>MASTER/TRIGGER:</strong> Final output volume and manual note trigger button.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-sdlviz.html" class="btn btn-neutral float-left" title="ROS Package bob_sdlviz" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bob-topic-tools.html" class="btn btn-neutral float-right" title="ROS Package bob_topic_tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

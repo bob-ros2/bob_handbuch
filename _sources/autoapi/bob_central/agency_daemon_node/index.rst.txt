@@ -1,0 +1,107 @@
+bob_central.agency_daemon_node
+==============================
+
+.. py:module:: bob_central.agency_daemon_node
+
+.. autoapi-nested-parse::
+
+   Agency Daemon Node - Eva's Autonomous Drive & Curiosity Trigger.
+
+   Monitors 'user_query' for silence and injects internal curiosity prompts
+   when Eva is idle for too long. Leverages Qdrant Curiosity collection.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_central.agency_daemon_node.WORKSPACE_ROOT
+   bob_central.agency_daemon_node._spec
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.agency_daemon_node.AgencyDaemonNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.agency_daemon_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: WORKSPACE_ROOT
+   :value: '/ros2_ws/src/bob_central'
+
+
+.. py:data:: _spec
+   :value: None
+
+
+.. py:class:: AgencyDaemonNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Node that monitors Eva's activity and triggers autonomous research.
+
+   Injects curiosity-driven prompts when the mesh is idle.
+
+
+   .. py:attribute:: idle_threshold
+
+
+   .. py:attribute:: last_activity_ts
+
+
+   .. py:attribute:: pub_impulse
+
+
+   .. py:attribute:: diag_pub
+
+
+   .. py:attribute:: sub_activity
+
+
+   .. py:attribute:: timer
+
+
+   .. py:method:: parameter_callback(params)
+
+      Handle dynamic parameter updates.
+
+
+
+   .. py:method:: activity_callback(msg)
+
+      Reset the idle timer whenever any activity is detected.
+
+
+
+   .. py:method:: check_agency_impulse()
+
+      Trigger an autonomous impulse if idle time exceeds threshold.
+
+
+
+   .. py:method:: publish_diagnostics()
+
+      Publish idle/agency status as diagnostics.
+
+
+
+.. py:function:: main(args=None)
+
+   Start the agency daemon node.
+
+

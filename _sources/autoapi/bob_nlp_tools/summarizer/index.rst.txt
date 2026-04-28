@@ -1,0 +1,61 @@
+bob_nlp_tools.summarizer
+========================
+
+.. py:module:: bob_nlp_tools.summarizer
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_nlp_tools.summarizer.SummarizerNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_nlp_tools.summarizer.main
+
+
+Module Contents
+---------------
+
+.. py:class:: SummarizerNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 Node that summarizes messages based on semantic criteria.
+
+   Uses NlpSemanticDriver to generate summarizes.
+
+
+   .. py:attribute:: driver
+
+
+   .. py:attribute:: context
+
+
+   .. py:attribute:: max_words
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:method:: input_callback(msg)
+
+      Analyze message and summarize it.
+
+
+
+.. py:function:: main(args=None)
+
+   Run the main ROS 2 node.
+
+

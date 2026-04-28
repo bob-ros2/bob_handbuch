@@ -1,0 +1,293 @@
+bob_central.swarm_coordinator_node
+==================================
+
+.. py:module:: bob_central.swarm_coordinator_node
+
+.. autoapi-nested-parse::
+
+   swarm_coordinator_node.py - Eva's ROS 2 Swarm Coordinator Node.
+
+   Integrated with stealth mesh routing, Qdrant distributed peer registry,
+   and skill task negotiation protocol for self-organizing task allocation.
+
+   Topics:
+     /eva/swarm/registry (std_msgs/String) - Full skill registry snapshot
+     /eva/swarm/heartbeat (std_msgs/String) - Periodic health beacon
+     /eva/swarm/announce (std_msgs/String) - Incoming peer announcements
+     /eva/swarm/route (std_msgs/String) - Onion-routed message delivery
+     /eva/swarm/task_bid (std_msgs/String) - Task negotiation bids
+     /eva/swarm/task_award (std_msgs/String) - Task award assignments
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_central.swarm_coordinator_node.SKILL_BASE
+   bob_central.swarm_coordinator_node.QDRANT_URL
+   bob_central.swarm_coordinator_node.PEER_COLLECTION
+   bob_central.swarm_coordinator_node.TASK_COLLECTION
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.swarm_coordinator_node.StealthMeshRouter
+   bob_central.swarm_coordinator_node.QdrantPeerRegistry
+   bob_central.swarm_coordinator_node.TaskNegotiator
+   bob_central.swarm_coordinator_node.SwarmCoordinatorNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.swarm_coordinator_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: SKILL_BASE
+   :value: '/ros2_ws/src/bob_central/skills'
+
+
+.. py:data:: QDRANT_URL
+   :value: 'http://qdrant:6333'
+
+
+.. py:data:: PEER_COLLECTION
+   :value: 'peers'
+
+
+.. py:data:: TASK_COLLECTION
+   :value: 'tasks'
+
+
+.. py:class:: StealthMeshRouter(node_name: str = 'eva_swarm_router')
+
+   Decentralized stealth mesh routing.
+
+
+   .. py:attribute:: node_name
+      :value: 'eva_swarm_router'
+
+
+
+   .. py:attribute:: peer_id
+      :value: ''
+
+
+
+   .. py:attribute:: peers
+
+
+   .. py:attribute:: routes
+
+
+   .. py:attribute:: relay_table
+
+
+   .. py:attribute:: identity_rotation_interval
+      :value: 300
+
+
+
+   .. py:attribute:: _last_rotation
+
+
+   .. py:method:: _generate_peer_id() -> str
+
+
+   .. py:method:: rotate_identity()
+
+
+   .. py:method:: register_peer(peer_id: str, address: str = '', is_relay: bool = False)
+
+
+   .. py:method:: build_onion_path(destination: str) -> Optional[dict]
+
+
+   .. py:method:: get_status() -> dict
+
+
+.. py:class:: QdrantPeerRegistry(collection: str = PEER_COLLECTION)
+
+   Distributed peer registry backed by Qdrant.
+
+
+   .. py:attribute:: collection
+      :value: 'peers'
+
+
+
+   .. py:attribute:: base_url
+      :value: 'http://qdrant:6333'
+
+
+
+   .. py:method:: _ensure_collection()
+
+
+   .. py:method:: save_peers(peers: dict)
+
+
+   .. py:method:: load_peers() -> dict
+
+
+.. py:class:: TaskNegotiator
+
+   Skill-to-skill task negotiation protocol.
+
+
+   .. py:attribute:: active_tasks
+
+
+   .. py:attribute:: pending_bids
+
+
+   .. py:attribute:: awarded_tasks
+
+
+   .. py:attribute:: task_counter
+      :value: 0
+
+
+
+   .. py:method:: create_task(task_type: str, description: str, required_capability: str = '', priority: int = 5) -> str
+
+      Create a new task for negotiation.
+
+
+
+   .. py:method:: submit_bid(task_id: str, bidder_id: str, confidence: float = 0.5, load: float = 0.0) -> bool
+
+      Submit a bid for a task.
+
+
+
+   .. py:method:: evaluate_bids(task_id: str) -> Optional[str]
+
+      Evaluate bids and award task to best bidder.
+
+
+
+   .. py:method:: complete_task(task_id: str) -> bool
+
+      Mark a task as completed.
+
+
+
+   .. py:method:: get_status() -> dict
+
+
+.. py:class:: SwarmCoordinatorNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Dedicated ROS 2 node for Eva's swarm coordination.
+
+
+   .. py:attribute:: registry_pub
+
+
+   .. py:attribute:: heartbeat_pub
+
+
+   .. py:attribute:: route_pub
+
+
+   .. py:attribute:: task_bid_pub
+
+
+   .. py:attribute:: task_award_pub
+
+
+   .. py:attribute:: security_pub
+
+
+   .. py:attribute:: diag_pub
+
+
+   .. py:attribute:: allowed_protocols
+      :value: ['/noise', '/ipfs/kad/1.0.0', '/multistream/1.0.0']
+
+
+
+   .. py:attribute:: skill_registry
+
+
+   .. py:attribute:: peers
+
+
+   .. py:attribute:: registry
+
+
+   .. py:attribute:: router
+
+
+   .. py:attribute:: negotiator
+
+
+   .. py:method:: discover_skills()
+
+
+   .. py:method:: publish_registry()
+
+
+   .. py:method:: publish_heartbeat()
+
+
+   .. py:method:: publish_diagnostics()
+
+      Publish swarm health as ROS 2 diagnostics.
+
+
+
+   .. py:method:: persist_peers()
+
+
+   .. py:method:: evaluate_open_tasks()
+
+      Periodically evaluate pending bids and award tasks.
+
+
+
+   .. py:property:: active_tasks
+
+
+   .. py:method:: announce_callback(msg)
+
+
+   .. py:method:: route_callback(msg)
+
+
+   .. py:method:: task_bid_callback(msg)
+
+      Handle incoming task bids.
+
+
+
+   .. py:method:: task_award_callback(msg)
+
+      Handle task award acknowledgments.
+
+
+
+   .. py:method:: scout_report_callback(msg)
+
+      Monitor scout reports for security-relevant events.
+
+
+
+   .. py:method:: rotate_identity()
+
+
+.. py:function:: main(args=None)
+

@@ -1,0 +1,70 @@
+vox.core
+========
+
+.. py:module:: vox.core
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   vox.core.Transcriber
+
+
+Module Contents
+---------------
+
+.. py:class:: Transcriber(config, on_transcription_cb)
+
+   .. py:attribute:: config
+
+
+   .. py:attribute:: on_transcription
+
+
+   .. py:attribute:: recording_enabled
+      :value: True
+
+
+
+   .. py:attribute:: transcription_queue
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: p
+
+
+   .. py:attribute:: stream
+
+
+   .. py:attribute:: transcription_processor_thread
+
+
+   .. py:method:: _listen_for_toggle()
+
+      Listens for ENTER in stdin to toggle recording.
+
+
+
+   .. py:method:: _transcription_processor()
+
+      Runs in a dedicated thread.
+      Pulls audio data from the queue and transcribes it.
+
+
+
+   .. py:method:: run()
+
+      Starts the main transcription loop.
+
+
+
+   .. py:method:: close()
+
+      Cleans up resources.
+
+
+

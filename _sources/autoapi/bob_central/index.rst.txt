@@ -1,0 +1,33 @@
+bob_central
+===========
+
+.. py:module:: bob_central
+
+.. autoapi-nested-parse::
+
+   Package initialization for bob_central.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/bob_central/agency_daemon_node/index
+   /autoapi/bob_central/art_observer_node/index
+   /autoapi/bob_central/browser_daemon_node/index
+   /autoapi/bob_central/go_bridge_node/index
+   /autoapi/bob_central/jlog_node/index
+   /autoapi/bob_central/memory_daemon_node/index
+   /autoapi/bob_central/music_daemon/index
+   /autoapi/bob_central/orchestrator_node/index
+   /autoapi/bob_central/reasoning_observer_node/index
+   /autoapi/bob_central/repl_node/index
+   /autoapi/bob_central/status_daemon_node/index
+   /autoapi/bob_central/swarm_coordinator_node/index
+   /autoapi/bob_central/swarm_scout_node/index
+   /autoapi/bob_central/tti_node/index
+
+

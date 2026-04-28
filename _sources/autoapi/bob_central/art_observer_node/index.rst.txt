@@ -1,0 +1,106 @@
+bob_central.art_observer_node
+=============================
+
+.. py:module:: bob_central.art_observer_node
+
+.. autoapi-nested-parse::
+
+   Art Observer Node.
+
+   Monitors artwork files and streams them to the dashboard without flickering.
+   Uses a persistent buffer to ensure seamless transitions.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.art_observer_node.ArtObserverNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.art_observer_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: ArtObserverNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 node for monitoring and streaming artwork seamlessly.
+
+
+   .. py:attribute:: image_path
+
+
+   .. py:attribute:: pipe_path
+
+
+   .. py:attribute:: fps
+
+
+   .. py:attribute:: img_size
+
+
+   .. py:attribute:: img_pos
+
+
+   .. py:attribute:: register_dashboard
+
+
+   .. py:attribute:: pub_events
+
+
+   .. py:attribute:: last_mtime
+      :value: 0
+
+
+
+   .. py:attribute:: image_buffer
+      :value: None
+
+
+
+   .. py:attribute:: buffer_lock
+
+
+   .. py:attribute:: running
+      :value: True
+
+
+
+   .. py:attribute:: stream_thread
+
+
+   .. py:method:: register_layer()
+
+      Register the artwork layer with the streamer.
+
+
+
+   .. py:method:: _streaming_loop()
+
+      Persist loop to push frames into the pipe at a steady rate.
+
+
+
+   .. py:method:: check_art()
+
+      Check for file changes and update buffer.
+
+
+
+.. py:function:: main(args=None)
+
+   Run art observer.
+
+

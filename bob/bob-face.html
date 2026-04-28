@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_face &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ROS Package bob_flux2" href="bob-flux2.html" />
+    <link rel="prev" title="ROS Package bob_coquitts" href="bob-coquitts.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package bob_face</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#components">Components</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bag-node"><code class="docutils literal notranslate"><span class="pre">bag</span></code> (Node)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#face-marker-node"><code class="docutils literal notranslate"><span class="pre">face_marker</span></code> (Node)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sentiment-node"><code class="docutils literal notranslate"><span class="pre">sentiment</span></code> (Node)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motion-manager-node-motion-node"><code class="docutils literal notranslate"><span class="pre">motion_manager</span></code> (Node) / <code class="docutils literal notranslate"><span class="pre">motion_node</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#face-gui-node"><code class="docutils literal notranslate"><span class="pre">face_gui</span></code> (Node)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters-environment-variables">Parameters &amp; Environment Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#sentiment-parameters">Sentiment Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motion-parameters">Motion Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sentiment-tuning-lessons-learned">Sentiment Tuning (Lessons Learned)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-mood-persistence-buffer-smoothing">1. The “Mood” Persistence (Buffer &amp; Smoothing)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clarity-vs-neutrality-temperature">2. Clarity vs. Neutrality (Temperature)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stretching-the-spectrum-sensitivity">3. Stretching the Spectrum (Sensitivity)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#model-choice-alternatives">Model Choice &amp; Alternatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-build">Installation &amp; Build</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#docker-recommended">Docker (Recommended)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-build">Manual Build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_face</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/bob-face.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-face">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_face">bob_face</a><a class="headerlink" href="#ros-package-bob-face" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/bob-ros2/bob_face/actions/workflows/ros2_ci.yaml"><img alt="ROS2 CI" src="https://github.com/bob-ros2/bob_face/actions/workflows/ros2_ci.yaml/badge.svg" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_face/actions/workflows/docker.yml"><img alt="amd64" src="https://img.shields.io/github/actions/workflow/status/bob-ros2/bob_face/docker.yml?label=amd64&amp;logo=docker" /></a>
+<a class="reference external" href="https://github.com/bob-ros2/bob_face/actions/workflows/docker.yml"><img alt="arm64" src="https://img.shields.io/github/actions/workflow/status/bob-ros2/bob_face/docker.yml?label=arm64&amp;logo=docker" /></a></p>
+<p>ROS 2 package for facial animation playback and sentiment-driven color orchestration.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Animation Engine (C++)</strong>: Blended playback of <code class="docutils literal notranslate"><span class="pre">MarkerArray</span></code> face geometry from rosbag2.</p></li>
+<li><p><strong>Sentiment Logic (Python)</strong>: ONNX-based TinyBERT sentiment analysis for deep context awareness.</p></li>
+<li><p><strong>Marker Colorizer (C++)</strong>: Real-time RGBA override for visualization markers.</p></li>
+<li><p><strong>Sequence GUI (Python)</strong>: PyQt5 interface for triggering and managing animation sequences.</p></li>
+<li><p><strong>Dynamic Tuning</strong>: Adjust behavior at runtime via ROS parameters or Environment Variables.</p></li>
+</ul>
+</section>
+<section id="components">
+<h2>Components<a class="headerlink" href="#components" title="Link to this heading"></a></h2>
+<section id="bag-node">
+<h3><code class="docutils literal notranslate"><span class="pre">bag</span></code> (Node)<a class="headerlink" href="#bag-node" title="Link to this heading"></a></h3>
+<p>Playback engine for facial geometry.</p>
+<ul class="simple">
+<li><p><strong>Subscribes</strong>: N/A</p></li>
+<li><p><strong>Publishes</strong>: <code class="docutils literal notranslate"><span class="pre">face_marker_array</span></code> (<code class="docutils literal notranslate"><span class="pre">visualization_msgs/MarkerArray</span></code>)</p></li>
+<li><p><strong>Services</strong>: <code class="docutils literal notranslate"><span class="pre">set_sequence</span></code> (<code class="docutils literal notranslate"><span class="pre">bob_msgs/SetSequence</span></code>)</p></li>
+</ul>
+</section>
+<section id="face-marker-node">
+<h3><code class="docutils literal notranslate"><span class="pre">face_marker</span></code> (Node)<a class="headerlink" href="#face-marker-node" title="Link to this heading"></a></h3>
+<p>Applies sentiment color to incoming markers.</p>
+<ul class="simple">
+<li><p><strong>Subscribes</strong>: <code class="docutils literal notranslate"><span class="pre">marker_array_in</span></code> (<code class="docutils literal notranslate"><span class="pre">visualization_msgs/MarkerArray</span></code>), <code class="docutils literal notranslate"><span class="pre">face_color_override</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/ColorRGBA</span></code>)</p></li>
+<li><p><strong>Publishes</strong>: <code class="docutils literal notranslate"><span class="pre">marker_array_out</span></code> (<code class="docutils literal notranslate"><span class="pre">visualization_msgs/MarkerArray</span></code>)</p></li>
+</ul>
+</section>
+<section id="sentiment-node">
+<h3><code class="docutils literal notranslate"><span class="pre">sentiment</span></code> (Node)<a class="headerlink" href="#sentiment-node" title="Link to this heading"></a></h3>
+<p>Text-to-color mapping. Performs context-aware analysis using ONNX models.</p>
+<ul class="simple">
+<li><p><strong>Subscribes</strong>: <code class="docutils literal notranslate"><span class="pre">analize</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code>)</p></li>
+<li><p><strong>Publishes</strong>: <code class="docutils literal notranslate"><span class="pre">face_color_override</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/ColorRGBA</span></code>), <code class="docutils literal notranslate"><span class="pre">sentiment_score</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/Float32</span></code>)</p></li>
+</ul>
+</section>
+<section id="motion-manager-node-motion-node">
+<h3><code class="docutils literal notranslate"><span class="pre">motion_manager</span></code> (Node) / <code class="docutils literal notranslate"><span class="pre">motion_node</span></code><a class="headerlink" href="#motion-manager-node-motion-node" title="Link to this heading"></a></h3>
+<p>Automation of facial states (Speaking/Idle).</p>
+<ul class="simple">
+<li><p><strong>Subscribes</strong>: <code class="docutils literal notranslate"><span class="pre">spoken_text</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code>), <code class="docutils literal notranslate"><span class="pre">speaking_flag</span></code> (<code class="docutils literal notranslate"><span class="pre">std_msgs/Bool</span></code>)</p></li>
+<li><p><strong>Services</strong>: <code class="docutils literal notranslate"><span class="pre">set_sequence</span></code> (Client: calls the <code class="docutils literal notranslate"><span class="pre">bag</span></code> node)</p></li>
+</ul>
+</section>
+<section id="face-gui-node">
+<h3><code class="docutils literal notranslate"><span class="pre">face_gui</span></code> (Node)<a class="headerlink" href="#face-gui-node" title="Link to this heading"></a></h3>
+<p>Interactive sequence editor and manual control.</p>
+<ul class="simple">
+<li><p><strong>Services</strong>: <code class="docutils literal notranslate"><span class="pre">set_sequence</span></code> (Client)</p></li>
+<li><p><strong>Files</strong>: Reads/Writes <code class="docutils literal notranslate"><span class="pre">config/sequences.yaml</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="parameters-environment-variables">
+<h2>Parameters &amp; Environment Variables<a class="headerlink" href="#parameters-environment-variables" title="Link to this heading"></a></h2>
+<p>All nodes support standard ROS parameters which can also be initialized via Environment Variables (useful for Docker deployments).</p>
+<section id="sentiment-parameters">
+<h3>Sentiment Parameters<a class="headerlink" href="#sentiment-parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Env Variable</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">model_repo</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_MODEL_REPO</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Xenova/twitter-xlm-roberta-base-sentiment-multilingual</span></code></p></td>
+<td><p>HF model repository.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">model_dir</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_MODEL_DIR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>Local directory for model storage.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sensitivity</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_SENSITIVITY</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">2.5</span></code></p></td>
+<td><p>[Dynamic] Multiplier (spread).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">smooth_alpha</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_SMOOTH_ALPHA</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.5</span></code></p></td>
+<td><p>[Dynamic] Smoothing [0..1].</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">temperature</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_TEMPERATURE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></td>
+<td><p>[Dynamic] Logit scaling [&gt;0].</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">buffer_size</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_BUFFER_SIZE</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">80</span></code></p></td>
+<td><p>[Dynamic] Character buffer.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cmap_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SENTIMENT_CMAP_NAME</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">RdYlGn</span></code></p></td>
+<td><p>Matplotlib colormap.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="motion-parameters">
+<h3>Motion Parameters<a class="headerlink" href="#motion-parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Env Variable</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sequences_config</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MOTION_SEQUENCES_CONFIG</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">.../sequences.yaml</span></code></p></td>
+<td><p>Path to sequences file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seconds_per_char</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MOTION_SECONDS_PER_CHAR</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.07</span></code></p></td>
+<td><p>[Dynamic] s/char heuristic.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">min_idle_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MOTION_MIN_IDLE_DURATION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">5.0</span></code></p></td>
+<td><p>[Dynamic] Min idle pause.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_idle_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MOTION_MAX_IDLE_DURATION</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">15.0</span></code></p></td>
+<td><p>[Dynamic] Max idle pause.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">speaking_sequences</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MOTION_SPEAKING_SEQUENCES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>[Dynamic] Comma-separated names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">idle_sequences</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">MOTION_IDLE_SEQUENCES</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>[Dynamic] Comma-separated names.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="sentiment-tuning-lessons-learned">
+<h2>Sentiment Tuning (Lessons Learned)<a class="headerlink" href="#sentiment-tuning-lessons-learned" title="Link to this heading"></a></h2>
+<p>Through extensive testing, we found the following “sweet spot” settings:</p>
+<section id="the-mood-persistence-buffer-smoothing">
+<h3>1. The “Mood” Persistence (Buffer &amp; Smoothing)<a class="headerlink" href="#the-mood-persistence-buffer-smoothing" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Recommendation</strong>: Use <strong><code class="docutils literal notranslate"><span class="pre">buffer_size</span> <span class="pre">:=</span> <span class="pre">80</span></code></strong> (approx. one sentence).</p></li>
+<li><p><strong>Inertia</strong>: Use <strong><code class="docutils literal notranslate"><span class="pre">smooth_alpha</span> <span class="pre">:=</span> <span class="pre">0.5</span></code></strong>. This mimics human emotion inertia.</p></li>
+</ul>
+</section>
+<section id="clarity-vs-neutrality-temperature">
+<h3>2. Clarity vs. Neutrality (Temperature)<a class="headerlink" href="#clarity-vs-neutrality-temperature" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Recommendation</strong>: Use <strong><code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">:=</span> <span class="pre">1.0</span></code></strong>. Lower values makes Bob more “extreme”, higher values more neutral.</p></li>
+</ul>
+</section>
+<section id="stretching-the-spectrum-sensitivity">
+<h3>3. Stretching the Spectrum (Sensitivity)<a class="headerlink" href="#stretching-the-spectrum-sensitivity" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>If Bob stays too “pale” (yellow), increase <strong><code class="docutils literal notranslate"><span class="pre">sensitivity</span></code></strong> to <strong><code class="docutils literal notranslate"><span class="pre">2.5</span></code> - <code class="docutils literal notranslate"><span class="pre">3.0</span></code></strong>.</p></li>
+</ul>
+</section>
+</section>
+<section id="model-choice-alternatives">
+<h2>Model Choice &amp; Alternatives<a class="headerlink" href="#model-choice-alternatives" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong><a class="reference external" href="https://huggingface.co/Xenova/twitter-xlm-roberta-base-sentiment-multilingual">XLM-RoBERTa (Default)</a></strong>:</p>
+<ul class="simple">
+<li><p><strong>Label Order</strong>: <code class="docutils literal notranslate"><span class="pre">0:</span> <span class="pre">Negative</span></code>, <code class="docutils literal notranslate"><span class="pre">1:</span> <span class="pre">Neutral</span></code>, <code class="docutils literal notranslate"><span class="pre">2:</span> <span class="pre">Positive</span></code>.</p></li>
+<li><p><strong>Pros</strong>: Excellent nuanced understanding of German and English. Recommended.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Python: <code class="docutils literal notranslate"><span class="pre">onnxruntime</span></code>, <code class="docutils literal notranslate"><span class="pre">tokenizers</span></code>, <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">PyQt5</span></code>, <code class="docutils literal notranslate"><span class="pre">PyYAML</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy&lt;2</span></code></p></li>
+<li><p>ROS 2: <code class="docutils literal notranslate"><span class="pre">rclcpp</span></code>, <code class="docutils literal notranslate"><span class="pre">rclpy</span></code>, <code class="docutils literal notranslate"><span class="pre">visualization_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">bob_msgs</span></code></p></li>
+</ul>
+</section>
+<section id="installation-build">
+<h2>Installation &amp; Build<a class="headerlink" href="#installation-build" title="Link to this heading"></a></h2>
+<section id="docker-recommended">
+<h3>Docker (Recommended)<a class="headerlink" href="#docker-recommended" title="Link to this heading"></a></h3>
+<p>Official images for <strong>amd64</strong> and <strong>arm64</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/bob-ros2/bob-face:latest
+
+<span class="c1"># Example run with env overrides</span>
+docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--network<span class="w"> </span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">MOTION_SECONDS_PER_CHAR</span><span class="o">=</span><span class="m">0</span>.05<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">SENTIMENT_SENSITIVITY</span><span class="o">=</span><span class="m">3</span>.0<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/bob-ros2/bob-face:latest
+</pre></div>
+</div>
+</section>
+<section id="manual-build">
+<h3>Manual Build<a class="headerlink" href="#manual-build" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bob-ros2/bob_face.git
+<span class="nb">cd</span><span class="w"> </span>..
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>src/bob_face/requirements.txt
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>bob_face
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="bob-coquitts.html" class="btn btn-neutral float-left" title="ROS Package bob_coquitts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bob-flux2.html" class="btn btn-neutral float-right" title="ROS Package bob_flux2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

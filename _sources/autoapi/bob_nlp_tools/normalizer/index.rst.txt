@@ -1,0 +1,58 @@
+bob_nlp_tools.normalizer
+========================
+
+.. py:module:: bob_nlp_tools.normalizer
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_nlp_tools.normalizer.NormalizerNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_nlp_tools.normalizer.main
+
+
+Module Contents
+---------------
+
+.. py:class:: NormalizerNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 Node that normalizes messages into structured formats.
+
+   Uses NlpSemanticDriver to perform normalization.
+
+
+   .. py:attribute:: driver
+
+
+   .. py:attribute:: instructions
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:method:: input_callback(msg)
+
+      Analyze message and normalize it.
+
+
+
+.. py:function:: main(args=None)
+
+   Run the main ROS 2 node.
+
+

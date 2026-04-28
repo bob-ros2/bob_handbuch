@@ -1,0 +1,107 @@
+bob_topic_tools.filter
+======================
+
+.. py:module:: bob_topic_tools.filter
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.filter.FilterNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.filter.main
+
+
+Module Contents
+---------------
+
+.. py:class:: FilterNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String topic filter ROS node with pre-compiled regex performance.
+
+
+   .. py:attribute:: white_filter
+
+
+   .. py:attribute:: black_filter
+
+
+   .. py:attribute:: white_list
+
+
+   .. py:attribute:: black_list
+
+
+   .. py:attribute:: substitute
+
+
+   .. py:attribute:: trim_data
+
+
+   .. py:attribute:: trim_chars
+
+
+   .. py:attribute:: skip_empty
+
+
+   .. py:attribute:: white_patterns
+      :value: []
+
+
+
+   .. py:attribute:: black_patterns
+      :value: []
+
+
+
+   .. py:attribute:: sub_patterns
+      :value: []
+
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: pub_rejected
+
+
+   .. py:method:: load_yaml(filename)
+
+      Load YAML file and return content list. Returns [] on error.
+
+
+
+   .. py:method:: compile_regexes()
+
+      Pre-compile all regex patterns for performance.
+
+
+
+   .. py:method:: on_parameter_change(params)
+
+      Handle dynamic parameter changes and trigger re-compilation.
+
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Process incoming messages through filters and substitutions.
+
+
+
+.. py:function:: main()
+

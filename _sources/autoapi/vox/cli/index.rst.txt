@@ -1,0 +1,19 @@
+vox.cli
+=======
+
+.. py:module:: vox.cli
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   vox.cli.main
+
+
+Module Contents
+---------------
+
+.. py:function:: main()
+

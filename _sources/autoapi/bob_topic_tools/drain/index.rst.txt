@@ -1,0 +1,68 @@
+bob_topic_tools.drain
+=====================
+
+.. py:module:: bob_topic_tools.drain
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.drain.DrainNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.drain.main
+
+
+Module Contents
+---------------
+
+.. py:class:: DrainNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String topic forwarding node with drain behavior.
+
+
+   .. py:attribute:: message_cache
+
+
+   .. py:attribute:: frequency
+
+
+   .. py:attribute:: timer
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:method:: on_parameter_change(params)
+
+      Handle dynamic parameter changes.
+
+
+
+   .. py:method:: timer_callback()
+
+      Publish next message if available.
+
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Handle incoming message callback.
+
+
+
+.. py:function:: main()
+

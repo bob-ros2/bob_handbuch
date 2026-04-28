@@ -1,0 +1,58 @@
+bob_nlp_tools.router
+====================
+
+.. py:module:: bob_nlp_tools.router
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_nlp_tools.router.SemanticRouterNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_nlp_tools.router.main
+
+
+Module Contents
+---------------
+
+.. py:class:: SemanticRouterNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 Node that routes messages to different topics based on semantic intent.
+
+   Uses NlpSemanticDriver to determine the best target topic.
+
+
+   .. py:attribute:: driver
+
+
+   .. py:attribute:: publishers_dict
+
+
+   .. py:attribute:: default_pub
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:method:: input_callback(msg)
+
+      Analyze message and route it.
+
+
+
+.. py:function:: main(args=None)
+
+   Run the main ROS 2 node.
+
+

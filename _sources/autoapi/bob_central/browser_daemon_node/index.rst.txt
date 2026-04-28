@@ -1,0 +1,115 @@
+bob_central.browser_daemon_node
+===============================
+
+.. py:module:: bob_central.browser_daemon_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.browser_daemon_node.BrowserDaemonNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.browser_daemon_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: BrowserDaemonNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Control a headless browser and publish snapshots.
+
+   Tailored for Twitch streaming integration.
+
+
+   .. py:attribute:: playwright
+      :value: None
+
+
+
+   .. py:attribute:: browser
+      :value: None
+
+
+
+   .. py:attribute:: browser_context
+      :value: None
+
+
+
+   .. py:attribute:: page
+      :value: None
+
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: pub_image
+
+
+   .. py:attribute:: sub_command
+
+
+   .. py:method:: start_browser()
+      :async:
+
+
+      Initialize Playwright and open a blank page.
+
+
+
+   .. py:method:: command_callback(msg)
+
+      Handle incoming browser commands (async wrapper).
+
+
+
+   .. py:method:: process_command(cmd_data)
+      :async:
+
+
+      Execute playwright actions based on JSON command.
+
+
+
+   .. py:method:: publish_screenshot()
+      :async:
+
+
+      Capture screen and publish as ROS Image msg.
+
+
+
+   .. py:method:: run_loop()
+      :async:
+
+
+      Run the main publication loop at a fixed FPS.
+
+
+
+.. py:function:: main(args=None)
+   :async:
+
+
+   Initialize and run the node.
+
+

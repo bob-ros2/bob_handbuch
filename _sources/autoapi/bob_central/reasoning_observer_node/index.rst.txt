@@ -1,0 +1,69 @@
+bob_central.reasoning_observer_node
+===================================
+
+.. py:module:: bob_central.reasoning_observer_node
+
+.. autoapi-nested-parse::
+
+   Reasoning Observer Node.
+
+   Visualizes the LLM reasoning process on the dashboard.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.reasoning_observer_node.ReasoningObserverNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.reasoning_observer_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: ReasoningObserverNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 node for rendering reasoning process to a bitmap.
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: topic_out
+
+
+   .. py:attribute:: pub_bitmap
+
+
+   .. py:method:: events_cb(msg)
+
+      Handle dashboard registration.
+
+
+
+   .. py:method:: stream_cb(msg)
+
+      Render incoming reasoning text to bitmap.
+
+
+
+.. py:function:: main(args=None)
+
+   Run reasoning observer.
+
+

@@ -1,0 +1,123 @@
+bob_central.status_daemon_node
+==============================
+
+.. py:module:: bob_central.status_daemon_node
+
+.. autoapi-nested-parse::
+
+   Status Daemon Node - Unified Telemetry Monitor.
+
+   Provides a single-page transparent overlay with system and brain metrics.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.status_daemon_node.StatusDaemonNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.status_daemon_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: StatusDaemonNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 node for system and logic telemetry visualization.
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: update_rate
+
+
+   .. py:attribute:: stream_topic
+
+
+   .. py:attribute:: stream_max_lines
+
+
+   .. py:attribute:: register_dashboard
+
+
+   .. py:attribute:: orch_status
+
+
+   .. py:attribute:: repl_status
+
+
+   .. py:attribute:: start_time
+
+
+   .. py:attribute:: last_layout_time
+      :value: 0
+
+
+
+   .. py:attribute:: stream_buffer
+      :value: ['--- INIT SYSTEM ---']
+
+
+
+   .. py:attribute:: current_line_fragment
+      :value: ''
+
+
+
+   .. py:attribute:: pub_events
+
+
+   .. py:attribute:: pub_bitmap
+
+
+   .. py:method:: register_layer()
+
+      Register the system status layer with the streamer.
+
+
+
+   .. py:method:: orch_cb(msg)
+
+      Update orchestrator status.
+
+
+
+   .. py:method:: repl_cb(msg)
+
+      Update REPL age.
+
+
+
+   .. py:method:: stream_cb(msg)
+
+      Handle incoming tokens for the right-side stream.
+
+
+
+   .. py:method:: render_loop()
+
+      Run the main rendering loop.
+
+
+
+.. py:function:: main(args=None)
+
+   Initialize and spin the status daemon node.
+
+

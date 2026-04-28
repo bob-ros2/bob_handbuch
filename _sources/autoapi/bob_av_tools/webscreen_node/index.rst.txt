@@ -1,0 +1,226 @@
+bob_av_tools.webscreen_node
+===========================
+
+.. py:module:: bob_av_tools.webscreen_node
+
+.. autoapi-nested-parse::
+
+   Render any URL offscreen and stream it to a FIFO pipe and/or ROS topic.
+
+   Supports cookie injection (JSON file), JavaScript pre-script injection at
+   DeferredLoad time, non-blocking FIFO auto-reconnect, and ROS Image publishing.
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_av_tools.webscreen_node.HAS_CV_BRIDGE
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_av_tools.webscreen_node.CustomPage
+   bob_av_tools.webscreen_node.WebScreenNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_av_tools.webscreen_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: HAS_CV_BRIDGE
+   :value: True
+
+
+.. py:class:: CustomPage(node)
+
+   Bases: :py:obj:`PySide6.QtWebEngineCore.QWebEnginePage`
+
+
+   QWebEnginePage subclass forwarding console output to ROS logger.
+
+
+   .. py:attribute:: node
+
+
+   .. py:method:: javaScriptConsoleMessage(level, message, line, source)
+
+      Forward browser console messages to ROS logger at DEBUG level.
+
+
+
+.. py:class:: WebScreenNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 node that renders any URL offscreen and streams frames.
+
+   Renders a URL or local file using QtWebEngine (Chromium) in offscreen mode.
+   Frames are captured at the configured FPS, published as ROS Image, and/or
+   written to a named FIFO pipe (ffplay, bob_sdlviz, FFmpeg).
+   Supports cookie injection and JS pre-script injection for automation.
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: fps
+
+
+   .. py:attribute:: url
+
+
+   .. py:attribute:: fifo_path
+
+
+   .. py:attribute:: queue_length
+
+
+   .. py:attribute:: cookies_file
+
+
+   .. py:attribute:: pre_script
+
+
+   .. py:attribute:: scroll_x
+
+
+   .. py:attribute:: scroll_y
+
+
+   .. py:attribute:: fifo_alpha
+
+
+   .. py:attribute:: max_text_length
+
+
+   .. py:attribute:: publisher
+
+
+   .. py:attribute:: current_content
+      :value: ''
+
+
+
+   .. py:attribute:: lock
+
+
+   .. py:attribute:: llm_sub
+
+
+   .. py:attribute:: tool_sub
+
+
+   .. py:attribute:: reasoning_sub
+
+
+   .. py:attribute:: fifo_fd
+      :value: None
+
+
+
+   .. py:attribute:: qt_app
+
+
+   .. py:attribute:: profile
+
+
+   .. py:attribute:: cookie_store
+
+
+   .. py:attribute:: page
+
+
+   .. py:attribute:: view
+
+
+   .. py:attribute:: timer
+
+
+   .. py:method:: _inject_cookies(path)
+
+      Load cookies from a JSON file and inject them into the browser.
+
+
+
+   .. py:method:: _inject_pre_script(path)
+
+      Register a JS file to be injected at DeferredLoad into each page.
+
+
+
+   .. py:method:: _on_load_finished(success)
+
+      Log the result of a page load attempt.
+
+
+
+   .. py:method:: _try_reconnect_fifo()
+
+      Try to open the FIFO non-blockingly and then switch to blocking.
+
+
+
+   .. py:method:: capture_frame()
+
+      Capture the current render, publish to ROS, and write to FIFO.
+
+
+
+   .. py:method:: llm_callback(msg)
+
+      Handle incoming LLM stream data.
+
+
+
+   .. py:method:: _prune_content()
+
+      Truncate content from the beginning if it exceeds max_text_length.
+
+
+
+   .. py:method:: tool_callback(msg)
+
+      Handle incoming tool call notifications with clean functional format.
+
+
+
+   .. py:method:: reasoning_callback(msg)
+
+      Handle incoming reasoning data.
+
+
+
+   .. py:method:: _update_web_content()
+
+      Inject the current content into the web page.
+
+
+
+   .. py:method:: run()
+
+      Run the Qt + ROS event loop and return the exit code.
+
+
+
+.. py:function:: main(args=None)
+
+   Entry point for the webscreen node.
+
+

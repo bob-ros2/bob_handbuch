@@ -1,0 +1,43 @@
+vox.handlers.ros2_handler
+=========================
+
+.. py:module:: vox.handlers.ros2_handler
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   vox.handlers.ros2_handler.ROS2_AVAILABLE
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   vox.handlers.ros2_handler.OutputHandler
+
+
+Module Contents
+---------------
+
+.. py:data:: ROS2_AVAILABLE
+   :value: True
+
+
+.. py:class:: OutputHandler(handler_args=None)
+
+   .. py:attribute:: node
+
+
+   .. py:attribute:: publisher
+
+
+   .. py:method:: send(text)
+
+
+   .. py:method:: close()
+
+

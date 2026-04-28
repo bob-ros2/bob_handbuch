@@ -1,0 +1,61 @@
+bob_nlp_tools.filter
+====================
+
+.. py:module:: bob_nlp_tools.filter
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_nlp_tools.filter.SemanticFilterNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_nlp_tools.filter.main
+
+
+Module Contents
+---------------
+
+.. py:class:: SemanticFilterNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 Node that filters messages based on semantic criteria.
+
+   Uses NlpSemanticDriver to determine if a message matches the criterion.
+
+
+   .. py:attribute:: driver
+
+
+   .. py:attribute:: criterion
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: pub_rejected
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:method:: input_callback(msg)
+
+      Analyze message and filter it.
+
+
+
+.. py:function:: main(args=None)
+
+   Run the main ROS 2 node.
+
+

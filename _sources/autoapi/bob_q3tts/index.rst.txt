@@ -1,0 +1,21 @@
+bob_q3tts
+=========
+
+.. py:module:: bob_q3tts
+
+.. autoapi-nested-parse::
+
+   Package for bob_q3tts.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/bob_q3tts/gui_node/index
+   /autoapi/bob_q3tts/tts_node/index
+
+

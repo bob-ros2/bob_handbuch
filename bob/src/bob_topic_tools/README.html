@@ -1,0 +1,484 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package bob_topic_tools &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package bob_topic_tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/bob/src/bob_topic_tools/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-bob-topic-tools">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/bob_topic_tools">bob_topic_tools</a><a class="headerlink" href="#ros-package-bob-topic-tools" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/bob-ros2/bob_topic_tools/actions/workflows/ros2_ci.yml"><img alt="ROS 2 CI" src="https://github.com/bob-ros2/bob_topic_tools/actions/workflows/ros2_ci.yml/badge.svg" /></a>
+<a class="reference external" href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache_2.0-blue.svg" /></a></p>
+<p>This ROS Package is part of Bob’s NLP and LLM tools.</p>
+<p>The contained ROS Nodes are a collection of std_msgs/String topic tools. It extends the already existing <a class="reference external" href="https://github.com/ros-tooling/topic_tools"><code class="docutils literal notranslate"><span class="pre">ROS</span> <span class="pre">package</span> <span class="pre">topic_tools</span></code></a> but more dedicated to NLP tasks.</p>
+<section id="ros-node-filter">
+<h2>ROS Node Filter<a class="headerlink" href="#ros-node-filter" title="Link to this heading"></a></h2>
+<p>String topic filter ROS node. It supports also dynamic parameter reconfigure during runtime.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">white_filter</span></code></p></td>
+<td><p>string array</p></td>
+<td><p>String array with white list rules. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_WHITE_FILTER</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">black_filter</span></code></p></td>
+<td><p>string array</p></td>
+<td><p>String array with blacklist rules. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_BLACK_FILTER</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">white_list</span></code></p></td>
+<td><p>string</p></td>
+<td><p>White list file. This overrides parameter <code class="docutils literal notranslate"><span class="pre">white_filter</span></code>. Format: Yaml file with a list of strings containing regex rules. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_WHITE_LIST</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">black_list</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Black list file. This overrides parameter <code class="docutils literal notranslate"><span class="pre">black_filter</span></code>. Format: Yaml file with a list of strings containing regex rules. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_BLACK_LIST</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">substitute</span></code></p></td>
+<td><p>string array</p></td>
+<td><p>Substitutions using regex. Expects pairs: <code class="docutils literal notranslate"><span class="pre">['pattern',</span> <span class="pre">'replace',</span> <span class="pre">...]</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_SUBSTITUTE</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trim_data</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, trims whitespace (or <code class="docutils literal notranslate"><span class="pre">trim_chars</span></code>) from the message. Default <code class="docutils literal notranslate"><span class="pre">false</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_TRIM_DATA</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trim_chars</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Characters to trim if <code class="docutils literal notranslate"><span class="pre">trim_data</span></code> is true. Defaults to standard whitespace if empty. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_TRIM_CHARS</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">skip_empty</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>If <code class="docutils literal notranslate"><span class="pre">true</span></code>, skips messages that are empty after processing. Default <code class="docutils literal notranslate"><span class="pre">false</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">FILTER_SKIP_EMPTY</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="topics">
+<h3>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~topic_in</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Read input data from topic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~topic_out</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Publish filtered output.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~topic_rejected</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Publish rejected output.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="ros-node-stream-filter">
+<h2>ROS Node Stream Filter<a class="headerlink" href="#ros-node-stream-filter" title="Link to this heading"></a></h2>
+<p>String Stream topic filter node. Can redirect text portion enclosured in start/end tags.</p>
+<section id="id1">
+<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">buffer_size</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Input buffer size, default: 65535. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">STREAM_FILTER_BUFFER_SIZE</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">end_tag</span></code></p></td>
+<td><p>string</p></td>
+<td><p>End tag of the area to filter out, default <code class="docutils literal notranslate"><span class="pre">&lt;/think&gt;</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">STREAM_FILTER_END_TAG</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start_tag</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Start tag of the area to sort out, default <code class="docutils literal notranslate"><span class="pre">&lt;think&gt;</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">STREAM_FILTER_START_TAG</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">window_size</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Rolling window size to detect the tags. This should be &gt; then max tag length, default: 32. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">STREAM_FILTER_WINDOW_SIZE</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h3>Topics<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~stream_in</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Read input string stream from topic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~stream_out</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Publish data outside of the enclosing tags.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~stream_filtered</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Publish data within the enclosing tags.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="ros-node-aggregator">
+<h2>ROS Node Aggregator<a class="headerlink" href="#ros-node-aggregator" title="Link to this heading"></a></h2>
+<p>String Stream aggregator node.</p>
+<section id="id3">
+<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delimiters</span></code></p></td>
+<td><p>string array</p></td>
+<td><p>List of delimiter strings where to stop aggregating. Supports multi-character delimiters like <code class="docutils literal notranslate"><span class="pre">.</span> </code>. Default: <code class="docutils literal notranslate"><span class="pre">['.',</span> <span class="pre">',',</span> <span class="pre">'!',</span> <span class="pre">'?',</span> <span class="pre">'\n']</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">auto_flush</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Auto-flush timer in milliseconds. Default 1500ms.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>Topics<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~stream_in</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Read input string stream from topic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~stream_out</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Publish aggregated output.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="ros-node-drain">
+<h2>ROS Node Drain<a class="headerlink" href="#ros-node-drain" title="Link to this heading"></a></h2>
+<p>String topic forwarding node with drain behavior. Controls the flow of messages to the output topic at a specified frequency.</p>
+<section id="id5">
+<h3>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">frequency</span></code></p></td>
+<td><p>double</p></td>
+<td><p>Frequency in seconds to forward incoming messages to output topic. Default <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Topics<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~drain_in</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Input stream topic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~drain_out</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Buffered output stream topic.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="ros-node-terminal">
+<h2>ROS Node Terminal<a class="headerlink" href="#ros-node-terminal" title="Link to this heading"></a></h2>
+<p>Basic String topic IO terminal ROS Node with syntax highlighting.</p>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
+<p>The required QT5 libraries should already exist if ROS is installed. If missing use below installation to get them.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pyqt5
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pyqt5.qsci
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run frameless terminal window using ROS parameter</span>
+ros2<span class="w"> </span>run<span class="w"> </span>bob_topic_tools<span class="w"> </span>terminal<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>frameless:<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+
+<span class="c1"># show window on another display</span>
+<span class="c1"># display what will be received from socket</span>
+netcat<span class="w"> </span>-U<span class="w"> </span>/tmp/some.sock<span class="w"> </span><span class="p">|</span><span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>bob_topic_tools<span class="w"> </span>terminal<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>display:<span class="o">=</span><span class="m">1</span><span class="w"> </span>-p<span class="w"> </span>geometry:<span class="o">=[</span><span class="m">300</span>,300,600,480<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">display</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Display where to show window. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_DISPLAY</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">fontname</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Window fontname. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_FONTNAME</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">fontsize</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Window fontsize. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_FONTSIZE</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">frameless</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Switch off window caption. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_FRAMELESS</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">geometry</span></code></p></td>
+<td><p>integer array</p></td>
+<td><p>Window geometry. <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">width,</span> <span class="pre">height]</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_GEOMETRY</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">input</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Enables or disables the text input field. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_INPUT</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">line_count</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Maximum line count in the text area. 0 = unlimited. If exceeded, lines are removed from the top. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_LINE_COUNT</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">margin</span></code></p></td>
+<td><p>integer array</p></td>
+<td><p>Window inner margin. <code class="docutils literal notranslate"><span class="pre">[left,</span> <span class="pre">top,</span> <span class="pre">right,</span> <span class="pre">bottom]</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_MARGIN</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">opacity</span></code></p></td>
+<td><p>double</p></td>
+<td><p>Window opacity. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_OPACITY</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stylesheet</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Stylesheet qss of PlainText area. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_STYLESHEET</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stylesheet_window</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Stylesheet qss of Window area. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_STYLESHEET_WINDOW</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Title of window. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_TITLE</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">lexer</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The lexer to be used: <code class="docutils literal notranslate"><span class="pre">QsciLexerMarkdown</span></code>, <code class="docutils literal notranslate"><span class="pre">QsciLexerJSON</span></code>, <code class="docutils literal notranslate"><span class="pre">QsciLexerPython</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">QsciLexerMarkdown</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_LEXER</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">image_view</span></code></p></td>
+<td><p>boolean</p></td>
+<td><p>Start with image view option. Default: <code class="docutils literal notranslate"><span class="pre">false</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_IMAGE_VIEW</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">color_paper</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Background color (named or HEX). Default: <code class="docutils literal notranslate"><span class="pre">black</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_COLOR_PAPER</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">color_text</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Text color (named or HEX). Default: <code class="docutils literal notranslate"><span class="pre">lightgray</span></code>. Can also be set via environment variable <code class="docutils literal notranslate"><span class="pre">TERMINAL_COLOR_TEXT</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>Topics<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~topic_in</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Read input data from topic.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~topic_in_cr</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Read input data and append newline.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~topic_out</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code></p></td>
+<td><p>Publish text entered in terminal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~image</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sensor_msgs/Image</span></code></p></td>
+<td><p>Optional image subscription.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+Welcome to Bob's Handbuch
+=========================
+This is a collection of various ROS 2 packages and nodes for natural language processing, LLM integration, and system control. They leverage ROS topics to connect NLP and LLM components seamlessly.
+
+Key Features:
+
+* **LLM Integration**: OpenAI-compatible API interface with stateful conversations and dynamic tool calling.
+* **Speech & Audio**: High-fidelity TTS (Qwen3, XTTS), offline STT, and multi-source audio mixing/conversion.
+* **Vision & VLM**: Visual reasoning, captioning, and object detection via Moondream2 VLM.
+* **Image Generation**: Modern Text-to-Image and Image-to-Image generation (Stable Diffusion 3.5, FLUX.2).
+* **Visualization**: High-performance SDL2 rendering and headless streaming (Twitch) with dynamic overlays.
+* **Vector Database**: Semantic storage and multimodal retrieval using Chroma and Qdrant.
+* **Human-Machine Interface**: Sentiment-driven facial animations and interactive web-based GUI terminals.
+* **Infrastructure**: Isolated Docker-in-Docker sandbox (GPU supported) and advanced ROS topic utilities.
+
+.. raw:: html
+
+   <!-- Add a placeholder for the Twitch embed -->
+   <div id="twitch-embed"></div>
+   <!-- Load the Twitch embed JavaScript file -->
+   <script src="https://embed.twitch.tv/embed/v1.js"></script>
+   <!-- Create a Twitch.Embed object that will render within the "twitch-embed" element -->
+   <script type="text/javascript">
+      new Twitch.Embed("twitch-embed", {
+        width: 427,
+        height: 240,
+        channel: "superbob_6110",
+        // Only needed if this page is going to be embedded on other websites
+        parent: ["bob-ros2.github.io"],
+        theme: "dark",
+        layout: "video",
+      });
+   </script>
+   </br>
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: Packages
+
+   bob/bob-audio.md
+   bob/bob-av-tools.md
+   bob/bob-central.md
+   bob/bob-coquitts.md
+   bob/bob-face.md
+   bob/bob-flux2.md
+   bob/bob-flux2k.md
+   bob/bob-launch.md
+   bob/bob-llm.md
+   bob/bob-moondream.md
+   bob/bob-moondream-msgs.md
+   bob/bob-msgs.md
+   bob/bob-nlp-tools.md
+   bob/bob-nviz.md
+   bob/bob-q3tts.md
+   bob/bob-sd35.md
+   bob/bob-sdlviz.md
+   bob/bob-synth.md
+   bob/bob-topic-tools.md
+   bob/bob-vector-db.md
+   bob/voskros.md
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: OTHER
+
+   bob/tioros.md
+   bob/vox.md
+
+#.. toctree::
+#   :maxdepth: 2 
+#   :caption: Miscellaneous
+
+#   bob/bob-docker-network.md
+#   bob/bob-portainer.md
+

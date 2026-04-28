@@ -1,0 +1,37 @@
+bob_vector_db.chroma_embedder
+=============================
+
+.. py:module:: bob_vector_db.chroma_embedder
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_vector_db.chroma_embedder.ChromaEmbedder
+
+
+Module Contents
+---------------
+
+.. py:class:: ChromaEmbedder(model: str = None, **kwargs: Any)
+
+   Bases: :py:obj:`json_embedder.JsonEmbedder`
+
+
+   Chroma JSON embedding interface.
+
+   The __call__ function expects a string with a JSON dict containing the following attributes:
+     collection: to be used collection name
+     documents: list with document strings
+     metadatas: list of metadata dictionaries
+     ids: list of id strings
+
+
+   .. py:attribute:: ef
+
+
+   .. py:method:: __call__(j: str, media: list = None) -> None
+
+

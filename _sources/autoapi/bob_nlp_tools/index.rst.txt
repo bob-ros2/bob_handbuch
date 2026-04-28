@@ -1,0 +1,94 @@
+bob_nlp_tools
+=============
+
+.. py:module:: bob_nlp_tools
+
+.. autoapi-nested-parse::
+
+   ROS 2 semantic NLP tools package.
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /autoapi/bob_nlp_tools/driver/index
+   /autoapi/bob_nlp_tools/filter/index
+   /autoapi/bob_nlp_tools/normalizer/index
+   /autoapi/bob_nlp_tools/router/index
+   /autoapi/bob_nlp_tools/summarizer/index
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_nlp_tools.NlpSemanticDriver
+
+
+Package Contents
+----------------
+
+.. py:class:: NlpSemanticDriver(api_key, base_url='https://api.openai.com/v1', model='gpt-3.5-turbo', timeout=15)
+
+   A standalone, non-ROS driver for semantic NLP tasks via OpenAI-compatible APIs.
+
+
+   .. py:attribute:: api_key
+
+
+   .. py:attribute:: base_url
+      :value: ''
+
+
+
+   .. py:attribute:: model
+      :value: 'gpt-3.5-turbo'
+
+
+
+   .. py:attribute:: timeout
+      :value: 15
+
+
+
+   .. py:attribute:: logger
+
+
+   .. py:method:: ask(system_prompt, user_input, temperature=0.0)
+
+      Perform base chat completion call.
+
+
+
+   .. py:method:: route(content, targets: dict)
+
+      Perform semantic routing.
+
+      Given content and a dict of targets {key: description},
+      returns the best matching key.
+
+
+
+   .. py:method:: semantic_filter(content, criterion)
+
+      Perform semantic check. Returns True if content meets the criterion.
+
+
+
+   .. py:method:: summarize(content, context='', max_words=50)
+
+      Perform semantic summary helper.
+
+
+
+   .. py:method:: normalize(content, instructions='Transform to valid JSON')
+
+      Normalize input based on descriptive instructions.
+
+
+

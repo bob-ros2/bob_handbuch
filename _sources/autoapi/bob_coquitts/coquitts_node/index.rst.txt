@@ -1,0 +1,162 @@
+bob_coquitts.coquitts_node
+==========================
+
+.. py:module:: bob_coquitts.coquitts_node
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_coquitts.coquitts_node.DEFAULT_MODEL_NAME
+   bob_coquitts.coquitts_node.DEFAULT_SAMPLE_RATE
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_coquitts.coquitts_node.RedirectOutput
+   bob_coquitts.coquitts_node.CoquiTTSnode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_coquitts.coquitts_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: DEFAULT_MODEL_NAME
+   :value: 'tts_models/en/ljspeech/vits'
+
+
+.. py:data:: DEFAULT_SAMPLE_RATE
+   :value: 24000
+
+
+.. py:class:: RedirectOutput(logger, level='info')
+
+   Context manager to redirect stdout and stderr to a logger.
+
+   This is a workaround to capture and redirect the verbose print statements
+   from the Coqui TTS library into the ROS logger, keeping the console clean.
+
+
+   .. py:attribute:: _logger
+
+
+   .. py:attribute:: _log_level
+      :value: 'info'
+
+
+
+   .. py:attribute:: _buffer
+
+
+   .. py:method:: __enter__()
+
+
+   .. py:method:: __exit__(exc_type, exc_val, exc_tb)
+
+
+.. py:class:: CoquiTTSnode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   A ROS 2 node for text-to-speech synthesis using the Coqui TTS library.
+
+   This node subscribes to a 'text' topic, buffers incoming text fragments,
+   and intelligently splits them into complete sentences. These sentences are
+   then processed in configurable chunks to generate audio. It offers
+   extensive ROS parameters to control the TTS model, voice cloning, audio
+   playback, and text processing behavior like filtering and trimming.
+   It also publishes the text being synthesized to a 'text_speaking' topic.
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: speaking_pub
+
+
+   .. py:attribute:: text_buffer
+      :value: ''
+
+
+
+   .. py:attribute:: flush_timer
+      :value: None
+
+
+
+   .. py:method:: _get_unique_filepath(filepath: pathlib.Path) -> pathlib.Path
+
+      Generates a unique filepath by appending a counter if the file already exists.
+
+      Args:
+          filepath (pathlib.Path): The desired initial filepath.
+
+      Returns:
+          pathlib.Path: The original filepath if it's unique, otherwise a new
+                        unique filepath with a numbered suffix.
+
+
+
+   .. py:method:: text_callback(msg)
+
+      Callback for the /text topic; appends text and manages a flush timer.
+
+      This function's sole responsibility is to append incoming raw text chunks
+      to the internal buffer and reset a timer. All complex processing is
+      deferred to the `flush_buffer_callback` to ensure that text is only
+      processed after a natural pause in the input stream.
+
+      Args:
+          msg (std_msgs.msg.String): The message containing the text chunk.
+
+
+
+   .. py:method:: flush_buffer_callback()
+
+      Normalizes, splits, and processes the entire text buffer for TTS.
+
+      This method is the core of the text processing pipeline, triggered by a
+      timer after a pause in incoming text. It performs the following steps:
+      1. Takes the entire accumulated raw text from the buffer.
+      2. Applies the full normalization suite (regex filter, character filter,
+         and number separator removal) to the complete text block.
+      3. Based on the `split_sentences` parameter, it either:
+         a) (Default) Splits the cleaned text into sentences using custom
+            delimiters and processes them in chunks.
+         b) Hands the entire cleaned text block to the TTS engine, relying on
+            Coqui's internal splitter.
+
+
+
+   .. py:method:: _process_text(text_to_process: str)
+
+      Handles the final synthesis of a given text chunk.
+
+      This function receives a fully prepared string (either a manually
+      created sentence chunk or a complete text block for Coqui to split).
+      It performs a final strip of leading/trailing characters, publishes the
+      text, and calls the Coqui TTS engine to generate and play/save the audio.
+
+      Args:
+          text_to_process (str): The text string to synthesize.
+
+
+
+.. py:function:: main(args=None)
+
+   Main entry point for the ROS node.
+
+

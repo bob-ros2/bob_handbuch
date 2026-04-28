@@ -1,0 +1,175 @@
+bob_central.orchestrator_node
+=============================
+
+.. py:module:: bob_central.orchestrator_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.orchestrator_node.OrchestratorNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.orchestrator_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: OrchestratorNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Central node that orchestrates user queries and specialist responses.
+
+   Handles busy-locking, queuing, and support-routing.
+
+
+   .. py:attribute:: is_busy
+      :value: False
+
+
+
+   .. py:attribute:: last_user_query
+      :value: ''
+
+
+
+   .. py:attribute:: is_detailed
+      :value: False
+
+
+
+   .. py:attribute:: query_queue
+      :value: []
+
+
+
+   .. py:attribute:: was_streamed
+      :value: False
+
+
+
+   .. py:attribute:: busy_since
+      :value: None
+
+
+
+   .. py:attribute:: user_contexts
+
+
+   .. py:attribute:: user_regex
+
+
+   .. py:attribute:: pub_timed_query
+
+
+   .. py:attribute:: pub_user_response
+
+
+   .. py:attribute:: pub_llm_stream
+
+
+   .. py:attribute:: sub_user_query
+
+
+   .. py:attribute:: sub_specialist_response
+
+
+   .. py:attribute:: sub_internal_stream
+
+
+   .. py:attribute:: pub_bobassi_query
+
+
+   .. py:attribute:: sub_bobassi_response
+
+
+   .. py:attribute:: sub_user_context
+
+
+   .. py:attribute:: pub_rejected
+
+
+   .. py:attribute:: pub_status
+
+
+   .. py:attribute:: pub_visual_trigger
+
+
+   .. py:attribute:: timer_status
+
+
+   .. py:property:: enable_queuing
+
+      Return the enable_queuing parameter value.
+
+
+
+   .. py:property:: reject_if_busy
+
+      Return the reject_if_busy parameter value.
+
+
+
+   .. py:method:: internal_stream_callback(msg)
+
+      Pass internal tokens to public stream and mark as streamed.
+
+
+
+   .. py:method:: context_callback(msg)
+
+      Update the local user context cache.
+
+
+
+   .. py:method:: user_query_callback(msg)
+
+      Receive and route user queries.
+
+
+
+   .. py:method:: publish_status()
+
+      Publish the current orchestrator status as JSON.
+
+
+
+   .. py:method:: trigger_visual_status(is_busy=False)
+
+      Publish a trigger for the dashboard visualization worker.
+
+
+
+   .. py:method:: process_query(msg)
+
+      Handle the actual routing and timing injection.
+
+
+
+   .. py:method:: specialist_response_callback(msg)
+
+      Receive a response from a specialist agent.
+
+
+
+   .. py:method:: bobassi_response_callback(msg)
+
+      Receive a response from Bobassi (Support Bot).
+
+
+
+.. py:function:: main(args=None)
+
+   Start the orchestrator node.
+
+

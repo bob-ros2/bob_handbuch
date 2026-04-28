@@ -1,0 +1,132 @@
+bob_central.go_bridge_node
+==========================
+
+.. py:module:: bob_central.go_bridge_node
+
+.. autoapi-nested-parse::
+
+   go_bridge_node.py - Eva's ROS 2 Go Bridge Node.
+
+   Bridges the Eva Python mesh with the external libp2p/IPFS DHT network
+   via the Go binary. Provides peer discovery, node identification,
+   IPFS content routing, and peer profiling.
+
+   Topics:
+     /eva/swarm/external_peers (std_msgs/String) - Discovered external peers & profiles
+     /eva/swarm/external_status (std_msgs/String) - Bridge health status
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_central.go_bridge_node.GO_BRIDGE_PATH
+   bob_central.go_bridge_node.KNOWN_BOOTSTRAP
+   bob_central.go_bridge_node.INTERESTING_CIDS
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.go_bridge_node.GoBridgeNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.go_bridge_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: GO_BRIDGE_PATH
+   :value: '/ros2_ws/src/bob_central/scripts/go-bridge'
+
+
+.. py:data:: KNOWN_BOOTSTRAP
+   :value: '/ip4/51.81.93.51/tcp/4001/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa'
+
+
+.. py:data:: INTERESTING_CIDS
+   :value: ['QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv', 'QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG']
+
+
+.. py:class:: GoBridgeNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS 2 node wrapping the Go libp2p bridge binary.
+
+
+   .. py:attribute:: peers_pub
+
+
+   .. py:attribute:: status_pub
+
+
+   .. py:attribute:: discovered_peers
+
+
+   .. py:attribute:: peer_profiles
+
+
+   .. py:attribute:: discovered_providers
+
+
+   .. py:attribute:: last_scan_time
+      :value: 0
+
+
+
+   .. py:attribute:: scan_interval
+      :value: 300
+
+
+
+   .. py:attribute:: bridge_path
+      :value: '/ros2_ws/src/bob_central/scripts/go-bridge'
+
+
+
+   .. py:attribute:: bridge_available
+      :value: False
+
+
+
+   .. py:method:: _run_bridge(args: list, timeout: int = 60) -> dict
+
+
+   .. py:method:: _profile_peer(peer_id: str) -> dict
+
+      Resolve and identify a peer, returning its profile.
+
+
+
+   .. py:method:: run_discovery()
+
+      Run periodic peer discovery, content routing, and profiling.
+
+
+
+   .. py:method:: identify_node(multiaddr: str) -> dict
+
+
+   .. py:method:: find_peers(bootstrap_addr: str = None, count: int = 20) -> dict
+
+
+   .. py:method:: find_providers(cid_str: str) -> dict
+
+
+   .. py:method:: publish_status()
+
+
+.. py:function:: main(args=None)
+

@@ -1,0 +1,119 @@
+bob_topic_tools.stream_filter
+=============================
+
+.. py:module:: bob_topic_tools.stream_filter
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.stream_filter.StringStreamBuffer
+   bob_topic_tools.stream_filter.StreamProcessor
+   bob_topic_tools.stream_filter.StreamFilterNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.stream_filter.main
+
+
+Module Contents
+---------------
+
+.. py:class:: StringStreamBuffer(max_length=65535)
+
+   Buffer for streaming string data with a maximum length.
+
+
+   .. py:attribute:: max_length
+      :value: 65535
+
+
+
+   .. py:attribute:: buffer
+
+
+   .. py:method:: append_text(text)
+
+      Append text to the buffer, ensuring the buffer does not exceed max_length.
+
+
+
+   .. py:method:: remove_keywords(keywords)
+
+      Remove all occurrences of keywords from the buffer.
+
+
+
+   .. py:method:: pop(n=65535)
+
+      Pop n characters from the buffer and return them as a string. Default: 0xFFFF.
+
+
+
+.. py:class:: StreamProcessor(start_tag, end_tag, window_size=32, buffer_size=65535)
+
+   Process a stream of text to split based on tags using efficient find().
+
+
+   .. py:attribute:: start_tag
+
+
+   .. py:attribute:: end_tag
+
+
+   .. py:attribute:: in_filtered_area
+      :value: False
+
+
+
+   .. py:attribute:: stream_A
+
+
+   .. py:attribute:: stream_B
+
+
+   .. py:attribute:: carry_over
+      :value: ''
+
+
+
+   .. py:method:: process_string(text)
+
+      Process a string using block search instead of character loops.
+
+
+
+.. py:class:: StreamFilterNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String Stream topic filter node. Redirects text portions in start/end tags.
+
+
+   .. py:attribute:: token_handler
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: pub_filtered
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Handle incoming message callback.
+
+
+
+.. py:function:: main()
+

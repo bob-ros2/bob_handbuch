@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>bob_central.go_bridge_node &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/profile_image-300x300.png"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="bob_central.jlog_node" href="../jlog_node/index.html" />
+    <link rel="prev" title="bob_central.browser_daemon_node" href="../browser_daemon_node/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../../../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/tioros.html">ROS Package tioros</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bob/vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../vox/index.html">vox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_llm/index.html">bob_llm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_sd35/index.html">bob_sd35</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2/index.html">bob_flux2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_q3tts/index.html">bob_q3tts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_flux2k/index.html">bob_flux2k</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">bob_central</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../agency_daemon_node/index.html">bob_central.agency_daemon_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../art_observer_node/index.html">bob_central.art_observer_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../browser_daemon_node/index.html">bob_central.browser_daemon_node</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">bob_central.go_bridge_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jlog_node/index.html">bob_central.jlog_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../memory_daemon_node/index.html">bob_central.memory_daemon_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../music_daemon/index.html">bob_central.music_daemon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../orchestrator_node/index.html">bob_central.orchestrator_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../reasoning_observer_node/index.html">bob_central.reasoning_observer_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../repl_node/index.html">bob_central.repl_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../status_daemon_node/index.html">bob_central.status_daemon_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../swarm_coordinator_node/index.html">bob_central.swarm_coordinator_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../swarm_scout_node/index.html">bob_central.swarm_scout_node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../tti_node/index.html">bob_central.tti_node</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_coquitts/index.html">bob_coquitts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_av_tools/index.html">bob_av_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_moondream/index.html">bob_moondream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_vector_db/index.html">bob_vector_db</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_nlp_tools/index.html">bob_nlp_tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../bob_topic_tools/index.html">bob_topic_tools</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">bob_central</a></li>
+      <li class="breadcrumb-item active">bob_central.go_bridge_node</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/autoapi/bob_central/go_bridge_node/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-bob_central.go_bridge_node">
+<span id="bob-central-go-bridge-node"></span><h1>bob_central.go_bridge_node<a class="headerlink" href="#module-bob_central.go_bridge_node" title="Link to this heading"></a></h1>
+<p>go_bridge_node.py - Eva’s ROS 2 Go Bridge Node.</p>
+<p>Bridges the Eva Python mesh with the external libp2p/IPFS DHT network
+via the Go binary. Provides peer discovery, node identification,
+IPFS content routing, and peer profiling.</p>
+<dl class="simple">
+<dt>Topics:</dt><dd><p>/eva/swarm/external_peers (std_msgs/String) - Discovered external peers &amp; profiles
+/eva/swarm/external_status (std_msgs/String) - Bridge health status</p>
+</dd>
+</dl>
+<section id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.go_bridge_node.GO_BRIDGE_PATH" title="bob_central.go_bridge_node.GO_BRIDGE_PATH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GO_BRIDGE_PATH</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#bob_central.go_bridge_node.KNOWN_BOOTSTRAP" title="bob_central.go_bridge_node.KNOWN_BOOTSTRAP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">KNOWN_BOOTSTRAP</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.go_bridge_node.INTERESTING_CIDS" title="bob_central.go_bridge_node.INTERESTING_CIDS"><code class="xref py py-obj docutils literal notranslate"><span class="pre">INTERESTING_CIDS</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.go_bridge_node.GoBridgeNode" title="bob_central.go_bridge_node.GoBridgeNode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GoBridgeNode</span></code></a></p></td>
+<td><p>ROS 2 node wrapping the Go libp2p bridge binary.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#bob_central.go_bridge_node.main" title="bob_central.go_bridge_node.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main</span></code></a>([args])</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GO_BRIDGE_PATH">
+<span class="sig-prename descclassname"><span class="pre">bob_central.go_bridge_node.</span></span><span class="sig-name descname"><span class="pre">GO_BRIDGE_PATH</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/ros2_ws/src/bob_central/scripts/go-bridge'</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GO_BRIDGE_PATH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.KNOWN_BOOTSTRAP">
+<span class="sig-prename descclassname"><span class="pre">bob_central.go_bridge_node.</span></span><span class="sig-name descname"><span class="pre">KNOWN_BOOTSTRAP</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/ip4/51.81.93.51/tcp/4001/p2p/QmQCU2EcMqAqQPR2i9bChDtGNJchTbq5TbXJJ16u19uLTa'</span></span><a class="headerlink" href="#bob_central.go_bridge_node.KNOWN_BOOTSTRAP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.INTERESTING_CIDS">
+<span class="sig-prename descclassname"><span class="pre">bob_central.go_bridge_node.</span></span><span class="sig-name descname"><span class="pre">INTERESTING_CIDS</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv',</span> <span class="pre">'QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG']</span></span><a class="headerlink" href="#bob_central.go_bridge_node.INTERESTING_CIDS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">bob_central.go_bridge_node.</span></span><span class="sig-name descname"><span class="pre">GoBridgeNode</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">rclpy.node.Node</span></code></p>
+<p>ROS 2 node wrapping the Go libp2p bridge binary.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.peers_pub">
+<span class="sig-name descname"><span class="pre">peers_pub</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.peers_pub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.status_pub">
+<span class="sig-name descname"><span class="pre">status_pub</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.status_pub" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.discovered_peers">
+<span class="sig-name descname"><span class="pre">discovered_peers</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.discovered_peers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.peer_profiles">
+<span class="sig-name descname"><span class="pre">peer_profiles</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.peer_profiles" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.discovered_providers">
+<span class="sig-name descname"><span class="pre">discovered_providers</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.discovered_providers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.last_scan_time">
+<span class="sig-name descname"><span class="pre">last_scan_time</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.last_scan_time" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.scan_interval">
+<span class="sig-name descname"><span class="pre">scan_interval</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">300</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.scan_interval" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.bridge_path">
+<span class="sig-name descname"><span class="pre">bridge_path</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'/ros2_ws/src/bob_central/scripts/go-bridge'</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.bridge_path" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.bridge_available">
+<span class="sig-name descname"><span class="pre">bridge_available</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">False</span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.bridge_available" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode._run_bridge">
+<span class="sig-name descname"><span class="pre">_run_bridge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode._run_bridge" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode._profile_peer">
+<span class="sig-name descname"><span class="pre">_profile_peer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">peer_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode._profile_peer" title="Link to this definition"></a></dt>
+<dd><p>Resolve and identify a peer, returning its profile.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.run_discovery">
+<span class="sig-name descname"><span class="pre">run_discovery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.run_discovery" title="Link to this definition"></a></dt>
+<dd><p>Run periodic peer discovery, content routing, and profiling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.identify_node">
+<span class="sig-name descname"><span class="pre">identify_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">multiaddr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.identify_node" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.find_peers">
+<span class="sig-name descname"><span class="pre">find_peers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bootstrap_addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.find_peers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.find_providers">
+<span class="sig-name descname"><span class="pre">find_providers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cid_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.find_providers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.GoBridgeNode.publish_status">
+<span class="sig-name descname"><span class="pre">publish_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.go_bridge_node.GoBridgeNode.publish_status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="bob_central.go_bridge_node.main">
+<span class="sig-prename descclassname"><span class="pre">bob_central.go_bridge_node.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#bob_central.go_bridge_node.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../browser_daemon_node/index.html" class="btn btn-neutral float-left" title="bob_central.browser_daemon_node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../jlog_node/index.html" class="btn btn-neutral float-right" title="bob_central.jlog_node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

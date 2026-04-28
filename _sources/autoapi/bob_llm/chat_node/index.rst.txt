@@ -1,0 +1,118 @@
+bob_llm.chat_node
+=================
+
+.. py:module:: bob_llm.chat_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_llm.chat_node.BobChatClient
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_llm.chat_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: BobChatClient(topic_in='llm_prompt', topic_out='llm_stream', topic_response='llm_response', topic_tools='llm_tool_calls', topic_reasoning='llm_reasoning', panels=False)
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   .. py:attribute:: panels
+      :value: False
+
+
+
+   .. py:attribute:: pub_prompt
+
+
+   .. py:attribute:: sub_stream
+
+
+   .. py:attribute:: sub_reasoning
+
+
+   .. py:attribute:: sub_response
+
+
+   .. py:attribute:: sub_tools
+
+
+   .. py:attribute:: console
+
+
+   .. py:attribute:: live
+      :value: None
+
+
+
+   .. py:attribute:: full_content
+      :value: ''
+
+
+
+   .. py:attribute:: full_reasoning
+      :value: ''
+
+
+
+   .. py:attribute:: is_receiving
+      :value: False
+
+
+
+   .. py:attribute:: is_reasoning
+      :value: False
+
+
+
+   .. py:attribute:: waiting_for_response
+      :value: False
+
+
+
+   .. py:attribute:: last_stream_time
+      :value: 0.0
+
+
+
+   .. py:attribute:: last_ui_update_time
+      :value: 0.0
+
+
+
+   .. py:attribute:: ui_update_rate_limit
+      :value: 0.1
+
+
+
+   .. py:method:: _update_live_display(force=False)
+
+
+   .. py:method:: stream_callback(msg)
+
+
+   .. py:method:: reasoning_callback(msg)
+
+
+   .. py:method:: response_callback(msg)
+
+
+   .. py:method:: tool_callback(msg)
+
+
+   .. py:method:: send_prompt(text)
+
+
+.. py:function:: main(args=None)
+

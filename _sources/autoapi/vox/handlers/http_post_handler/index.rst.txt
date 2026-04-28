@@ -1,0 +1,34 @@
+vox.handlers.http_post_handler
+==============================
+
+.. py:module:: vox.handlers.http_post_handler
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   vox.handlers.http_post_handler.OutputHandler
+
+
+Module Contents
+---------------
+
+.. py:class:: OutputHandler(handler_args=None)
+
+   .. py:attribute:: url
+
+
+   .. py:attribute:: format
+
+
+   .. py:attribute:: headers
+
+
+   .. py:method:: send(text)
+
+
+   .. py:method:: close()
+
+

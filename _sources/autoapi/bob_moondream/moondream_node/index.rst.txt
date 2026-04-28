@@ -1,0 +1,297 @@
+bob_moondream.moondream_node
+============================
+
+.. py:module:: bob_moondream.moondream_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_moondream.moondream_node.ImageCache
+   bob_moondream.moondream_node.MoondreamNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_moondream.moondream_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: ImageCache(node)
+
+   .. py:attribute:: node
+
+
+   .. py:attribute:: latest_msg
+      :value: None
+
+
+
+   .. py:attribute:: latest_image
+      :value: None
+
+
+
+   .. py:attribute:: latest_cv_image
+      :value: None
+
+
+
+   .. py:attribute:: latest_image_time
+      :value: 0
+
+
+
+   .. py:attribute:: lock
+
+
+   .. py:method:: update(image_msg)
+
+
+   .. py:method:: cv_image()
+
+
+   .. py:method:: pil_image()
+
+
+   .. py:method:: get()
+
+
+.. py:class:: MoondreamNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   .. py:attribute:: callback_group
+
+
+   .. py:attribute:: model_name
+
+
+   .. py:attribute:: model_revision
+
+
+   .. py:attribute:: cache_dir
+
+
+   .. py:attribute:: frame_id
+
+
+   .. py:attribute:: device
+
+
+   .. py:attribute:: model
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: image_cache
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:attribute:: detection_publisher
+
+
+   .. py:attribute:: point_publisher
+
+
+   .. py:attribute:: annotated_image_publisher
+
+
+   .. py:attribute:: visual_query_result_publisher
+
+
+   .. py:attribute:: object_detection_result_publisher
+
+
+   .. py:attribute:: pointing_result_publisher
+
+
+   .. py:attribute:: visual_query_prompt_subscriber
+
+
+   .. py:attribute:: object_detection_prompt_subscriber
+
+
+   .. py:attribute:: pointing_prompt_subscriber
+
+
+   .. py:attribute:: caption_service
+
+
+   .. py:attribute:: visual_query_service
+
+
+   .. py:attribute:: object_detection_service
+
+
+   .. py:attribute:: pointing_service
+
+
+   .. py:method:: image_callback(msg)
+
+      Callback function for the image subscriber.
+
+      Args:
+          msg (sensor_msgs.msg.Image): The ROS Image message received from the image topic.
+
+
+
+   .. py:method:: call_service(service, prompt)
+
+      Wrapper to call one of the VisualQuery services.
+
+
+
+   .. py:method:: visual_query_prompt_callback(msg)
+
+      Callback for topic-based visual query requests.
+
+
+
+   .. py:method:: object_detection_prompt_callback(msg)
+
+      Callback for topic-based object detection requests.
+
+
+
+   .. py:method:: pointing_prompt_callback(msg)
+
+      Callback for topic-based pointing requests.
+
+
+
+   .. py:method:: detect()
+
+      Performs object detection and publishes results if subscribers are present.
+
+      This method is intended to be called periodically. It checks for active subscribers
+      on the detection topics. If any exist, it calls the model to find all objects
+      in the provided image and then uses `publish_detections` to process and
+      publish the results.
+
+
+
+   .. py:method:: publish_detections(objects, image)
+
+      Processes and publishes object detection results.
+
+      This function converts the raw detection data from the model into a
+      `vision_msgs/Detection2DArray` message and publishes it. It also draws
+      the bounding boxes on a copy of the input image.
+
+      Args:
+          objects (list): A list of dictionaries, where each dictionary represents a detected object.
+          image (numpy.ndarray): The OpenCV image on which to draw the detections.
+
+      Returns:
+          bool: True if publishing was successful, False otherwise.
+
+
+
+   .. py:method:: point()
+
+      Performs pointing and publishes results if subscribers are present.
+
+      This method is intended to be called periodically. It checks for active subscribers
+      on the pointing topics. If any exist, it calls the model to find all points
+      in the provided image based on the 'prompt_point' parameter and then uses
+      `publish_points` to process and publish the results.
+
+
+
+   .. py:method:: publish_points(points, image)
+
+      Processes and publishes pointing results.
+
+      This function converts the raw point data from the model into a
+      `vision_msgs/Detection2DArray` message (where each point is a zero-size bbox)
+      and publishes it. It also draws markers on a copy of the input image.
+
+      Args:
+          points (list): A list of dictionaries, where each dict represents a point (e.g., {'x': 0.5, 'y': 0.5}).
+          image (numpy.ndarray): The OpenCV image on which to draw the points.
+
+      Returns:
+          bool: True if publishing was successful, False otherwise.
+
+
+
+   .. py:method:: check_image_availability()
+
+      Verifies that a recent image is available for processing.
+
+      Checks if an image has been received and if it is not too old (older than 2 seconds).
+
+      Returns:
+          bool: True if a recent image is available, False otherwise.
+
+
+
+   .. py:method:: caption_callback(request, response)
+
+      ROS service callback to generate a caption for the latest image.
+
+      Args:
+          request: The service request object (prompt is ignored).
+          response: The service response object to be populated.
+
+      Returns:
+          The populated service response object.
+
+
+
+   .. py:method:: visual_query_callback(request, response)
+
+      ROS service callback to answer a question about the latest image.
+
+      Args:
+          request: The service request object containing the text prompt (question).
+          response: The service response object to be populated.
+
+      Returns:
+          The populated service response object.
+
+
+
+   .. py:method:: object_detection_callback(request, response)
+
+      ROS service callback to detect objects in the latest image.
+
+      The results are returned as a JSON string in the service response. If there are
+      subscribers to the detection topics, it also calls `publish_detections`.
+
+      Args:
+          request: The service request object containing the prompt describing the object.
+          response: The service response object to be populated.
+
+      Returns:
+          The populated service response object.
+
+
+
+   .. py:method:: pointing_callback(request, response)
+
+      ROS service callback to find specific points in the latest image.
+
+      Args:
+          request: The service request object containing the prompt describing the point.
+          response: The service response object to be populated with a JSON string of points.
+
+      Returns:
+          The populated service response object.
+
+
+
+.. py:function:: main(args=None)
+

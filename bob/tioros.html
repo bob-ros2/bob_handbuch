@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Package tioros &mdash; Bob&#39;s Handbuch 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0603aa02" />
+
+  
+    <link rel="shortcut icon" href="../_static/profile_image-300x300.png"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=2709fde1"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Package VOX Real-time Transcription" href="vox.html" />
+    <link rel="prev" title="ROS Package VoskRos" href="voskros.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Bob's Handbuch
+              <img src="../_static/bob_vv.gif" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="bob-audio.html">ROS Package bob_audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-av-tools.html">ROS Package bob_av_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-central.html">ROS Package bob_central</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-coquitts.html">ROS Package bob_coquitts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-face.html">ROS Package bob_face</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2.html">ROS Package bob_flux2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-flux2k.html">ROS Package bob_flux2k</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-launch.html">ROS Package bob_launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-llm.html">ROS Package bob_llm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream.html">ROS Package bob_moondream</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-moondream-msgs.html">ROS Package bob_moondream_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-msgs.html">ROS Package bob_msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nlp-tools.html">ROS Package bob_nlp_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-nviz.html">ROS Package bob_nviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-q3tts.html">ROS Package bob_q3tts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sd35.html">ROS Package bob_sd35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-sdlviz.html">ROS Package bob_sdlviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-synth.html">ROS Package bob_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-topic-tools.html">ROS Package bob_topic_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bob-vector-db.html">ROS Package bob_vector_db</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voskros.html">ROS Package VoskRos</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">OTHER</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Package tioros</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-prerequisites">Installation Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-package">Setup Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication-methods">Authentication Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-node-chatbot">ROS Node: chatbot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supported-twitchio-events">Supported TwitchIO Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#node-parameters">Node Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#topics">Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-node-eventsub">ROS Node: eventsub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Node Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ros-node-filter">ROS Node: filter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Node Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Topics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tool-auth">Tool: AUTH</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Usage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vox.html">Package VOX Real-time Transcription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../autoapi/index.html">API Reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bob's Handbuch</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ROS Package tioros</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/bob/tioros.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ros-package-tioros">
+<h1>ROS Package <a class="reference external" href="https://github.com/bob-ros2/tioros">tioros</a><a class="headerlink" href="#ros-package-tioros" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/bob-ros2/tioros/actions/workflows/ros-ci.yml"><img alt="ROS CI" src="https://github.com/bob-ros2/tioros/actions/workflows/ros-ci.yml/badge.svg" /></a></p>
+<p><a class="reference external" href="https://twitchio.dev/en/stable">TwitchIO</a> ROS Chatbot Nodes.
+A <a class="reference external" href="https://ros.org">ROS 2</a> - Twitch Chat Bridge.</p>
+<section id="installation-prerequisites">
+<h2>Installation Prerequisites<a class="headerlink" href="#installation-prerequisites" title="Link to this heading"></a></h2>
+<p>Use the package manager <a class="reference external" href="https://pip.pypa.io/en/stable/">pip3</a>
+to install the below dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>twitchio<span class="w"> </span>requests
+</pre></div>
+</div>
+</section>
+<section id="setup-package">
+<h2>Setup Package<a class="headerlink" href="#setup-package" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># run in your ros2_ws/src folder</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/bob-ros2/tioros.git
+<span class="nb">cd</span><span class="w"> </span>..
+colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span>tioros
+.<span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="authentication-methods">
+<h2>Authentication Methods<a class="headerlink" href="#authentication-methods" title="Link to this heading"></a></h2>
+<p>There are two primary ways to authenticate with Twitch, depending on the node you are using. You can store both in a unified <code class="docutils literal notranslate"><span class="pre">~/.credentials</span></code> file:</p>
+<ol class="arabic">
+<li><p><strong>OAuth Flow (Traditional IRC Chatbot)</strong>:</p>
+<ul class="simple">
+<li><p><strong>What is it?</strong>: A single long-living Access Token.</p></li>
+<li><p><strong>Storage</strong>: A plain text file containing just the token (e.g., <code class="docutils literal notranslate"><span class="pre">oauth:xxxxxxxxxxxxx</span></code>) <strong>OR</strong> a <code class="docutils literal notranslate"><span class="pre">access_token</span></code> field in a JSON file.</p></li>
+<li><p><strong>Usage</strong>: Standard for sending/receiving chat messages.</p></li>
+<li><p><strong>Env Var</strong>: <code class="docutils literal notranslate"><span class="pre">TIOROS_TOKEN</span></code> (direct token) or <code class="docutils literal notranslate"><span class="pre">TIOROS_CREDENTIALS</span></code> (path to file).</p></li>
+</ul>
+</li>
+<li><p><strong>App Credentials (EventSub Node)</strong>:</p>
+<ul>
+<li><p><strong>What is it?</strong>: <code class="docutils literal notranslate"><span class="pre">client_id</span></code>, <code class="docutils literal notranslate"><span class="pre">client_secret</span></code> and a <code class="docutils literal notranslate"><span class="pre">refresh_token</span></code>.</p></li>
+<li><p><strong>Storage</strong>: A JSON file (recommended for automation with <code class="docutils literal notranslate"><span class="pre">auth.py</span></code>).</p></li>
+<li><p><strong>Example <code class="docutils literal notranslate"><span class="pre">.credentials</span></code> (JSON)</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;client_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;client_secret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_REFRESH_TOKEN&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_CURRENT_OAUTH_TOKEN&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;webhook_secret&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YOUR_WEBHOOK_SECRET&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;callback_route&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://your.callback.url/path&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Usage</strong>: Required for rich events (follows, raids).</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="ros-node-chatbot">
+<h2>ROS Node: chatbot<a class="headerlink" href="#ros-node-chatbot" title="Link to this heading"></a></h2>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set token directly via environment variable</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TIOROS_TOKEN</span><span class="o">=</span>oauth:xxxxxxxxxxxxxx
+ros2<span class="w"> </span>run<span class="w"> </span>tioros<span class="w"> </span>chatbot<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>channel:<span class="o">=</span>myTwitchTv
+
+<span class="c1"># Or use a credentials file (Smart Load: supports plain text or JSON field)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TIOROS_CREDENTIALS</span><span class="o">=</span>~/.credentials
+ros2<span class="w"> </span>run<span class="w"> </span>tioros<span class="w"> </span>chatbot<span class="w"> </span>--ros-args<span class="w"> </span>-p<span class="w"> </span>channel:<span class="o">=</span>myTwitchTv
+</pre></div>
+</div>
+</section>
+<section id="supported-twitchio-events">
+<h3>Supported TwitchIO Events<a class="headerlink" href="#supported-twitchio-events" title="Link to this heading"></a></h3>
+<p>The following received Twitch events are published as <code class="docutils literal notranslate"><span class="pre">std_msgs/String</span></code> messages.</p>
+<ul class="simple">
+<li><p><strong>event_ready</strong>: <code class="docutils literal notranslate"><span class="pre">event_ready</span> <span class="pre">%user_id</span> <span class="pre">%nick</span></code></p></li>
+<li><p><strong>event_join</strong>: <code class="docutils literal notranslate"><span class="pre">event_join</span> <span class="pre">0</span> <span class="pre">%user_name</span></code> (Note: User ID 0 is used to avoid Twitch API rate-limiting during high traffic)</p></li>
+<li><p><strong>event_message</strong>: <code class="docutils literal notranslate"><span class="pre">event_message</span> <span class="pre">%user_id</span> <span class="pre">%author_name</span> <span class="pre">%message_content</span></code></p></li>
+</ul>
+</section>
+<section id="node-parameters">
+<h3>Node Parameters<a class="headerlink" href="#node-parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">channel</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">superbob_6110</span></code></p></td>
+<td><p>Twitch channel to join. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_CHANNEL</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">token</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>Direct Twitch Access Token. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_TOKEN</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">credentials</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~/.credentials</span></code></p></td>
+<td><p>Path to credentials file (plain or JSON). (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_CREDENTIALS</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">frame_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">channel</span></code></p></td>
+<td><p>Frame ID for published messages. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_FRAME_ID</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prefix</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">!</span></code></p></td>
+<td><p>Command prefix for the bot. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_PREFIX</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="topics">
+<h3>Topics<a class="headerlink" href="#topics" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Subscribed</strong>: <code class="docutils literal notranslate"><span class="pre">chat_input</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Messages to send to Twitch.</p></li>
+<li><p><strong>Published</strong>: <code class="docutils literal notranslate"><span class="pre">chat</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Raw chat events.</p></li>
+<li><p><strong>Published</strong>: <code class="docutils literal notranslate"><span class="pre">json</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Structured event data.</p></li>
+</ul>
+</section>
+</section>
+<section id="ros-node-eventsub">
+<h2>ROS Node: eventsub<a class="headerlink" href="#ros-node-eventsub" title="Link to this heading"></a></h2>
+<p>This node uses the <a class="reference external" href="https://twitchio.dev/en/stable/exts/eventsub.html">Twitch EventSub extension</a> for rich event tracking (follows, raids, etc.).</p>
+<section id="id1">
+<h3>Usage<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TIOROS_CREDENTIALS</span><span class="o">=</span>~/.credentials
+ros2<span class="w"> </span>run<span class="w"> </span>tioros<span class="w"> </span>eventsub<span class="w"> </span>--ros-args<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span>channel:<span class="o">=</span>myChannelName<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span>broadcaster_id:<span class="o">=</span><span class="s2">&quot;&#39;123456&#39;&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3>Node Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">channel</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">superbob_6110</span></code></p></td>
+<td><p>Twitch channel name. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_CHANNEL</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">broadcaster_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">123456</span></code></p></td>
+<td><p>The numeric Twitch ID of the broadcaster. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_BROADCASTER_ID</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">moderator_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">broadcaster_id</span></code></p></td>
+<td><p>The numeric Twitch ID of the moderator account. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_MODERATOR_ID</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">credentials</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~/.credentials</span></code></p></td>
+<td><p>Path to JSON file with API credentials. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_CREDENTIALS</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">callback_port</span></code></p></td>
+<td><p>int</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">4000</span></code></p></td>
+<td><p>Port for incoming webhook notifications. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_CALLBACK_PORT</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">events_only</span></code></p></td>
+<td><p>bool</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>If true, disables automated “Thank you” messages in chat. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_EVENTS_ONLY</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">frame_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">channel</span></code></p></td>
+<td><p>Frame ID for message headers. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_FRAME_ID</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h3>Topics<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Published</strong>: <code class="docutils literal notranslate"><span class="pre">eventsub</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Human-readable event string.</p></li>
+<li><p><strong>Published</strong>: <code class="docutils literal notranslate"><span class="pre">json</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Structured event data.</p></li>
+</ul>
+</section>
+</section>
+<section id="ros-node-filter">
+<h2>ROS Node: filter<a class="headerlink" href="#ros-node-filter" title="Link to this heading"></a></h2>
+<section id="id4">
+<h3>Usage<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use a whitelist and regex substitution</span>
+ros2<span class="w"> </span>run<span class="w"> </span>tioros<span class="w"> </span>filter<span class="w"> </span>--ros-args<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-r<span class="w"> </span>chat:<span class="o">=</span>/chat_source<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="s2">&quot;substitute:=[&#39;^[^ ]+ [^ ]+ ([^ ]+) (.*)&#39;, &#39;\\1: \\2&#39;]&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>Node Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">white_filter</span></code></p></td>
+<td><p>string array</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">['']</span></code></p></td>
+<td><p>Comma-separated list for whitelist rules. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_WHITE_FILTER</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">black_filter</span></code></p></td>
+<td><p>string array</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">['']</span></code></p></td>
+<td><p>Comma-separated list for blacklist rules. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_BLACK_FILTER</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">white_list</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>Path to YAML file with whitelist regex. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_WHITE_LIST</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">black_list</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>Path to YAML file with blacklist regex. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_BLACK_LIST</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">substitute</span></code></p></td>
+<td><p>string array</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">['']</span></code></p></td>
+<td><p>Regex pairs: <code class="docutils literal notranslate"><span class="pre">['pattern1','replace1','pattern2','replace2',...]</span></code>. Must be an even number of items. (Env: <code class="docutils literal notranslate"><span class="pre">TIOROS_SUBSTITUTE</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Topics<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Subscribed</strong>: <code class="docutils literal notranslate"><span class="pre">chat</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Incoming chat messages.</p></li>
+<li><p><strong>Published</strong>: <code class="docutils literal notranslate"><span class="pre">chat_filtered</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Messages passing filters.</p></li>
+<li><p><strong>Published</strong>: <code class="docutils literal notranslate"><span class="pre">rejected</span></code> (<a class="reference external" href="https://docs.ros2.org/latest/api/std_msgs/msg/String.html">std_msgs/String</a>) - Blocked messages.</p></li>
+</ul>
+</section>
+</section>
+<section id="tool-auth">
+<h2>Tool: AUTH<a class="headerlink" href="#tool-auth" title="Link to this heading"></a></h2>
+<p>Simple Twitch authentication and token management.</p>
+<section id="id7">
+<h3>Usage<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Help output</span>
+ros2<span class="w"> </span>run<span class="w"> </span>tioros<span class="w"> </span>auth<span class="w"> </span>-h
+
+<span class="c1"># Generate token from refresh token</span>
+ros2<span class="w"> </span>run<span class="w"> </span>tioros<span class="w"> </span>auth<span class="w"> </span>-f<span class="w"> </span>~/.credentials<span class="w"> </span>-r<span class="w"> </span>YOUR_REFRESH_TOKEN
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="voskros.html" class="btn btn-neutral float-left" title="ROS Package VoskRos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vox.html" class="btn btn-neutral float-right" title="Package VOX Real-time Transcription" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright BobRos.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+bob_q3tts.tts_node
+==================
+
+.. py:module:: bob_q3tts.tts_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_q3tts.tts_node.TTSnode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_q3tts.tts_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: TTSnode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   ROS node that provides an interface to Qwen3-TTS with streaming text aggregation.
+
+
+   .. py:attribute:: text_buffer
+      :value: ''
+
+
+
+   .. py:attribute:: last_text_time
+
+
+   .. py:attribute:: text_queue
+
+
+   .. py:attribute:: audio_queue
+
+
+   .. py:attribute:: lock
+
+
+   .. py:attribute:: file_index
+
+
+   .. py:attribute:: inferred_target_sr
+      :value: None
+
+
+
+   .. py:attribute:: _is_speaking
+      :value: False
+
+
+
+   .. py:attribute:: _speaking_finish_time
+      :value: 0.0
+
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: audio_pub
+
+
+   .. py:attribute:: speaking_pub
+
+
+   .. py:attribute:: model
+      :value: None
+
+
+
+   .. py:attribute:: sd
+      :value: None
+
+
+
+   .. py:attribute:: sf
+      :value: None
+
+
+
+   .. py:attribute:: torch
+      :value: None
+
+
+
+   .. py:attribute:: tts_thread
+
+
+   .. py:attribute:: audio_thread
+
+
+   .. py:attribute:: flush_timer
+
+
+   .. py:attribute:: speaking_monitor_timer
+
+
+   .. py:method:: _get_sf()
+
+      Lazy load soundfile library.
+
+
+
+   .. py:method:: text_callback(msg)
+
+      Aggregate incoming words/text into sentences based on delimiters.
+
+
+
+   .. py:method:: flush_timer_callback()
+
+      Flush the text buffer if the timeout has passed.
+
+
+
+   .. py:method:: _apply_substitutions(text)
+
+      Apply regex-based substitutions to the text.
+
+
+
+   .. py:method:: tts_loop()
+
+      Process the text queue and generate audio.
+
+
+
+   .. py:method:: audio_loop()
+
+      Consume the audio queue for playback and storage.
+
+
+
+   .. py:method:: play_audio(audio_data, sr)
+
+      Play audio using native library or configured executable.
+
+
+
+   .. py:method:: _do_native_play(audio_data, sr)
+
+      Perform native audio playback using sounddevice.
+
+
+
+   .. py:method:: resample_audio(audio_data, orig_sr, target_sr)
+
+      Resample audio data using librosa if available, else linear interpolation.
+
+
+
+   .. py:method:: _play_with_executable(executable, audio_data, sr)
+
+      Play audio using an external command.
+
+
+
+   .. py:method:: speaking_monitor_callback()
+
+      Monitor the speaking duration and reset flag after delay.
+
+
+
+.. py:function:: main(args=None)
+
+   Start the TTS node.
+
+

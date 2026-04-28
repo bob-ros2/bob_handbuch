@@ -1,0 +1,145 @@
+bob_q3tts.gui_node
+==================
+
+.. py:module:: bob_q3tts.gui_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_q3tts.gui_node.GUInode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_q3tts.gui_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: GUInode
+
+   Bases: :py:obj:`rclpy.node.Node`, :py:obj:`PyQt5.QtWidgets.QMainWindow`
+
+
+   ROS 2 node with a Qt GUI for tuning TTS parameters.
+
+
+   .. py:attribute:: target_node
+      :value: 'tts'
+
+
+
+   .. py:attribute:: set_cli
+
+
+   .. py:attribute:: get_cli
+
+
+   .. py:attribute:: central_widget
+
+
+   .. py:attribute:: main_layout
+
+
+   .. py:attribute:: header
+
+
+   .. py:attribute:: refresh_btn
+
+
+   .. py:attribute:: scroll
+
+
+   .. py:attribute:: content_widget
+
+
+   .. py:attribute:: content_layout
+
+
+   .. py:attribute:: params
+
+
+   .. py:attribute:: groups
+
+
+   .. py:attribute:: widgets
+
+
+   .. py:attribute:: value_labels
+
+
+   .. py:attribute:: ros_timer
+
+
+   .. py:method:: ros_loop()
+
+      Perform ROS 2 spinning in the main Qt thread.
+
+
+
+   .. py:method:: setup_parameters()
+
+      Create GUI widgets for each parameter using a Grid Layout for flexibility.
+
+
+
+   .. py:method:: browse_file(line_edit, param_name)
+
+      Open a file dialog to select a WAV file.
+
+
+
+   .. py:method:: sync_parameters()
+
+      Read all current values from the target node.
+
+
+
+   .. py:method:: on_sync_response(future)
+
+      Update GUI widgets based on current ROS parameter values.
+
+
+
+   .. py:method:: on_bool_change(name, state)
+
+      Update a boolean parameter.
+
+
+
+   .. py:method:: on_int_change(name, val, label)
+
+      Update an integer parameter and its label.
+
+
+
+   .. py:method:: on_double_change(name, val, scale, label)
+
+      Update a double parameter and its label.
+
+
+
+   .. py:method:: on_string_change(name, val)
+
+      Update a string parameter.
+
+
+
+   .. py:method:: set_ros_param(name, p_type, val)
+
+      Send a SetParameters request to the target node.
+
+
+
+.. py:function:: main(args=None)
+
+   Start the GUI node.
+
+

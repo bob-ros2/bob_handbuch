@@ -1,0 +1,101 @@
+bob_central.memory_daemon_node
+==============================
+
+.. py:module:: bob_central.memory_daemon_node
+
+.. autoapi-nested-parse::
+
+   Memory Daemon Node - Eva's Volatile Short-Term Memory Hub.
+
+   Automatically fetches user history from CouchDB when a query is detected.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.memory_daemon_node.MemoryDaemonNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.memory_daemon_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: MemoryDaemonNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Broker between CouchDB and Eva's Context.
+
+   Maintains a volatile in-memory cache of recent user interactions.
+
+
+   .. py:attribute:: db_url
+
+
+   .. py:attribute:: cache_ttl
+
+
+   .. py:attribute:: history_limit
+
+
+   .. py:attribute:: user_cache
+
+
+   .. py:attribute:: user_regex
+
+
+   .. py:attribute:: pub_context
+
+
+   .. py:method:: query_callback(msg)
+
+      Extract user from query and fetch context if needed.
+
+
+
+   .. py:method:: fetch_user_history(username)
+
+      Query CouchDB for the latest messages from this user.
+
+
+
+   .. py:method:: clean_content(content, event_type)
+
+      Sanitize raw event data into human-readable strings.
+
+
+
+   .. py:method:: fetch_user_insights(username)
+
+      Perform a second query to get the oldest message and a random classic one.
+
+
+
+   .. py:method:: search_user_history(username, query=None, limit=10)
+
+      Search the entire CouchDB history for a specific user and optional keywords.
+
+
+
+   .. py:method:: broadcast_context(username, summary)
+
+      Publish the context for the orchestrator to consume with high priority.
+
+
+
+.. py:function:: main(args=None)
+
+   Start the memory daemon node.
+
+

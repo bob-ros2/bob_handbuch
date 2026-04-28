@@ -1,0 +1,125 @@
+bob_av_tools.webview_node
+=========================
+
+.. py:module:: bob_av_tools.webview_node
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_av_tools.webview_node.Bridge
+   bob_av_tools.webview_node.CustomPage
+   bob_av_tools.webview_node.WebviewNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_av_tools.webview_node.main
+
+
+Module Contents
+---------------
+
+.. py:class:: Bridge(node)
+
+   Bases: :py:obj:`PySide6.QtCore.QObject`
+
+
+   .. py:attribute:: node
+
+
+   .. py:method:: sendMessage(text)
+
+
+.. py:class:: CustomPage(node, *args, **kwargs)
+
+   Bases: :py:obj:`PySide6.QtWebEngineCore.QWebEnginePage`
+
+
+   .. py:attribute:: node
+
+
+   .. py:method:: javaScriptConsoleMessage(level, message, line_id, source_id)
+
+
+.. py:class:: WebviewNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   .. py:attribute:: width
+
+
+   .. py:attribute:: height
+
+
+   .. py:attribute:: queue_length
+
+
+   .. py:attribute:: enable_chat
+
+
+   .. py:attribute:: override_css_path
+
+
+   .. py:attribute:: max_text_length
+
+
+   .. py:attribute:: lock
+
+
+   .. py:attribute:: qt_app
+
+
+   .. py:attribute:: main_window
+
+
+   .. py:attribute:: view
+
+
+   .. py:attribute:: page
+
+
+   .. py:attribute:: bridge
+
+
+   .. py:attribute:: ui_path
+
+
+   .. py:attribute:: subscription
+
+
+   .. py:attribute:: tool_sub
+
+
+   .. py:attribute:: reasoning_sub
+
+
+   .. py:attribute:: chat_pub
+
+
+   .. py:method:: _on_load_finished(success)
+
+
+   .. py:method:: listener_callback(msg)
+
+
+   .. py:method:: tool_callback(msg)
+
+
+   .. py:method:: reasoning_callback(msg)
+
+
+   .. py:method:: run()
+
+
+   .. py:method:: _ros_spin_once()
+
+
+.. py:function:: main(args=None)
+

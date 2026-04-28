@@ -1,0 +1,110 @@
+bob_central.swarm_scout_node
+============================
+
+.. py:module:: bob_central.swarm_scout_node
+
+.. autoapi-nested-parse::
+
+   swarm_scout_node.py - Eva's External Swarm Scout Daemon.
+
+   Periodically probes public bootstrap nodes for peer discovery,
+   attempts Noise XX handshake, reports findings to Qdrant.
+
+   Topics:
+     /eva/swarm/scout_report (std_msgs/String) - Scout findings
+
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_central.swarm_scout_node.QDRANT_URL
+   bob_central.swarm_scout_node.BOOTSTRAP_NODES
+   bob_central.swarm_scout_node.NOISE_AVAILABLE
+   bob_central.swarm_scout_node.NOISE_AVAILABLE
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.swarm_scout_node.SwarmScoutNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.swarm_scout_node.main
+
+
+Module Contents
+---------------
+
+.. py:data:: QDRANT_URL
+   :value: 'http://qdrant:6333'
+
+
+.. py:data:: BOOTSTRAP_NODES
+   :value: [('51.81.93.51', 4001), ('147.75.83.211', 4001)]
+
+
+.. py:data:: NOISE_AVAILABLE
+   :value: False
+
+
+.. py:data:: NOISE_AVAILABLE
+   :value: True
+
+
+.. py:class:: SwarmScoutNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Periodically scouts external P2P networks.
+
+
+   .. py:attribute:: report_pub
+
+
+   .. py:attribute:: diag_pub
+
+
+   .. py:attribute:: session_id
+      :value: ''
+
+
+
+   .. py:attribute:: scout_count
+      :value: 0
+
+
+
+   .. py:method:: _varint_encode(value: int) -> bytes
+
+
+   .. py:method:: probe_bootstrap(host: str, port: int) -> dict
+
+      Full probe with multistream-select and optional Noise handshake.
+
+
+
+   .. py:method:: report_to_qdrant(findings: list)
+
+
+   .. py:method:: run_scout()
+
+
+   .. py:method:: publish_diagnostics(findings)
+
+      Publish node status as ROS 2 diagnostics.
+
+
+
+.. py:function:: main(args=None)
+

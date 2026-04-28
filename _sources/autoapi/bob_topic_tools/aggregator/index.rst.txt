@@ -1,0 +1,70 @@
+bob_topic_tools.aggregator
+==========================
+
+.. py:module:: bob_topic_tools.aggregator
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_topic_tools.aggregator.AggregatorNode
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_topic_tools.aggregator.main
+
+
+Module Contents
+---------------
+
+.. py:class:: AggregatorNode
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   String Stream aggregator node.
+
+
+   .. py:attribute:: sentence
+      :value: ''
+
+
+
+   .. py:attribute:: last_text_time
+
+
+   .. py:attribute:: sub
+
+
+   .. py:attribute:: pub
+
+
+   .. py:attribute:: flush_timer
+
+
+   .. py:method:: handle_escape(values: list)
+
+      Handle escape characters for delimiters in a list.
+
+
+
+   .. py:method:: input_callback(msg: std_msgs.msg.String)
+
+      Handle incoming message callback.
+
+
+
+   .. py:method:: flush_callback()
+
+      Check periodically if the auto_flush timeout has expired.
+
+
+
+.. py:function:: main()
+

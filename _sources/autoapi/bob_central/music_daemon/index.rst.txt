@@ -1,0 +1,95 @@
+bob_central.music_daemon
+========================
+
+.. py:module:: bob_central.music_daemon
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   bob_central.music_daemon.CHUNK_FRAMES
+   bob_central.music_daemon.CHUNK_BYTES
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   bob_central.music_daemon.MusicDaemon
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   bob_central.music_daemon.get_metadata
+   bob_central.music_daemon.main
+
+
+Module Contents
+---------------
+
+.. py:data:: CHUNK_FRAMES
+   :value: 4096
+
+
+.. py:data:: CHUNK_BYTES
+   :value: 16384
+
+
+.. py:function:: get_metadata(file_path: str) -> dict
+
+.. py:class:: MusicDaemon(audio_topic='/eva/streamer/in1', status_topic='/eva/streamer/current_song')
+
+   Bases: :py:obj:`rclpy.node.Node`
+
+
+   Background Daemon that processes a strict Queue, ensuring 1 song plays at real-time pace.
+
+
+   .. py:attribute:: pub_audio
+
+
+   .. py:attribute:: pub_status
+
+
+   .. py:attribute:: sub_request
+
+
+   .. py:attribute:: audio_topic
+      :value: '/eva/streamer/in1'
+
+
+
+   .. py:attribute:: task_queue
+
+
+   .. py:attribute:: current_proc
+      :value: None
+
+
+
+   .. py:attribute:: skip_event
+
+
+   .. py:attribute:: worker_thread
+
+
+   .. py:method:: on_request(msg: std_msgs.msg.String)
+
+
+   .. py:method:: _playback_loop()
+
+
+   .. py:method:: _play_task(files: list, loop: bool, loop_all: bool)
+
+
+   .. py:method:: _stream_file(file_path: str)
+
+
+.. py:function:: main(args=None)
+
